@@ -6,8 +6,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0frg"]
 
 [node name="Cat" type="CharacterBody2D"]
+position = Vector2(586, 323)
 script = ExtResource("1_g66q0")
-cat_sheet = [Color(0.529412, 0.286275, 0.109804, 1), Color(1, 1, 1, 1), Color(0.101961, 0.101961, 0.101961, 1)]
 
 [node name="CatSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_66di3")
