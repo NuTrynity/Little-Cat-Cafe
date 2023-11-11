@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://p8f1yfir4e6i"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterScripts/Cat.gd" id="1_g66q0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0frg"]
+
+[node name="Cat" type="CharacterBody2D"]
+script = ExtResource("1_g66q0")
+
+[node name="CatSprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e0frg")
