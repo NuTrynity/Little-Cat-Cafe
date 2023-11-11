@@ -6,3 +6,18 @@
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(305, 169)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 32.0
+offset_right = 38.0
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+bbcode_enabled = true
+text = "[rainbow]Coding is my Passion"
