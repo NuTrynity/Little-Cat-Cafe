@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccj36o3ms00es"]
+[gd_scene load_steps=5 format=3 uid="uid://ccj36o3ms00es"]
 
 [ext_resource type="Texture2D" uid="uid://dihxiy5pndnot" path="res://icon.svg" id="1_j0jkx"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/meal_template.gd" id="1_xfh3l"]
+[ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="3_ptfvw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k54am"]
-radius = 120.416
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6yk0"]
+radius = 134.093
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_xfh3l")
@@ -13,9 +14,8 @@ script = ExtResource("1_xfh3l")
 scale = Vector2(0.435547, 0.435547)
 texture = ExtResource("1_j0jkx")
 
-[node name="PickUpArea" type="Area2D" parent="."]
+[node name="InteractionArea" parent="." instance=ExtResource("3_ptfvw")]
+action_name = "pick up"
 
-[node name="Area" type="CollisionShape2D" parent="PickUpArea"]
-shape = SubResource("CircleShape2D_k54am")
-
-[connection signal="body_entered" from="PickUpArea" to="." method="_on_pick_up_area_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_k6yk0")

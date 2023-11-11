@@ -1,7 +1,9 @@
 extends Node2D
 
-var player_position = null
+@onready var interaction_area = $InteractionArea
 
-func _on_pick_up_area_body_entered(body):
-	if body.has_method("take_meal"):
-		player_position = body.global_position
+func _ready():
+	interaction_area.interact = Callable(self, "_on_pick_up")
+
+func _on_pick_up():
+	print('Meal Picked Up! Congratulations for making a very complex code just for this!')

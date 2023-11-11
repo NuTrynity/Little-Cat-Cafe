@@ -21,8 +21,8 @@ InteractionManager="*res://Nodes/Components/interaction_manager.tscn"
 
 [display]
 
-window/size/window_width_override=960
-window/size/window_height_override=540
+window/size/window_width_override=640
+window/size/window_height_override=360
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 
