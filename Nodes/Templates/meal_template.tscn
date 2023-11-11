@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccj36o3ms00es"]
+
+[ext_resource type="Texture2D" uid="uid://dihxiy5pndnot" path="res://icon.svg" id="1_j0jkx"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/meal_template.gd" id="1_xfh3l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k54am"]
+radius = 120.416
+
+[node name="MealTemplate" type="Node2D"]
+script = ExtResource("1_xfh3l")
+
+[node name="MealSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.435547, 0.435547)
+texture = ExtResource("1_j0jkx")
+
+[node name="PickUpArea" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="PickUpArea"]
+shape = SubResource("CircleShape2D_k54am")
+
+[connection signal="body_entered" from="PickUpArea" to="." method="_on_pick_up_area_body_entered"]
