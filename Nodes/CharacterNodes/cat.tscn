@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://p8f1yfir4e6i"]
+[gd_scene load_steps=4 format=3 uid="uid://p8f1yfir4e6i"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/Cat.gd" id="1_g66q0"]
+[ext_resource type="Texture2D" uid="uid://dihxiy5pndnot" path="res://icon.svg" id="2_66di3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0frg"]
 
 [node name="Cat" type="CharacterBody2D"]
 script = ExtResource("1_g66q0")
+cat_sheet = [Color(0.529412, 0.286275, 0.109804, 1), Color(1, 1, 1, 1), Color(0.101961, 0.101961, 0.101961, 1)]
 
 [node name="CatSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_66di3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="CatSheet" load_steps=2 format=3 uid="uid://bo8few1hdn7a2"]
-
-[ext_resource type="Script" path="res://Scripts/ResourceScripts/CatSheetScript.gd" id="1_p4txi"]
-
-[resource]
-script = ExtResource("1_p4txi")
-cat_textures = []
-move_speed = 0.0
