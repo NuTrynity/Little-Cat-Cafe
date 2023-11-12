@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://Nodes/Components/interaction_manager.tscn"
-Economy="*res://Scripts/AutoLoads/Economy.gd"
 
 [display]
 

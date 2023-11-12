@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var player_carry : PlayerMealCarry
+@export var player_resources : PlayerMealCarry
+@export var meal_price : float
 
 @onready var interact_area = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -9,21 +10,24 @@ var picked_up : bool
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_pick_up")
-	player_carry.meal_given.connect(delete_self)
+	player_resources.meal_given.connect(give_meal)
 
 func _physics_process(_delta):
 	if picked_up == true:
 		global_position = player.global_position
+		global_position.y += 24
 		interact_area.monitorable = false
 		interact_area.monitoring = false
 
-func delete_self():
+func give_meal():
 	if picked_up == true:
+		player_resources.money += meal_price
+		player_resources.carry_amt -= 1
 		queue_free()
 
 func _on_pick_up():
-	if player_carry.carry_amt < player_carry.max_carry_amt:
-		player_carry.carry_amt += 1
+	if player_resources.carry_amt < player_resources.max_carry_amt:
+		player_resources.carry_amt += 1
 		picked_up = true
 	
-	print(player_carry.carry_amt)
+	print(player_resources.carry_amt)

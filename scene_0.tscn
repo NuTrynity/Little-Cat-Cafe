@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=14 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
 [ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
+[ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
 texture = ExtResource("3_dell3")
@@ -53,7 +54,7 @@ offset_bottom = 392.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 94
 bbcode_enabled = true
-text = "[rainbow]Coding is my Passion"
+text = "[rainbow][wave]Coding is my Passion"
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
 position = Vector2(153, 199)
@@ -72,3 +73,5 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 1, 0, 65537, 1, 0, 65538, 2, 0,
 
 [node name="NPC" parent="." instance=ExtResource("7_k46u5")]
 position = Vector2(1605, 315)
+
+[node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]

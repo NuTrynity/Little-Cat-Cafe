@@ -14,7 +14,7 @@ radius = 279.045
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_33mn1")
-player_meal_amt = ExtResource("2_kitdm")
+player_resources = ExtResource("2_kitdm")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_evyb2")

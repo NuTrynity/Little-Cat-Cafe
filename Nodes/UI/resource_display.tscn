@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6qgbfar78s2n"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/resource_display.gd" id="1_fg7lg"]
+[ext_resource type="Resource" uid="uid://qtifgmyqly3k" path="res://CustomResources/PlayerMeal.tres" id="2_ka2dx"]
+
+[node name="ResourceDisplay" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 50.0
+alignment = 1
+script = ExtResource("1_fg7lg")
+player_resources = ExtResource("2_ka2dx")
+
+[node name="Money" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+
+[node name="Rating" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48

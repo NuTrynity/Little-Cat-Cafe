@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_s52ys")
-max_carry_amt = 1
+max_carry_amt = null
+money = 0.0
+stars = 0
