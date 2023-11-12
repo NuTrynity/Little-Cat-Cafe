@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://p8f1yfir4e6i"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/Cat.gd" id="1_g66q0"]
-[ext_resource type="Texture2D" uid="uid://dihxiy5pndnot" path="res://icon.svg" id="2_66di3"]
+[ext_resource type="Texture2D" uid="uid://bkkq5gfpken81" path="res://Sprites/placeholder sprites/cat.png" id="2_o7gnp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0frg"]
 
@@ -10,7 +10,7 @@ position = Vector2(586, 323)
 script = ExtResource("1_g66q0")
 
 [node name="CatSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_66di3")
+texture = ExtResource("2_o7gnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

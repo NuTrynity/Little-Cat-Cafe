@@ -1,7 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=12 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
+[ext_resource type="Texture2D" uid="uid://b74ywh15xssbc" path="res://Sprites/placeholder sprites/circle.png" id="3_dell3"]
+[ext_resource type="Texture2D" uid="uid://blrr0cda1r7o1" path="res://Sprites/placeholder sprites/diamond.png" id="4_5jd3c"]
+[ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
+[ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
+texture = ExtResource("3_dell3")
+texture_region_size = Vector2i(128, 128)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65uek"]
+texture = ExtResource("4_5jd3c")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2apn"]
+texture = ExtResource("5_w0a7h")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ucrek"]
+texture = ExtResource("6_vtal8")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m4xsq"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_jwwdi")
+sources/1 = SubResource("TileSetAtlasSource_65uek")
+sources/2 = SubResource("TileSetAtlasSource_r2apn")
+sources/3 = SubResource("TileSetAtlasSource_ucrek")
 
 [node name="scene_0" type="Node2D"]
 
@@ -11,6 +43,7 @@ position = Vector2(604, 319)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -33,4 +66,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(871, 359)
+position = Vector2(864, 351)
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = SubResource("TileSet_m4xsq")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 1, 0, 65537, 1, 0, 65538, 2, 0, 65536, 2, 0, 131072, 2, 0, 131073, 3, 0, 131074, 3, 0, 65539, 3, 0, 131075, 3, 0)
