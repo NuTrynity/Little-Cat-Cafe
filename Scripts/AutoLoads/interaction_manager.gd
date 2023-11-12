@@ -1,7 +1,7 @@
 extends Node2D
 #Code mostly from DashNothing's interact code
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = get_tree().get_first_node_in_group("player") #looks for a group called player
 @onready var label = $Label
 
 const interact_text : String = "[E] to "
@@ -22,7 +22,7 @@ func _process(_delta):
 		active_areas.sort_custom(sort_dist_to_player)
 		label.text = interact_text + active_areas[0].action_name #<-- Refers to variable name from interaction_area
 		label.global_position = active_areas[0].global_position
-		label.global_position.y -= 42
+		label.global_position.y -= 100
 		label.global_position.x -= label.size.x / 2
 		label.show()
 	else:

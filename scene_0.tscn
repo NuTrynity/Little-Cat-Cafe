@@ -47,11 +47,11 @@ position = Vector2(604, 319)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -392.0
-offset_right = -219.0
-offset_bottom = 96.0
+offset_left = -486.5
+offset_right = 486.5
+offset_bottom = 392.0
 grow_horizontal = 2
-scale = Vector2(5, 5)
+theme_override_font_sizes/normal_font_size = 94
 bbcode_enabled = true
 text = "[rainbow]Coding is my Passion"
 

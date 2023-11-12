@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var player_meal_amt : Resource
+@export var player_meal_amt : PlayerMealCarry
 
 @onready var interact_area = $InteractionArea
 
@@ -10,5 +10,7 @@ func _ready():
 func _on_player_give_meal():
 	if player_meal_amt.carry_amt > 0:
 		player_meal_amt.carry_amt -= 1
+	else:
+		print('there is not food')
 	
 	print(player_meal_amt.carry_amt)
