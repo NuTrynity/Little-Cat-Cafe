@@ -11,3 +11,5 @@ func _on_pick_up():
 	if player_carry.carry_amt < player_carry.max_carry_amt:
 		player_carry.carry_amt += 1
 		queue_free()
+	
+	print(player_carry.carry_amt)

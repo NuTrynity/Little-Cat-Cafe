@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Economy" load_steps=2 format=3 uid="uid://v7mbehyqtnve"]
-
-[ext_resource type="Script" path="res://Scripts/ResourceScripts/EconomyScript.gd" id="1_3ubpc"]
-
-[resource]
-script = ExtResource("1_3ubpc")
-money = 0
-ratings = 0
