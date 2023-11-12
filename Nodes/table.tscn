@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cubfrbk4ecgv4"]
+
+[ext_resource type="Texture2D" uid="uid://dm62wdjtycg0h" path="res://Sprites/table.png" id="1_syli4"]
+[ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="2_s0lrh"]
+
+[node name="Table" type="Node2D"]
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(0, -75)
+texture = ExtResource("1_syli4")
+
+[node name="Chair" type="Sprite2D" parent="."]
+position = Vector2(242, -108)
+texture = ExtResource("2_s0lrh")
+
+[node name="Chair2" type="Sprite2D" parent="."]
+position = Vector2(-244, -108)
+texture = ExtResource("2_s0lrh")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(155, 64, 104, -102, -109, -102, -156, 64)
