@@ -9,7 +9,7 @@ func _ready():
 
 func _on_player_give_meal():
 	if player_meal_amt.carry_amt > 0:
-		player_meal_amt.carry_amt -= 1
+		player_meal_amt.give_meal()
 	else:
 		print('there is not food')
 	

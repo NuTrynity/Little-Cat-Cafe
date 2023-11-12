@@ -9,13 +9,17 @@ var picked_up : bool
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_pick_up")
+	player_carry.meal_given.connect(delete_self)
 
-func _physics_process(delta):
-	var speed : float = 500.0
-	var velocity = Vector2.ZERO
-	
+func _physics_process(_delta):
 	if picked_up == true:
-		pass #TODO: MAKE THE MEAL FLY TOWARDS THE PLAYER POSITION
+		global_position = player.global_position
+		interact_area.monitorable = false
+		interact_area.monitoring = false
+
+func delete_self():
+	if picked_up == true:
+		queue_free()
 
 func _on_pick_up():
 	if player_carry.carry_amt < player_carry.max_carry_amt:
