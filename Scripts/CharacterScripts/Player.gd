@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var player_stats : Resource
 @export var move_speed : float = 300.0
 
 var input = Vector2.ZERO

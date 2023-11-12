@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccj36o3ms00es"]
+[gd_scene load_steps=6 format=3 uid="uid://ccj36o3ms00es"]
 
 [ext_resource type="Texture2D" uid="uid://dihxiy5pndnot" path="res://icon.svg" id="1_j0jkx"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/meal_template.gd" id="1_xfh3l"]
+[ext_resource type="Resource" uid="uid://qtifgmyqly3k" path="res://CustomResources/PlayerMeal.tres" id="2_0ulmo"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="3_ptfvw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6yk0"]
@@ -9,6 +10,7 @@ radius = 134.093
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_xfh3l")
+player_carry = ExtResource("2_0ulmo")
 
 [node name="MealSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.435547, 0.435547)

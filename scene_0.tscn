@@ -43,7 +43,6 @@ position = Vector2(604, 319)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -55,18 +54,14 @@ scale = Vector2(5, 5)
 bbcode_enabled = true
 text = "[rainbow]Coding is my Passion"
 
-[node name="Label" type="Label" parent="UI"]
-offset_left = 750.0
-offset_top = 192.0
-offset_right = 1006.0
-offset_bottom = 218.0
-text = "//TODO: FIX THE LABEL POSITION
-ON MEAL INTERACTION"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(864, 351)
+position = Vector2(988, 379)
+
+[node name="MealTemplate2" parent="." instance=ExtResource("2_is6ru")]
+position = Vector2(988, 475)
+
+[node name="MealTemplate3" parent="." instance=ExtResource("2_is6ru")]
+position = Vector2(988, 573)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
