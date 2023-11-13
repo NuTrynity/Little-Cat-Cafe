@@ -59,5 +59,6 @@ func _on_player_give_meal():
 		patience_bar.hide()
 		satisfied = true
 		already_interacted = true
+		print("Thank you for the food sister, I'm going now")
 	
 	print(player_resources.carry_amt)
