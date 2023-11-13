@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwdg60sels0fq"]
-
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/Tables.gd" id="1_w8f73"]
-
-[node name="Tables" type="Node2D"]
-script = ExtResource("1_w8f73")

@@ -1,16 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=21 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_8wdnx"]
 [ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
+[ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="3_4pwpb"]
 [ext_resource type="Texture2D" uid="uid://b74ywh15xssbc" path="res://Sprites/placeholder sprites/circle.png" id="3_dell3"]
 [ext_resource type="Texture2D" uid="uid://blrr0cda1r7o1" path="res://Sprites/placeholder sprites/diamond.png" id="4_5jd3c"]
-[ext_resource type="PackedScene" uid="uid://bwdg60sels0fq" path="res://Nodes/Components/tables.tscn" id="4_lh1rx"]
-[ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/table.tscn" id="5_cm1u3"]
+[ext_resource type="Texture2D" uid="uid://cps26gbhq7ger" path="res://Sprites/pickup tablecloth.png" id="4_no5vf"]
+[ext_resource type="PackedScene" uid="uid://cm422xf5fxbvw" path="res://Nodes/ObjectNodes/fryPan.tscn" id="5_8y7s3"]
 [ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
 [ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
+[ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/ObjectNodes/table.tscn" id="14_l1tow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
 texture = ExtResource("3_dell3")
@@ -45,31 +48,38 @@ size = Vector2(1908, 20)
 
 [node name="scene_0" type="Node2D"]
 
-[node name="Tables" parent="." instance=ExtResource("4_lh1rx")]
-
-[node name="Table" parent="Tables" instance=ExtResource("5_cm1u3")]
-position = Vector2(468, 885)
-
-[node name="Table2" parent="Tables" instance=ExtResource("5_cm1u3")]
-position = Vector2(1370, 885)
-
-[node name="Table3" parent="Tables" instance=ExtResource("5_cm1u3")]
-position = Vector2(1370, 543)
-
-[node name="Player" parent="." instance=ExtResource("1_5ew65")]
-position = Vector2(844, 381)
+[node name="Table" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(1216, 932)
 
 [node name="NPC" parent="." instance=ExtResource("7_k46u5")]
-position = Vector2(1594, 424)
+position = Vector2(1444, 789)
+player_resources = ExtResource("2_8wdnx")
+
+[node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
+position = Vector2(441, 293)
+scale = Vector2(0.97, 0.97)
+
+[node name="KitchenCounter2" parent="." instance=ExtResource("3_4pwpb")]
+position = Vector2(394, 512)
+
+[node name="PickupTablecloth" type="Sprite2D" parent="KitchenCounter2"]
+position = Vector2(179, -90)
+texture = ExtResource("4_no5vf")
+
+[node name="Player" parent="." instance=ExtResource("1_5ew65")]
+position = Vector2(784, 381)
+
+[node name="FryPan" parent="." instance=ExtResource("5_8y7s3")]
+position = Vector2(224, 393)
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(283, 383)
+position = Vector2(258, 718)
 
 [node name="MealTemplate2" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(444, 385)
+position = Vector2(419, 720)
 
 [node name="MealTemplate3" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(611, 382)
+position = Vector2(586, 717)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -110,7 +120,7 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(5, 4)
-polygon = PackedVector2Array(1430, -532, 1639, 395, 1645, -665, -273, -663, -277, 413, -67, -534)
+polygon = PackedVector2Array(1423, -423, 1641, 421, 1645, -665, -273, -663, -277, 413, -62, -419)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(688, 408)

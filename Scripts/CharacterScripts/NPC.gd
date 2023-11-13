@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var player_resources : PlayerMealCarry
-@export var table_manager : TableManager
 @export var move_speed : float = 300.0
 
 @onready var npc_sprite = $NPCSprite
@@ -18,7 +17,7 @@ var is_sitting : bool = false
 func _ready():
 	interact_area.interact = Callable(self, "_on_player_give_meal")
 	patience = 100
-	patience_bar.global_position.y -= 148
+	patience_bar.global_position.y -= 64
 	
 	patience_timer_setup()
 
@@ -62,10 +61,10 @@ func _on_player_give_meal():
 	
 	print(player_resources.carry_amt)
 
-func _on_interaction_area_area_entered(area):
+func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
 		is_sitting = true
 
-func _on_interaction_area_area_exited(area):
+func _on_chair_detector_area_exited(area):
 	if area.is_in_group("chair"):
 		is_sitting = false
