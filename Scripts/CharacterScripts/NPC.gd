@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var table : Node2D
 @export var player_resources : PlayerMealCarry
+@export var table_manager : TableManager
 @export var move_speed : float = 300.0
 
 @onready var npc_sprite = $NPCSprite
@@ -13,6 +13,7 @@ var patience : float
 var satisfied : bool = false
 var angry : bool = false
 var already_interacted : bool = false
+var is_sitting : bool = false
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_player_give_meal")
@@ -30,8 +31,6 @@ func _physics_process(_delta : float) -> void:
 	patience_bar.value = patience
 	
 	#NPC State Block
-	var is_sitting : bool = false
-	
 	if is_sitting == true:
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
 	else:
@@ -62,3 +61,11 @@ func _on_player_give_meal():
 		print("Thank you for the food sister, I'm going now")
 	
 	print(player_resources.carry_amt)
+
+func _on_interaction_area_area_entered(area):
+	if area.is_in_group("chair"):
+		is_sitting = true
+
+func _on_interaction_area_area_exited(area):
+	if area.is_in_group("chair"):
+		is_sitting = false

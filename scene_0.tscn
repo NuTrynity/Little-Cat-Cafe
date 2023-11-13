@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=18 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
 [ext_resource type="Texture2D" uid="uid://b74ywh15xssbc" path="res://Sprites/placeholder sprites/circle.png" id="3_dell3"]
 [ext_resource type="Texture2D" uid="uid://blrr0cda1r7o1" path="res://Sprites/placeholder sprites/diamond.png" id="4_5jd3c"]
+[ext_resource type="PackedScene" uid="uid://bwdg60sels0fq" path="res://Nodes/Components/tables.tscn" id="4_lh1rx"]
+[ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/table.tscn" id="5_cm1u3"]
 [ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
 [ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
@@ -43,12 +45,22 @@ size = Vector2(1908, 20)
 
 [node name="scene_0" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_5ew65")]
-position = Vector2(784, 381)
+[node name="Tables" parent="." instance=ExtResource("4_lh1rx")]
 
-[node name="NPC" parent="." node_paths=PackedStringArray("table") instance=ExtResource("7_k46u5")]
-position = Vector2(1463, 799)
-table = NodePath("../Player")
+[node name="Table" parent="Tables" instance=ExtResource("5_cm1u3")]
+position = Vector2(468, 885)
+
+[node name="Table2" parent="Tables" instance=ExtResource("5_cm1u3")]
+position = Vector2(1370, 885)
+
+[node name="Table3" parent="Tables" instance=ExtResource("5_cm1u3")]
+position = Vector2(1370, 543)
+
+[node name="Player" parent="." instance=ExtResource("1_5ew65")]
+position = Vector2(844, 381)
+
+[node name="NPC" parent="." instance=ExtResource("7_k46u5")]
+position = Vector2(1594, 424)
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
 position = Vector2(283, 383)

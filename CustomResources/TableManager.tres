@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TableManager" load_steps=2 format=3 uid="uid://pf3ybrs8jlyw"]
+
+[ext_resource type="Script" path="res://Scripts/ResourceScripts/TableManager.gd" id="1_3adwm"]
+
+[resource]
+script = ExtResource("1_3adwm")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://kk8relj21o4t"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/chair.gd" id="1_ajf6b"]
+[ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="1_dabfg"]
+[ext_resource type="Resource" uid="uid://pf3ybrs8jlyw" path="res://CustomResources/TableManager.tres" id="2_211qo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgj7w"]
+size = Vector2(36, 32)
+
+[node name="Chair" type="Area2D" groups=["chair"]]
+script = ExtResource("1_ajf6b")
+table_manager = ExtResource("2_211qo")
+
+[node name="ChairSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_dabfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fgj7w")

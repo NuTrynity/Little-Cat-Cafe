@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=9 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
 [ext_resource type="Resource" uid="uid://qtifgmyqly3k" path="res://CustomResources/PlayerMeal.tres" id="2_kitdm"]
+[ext_resource type="Resource" uid="uid://pf3ybrs8jlyw" path="res://CustomResources/TableManager.tres" id="3_dgxxt"]
 [ext_resource type="Texture2D" uid="uid://creyh6ftfptme" path="res://Sprites/customer sprites/customer1_standing.png" id="3_ymdgx"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="4_h15ne"]
 
@@ -18,6 +19,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_33mn1")
 player_resources = ExtResource("2_kitdm")
+table_manager = ExtResource("3_dgxxt")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_evyb2")
@@ -38,3 +40,6 @@ offset_right = 97.0
 offset_bottom = 27.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_xlboi")
 show_percentage = false
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

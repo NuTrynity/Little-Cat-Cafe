@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cubfrbk4ecgv4"]
+[gd_scene load_steps=3 format=3 uid="uid://cubfrbk4ecgv4"]
 
 [ext_resource type="Texture2D" uid="uid://dm62wdjtycg0h" path="res://Sprites/table.png" id="1_syli4"]
-[ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="2_s0lrh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba730"]
-size = Vector2(50, 48)
+[ext_resource type="PackedScene" uid="uid://kk8relj21o4t" path="res://Nodes/chair.tscn" id="2_2bbj3"]
 
 [node name="Table" type="Node2D"]
 
@@ -12,30 +9,18 @@ size = Vector2(50, 48)
 position = Vector2(0, -75)
 texture = ExtResource("1_syli4")
 
-[node name="Chair" type="Sprite2D" parent="."]
-position = Vector2(243, -96)
-texture = ExtResource("2_s0lrh")
-
-[node name="SitArea" type="Area2D" parent="Chair"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="Area" type="CollisionShape2D" parent="Chair/SitArea"]
-shape = SubResource("RectangleShape2D_ba730")
-
-[node name="Chair2" type="Sprite2D" parent="."]
-position = Vector2(-245, -96)
-texture = ExtResource("2_s0lrh")
-flip_h = true
-
-[node name="SitArea" type="Area2D" parent="Chair2"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="Area" type="CollisionShape2D" parent="Chair2/SitArea"]
-shape = SubResource("RectangleShape2D_ba730")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0.0626896, -116.13)
+scale = Vector2(0.752869, 0.440512)
 polygon = PackedVector2Array(155, 64, 104, -102, -109, -102, -156, 64)
+
+[node name="Chair" parent="." instance=ExtResource("2_2bbj3")]
+position = Vector2(242, -82)
+
+[node name="Chair2" parent="." instance=ExtResource("2_2bbj3")]
+position = Vector2(-268, -84)
+chair_flipped = true
