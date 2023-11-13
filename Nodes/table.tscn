@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cubfrbk4ecgv4"]
+[gd_scene load_steps=4 format=3 uid="uid://cubfrbk4ecgv4"]
 
 [ext_resource type="Texture2D" uid="uid://dm62wdjtycg0h" path="res://Sprites/table.png" id="1_syli4"]
 [ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="2_s0lrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba730"]
+size = Vector2(50, 48)
 
 [node name="Table" type="Node2D"]
 
@@ -13,10 +16,20 @@ texture = ExtResource("1_syli4")
 position = Vector2(243, -96)
 texture = ExtResource("2_s0lrh")
 
+[node name="SitArea" type="Area2D" parent="Chair"]
+
+[node name="Area" type="CollisionShape2D" parent="Chair/SitArea"]
+shape = SubResource("RectangleShape2D_ba730")
+
 [node name="Chair2" type="Sprite2D" parent="."]
 position = Vector2(-245, -96)
 texture = ExtResource("2_s0lrh")
 flip_h = true
+
+[node name="SitArea" type="Area2D" parent="Chair2"]
+
+[node name="Area" type="CollisionShape2D" parent="Chair2/SitArea"]
+shape = SubResource("RectangleShape2D_ba730")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

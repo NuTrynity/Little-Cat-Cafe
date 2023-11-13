@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=15 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
 [ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
+[ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
 texture = ExtResource("3_dell3")
@@ -40,7 +41,7 @@ sources/3 = SubResource("TileSetAtlasSource_ucrek")
 [node name="scene_0" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
-position = Vector2(604, 319)
+position = Vector2(784, 381)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -57,13 +58,13 @@ bbcode_enabled = true
 text = "[rainbow][wave]Coding is my Passion"
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(153, 199)
+position = Vector2(319, 383)
 
 [node name="MealTemplate2" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(250, 201)
+position = Vector2(416, 385)
 
 [node name="MealTemplate3" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(349, 198)
+position = Vector2(515, 382)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -72,6 +73,23 @@ format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 1, 0, 65537, 1, 0, 65538, 2, 0, 65536, 2, 0, 131072, 2, 0, 131073, 3, 0, 131074, 3, 0, 65539, 3, 0, 131075, 3, 0)
 
 [node name="NPC" parent="." instance=ExtResource("7_k46u5")]
-position = Vector2(1605, 315)
+position = Vector2(1463, 371)
 
 [node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="RestaurantBG" type="Sprite2D" parent="Background"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_lubdl")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(274, 664)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(5, 4)
+polygon = PackedVector2Array(1430, -532, 1639, 395, 1645, -665, -273, -663, -281, 409, -275, 420, -67, -534)

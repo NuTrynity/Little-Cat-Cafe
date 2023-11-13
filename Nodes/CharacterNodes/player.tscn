@@ -9,6 +9,7 @@ radius = 40.0
 height = 170.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 5
 script = ExtResource("1_bdjlg")
 player_stats = ExtResource("2_ejmku")
 
