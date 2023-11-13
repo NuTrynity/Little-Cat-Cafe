@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=19 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
+[ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="3_4pwpb"]
 [ext_resource type="Texture2D" uid="uid://b74ywh15xssbc" path="res://Sprites/placeholder sprites/circle.png" id="3_dell3"]
 [ext_resource type="Texture2D" uid="uid://blrr0cda1r7o1" path="res://Sprites/placeholder sprites/diamond.png" id="4_5jd3c"]
+[ext_resource type="Texture2D" uid="uid://cps26gbhq7ger" path="res://Sprites/pickup tablecloth.png" id="4_no5vf"]
+[ext_resource type="PackedScene" uid="uid://cm422xf5fxbvw" path="res://Nodes/ObjectNodes/fryPan.tscn" id="5_8y7s3"]
 [ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
 [ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
@@ -43,20 +46,34 @@ size = Vector2(1908, 20)
 
 [node name="scene_0" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_5ew65")]
-position = Vector2(784, 381)
-
 [node name="NPC" parent="." instance=ExtResource("7_k46u5")]
 position = Vector2(1463, 799)
 
+[node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
+position = Vector2(441, 293)
+scale = Vector2(0.97, 0.97)
+
+[node name="KitchenCounter2" parent="." instance=ExtResource("3_4pwpb")]
+position = Vector2(394, 512)
+
+[node name="PickupTablecloth" type="Sprite2D" parent="KitchenCounter2"]
+position = Vector2(179, -90)
+texture = ExtResource("4_no5vf")
+
+[node name="Player" parent="." instance=ExtResource("1_5ew65")]
+position = Vector2(784, 381)
+
+[node name="FryPan" parent="." instance=ExtResource("5_8y7s3")]
+position = Vector2(224, 393)
+
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(283, 383)
+position = Vector2(258, 718)
 
 [node name="MealTemplate2" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(444, 385)
+position = Vector2(419, 720)
 
 [node name="MealTemplate3" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(611, 382)
+position = Vector2(586, 717)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false

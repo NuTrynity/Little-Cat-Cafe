@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm422xf5fxbvw"]
+
+[ext_resource type="Texture2D" uid="uid://dl61tri8vf8b5" path="res://Sprites/fry pan.png" id="1_rwskh"]
+[ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="2_itw3e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h61jx"]
+radius = 81.1542
+
+[node name="FryPan" type="Node2D"]
+position = Vector2(17, -4)
+
+[node name="FryPan" type="Sprite2D" parent="."]
+position = Vector2(-16, 6)
+texture = ExtResource("1_rwskh")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_itw3e")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-14, 23)
+shape = SubResource("CircleShape2D_h61jx")
