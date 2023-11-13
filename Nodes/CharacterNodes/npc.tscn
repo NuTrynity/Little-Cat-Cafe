@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=7 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
-[ext_resource type="Resource" uid="uid://qtifgmyqly3k" path="res://CustomResources/PlayerMeal.tres" id="2_kitdm"]
 [ext_resource type="Texture2D" uid="uid://creyh6ftfptme" path="res://Sprites/customer sprites/customer1_standing.png" id="3_ymdgx"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="4_h15ne"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evyb2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfcr3"]
 radius = 141.0
@@ -13,14 +10,13 @@ radius = 141.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlboi"]
 bg_color = Color(0, 1, 0, 0.588235)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00j47"]
+size = Vector2(42, 23)
+
 [node name="NPC" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_33mn1")
-player_resources = ExtResource("2_kitdm")
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_evyb2")
 
 [node name="NPCSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -33,8 +29,13 @@ action_name = "give meal"
 shape = SubResource("CircleShape2D_hfcr3")
 
 [node name="Patience" type="ProgressBar" parent="."]
-offset_left = -93.0
-offset_right = 97.0
-offset_bottom = 27.0
+offset_left = -95.0
+offset_top = -136.0
+offset_right = 95.0
+offset_bottom = -109.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_xlboi")
 show_percentage = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 100.5)
+shape = SubResource("RectangleShape2D_00j47")

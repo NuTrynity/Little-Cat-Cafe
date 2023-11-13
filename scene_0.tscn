@@ -46,9 +46,8 @@ size = Vector2(1908, 20)
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(784, 381)
 
-[node name="NPC" parent="." node_paths=PackedStringArray("table") instance=ExtResource("7_k46u5")]
+[node name="NPC" parent="." instance=ExtResource("7_k46u5")]
 position = Vector2(1463, 799)
-table = NodePath("../Player")
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
 position = Vector2(283, 383)
@@ -98,7 +97,7 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(5, 4)
-polygon = PackedVector2Array(1430, -532, 1639, 395, 1645, -665, -273, -663, -277, 413, -67, -534)
+polygon = PackedVector2Array(1423, -423, 1641, 421, 1645, -665, -273, -663, -277, 413, -62, -419)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(688, 408)
