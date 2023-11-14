@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2soaa4584xu4"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/door.gd" id="1_2vq63"]
+[ext_resource type="Texture2D" uid="uid://clsp4j0aam4jb" path="res://Sprites/door.png" id="2_fyar6"]
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_2vq63")
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_fyar6")

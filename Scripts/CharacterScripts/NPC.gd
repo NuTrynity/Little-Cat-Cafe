@@ -31,8 +31,10 @@ func _physics_process(_delta : float) -> void:
 	
 	#NPC State Block
 	if is_sitting == true:
+		patience_bar.show()
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
 	else:
+		patience_bar.hide()
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
 
 func patience_timer_setup():
@@ -40,7 +42,6 @@ func patience_timer_setup():
 	patience_timer.one_shot = false
 	patience_timer.wait_time = 0.1
 	patience_timer.connect("timeout", _on_timer_timeout)
-	patience_timer.start()
 
 func _on_timer_timeout():
 	patience -= 1
@@ -64,6 +65,7 @@ func _on_player_give_meal():
 func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
 		is_sitting = true
+		patience_timer.start()
 
 func _on_chair_detector_area_exited(area):
 	if area.is_in_group("chair"):

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
-[ext_resource type="Texture2D" uid="uid://clsp4j0aam4jb" path="res://Sprites/door.png" id="14_6rn0w"]
+[ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="14_1augc"]
 [ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/ObjectNodes/table.tscn" id="14_l1tow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
@@ -49,6 +49,9 @@ size = Vector2(2628, 20)
 [node name="scene_0" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
+
+[node name="Door" parent="." instance=ExtResource("14_1augc")]
+position = Vector2(2000, 268)
 
 [node name="NPC" parent="." instance=ExtResource("7_k46u5")]
 position = Vector2(1620, 1182)
@@ -98,10 +101,6 @@ layer = -1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_lubdl")
-
-[node name="Door" type="Sprite2D" parent="Background"]
-position = Vector2(1939, 272)
-texture = ExtResource("14_6rn0w")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(274, 664)
