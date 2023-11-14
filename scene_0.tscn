@@ -47,30 +47,29 @@ sources/3 = SubResource("TileSetAtlasSource_ucrek")
 size = Vector2(2628, 20)
 
 [node name="scene_0" type="Node2D"]
-
-[node name="Table" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(1216, 932)
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="NPC" parent="." instance=ExtResource("7_k46u5")]
-position = Vector2(1444, 789)
+position = Vector2(1620, 1182)
 player_resources = ExtResource("2_8wdnx")
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
-position = Vector2(516, 379)
+position = Vector2(514, 409)
 scale = Vector2(0.97, 0.97)
 
 [node name="KitchenCounter2" parent="." instance=ExtResource("3_4pwpb")]
-position = Vector2(469, 598)
+position = Vector2(467, 628)
 
 [node name="PickupTablecloth" type="Sprite2D" parent="KitchenCounter2"]
-position = Vector2(179, -90)
+position = Vector2(178, -112)
 texture = ExtResource("4_no5vf")
 
 [node name="FryPan" parent="KitchenCounter2" instance=ExtResource("5_8y7s3")]
-position = Vector2(-170, -118)
+position = Vector2(-171, -140)
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
-position = Vector2(1228, 470)
+position = Vector2(921, 531)
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
 position = Vector2(340, 821)
@@ -121,3 +120,6 @@ polygon = PackedVector2Array(1903, -539, 2209, 648, 2211, -872, -364, -868, -370
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1024, 778)
 shape = SubResource("RectangleShape2D_f7fjw")
+
+[node name="Table" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(1382, 1160)

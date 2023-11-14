@@ -8,7 +8,7 @@
 radius = 141.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kyqk"]
-size = Vector2(38, 34)
+size = Vector2(38, 25)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlboi"]
 bg_color = Color(0, 1, 0, 0.588235)
@@ -22,33 +22,37 @@ collision_mask = 2
 script = ExtResource("1_33mn1")
 
 [node name="NPCSprite" type="Sprite2D" parent="."]
+position = Vector2(1, -173)
 texture = ExtResource("3_ymdgx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("4_h15ne")]
+position = Vector2(1, -173)
 action_name = "give meal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_hfcr3")
 
 [node name="ChairDetector" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1, -133)
 collision_layer = 4
 collision_mask = 4
 
 [node name="SitArea" type="CollisionShape2D" parent="ChairDetector"]
-position = Vector2(-1, 29)
+position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_4kyqk")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Patience" type="ProgressBar" parent="."]
-offset_left = -95.0
-offset_top = -136.0
-offset_right = 95.0
-offset_bottom = -109.0
+offset_left = -94.0
+offset_top = -309.0
+offset_right = 96.0
+offset_bottom = -282.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_xlboi")
 show_percentage = false
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 173.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_00j47")
 
 [connection signal="area_entered" from="ChairDetector" to="." method="_on_chair_detector_area_entered"]
