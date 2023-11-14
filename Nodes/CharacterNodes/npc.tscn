@@ -14,7 +14,7 @@ size = Vector2(38, 34)
 bg_color = Color(0, 1, 0, 0.588235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00j47"]
-size = Vector2(42, 23)
+size = Vector2(84, 35)
 
 [node name="NPC" type="CharacterBody2D"]
 collision_layer = 2
@@ -22,7 +22,6 @@ collision_mask = 2
 script = ExtResource("1_33mn1")
 
 [node name="NPCSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_ymdgx")
 
 [node name="InteractionArea" parent="." instance=ExtResource("4_h15ne")]
@@ -49,7 +48,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xlboi")
 show_percentage = false
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 100.5)
+position = Vector2(-1, 173.5)
 shape = SubResource("RectangleShape2D_00j47")
 
 [connection signal="area_entered" from="ChairDetector" to="." method="_on_chair_detector_area_entered"]

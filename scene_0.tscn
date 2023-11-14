@@ -44,7 +44,7 @@ sources/2 = SubResource("TileSetAtlasSource_r2apn")
 sources/3 = SubResource("TileSetAtlasSource_ucrek")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
-size = Vector2(1908, 20)
+size = Vector2(2628, 20)
 
 [node name="scene_0" type="Node2D"]
 
@@ -56,30 +56,30 @@ position = Vector2(1444, 789)
 player_resources = ExtResource("2_8wdnx")
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
-position = Vector2(441, 293)
+position = Vector2(516, 379)
 scale = Vector2(0.97, 0.97)
 
 [node name="KitchenCounter2" parent="." instance=ExtResource("3_4pwpb")]
-position = Vector2(394, 512)
+position = Vector2(469, 598)
 
 [node name="PickupTablecloth" type="Sprite2D" parent="KitchenCounter2"]
 position = Vector2(179, -90)
 texture = ExtResource("4_no5vf")
 
-[node name="Player" parent="." instance=ExtResource("1_5ew65")]
-position = Vector2(784, 381)
+[node name="FryPan" parent="KitchenCounter2" instance=ExtResource("5_8y7s3")]
+position = Vector2(-170, -118)
 
-[node name="FryPan" parent="." instance=ExtResource("5_8y7s3")]
-position = Vector2(224, 393)
+[node name="Player" parent="." instance=ExtResource("1_5ew65")]
+position = Vector2(1228, 470)
 
 [node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(258, 718)
+position = Vector2(340, 821)
 
 [node name="MealTemplate2" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(419, 720)
+position = Vector2(501, 823)
 
 [node name="MealTemplate3" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(586, 717)
+position = Vector2(668, 820)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -104,14 +104,10 @@ text = "[rainbow][wave]Coding is my Passion"
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Restaurant" type="TextureRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("9_lubdl")
-expand_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(274, 664)
@@ -119,9 +115,9 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(5, 4)
-polygon = PackedVector2Array(1423, -423, 1641, 421, 1645, -665, -273, -663, -277, 413, -62, -419)
+position = Vector2(92, 205)
+polygon = PackedVector2Array(1903, -539, 2209, 648, 2211, -872, -364, -868, -370, 597, -72, -544)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(688, 408)
+position = Vector2(1024, 778)
 shape = SubResource("RectangleShape2D_f7fjw")
