@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=21 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_8wdnx"]
-[ext_resource type="PackedScene" uid="uid://ccj36o3ms00es" path="res://Nodes/Templates/meal_template.tscn" id="2_is6ru"]
 [ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="3_4pwpb"]
 [ext_resource type="Texture2D" uid="uid://b74ywh15xssbc" path="res://Sprites/placeholder sprites/circle.png" id="3_dell3"]
 [ext_resource type="Texture2D" uid="uid://blrr0cda1r7o1" path="res://Sprites/placeholder sprites/diamond.png" id="4_5jd3c"]
@@ -71,15 +70,6 @@ position = Vector2(-171, -140)
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(921, 531)
-
-[node name="MealTemplate" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(340, 821)
-
-[node name="MealTemplate2" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(501, 823)
-
-[node name="MealTemplate3" parent="." instance=ExtResource("2_is6ru")]
-position = Vector2(668, 820)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
