@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c74trmyu24o5f"]
+[gd_scene load_steps=5 format=3 uid="uid://c74trmyu24o5f"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/pc-cheats.gd" id="1_exmnn"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_16un1"]
+[ext_resource type="FontFile" uid="uid://b2j40l3i17mb3" path="res://Assets/Fonts/Ubuntu-Regular.ttf" id="3_12bvm"]
+
+[sub_resource type="Theme" id="Theme_vns77"]
+default_font = ExtResource("3_12bvm")
+default_font_size = 64
 
 [node name="PC" type="CanvasLayer"]
 script = ExtResource("1_exmnn")
 player_resources = ExtResource("2_16un1")
+cheats = Array[String](["sudo give money", "sudo give rating", "", "", ""])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -14,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_vns77")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -29,8 +36,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1182.0
-offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,8 +44,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/Container/InputBlock"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "nutrynity@nutrynity-MS-7C96:~"
+theme_override_colors/font_color = Color(0.172549, 1, 0.160784, 1)
+text = "Erica@Mommy-420CX9:~"
 
 [node name="LineEdit" type="LineEdit" parent="Control/Container/InputBlock"]
 layout_mode = 2
@@ -49,7 +54,7 @@ theme_override_font_sizes/font_size = 64
 flat = true
 caret_blink = true
 
-[node name="Texts" type="VBoxContainer" parent="Control/Container"]
+[node name="OutputBlock" type="VBoxContainer" parent="Control/Container"]
 layout_mode = 2
 alignment = 2
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5iblpvckw0ek"]
 
-[node name="PC_Output_Text" type="Label"]
+[node name="PC_Output_Text" type="Label" groups=["terminal_lines"]]
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 64
