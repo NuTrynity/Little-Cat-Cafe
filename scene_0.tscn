@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cm422xf5fxbvw" path="res://Nodes/ObjectNodes/fryPan.tscn" id="5_8y7s3"]
 [ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
-[ext_resource type="PackedScene" uid="uid://c4hs18f7bfaew" path="res://Nodes/CharacterNodes/npc.tscn" id="7_k46u5"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="14_1augc"]
@@ -45,15 +44,17 @@ sources/3 = SubResource("TileSetAtlasSource_ucrek")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_au40o"]
+vertices = PackedVector2Array(2238, 357, 2528, 1403, 52, 1403, 826, 678, 848, 368, 225, 686)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 0), PackedInt32Array(3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(848, 368, 2238, 357, 2528, 1403, 52, 1403, 225, 686, 826, 678)])
+
 [node name="scene_0" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
 position = Vector2(2000, 268)
-
-[node name="NPC" parent="." instance=ExtResource("7_k46u5")]
-position = Vector2(2072, 714)
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(514, 409)
@@ -113,5 +114,20 @@ polygon = PackedVector2Array(1903, -551, 2209, 648, 2211, -872, -364, -868, -370
 position = Vector2(1024, 778)
 shape = SubResource("RectangleShape2D_f7fjw")
 
-[node name="Table" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(1382, 1160)
+[node name="Table1" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(2018, 1160)
+
+[node name="Table2" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(2018, 715)
+
+[node name="Table3" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(1264, 1160)
+
+[node name="Table4" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(1264, 694)
+
+[node name="Table5" parent="." instance=ExtResource("14_l1tow")]
+position = Vector2(514, 1160)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_au40o")

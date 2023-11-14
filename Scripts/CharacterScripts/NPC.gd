@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal leaving
+
 @export var player_resources : PlayerMealCarry
 @export var move_speed : float = 300.0
 
@@ -12,9 +14,8 @@ extends CharacterBody2D
 @onready var eat_timer = Timer.new()
 
 var patience : float
-var satisfied : bool = false
-var angry : bool = false
 var already_interacted : bool = false
+var is_leaving : bool = false
 var is_sitting : bool = false
 
 func _ready():
@@ -25,11 +26,6 @@ func _ready():
 	patience_timer_setup()
 
 func _physics_process(_delta : float) -> void:
-	#NPC Movement //TODO MAKE NPC NAVIGATION SYSTEM <https://youtu.be/aW4Oa-4dyXA>
-	if satisfied == true:
-		velocity.y = -move_speed
-		move_and_slide()
-	
 	patience_bar.value = patience
 	
 	#NPC State Block
@@ -59,16 +55,16 @@ func _on_timer_timeout():
 	patience -= 1
 	
 	if patience_bar.value <= 0:
-		angry = true
 		patience_timer.stop()
-		print("aw you made the customer mad! :(")
+		leaving.emit()
 
 func _on_player_give_meal():
-	if player_resources.carry_amt > 0 && angry == false && already_interacted == false:
+	if player_resources.carry_amt > 0 && already_interacted == false:
 		player_resources.give_meal()
 		patience_timer.stop()
 		patience_bar.hide()
-		satisfied = true
+		leaving.emit()
+		is_leaving = true
 		already_interacted = true
 		print("Thank you for the food sister, I'm going now")
 	
@@ -78,6 +74,9 @@ func on_meal_finished():
 	pass
 
 func _on_chair_detector_area_entered(area):
+	if area.is_in_group("LeaveArea") and is_leaving == true:
+		queue_free()
+	
 	if area.is_in_group("chair"):
 		is_sitting = true
 		patience_timer.start()
@@ -85,3 +84,4 @@ func _on_chair_detector_area_entered(area):
 func _on_chair_detector_area_exited(area):
 	if area.is_in_group("chair"):
 		is_sitting = false
+		patience_timer.stop()

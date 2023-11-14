@@ -1,15 +1,17 @@
 extends Node2D
 
-@export var speed : int = 120
+@export var table_manager : TableManager
+@export var speed : int = 200
 
 # TODO: replace this line later
-@onready var target = get_tree().get_root().get_node("scene_0/Table/chair/SitArea") as Node2D
+@onready var target = get_tree().get_root().get_node("scene_0/Table" + str(table_manager.table_num) +  "/chair" + str(table_manager.chair_num) + "/SitArea") as Node2D
+@onready var door = get_tree().get_root().get_node("scene_0/Door")
 
 @onready var npc = self.get_parent() as CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 func _ready():
-	print(target.name)
+	npc.leaving.connect(goto_exit)
 	makepath()
 
 func _physics_process(_delta: float) -> void:
@@ -33,6 +35,8 @@ func makepath() -> void:
 	print(target.position)
 	'''
 
+func goto_exit():
+	target = door
 
 func _on_timer_timeout():
 	makepath() 
