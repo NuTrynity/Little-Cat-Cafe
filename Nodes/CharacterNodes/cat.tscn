@@ -4,14 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bkkq5gfpken81" path="res://Sprites/placeholder sprites/cat.png" id="2_o7gnp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0frg"]
+radius = 49.0
+height = 186.0
 
 [node name="Cat" type="CharacterBody2D"]
-position = Vector2(586, 323)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_g66q0")
 
 [node name="CatSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_o7gnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
+position = Vector2(13, 6)
 shape = SubResource("CapsuleShape2D_e0frg")

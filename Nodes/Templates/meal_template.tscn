@@ -21,4 +21,5 @@ texture = ExtResource("3_pw73k")
 action_name = "pick up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
 shape = SubResource("CircleShape2D_k6yk0")

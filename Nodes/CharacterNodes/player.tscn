@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/Player.gd" id="1_bdjlg"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_ejmku"]
-[ext_resource type="Texture2D" uid="uid://b4jk4d7v141pr" path="res://Sprites/player_character.png" id="3_1hprb"]
+[ext_resource type="PackedScene" uid="uid://yyjoaguxo2q7" path="res://Nodes/CharacterNodes/player_skin.tscn" id="3_5ahdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo8yt"]
 size = Vector2(91, 35)
@@ -14,9 +14,8 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_bdjlg")
 player_stats = ExtResource("2_ejmku")
 
-[node name="CharacterSprite" type="Sprite2D" parent="."]
-position = Vector2(-4, -175)
-texture = ExtResource("3_1hprb")
+[node name="PlayerSkin" parent="." instance=ExtResource("3_5ahdw")]
+position = Vector2(0, -179)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
