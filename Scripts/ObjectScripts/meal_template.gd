@@ -16,7 +16,7 @@ func _ready():
 func _physics_process(_delta):
 	if picked_up == true:
 		global_position = player.global_position
-		global_position.y += 24
+		global_position.y -= 128
 		interact_area.monitorable = false
 		interact_area.monitoring = false
 

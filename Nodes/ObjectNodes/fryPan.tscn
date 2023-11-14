@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm422xf5fxbvw"]
+[gd_scene load_steps=5 format=3 uid="uid://cm422xf5fxbvw"]
 
 [ext_resource type="Texture2D" uid="uid://dl61tri8vf8b5" path="res://Sprites/fry pan.png" id="1_rwskh"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/fryingpan.gd" id="1_xxv0c"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="2_itw3e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h61jx"]
@@ -8,6 +9,7 @@ radius = 81.1542
 
 [node name="FryPan" type="Node2D"]
 position = Vector2(17, -4)
+script = ExtResource("1_xxv0c")
 
 [node name="FryPan" type="Sprite2D" parent="."]
 position = Vector2(-16, 6)
