@@ -205,6 +205,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_00j47")
 
 [node name="AiMovement" parent="." instance=ExtResource("4_d7kkh")]
+speed = 200
 
 [node name="NPCAnimations" type="AnimationPlayer" parent="."]
 libraries = {

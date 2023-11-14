@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://c74trmyu24o5f"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/pc-cheats.gd" id="1_exmnn"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_16un1"]
+
+[node name="PC" type="CanvasLayer"]
+script = ExtResource("1_exmnn")
+player_resources = ExtResource("2_16un1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[node name="Container" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1182.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InputBlock" type="HBoxContainer" parent="Control/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Container/InputBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "nutrynity@nutrynity-MS-7C96:~"
+
+[node name="LineEdit" type="LineEdit" parent="Control/Container/InputBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+flat = true
+caret_blink = true
+
+[node name="Texts" type="VBoxContainer" parent="Control/Container"]
+layout_mode = 2
+alignment = 2
+
+[connection signal="text_submitted" from="Control/Container/InputBlock/LineEdit" to="." method="_on_line_edit_text_submitted"]
