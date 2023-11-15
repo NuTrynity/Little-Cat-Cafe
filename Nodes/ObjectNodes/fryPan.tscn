@@ -19,5 +19,5 @@ texture = ExtResource("1_rwskh")
 action_name = "cook"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-14, 23)
+position = Vector2(-14, 71)
 shape = SubResource("CircleShape2D_h61jx")

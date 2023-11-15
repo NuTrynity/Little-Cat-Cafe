@@ -16,5 +16,7 @@ position = Vector2(46, -34)
 script = ExtResource("2_sabk7")
 
 [node name="PlacementPoint2" type="Node2D" parent="PlacementPoints"]
-position = Vector2(-31, 9)
+script = ExtResource("2_sabk7")
+
+[node name="PlacementPoint3" type="Node2D" parent="PlacementPoints"]
 script = ExtResource("2_sabk7")

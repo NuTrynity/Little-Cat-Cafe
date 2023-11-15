@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=16 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_b2qht"]
@@ -12,6 +12,9 @@ radius = 329.038
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kyqk"]
 size = Vector2(38, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8so"]
+size = Vector2(66, 48)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlboi"]
 bg_color = Color(0, 1, 0, 0.588235)
@@ -190,7 +193,14 @@ collision_mask = 4
 [node name="SitArea" type="CollisionShape2D" parent="ChairDetector"]
 position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_4kyqk")
-debug_color = Color(1, 1, 1, 0.419608)
+debug_color = Color(0.71501, 0.443516, 7.70092e-07, 0.509804)
+
+[node name="LeaveDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveDetector"]
+position = Vector2(0, -123)
+shape = SubResource("RectangleShape2D_1y8so")
+debug_color = Color(0.937255, 0.219608, 0.317647, 0.419608)
 
 [node name="Patience" type="ProgressBar" parent="."]
 offset_left = -94.0
@@ -205,6 +215,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_00j47")
 
 [node name="AiMovement" parent="." instance=ExtResource("4_d7kkh")]
+position = Vector2(0, -123)
 
 [node name="NPCAnimations" type="AnimationPlayer" parent="."]
 libraries = {
@@ -213,3 +224,4 @@ libraries = {
 
 [connection signal="area_entered" from="ChairDetector" to="." method="_on_chair_detector_area_entered"]
 [connection signal="area_exited" from="ChairDetector" to="." method="_on_chair_detector_area_exited"]
+[connection signal="area_entered" from="LeaveDetector" to="." method="_on_leave_detector_area_entered"]

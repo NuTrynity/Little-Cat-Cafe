@@ -8,7 +8,9 @@ script = ExtResource("1_j3hws")
 table_manager = ExtResource("2_wxwdy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 avoidance_enabled = true
+radius = 100.0
 avoidance_mask = 4
 debug_enabled = true
 

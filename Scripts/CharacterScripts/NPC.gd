@@ -14,7 +14,7 @@ signal leaving
 @onready var eat_timer = Timer.new()
 
 var patience : float
-var already_interacted : bool = false
+var can_be_interacted : bool = false
 var is_leaving : bool = false
 var is_sitting : bool = false
 
@@ -29,7 +29,7 @@ func _physics_process(_delta : float) -> void:
 	patience_bar.value = patience
 	
 	#NPC State Block
-	if is_sitting == true:
+	if is_sitting == true && not is_leaving:
 		animations.play("sitting")
 		meal_want.show()
 		patience_bar.show()
@@ -57,31 +57,35 @@ func _on_timer_timeout():
 	if patience_bar.value <= 0:
 		patience_timer.stop()
 		leaving.emit()
+		is_leaving = true
 
 func _on_player_give_meal():
-	if player_resources.carry_amt > 0 && already_interacted == false:
+	if player_resources.carry_amt > 0 && can_be_interacted == true:
 		player_resources.give_meal()
 		patience_timer.stop()
 		patience_bar.hide()
-		leaving.emit()
+		eat_timer.start()
 		is_leaving = true
-		already_interacted = true
+		can_be_interacted = false
 		print("Thank you for the food sister, I'm going now")
-	
-	print(player_resources.carry_amt)
 
 func on_meal_finished():
-	pass
+	leaving.emit()
 
 func _on_chair_detector_area_entered(area):
-	if area.is_in_group("LeaveArea") and is_leaving == true:
-		queue_free()
-	
 	if area.is_in_group("chair"):
 		is_sitting = true
+		can_be_interacted = true
 		patience_timer.start()
 
 func _on_chair_detector_area_exited(area):
 	if area.is_in_group("chair"):
 		is_sitting = false
+		can_be_interacted = false
 		patience_timer.stop()
+
+func _on_leave_detector_area_entered(area):
+	if area.is_in_group("LeaveArea"):
+		if is_leaving:
+			queue_free()
+			print("customer has left")

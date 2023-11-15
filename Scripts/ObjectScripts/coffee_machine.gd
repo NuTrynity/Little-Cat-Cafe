@@ -1,11 +1,10 @@
 extends Node2D
 
+@onready var interact_area =  $InteractionArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	interact_area.interact = Callable(self, "_on_interact")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_interact():
+	print("made some coffee")

@@ -45,17 +45,17 @@ sources/3 = SubResource("TileSetAtlasSource_ucrek")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_au40o"]
-vertices = PackedVector2Array(2238, 357, 2528, 1403, 52, 1403, 826, 678, 848, 368, 225, 686)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 0), PackedInt32Array(3, 2, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(848, 368, 2238, 357, 2528, 1403, 52, 1403, 225, 686, 826, 678)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fbxh0"]
+vertices = PackedVector2Array(1047, 844, 739, 851, 834, 329, 1152, 522, 2266, 328, 1375, 518, 2317, 554, 2493, 1213, 2216, 1231, 2196, 958, 2177, 805, 2131, 542, 1904, 540, 1502, 792, 1826, 805, 326, 1318, 94, 1304, 245, 803, 380, 1066, 751, 823, 666, 1049, 1160, 1037, 1066, 1251, 713, 1241, 1059, 826, 1503, 794, 1368, 1035, 1816, 1244, 1456, 1250, 1819, 794, 1920, 1014)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10), PackedInt32Array(6, 10, 11, 4), PackedInt32Array(5, 4, 11, 12), PackedInt32Array(13, 5, 12, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(18, 17, 19, 20), PackedInt32Array(21, 22, 23, 20, 19, 24), PackedInt32Array(21, 24, 25, 26), PackedInt32Array(27, 28, 26, 25, 29, 30)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2266, 328, 2317, 554, 2493, 1213, 2216, 1231, 2196, 958, 2177, 805, 2131, 542, 1904, 540, 1826, 805, 1502, 792, 1375, 518, 1152, 522, 1047, 844, 739, 851, 834, 329), PackedVector2Array(94, 1304, 245, 803, 751, 823, 1059, 826, 1503, 794, 1819, 794, 1920, 1014, 1816, 1244, 1456, 1250, 1368, 1035, 1160, 1037, 1066, 1251, 713, 1241, 666, 1049, 380, 1066, 326, 1318)])
 
 [node name="scene_0" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
-position = Vector2(2000, 268)
+position = Vector2(2000, 263)
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(514, 409)
@@ -73,6 +73,15 @@ position = Vector2(-171, -140)
 
 [node name="PickupTablecloth" parent="KitchenCounter2" instance=ExtResource("5_mbm84")]
 position = Vector2(178, -113)
+
+[node name="PlacementPoint1" parent="KitchenCounter2/PickupTablecloth/PlacementPoints" index="0"]
+position = Vector2(7, -14)
+
+[node name="PlacementPoint2" parent="KitchenCounter2/PickupTablecloth/PlacementPoints" index="1"]
+position = Vector2(-80, -13)
+
+[node name="PlacementPoint3" parent="KitchenCounter2/PickupTablecloth/PlacementPoints" index="2"]
+position = Vector2(-184, -14)
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(921, 531)
@@ -134,7 +143,7 @@ position = Vector2(1264, 694)
 position = Vector2(514, 1160)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_au40o")
+navigation_polygon = SubResource("NavigationPolygon_fbxh0")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(690, 481)
