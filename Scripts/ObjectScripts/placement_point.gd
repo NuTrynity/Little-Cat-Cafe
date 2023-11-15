@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var is_empty : bool = true
 var held_item : Node2D = null
 	

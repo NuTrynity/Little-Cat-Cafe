@@ -70,12 +70,12 @@ func _on_player_give_meal():
 		patience_timer.stop()
 		patience_bar.hide()
 		eat_timer.start()
-		is_leaving = true
 		can_be_interacted = false
 		print("Thank you for the food sister, I'm going now")
 
 func on_meal_finished():
 	leaving.emit()
+	is_leaving = true
 
 func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
