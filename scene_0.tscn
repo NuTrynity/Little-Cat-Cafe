@@ -68,20 +68,11 @@ scale = Vector2(1.03093, 1.03093)
 [node name="KitchenCounter2" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(467, 628)
 
+[node name="PickupTablecloth" parent="KitchenCounter2" instance=ExtResource("5_mbm84")]
+position = Vector2(179, -113)
+
 [node name="FryPan" parent="KitchenCounter2" instance=ExtResource("5_8y7s3")]
 position = Vector2(-171, -140)
-
-[node name="PickupTablecloth" parent="KitchenCounter2" instance=ExtResource("5_mbm84")]
-position = Vector2(178, -113)
-
-[node name="PlacementPoint1" parent="KitchenCounter2/PickupTablecloth/PlacementPoints" index="0"]
-position = Vector2(7, -14)
-
-[node name="PlacementPoint2" parent="KitchenCounter2/PickupTablecloth/PlacementPoints" index="1"]
-position = Vector2(-80, -13)
-
-[node name="PlacementPoint3" parent="KitchenCounter2/PickupTablecloth/PlacementPoints" index="2"]
-position = Vector2(-184, -14)
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(921, 531)
@@ -147,5 +138,3 @@ navigation_polygon = SubResource("NavigationPolygon_fbxh0")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(690, 481)
-
-[editable path="KitchenCounter2/PickupTablecloth"]

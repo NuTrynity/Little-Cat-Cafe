@@ -9,7 +9,6 @@
 radius = 165.012
 
 [node name="MealTemplate" type="Node2D"]
-z_index = 10
 script = ExtResource("1_xfh3l")
 player_resources = ExtResource("2_0ulmo")
 meal_price = 50.0
