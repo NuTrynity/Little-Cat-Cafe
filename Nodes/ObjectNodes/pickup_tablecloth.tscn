@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn7syyuqpvd4a"]
+
+[ext_resource type="Texture2D" uid="uid://cps26gbhq7ger" path="res://Sprites/pickup tablecloth.png" id="1_xnmux"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/placement_point.gd" id="2_sabk7"]
+
+[node name="PickupTablecloth" type="Node2D"]
+
+[node name="PickupTablecloth" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_xnmux")
+
+[node name="PlacementPoints" type="Node2D" parent="."]
+
+[node name="PlacementPoint1" type="Node2D" parent="PlacementPoints"]
+position = Vector2(46, -34)
+script = ExtResource("2_sabk7")
+
+[node name="PlacementPoint2" type="Node2D" parent="PlacementPoints"]
+position = Vector2(-31, 9)
+script = ExtResource("2_sabk7")

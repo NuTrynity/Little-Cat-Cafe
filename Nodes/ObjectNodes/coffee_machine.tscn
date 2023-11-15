@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://yom2vulkaxjp"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/coffee_machine.gd" id="1_gqmvo"]
+[ext_resource type="Texture2D" uid="uid://bnnb00ku0tov" path="res://Sprites/coffee_machine.png" id="1_kbj0r"]
+[ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="2_c51e1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dc7v5"]
+radius = 111.162
+
+[node name="CoffeeMachine" type="Node2D"]
+script = ExtResource("1_gqmvo")
+
+[node name="CoffeeMachine" type="Sprite2D" parent="."]
+position = Vector2(27, -51)
+texture = ExtResource("1_kbj0r")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_c51e1")]
+action_name = "cook"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_dc7v5")
