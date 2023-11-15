@@ -12,13 +12,12 @@ extends Node2D
 
 func _ready():
 	npc.leaving.connect(goto_exit)
+	makepath()
 
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	npc.velocity = dir * speed
 	npc.move_and_slide()
-	
-	makepath()
 	
 #	var target_position = Vector2(target.global_position.x, target.global_position.y+100)
 #	var distance = npc.global_position.distance_to(target_position)
@@ -32,6 +31,8 @@ func makepath() -> void:
 
 func goto_exit():
 	target = door
+	makepath()
 
 func _on_timer_timeout():
-	makepath() 
+	pass
+#	makepath() 

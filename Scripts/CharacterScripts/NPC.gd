@@ -3,13 +3,14 @@ extends CharacterBody2D
 signal leaving
 
 @export var player_resources : PlayerMealCarry
-@export var move_speed : float = 300.0
 
-@onready var animations = $NPCAnimations
-@onready var npc_sprite = $NPCSprite
+@onready var pivot : Node2D = $NPCSkin
+@onready var start_scale : Vector2 = pivot.scale
+@onready var animations = $NPCSkin/NPCAnimations
+@onready var npc_sprite = $NPCSkin/NPCSprite
+@onready var meal_want = $NPCSkin/MealWanted
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
-@onready var meal_want = $MealWanted
 @onready var patience_timer = Timer.new()
 @onready var eat_timer = Timer.new()
 
@@ -39,6 +40,10 @@ func _physics_process(_delta : float) -> void:
 		meal_want.hide()
 		patience_bar.hide()
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
+	
+	if is_sitting == false:
+		if not is_zero_approx(velocity.x):
+			pivot.scale.x = sign(velocity.x) * start_scale.x
 
 func patience_timer_setup():
 	add_child(patience_timer)
