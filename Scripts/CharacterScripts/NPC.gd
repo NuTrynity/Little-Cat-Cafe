@@ -106,6 +106,7 @@ func _on_chair_detector_area_exited(area):
 	if area.is_in_group("chair"):
 		is_sitting = false
 		can_be_interacted = false
+		meal_want.hide()
 		patience_timer.stop()
 
 func _on_leave_detector_area_entered(area):

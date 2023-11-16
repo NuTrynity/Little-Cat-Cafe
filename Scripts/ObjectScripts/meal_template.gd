@@ -24,8 +24,8 @@ func _physics_process(_delta):
 
 func give_meal():
 	if picked_up == true:
-		player_resources.money += meal_price
 		player_resources.carry_amt -= 1
+		player_resources.money += meal_price
 		queue_free()
 
 #func _on_pick_up():

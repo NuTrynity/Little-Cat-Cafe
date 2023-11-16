@@ -57,7 +57,7 @@ y_sort_enabled = true
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
 position = Vector2(2000, 263)
-npc_spawn_time = 10
+npc_spawn_time = 7
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(514, 409)
@@ -89,18 +89,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 1, 0, 65537, 1, 0, 65538, 2, 0, 65536, 2, 0, 131072, 2, 0, 131073, 3, 0, 131074, 3, 0, 65539, 3, 0, 131075, 3, 0)
 
 [node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UserInterface"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -486.5
-offset_right = 486.5
-offset_bottom = 392.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 94
-bbcode_enabled = true
-text = "[rainbow][wave]Coding is my Passion"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

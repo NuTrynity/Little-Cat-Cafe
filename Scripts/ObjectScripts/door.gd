@@ -26,7 +26,8 @@ func _on_timer_end():
 		table_manager.chair_num = 1
 		table_manager.table_num += 1
 		if table_manager.table_num > 5:
-			npc_spawn_timer.stop()
+#			npc_spawn_timer.stop()
+			table_manager.table_num = 1
 
 func spawn_customer():
 	var customer = npc.instantiate()

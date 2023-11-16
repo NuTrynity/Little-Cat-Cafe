@@ -13,7 +13,9 @@ player_resources = ExtResource("2_ka2dx")
 [node name="Money" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
+text = "0"
 
 [node name="Rating" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
+text = "0"
