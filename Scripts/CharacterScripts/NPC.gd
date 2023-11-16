@@ -28,8 +28,8 @@ func _ready():
 	meal_want.hide()
 	
 	patience_timer_setup()
-	player_resources.randomize_meal_index()
 	
+	player_resources.randomize_meal_index()
 	if player_resources.meal_index == 1:
 		meal_want.texture = load("res://Sprites/omurice.png")
 	elif player_resources.meal_index == 2:

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var interact_area =  $InteractionArea
-var meal = preload("res://Nodes/ObjectNodes/coffee.tscn")
+var meal = preload("res://Nodes/Meals/cat_latte.tscn")
 
 
 func _ready():
