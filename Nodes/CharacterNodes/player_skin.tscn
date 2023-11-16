@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://yyjoaguxo2q7"]
 
-[ext_resource type="Texture2D" uid="uid://b4jk4d7v141pr" path="res://Sprites/player_character.png" id="1_s8tlt"]
+[ext_resource type="Texture2D" uid="uid://lldhvjy0ti6e" path="res://Sprites/player_character2.png" id="1_3dbl5"]
 
 [sub_resource type="Animation" id="Animation_88liu"]
 length = 0.001
@@ -132,7 +132,7 @@ _data = {
 [node name="PlayerSkin" type="Node2D"]
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_s8tlt")
+texture = ExtResource("1_3dbl5")
 
 [node name="PlayerAnimations" type="AnimationPlayer" parent="."]
 libraries = {
