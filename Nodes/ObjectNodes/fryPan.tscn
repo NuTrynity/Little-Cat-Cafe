@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm422xf5fxbvw"]
+[gd_scene load_steps=6 format=3 uid="uid://cm422xf5fxbvw"]
 
 [ext_resource type="Texture2D" uid="uid://dl61tri8vf8b5" path="res://Sprites/fry pan.png" id="1_rwskh"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/fryingpan.gd" id="1_xxv0c"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="2_itw3e"]
+[ext_resource type="PackedScene" uid="uid://cuokp8ahjwq88" path="res://Nodes/UI/cook_menu.tscn" id="4_upj7q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h61jx"]
 radius = 81.1542
@@ -21,3 +22,10 @@ action_name = "cook"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(-14, 71)
 shape = SubResource("CircleShape2D_h61jx")
+
+[node name="CookMenu" parent="." instance=ExtResource("4_upj7q")]
+visible = false
+offset_left = -144.0
+offset_top = -274.0
+offset_right = -144.0
+offset_bottom = -274.0

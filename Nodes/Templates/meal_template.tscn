@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccj36o3ms00es"]
+[gd_scene load_steps=3 format=3 uid="uid://ccj36o3ms00es"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/meal_template.gd" id="1_xfh3l"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_0ulmo"]
-[ext_resource type="Texture2D" uid="uid://xw1okqjuevvc" path="res://Sprites/omurice.png" id="3_pw73k"]
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_xfh3l")
@@ -10,4 +9,3 @@ player_resources = ExtResource("2_0ulmo")
 meal_price = 50.0
 
 [node name="MealSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_pw73k")

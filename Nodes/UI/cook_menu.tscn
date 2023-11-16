@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuokp8ahjwq88"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/cook_menu.gd" id="1_g1re8"]
+[ext_resource type="Texture2D" uid="uid://xw1okqjuevvc" path="res://Sprites/omurice.png" id="1_l38mg"]
+
+[node name="CookMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g1re8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Omurice" type="TextureButton" parent="PanelContainer/Container"]
+layout_mode = 2
+texture_normal = ExtResource("1_l38mg")
+
+[connection signal="pressed" from="PanelContainer/Container/Omurice" to="." method="_on_omurice_pressed"]

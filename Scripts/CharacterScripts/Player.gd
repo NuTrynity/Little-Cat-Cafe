@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var player_stats : Resource
+@export var player_stats : PlayerMealCarry
 @export var move_speed : float = 500.0
 
 @onready var pivot : Node2D = $PlayerSkin
