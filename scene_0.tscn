@@ -56,6 +56,7 @@ y_sort_enabled = true
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
 position = Vector2(2000, 263)
+npc_spawn_time = 10
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(514, 409)
@@ -135,6 +136,3 @@ position = Vector2(514, 1160)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_fbxh0")
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(690, 481)

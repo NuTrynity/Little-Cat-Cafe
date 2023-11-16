@@ -46,7 +46,7 @@ func _physics_process(_delta : float) -> void:
 func patience_timer_setup():
 	add_child(patience_timer)
 	patience_timer.one_shot = false
-	patience_timer.wait_time = 0.1
+	patience_timer.wait_time = 1
 	patience_timer.connect("timeout", _on_timer_timeout)
 	
 	add_child(eat_timer)
@@ -88,6 +88,7 @@ func _on_chair_detector_area_exited(area):
 		is_sitting = false
 		can_be_interacted = false
 		patience_timer.stop()
+		meal_want.hide()
 
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
