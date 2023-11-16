@@ -4,12 +4,6 @@
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_0ulmo"]
 [ext_resource type="Texture2D" uid="uid://xw1okqjuevvc" path="res://Sprites/omurice.png" id="3_pw73k"]
 
-<<<<<<< HEAD
-[sub_resource type="CircleShape2D" id="CircleShape2D_k6yk0"]
-radius = 210.01
-
-=======
->>>>>>> ea30eca955cfe316aef71856ed75c551ac4ac178
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_xfh3l")
 player_resources = ExtResource("2_0ulmo")

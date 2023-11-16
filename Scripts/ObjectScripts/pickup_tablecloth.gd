@@ -23,11 +23,10 @@ func pickup_is_empty():
 		if !point.get_is_empty():
 			return false
 	return true
-	
+
 func pickup_meal() -> Node2D:
 	for point in placement_pts.get_children():
 		if !point.get_is_empty():
 			return point.remove_item()
 	("null")
 	return null
-	

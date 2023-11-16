@@ -4,7 +4,7 @@ extends Node2D
 @export var meal_price : float
 
 @onready var meal_sprite = $MealSprite
-@onready var interact_area = $InteractionArea
+#@onready var interact_area = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("player")
 
 var picked_up : bool

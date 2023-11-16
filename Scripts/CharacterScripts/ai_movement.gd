@@ -10,7 +10,6 @@ extends Node2D
 @onready var npc = self.get_parent() as CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
-
 func _ready():
 	npc.leaving.connect(goto_exit)
 	makepath()
@@ -33,3 +32,7 @@ func makepath() -> void:
 func goto_exit():
 	target = door
 	makepath()
+
+func _on_timer_timeout():
+	pass
+#	makepath() 

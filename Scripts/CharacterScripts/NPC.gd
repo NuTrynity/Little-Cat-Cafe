@@ -8,7 +8,6 @@ signal leaving
 @onready var start_scale : Vector2 = pivot.scale
 @onready var animations = $NPCSkin/NPCAnimations
 @onready var npc_sprite = $NPCSkin/NPCSprite
-@onready var ai_movement = $AiMovement
 @onready var meal_want = $NPCSkin/MealWanted
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
@@ -34,12 +33,9 @@ func _physics_process(_delta : float) -> void:
 	patience_bar.value = patience
 	
 	if can_be_interacted == false:
-		interact_area.monitorable = false
 		interact_area.monitoring = false
 	else:
-		interact_area.monitorable = true
 		interact_area.monitoring = true
-	
 	#NPC State Block
 	if is_sitting == true && not is_leaving:
 		animations.play("sitting")
@@ -61,7 +57,7 @@ func patience_timer_setup():
 	
 	add_child(eat_timer)
 	eat_timer.one_shot = true
-	eat_timer.wait_time = 3
+	eat_timer.wait_time = 5
 	eat_timer.connect("timeout", on_meal_finished)
 
 func _on_timer_timeout():
@@ -86,6 +82,7 @@ func grab_meal(meal):
 	meal.get_parent().remove_child(meal)
 	add_child(meal)
 	meal.global_position = self.global_position
+	meal.position.y -= 94
 	current_meal = meal
 
 func on_meal_finished():

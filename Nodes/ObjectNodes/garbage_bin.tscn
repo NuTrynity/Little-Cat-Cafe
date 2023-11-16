@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpejkpxtal6m5"]
+[gd_scene load_steps=7 format=3 uid="uid://cpejkpxtal6m5"]
 
 [ext_resource type="Texture2D" uid="uid://cvlpff1273b4r" path="res://Sprites/garbage_bin.png" id="1_1qec8"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/garbage_bin.gd" id="1_vwuv6"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jd6c8"]
 radius = 81.1542
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppy2s"]
+size = Vector2(100, 83)
 
 [node name="GarbageBin" type="Node2D"]
 script = ExtResource("1_vwuv6")
@@ -17,8 +20,17 @@ position = Vector2(1, -66)
 texture = ExtResource("1_1qec8")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_4obhk")]
-action_name = "cook"
+action_name = "throw meal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_jd6c8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -31.5)
+shape = SubResource("RectangleShape2D_ppy2s")
+debug_color = Color(0.682353, 0.501961, 0, 0.419608)
