@@ -71,7 +71,6 @@ func _on_player_give_meal():
 		patience_bar.hide()
 		eat_timer.start()
 		can_be_interacted = false
-		print("Thank you for the food sister, I'm going now")
 
 func on_meal_finished():
 	leaving.emit()
@@ -93,4 +92,3 @@ func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
 		if is_leaving:
 			queue_free()
-			print("customer has left")
