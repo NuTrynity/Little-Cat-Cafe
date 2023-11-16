@@ -7,6 +7,7 @@ signal meal_taken()
 
 @export var max_amt : int = 2
 
+var meal_carried : Array
 var money : float = 0
 var ratings : int = 0
 var carry_amt : int = 0

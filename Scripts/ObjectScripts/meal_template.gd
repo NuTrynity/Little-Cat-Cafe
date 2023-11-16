@@ -13,6 +13,7 @@ var picked_up : bool
 func _ready():
 	#interact_area.interact = Callable(self, "_on_pick_up")
 	player_resources.meal_given.connect(give_meal)
+	
 
 func _physics_process(_delta):
 	if picked_up == true:
