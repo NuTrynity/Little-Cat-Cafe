@@ -20,6 +20,8 @@ var can_be_interacted : bool = false
 var is_leaving : bool = false
 var is_sitting : bool = false
 
+var current_meal : Node2D = null
+
 func _ready():
 	interact_area.interact = Callable(self, "_on_player_give_meal")
 	patience = 100
@@ -54,7 +56,7 @@ func _physics_process(_delta : float) -> void:
 func patience_timer_setup():
 	add_child(patience_timer)
 	patience_timer.one_shot = false
-	patience_timer.wait_time = 1
+	patience_timer.wait_time = 0.1
 	patience_timer.connect("timeout", _on_timer_timeout)
 	
 	add_child(eat_timer)
@@ -72,16 +74,28 @@ func _on_timer_timeout():
 
 func _on_player_give_meal():
 	if player_resources.carry_amt > 0 && can_be_interacted == true:
-		player_resources.give_meal()
+		player_resources.give_meal(self)
 		patience_timer.stop()
 		patience_bar.hide()
 		meal_want.hide()
 		eat_timer.start()
 		can_be_interacted = false
+		
+func grab_meal(meal):
+	player_resources.carry_amt -= 1
+	meal.get_parent().remove_child(meal)
+	add_child(meal)
+	meal.global_position = self.global_position
+	current_meal = meal
 
 func on_meal_finished():
 	leaving.emit()
 	is_leaving = true
+	
+	current_meal.queue_free()
+	current_meal = null
+	
+	print("Thank you for the food sister, I'm going now")
 
 func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
@@ -96,9 +110,9 @@ func _on_chair_detector_area_exited(area):
 		is_sitting = false
 		can_be_interacted = false
 		patience_timer.stop()
-		meal_want.hide()
 
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
 		if is_leaving:
 			queue_free()
+			print("customer has left")

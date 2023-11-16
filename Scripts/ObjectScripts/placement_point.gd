@@ -12,6 +12,7 @@ func add_item(item:Node2D) -> void:
 	is_empty = false
 	
 func remove_item() -> Node2D:
+	var return_item = held_item
 	held_item = null
 	is_empty = true
-	return held_item
+	return return_item

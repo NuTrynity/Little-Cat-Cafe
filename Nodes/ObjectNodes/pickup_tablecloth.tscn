@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn7syyuqpvd4a"]
+[gd_scene load_steps=7 format=3 uid="uid://dn7syyuqpvd4a"]
 
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/pickup_tablecloth.gd" id="1_m25oh"]
 [ext_resource type="Texture2D" uid="uid://cps26gbhq7ger" path="res://Sprites/pickup tablecloth.png" id="1_xnmux"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_7440u"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/placement_point.gd" id="2_sabk7"]
+[ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="3_q7gi6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ui3e"]
+radius = 165.012
 
 [node name="PickupTablecloth" type="Node2D"]
+script = ExtResource("1_m25oh")
+player_resources = ExtResource("2_7440u")
 
 [node name="PickupTablecloth" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
@@ -22,3 +30,9 @@ script = ExtResource("2_sabk7")
 [node name="PlacementPoint3" type="Node2D" parent="PlacementPoints"]
 position = Vector2(-58, 7)
 script = ExtResource("2_sabk7")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_q7gi6")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_3ui3e")
