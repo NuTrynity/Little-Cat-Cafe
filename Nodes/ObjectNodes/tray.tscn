@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/placement_point.gd" id="2_mfeyy"]
 
 [node name="Tray" type="Node2D"]
+visible = false
 script = ExtResource("1_ynylt")
 player_resources = ExtResource("2_f70lt")
 

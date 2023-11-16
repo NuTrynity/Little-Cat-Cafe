@@ -5,7 +5,6 @@ class_name PlayerMealCarry
 signal meal_given()
 signal meal_taken()
 
-@export var max_carry_amt : int = 2
 @export var max_amt : int = 2
 
 var money : float = 0

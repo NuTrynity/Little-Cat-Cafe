@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=22 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="3_4pwpb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dn7syyuqpvd4a" path="res://Nodes/ObjectNodes/pickup_tablecloth.tscn" id="5_mbm84"]
 [ext_resource type="Texture2D" uid="uid://cqr7o43frrdiv" path="res://Sprites/placeholder sprites/square.png" id="5_w0a7h"]
 [ext_resource type="Texture2D" uid="uid://cdcy8g4m6w5x6" path="res://Sprites/placeholder sprites/triangle.png" id="6_vtal8"]
+[ext_resource type="PackedScene" uid="uid://shdlljy7vb5y" path="res://Nodes/ObjectNodes/garbage_bin.tscn" id="6_ye04p"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="14_1augc"]
@@ -74,6 +75,9 @@ position = Vector2(179, -113)
 
 [node name="FryPan" parent="KitchenCounter2" instance=ExtResource("5_8y7s3")]
 position = Vector2(-171, -140)
+
+[node name="GarbageBin" parent="." instance=ExtResource("6_ye04p")]
+position = Vector2(1093, 355)
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(921, 531)
