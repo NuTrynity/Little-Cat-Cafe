@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6qgbfar78s2n"]
+[gd_scene load_steps=4 format=3 uid="uid://b6qgbfar78s2n"]
 
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_chu7s"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/resource_display.gd" id="1_fg7lg"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_ka2dx"]
 
 [node name="ResourceDisplay" type="VBoxContainer"]
-offset_right = 40.0
-offset_bottom = 50.0
+offset_left = 36.0
+offset_top = 32.0
+offset_right = 76.0
+offset_bottom = 140.0
+theme = ExtResource("1_chu7s")
 alignment = 1
 script = ExtResource("1_fg7lg")
 player_resources = ExtResource("2_ka2dx")

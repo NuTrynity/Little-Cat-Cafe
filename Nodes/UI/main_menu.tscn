@@ -1,57 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbqkvkgxnox0y"]
+[gd_scene load_steps=3 format=3 uid="uid://dbqkvkgxnox0y"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/main_menu.gd" id="1_1r5u5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2beep"]
-bg_color = Color(0.921569, 0.588235, 0.356863, 1)
-border_width_left = 4
-border_width_top = 2
-border_width_right = 4
-border_width_bottom = 8
-border_color = Color(0.647059, 0.376471, 0.0784314, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 8.0
-expand_margin_right = 8.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecjjk"]
-bg_color = Color(0.847059, 0.501961, 0.247059, 1)
-border_width_left = 4
-border_width_top = 2
-border_width_right = 4
-border_width_bottom = 8
-border_color = Color(0.647059, 0.376471, 0.0784314, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 8.0
-expand_margin_right = 8.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny3bj"]
-bg_color = Color(0.631373, 0.352941, 0.137255, 1)
-border_width_left = 4
-border_width_top = 2
-border_width_right = 4
-border_width_bottom = 8
-border_color = Color(0.647059, 0.376471, 0.0784314, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 8.0
-expand_margin_right = 8.0
-
-[sub_resource type="Theme" id="Theme_ef7x8"]
-default_font_size = 64
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 64
-Button/fonts/font = null
-Button/styles/hover = SubResource("StyleBoxFlat_2beep")
-Button/styles/normal = SubResource("StyleBoxFlat_ecjjk")
-Button/styles/pressed = SubResource("StyleBoxFlat_ny3bj")
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_ava0i"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -60,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ef7x8")
+theme = ExtResource("1_ava0i")
 script = ExtResource("1_1r5u5")
 
 [node name="Label" type="Label" parent="."]
