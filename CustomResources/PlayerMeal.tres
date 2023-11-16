@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_s52ys")
-max_carry_amt = 1
 max_amt = 2

@@ -31,5 +31,3 @@ func _on_pick_up():
 		player_resources.carry_amt += 1
 		z_index = 1
 		picked_up = true
-	
-	print(player_resources.carry_amt)

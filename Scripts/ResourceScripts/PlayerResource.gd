@@ -15,8 +15,6 @@ func give_meal(npc):
 	emit_signal("meal_given", npc)
 	
 func take_meal(meal):
-	print("carry amt: ", carry_amt)
-	print("max: ", max_amt)
 	if (carry_amt >= max_amt):
 		print("can't carry anymore")
 		return

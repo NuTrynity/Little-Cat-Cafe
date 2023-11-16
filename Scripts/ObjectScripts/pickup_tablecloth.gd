@@ -17,8 +17,6 @@ func _on_pick_up():
 		print("tray is full")
 	else:
 		player_resources.take_meal(pickup_meal())
-	
-	print(player_resources.carry_amt)
 
 func pickup_is_empty():
 	for point in placement_pts.get_children():
