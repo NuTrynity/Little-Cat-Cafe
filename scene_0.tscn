@@ -121,7 +121,7 @@ position = Vector2(2018, 715)
 position = Vector2(1264, 1160)
 
 [node name="Table4" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(1264, 694)
+position = Vector2(1286, 707)
 
 [node name="Table5" parent="." instance=ExtResource("14_l1tow")]
 position = Vector2(514, 1160)

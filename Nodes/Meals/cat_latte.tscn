@@ -6,7 +6,6 @@
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_erktm")
-meal_index = 2
 player_resources = ExtResource("2_rltww")
 meal_price = 75.0
 

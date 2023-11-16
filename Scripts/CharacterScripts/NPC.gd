@@ -28,6 +28,12 @@ func _ready():
 	meal_want.hide()
 	
 	patience_timer_setup()
+	player_resources.randomize_meal_index()
+	
+	if player_resources.meal_index == 1:
+		meal_want.texture = load("res://Sprites/omurice.png")
+	elif player_resources.meal_index == 2:
+		meal_want.texture = load("res://Sprites/cat_latte.png")
 
 func _physics_process(_delta : float) -> void:
 	patience_bar.value = patience
@@ -75,6 +81,7 @@ func _on_player_give_meal():
 		patience_bar.hide()
 		meal_want.hide()
 		eat_timer.start()
+		player_resources.money += 50
 		can_be_interacted = false
 		
 func grab_meal(meal):

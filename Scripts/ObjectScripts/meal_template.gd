@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var meal_index : int
+@export var meal_type : int
 @export var player_resources : PlayerMealCarry
 @export var meal_price : float
 
@@ -13,7 +13,6 @@ var picked_up : bool
 func _ready():
 	#interact_area.interact = Callable(self, "_on_pick_up")
 	player_resources.meal_given.connect(give_meal)
-	
 
 func _physics_process(_delta):
 	if picked_up == true:
