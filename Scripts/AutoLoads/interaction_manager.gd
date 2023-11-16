@@ -4,7 +4,7 @@ extends Node2D
 @onready var player #looks for a group called player
 @onready var label = $Label
 
-const interact_text : String = "[E] to "
+const interact_text : String = "[E] "
 
 var active_areas : Array = []
 var can_interact : bool = true

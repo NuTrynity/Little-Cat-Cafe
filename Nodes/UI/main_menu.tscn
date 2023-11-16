@@ -35,7 +35,7 @@ grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 48
 
 [node name="Play" type="Button" parent="CenterContainer/Buttons"]
 layout_mode = 2
