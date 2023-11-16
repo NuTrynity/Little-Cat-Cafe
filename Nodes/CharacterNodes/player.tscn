@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccd36gjbdqg85"]
+[gd_scene load_steps=6 format=3 uid="uid://ccd36gjbdqg85"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/Player.gd" id="1_bdjlg"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_ejmku"]
 [ext_resource type="PackedScene" uid="uid://yyjoaguxo2q7" path="res://Nodes/CharacterNodes/player_skin.tscn" id="3_5ahdw"]
+[ext_resource type="PackedScene" uid="uid://thwwtu05gh5p" path="res://Nodes/ObjectNodes/tray.tscn" id="4_ih7m2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo8yt"]
 size = Vector2(91, 35)
@@ -15,7 +16,13 @@ script = ExtResource("1_bdjlg")
 player_stats = ExtResource("2_ejmku")
 
 [node name="PlayerSkin" parent="." instance=ExtResource("3_5ahdw")]
-position = Vector2(0, -179)
+position = Vector2(-10, -180)
+
+[node name="Tray" parent="PlayerSkin" instance=ExtResource("4_ih7m2")]
+visible = false
+position = Vector2(38, 82)
+scale = Vector2(0.835, 0.845)
+skew = 0.389208
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)

@@ -23,6 +23,7 @@ func _ready():
 	interact_area.interact = Callable(self, "_on_player_give_meal")
 	patience = 100
 	patience_bar.global_position.y -= 64
+	meal_want.hide()
 	
 	patience_timer_setup()
 
@@ -32,12 +33,9 @@ func _physics_process(_delta : float) -> void:
 	#NPC State Block
 	if is_sitting == true && not is_leaving:
 		animations.play("sitting")
-		meal_want.show()
-		patience_bar.show()
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
 	else:
 		animations.play("walking")
-		meal_want.hide()
 		patience_bar.hide()
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
 	
@@ -69,6 +67,7 @@ func _on_player_give_meal():
 		player_resources.give_meal()
 		patience_timer.stop()
 		patience_bar.hide()
+		meal_want.hide()
 		eat_timer.start()
 		can_be_interacted = false
 
@@ -81,6 +80,8 @@ func _on_chair_detector_area_entered(area):
 		is_sitting = true
 		can_be_interacted = true
 		patience_timer.start()
+		patience_bar.show()
+		meal_want.show()
 
 func _on_chair_detector_area_exited(area):
 	if area.is_in_group("chair"):

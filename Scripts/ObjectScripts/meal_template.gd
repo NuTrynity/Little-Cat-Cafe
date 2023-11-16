@@ -29,6 +29,7 @@ func give_meal():
 func _on_pick_up():
 	if player_resources.carry_amt < player_resources.max_carry_amt:
 		player_resources.carry_amt += 1
+		z_index = 1
 		picked_up = true
 	
 	print(player_resources.carry_amt)

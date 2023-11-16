@@ -12,11 +12,13 @@ texture = ExtResource("1_xnmux")
 [node name="PlacementPoints" type="Node2D" parent="."]
 
 [node name="PlacementPoint1" type="Node2D" parent="PlacementPoints"]
-position = Vector2(46, -34)
+position = Vector2(7, -44)
 script = ExtResource("2_sabk7")
 
 [node name="PlacementPoint2" type="Node2D" parent="PlacementPoints"]
+position = Vector2(69, 7)
 script = ExtResource("2_sabk7")
 
 [node name="PlacementPoint3" type="Node2D" parent="PlacementPoints"]
+position = Vector2(-58, 7)
 script = ExtResource("2_sabk7")
