@@ -19,10 +19,7 @@ player_stats = ExtResource("2_ejmku")
 position = Vector2(-10, -180)
 
 [node name="Tray" parent="PlayerSkin" instance=ExtResource("4_ih7m2")]
-visible = false
-position = Vector2(38, 82)
-scale = Vector2(0.835, 0.845)
-skew = 0.389208
+position = Vector2(34, 82)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)

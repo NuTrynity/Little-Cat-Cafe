@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccj36o3ms00es"]
+[gd_scene load_steps=4 format=3 uid="uid://ccj36o3ms00es"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/meal_template.gd" id="1_xfh3l"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_0ulmo"]
-[ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="3_ptfvw"]
 [ext_resource type="Texture2D" uid="uid://xw1okqjuevvc" path="res://Sprites/omurice.png" id="3_pw73k"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k6yk0"]
-radius = 165.012
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_xfh3l")
@@ -15,9 +11,3 @@ meal_price = 50.0
 
 [node name="MealSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_pw73k")
-
-[node name="InteractionArea" parent="." instance=ExtResource("3_ptfvw")]
-action_name = "pick up"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-shape = SubResource("CircleShape2D_k6yk0")

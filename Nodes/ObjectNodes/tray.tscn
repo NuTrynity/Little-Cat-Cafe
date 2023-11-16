@@ -1,20 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://thwwtu05gh5p"]
+[gd_scene load_steps=5 format=3 uid="uid://thwwtu05gh5p"]
 
 [ext_resource type="Texture2D" uid="uid://c6c1g6xn2gdef" path="res://Sprites/tray.png" id="1_q3e7n"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/tray.gd" id="1_ynylt"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_f70lt"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/placement_point.gd" id="2_mfeyy"]
 
 [node name="Tray" type="Node2D"]
+script = ExtResource("1_ynylt")
+player_resources = ExtResource("2_f70lt")
 
 [node name="Tray" type="Sprite2D" parent="."]
-position = Vector2(0, 3)
+scale = Vector2(0.835, 0.845)
+skew = 0.389208
 texture = ExtResource("1_q3e7n")
 
 [node name="PlacementPoints" type="Node2D" parent="."]
 
 [node name="PlacementPoint1" type="Node2D" parent="PlacementPoints"]
-position = Vector2(-59, -16)
+position = Vector2(-48, -13)
 script = ExtResource("2_mfeyy")
 
 [node name="PlacementPoint2" type="Node2D" parent="PlacementPoints"]
-position = Vector2(59, 9)
+position = Vector2(42, 2)
 script = ExtResource("2_mfeyy")
