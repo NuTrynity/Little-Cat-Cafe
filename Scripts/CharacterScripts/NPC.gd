@@ -8,6 +8,7 @@ signal leaving
 @onready var start_scale : Vector2 = pivot.scale
 @onready var animations = $NPCSkin/NPCAnimations
 @onready var npc_sprite = $NPCSkin/NPCSprite
+@onready var ai_movement = $AiMovement
 @onready var meal_want = $NPCSkin/MealWanted
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
@@ -29,6 +30,13 @@ func _ready():
 
 func _physics_process(_delta : float) -> void:
 	patience_bar.value = patience
+	
+	if can_be_interacted == false:
+		interact_area.monitorable = false
+		interact_area.monitoring = false
+	else:
+		interact_area.monitorable = true
+		interact_area.monitoring = true
 	
 	#NPC State Block
 	if is_sitting == true && not is_leaving:

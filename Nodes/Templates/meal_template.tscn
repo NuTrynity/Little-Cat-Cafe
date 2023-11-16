@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xw1okqjuevvc" path="res://Sprites/omurice.png" id="3_pw73k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6yk0"]
-radius = 165.012
+radius = 210.01
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_xfh3l")
