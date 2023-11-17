@@ -17,6 +17,7 @@ func _on_interaction():
 			var food = omurice.instantiate()
 			tablecloth.add_child(food)
 			point.add_item(food)
+			GlobalScript.inventory[0]["count"] += 1
 			pickup_full = false
 			break
 	if pickup_full:

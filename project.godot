@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://Nodes/Components/interaction_manager.tscn"
+GlobalScript="*res://Scripts/AutoLoads/Global_Script.gd"
 
 [display]
 

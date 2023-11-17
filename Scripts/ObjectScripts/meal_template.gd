@@ -1,18 +1,19 @@
 extends Node2D
 
-@export var meal_type : int
+@export var meal_index : int
 @export var player_resources : PlayerMealCarry
-@export var meal_price : float
 
 @onready var meal_sprite = $MealSprite
 @onready var player = get_tree().get_first_node_in_group("player")
 #@onready var interact_area = $InteractionArea
 
 var picked_up : bool
+var meal_price : float
 
 func _ready():
 	#interact_area.interact = Callable(self, "_on_pick_up")
 	player_resources.meal_given.connect(give_meal)
+	print(GlobalScript.meal_types[meal_index]["price"])
 
 func _physics_process(_delta):
 	if picked_up == true:
@@ -24,7 +25,6 @@ func _physics_process(_delta):
 func give_meal():
 	if picked_up == true:
 		player_resources.carry_amt -= 1
-		player_resources.money += meal_price
 		queue_free()
 
 #func _on_pick_up():

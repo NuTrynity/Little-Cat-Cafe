@@ -14,6 +14,7 @@ signal leaving
 @onready var patience_timer = Timer.new()
 @onready var eat_timer = Timer.new()
 
+var meal_i_want : int
 var patience : float
 var can_be_interacted : bool = false
 var is_leaving : bool = false
@@ -29,10 +30,10 @@ func _ready():
 	
 	patience_timer_setup()
 	
-	player_resources.randomize_meal_index()
-	if player_resources.meal_index == 1:
+	meal_i_want = player_resources.randomize_meal_index()
+	if meal_i_want == 0:
 		meal_want.texture = load("res://Sprites/omurice.png")
-	elif player_resources.meal_index == 2:
+	elif meal_i_want == 1:
 		meal_want.texture = load("res://Sprites/cat_latte.png")
 
 func _physics_process(_delta : float) -> void:
@@ -75,15 +76,17 @@ func _on_timer_timeout():
 		is_leaving = true
 
 func _on_player_give_meal():
-	if player_resources.carry_amt > 0 && can_be_interacted == true:
+	if GlobalScript.inventory[meal_i_want]["count"] > 0:
 		player_resources.give_meal(self)
 		patience_timer.stop()
 		patience_bar.hide()
 		meal_want.hide()
 		eat_timer.start()
-		player_resources.money += 50
 		can_be_interacted = false
 		
+		GlobalScript.inventory[meal_i_want]["count"] -= 1
+		player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
+
 func grab_meal(meal):
 	player_resources.carry_amt -= 1
 	meal.get_parent().remove_child(meal)
@@ -98,8 +101,6 @@ func on_meal_finished():
 	
 	current_meal.queue_free()
 	current_meal = null
-	
-	print("Thank you for the food sister, I'm going now")
 
 func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
@@ -120,4 +121,3 @@ func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
 		if is_leaving:
 			queue_free()
-			print("customer has left")

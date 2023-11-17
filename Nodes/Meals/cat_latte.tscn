@@ -6,8 +6,8 @@
 
 [node name="MealTemplate" type="Node2D"]
 script = ExtResource("1_erktm")
+meal_index = 1
 player_resources = ExtResource("2_rltww")
-meal_price = 75.0
 
 [node name="MealSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_ow7st")
