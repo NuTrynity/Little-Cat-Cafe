@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbqkvkgxnox0y"]
+[gd_scene load_steps=9 format=3 uid="uid://dbqkvkgxnox0y"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/main_menu.gd" id="1_1r5u5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_ava0i"]
 [ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="3_vnn3k"]
 [ext_resource type="AudioStream" uid="uid://boacg5qdfubj2" path="res://Assets/Music/Main Menu.wav" id="4_eanhc"]
+[ext_resource type="Texture2D" uid="uid://clsp4j0aam4jb" path="res://Sprites/door.png" id="4_tbuoc"]
+[ext_resource type="Texture2D" uid="uid://dm62wdjtycg0h" path="res://Sprites/table.png" id="5_58dmg"]
+[ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="5_234b1"]
+[ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="6_4b1nn"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,6 +18,120 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ava0i")
 script = ExtResource("1_1r5u5")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_234b1")
+
+[node name="Door" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1729.0
+offset_top = -117.0
+offset_right = 2241.0
+offset_bottom = 651.0
+texture = ExtResource("4_tbuoc")
+
+[node name="Table" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 853.0
+offset_right = 827.0
+offset_bottom = 1365.0
+texture = ExtResource("5_58dmg")
+
+[node name="Chair" type="TextureRect" parent="Background/Table"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 142.0
+offset_right = 108.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+flip_h = true
+
+[node name="Chair2" type="TextureRect" parent="Background/Table"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 142.0
+offset_right = 688.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+
+[node name="Table2" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1163.0
+offset_top = 853.0
+offset_right = 1675.0
+offset_bottom = 1365.0
+texture = ExtResource("5_58dmg")
+
+[node name="Chair" type="TextureRect" parent="Background/Table2"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 142.0
+offset_right = 108.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+flip_h = true
+
+[node name="Chair2" type="TextureRect" parent="Background/Table2"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 142.0
+offset_right = 688.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+
+[node name="Table3" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1403.0
+offset_top = 469.0
+offset_right = 1915.0
+offset_bottom = 981.0
+texture = ExtResource("5_58dmg")
+
+[node name="Chair" type="TextureRect" parent="Background/Table3"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 142.0
+offset_right = 108.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+flip_h = true
+
+[node name="Chair2" type="TextureRect" parent="Background/Table3"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 142.0
+offset_right = 688.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+
+[node name="Table4" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 469.0
+offset_right = 1023.0
+offset_bottom = 981.0
+texture = ExtResource("5_58dmg")
+
+[node name="Chair" type="TextureRect" parent="Background/Table4"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 142.0
+offset_right = 108.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
+flip_h = true
+
+[node name="Chair2" type="TextureRect" parent="Background/Table4"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 142.0
+offset_right = 688.0
+offset_bottom = 398.0
+texture = ExtResource("6_4b1nn")
 
 [node name="Titlecard" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -29,6 +147,9 @@ offset_right = 687.0
 offset_bottom = -258.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
 theme_override_fonts/normal_font = ExtResource("3_vnn3k")
 theme_override_font_sizes/normal_font_size = 128
 bbcode_enabled = true
