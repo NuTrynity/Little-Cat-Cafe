@@ -1,5 +1,7 @@
 extends Label
 
+signal timer_reached
+
 @export var seconds : int
 
 @onready var progress_bar = $ProgressBar
@@ -17,7 +19,11 @@ func setup_timer():
 	timer.start()
 
 func _on_timeout():
-	seconds -= 1
+	if seconds > 0:
+		seconds -= 1
+	else:
+		timer_reached.emit()
+		timer.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

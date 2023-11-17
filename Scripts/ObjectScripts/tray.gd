@@ -4,6 +4,8 @@ extends Node2D
 
 @onready var placement_pts = $PlacementPoints
 
+var take_meal_sfx = load("res://Assets/SFX/meal_place.mp3")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_resources.meal_taken.connect(_take_meal)
@@ -16,6 +18,7 @@ func _take_meal(meal):
 			meal.get_parent().remove_child(meal)
 			self.add_child(meal)
 			point.add_item(meal)
+			AudioManager.play_sound(take_meal_sfx)
 			return
 	print("tray is full")
 		
@@ -24,7 +27,7 @@ func _give_meal(npc):
 		while !point.get_is_empty():
 			var meal = point.remove_item()
 			npc.grab_meal(meal)
-			
+			AudioManager.play_sound(take_meal_sfx)
 			# check if there are no meals left
 			if player_resources.carry_amt <= 0:
 				visible = false
