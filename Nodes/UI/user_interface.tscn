@@ -1,8 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7nlsk4gpsge5"]
+[gd_scene load_steps=3 format=3 uid="uid://c7nlsk4gpsge5"]
 
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_8h2ig"]
 [ext_resource type="PackedScene" uid="uid://b6qgbfar78s2n" path="res://Nodes/UI/resource_display.tscn" id="1_mmpr4"]
 
 [node name="UserInterface" type="CanvasLayer"]
 
-[node name="ResourceDisplay" parent="." instance=ExtResource("1_mmpr4")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8h2ig")
+
+[node name="ResourceDisplay" parent="Control" instance=ExtResource("1_mmpr4")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 40.0
+offset_bottom = 108.0
 alignment = 0
+
+[node name="Timer" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_bottom = 68.0
+grow_horizontal = 0
+text = "00:00"

@@ -1,6 +1,22 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cre74qu5ppyhh"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cre74qu5ppyhh"]
 
 [ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_4ljtg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8l7e"]
+bg_color = Color(0.921569, 0.588235, 0.356863, 1)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 8
+border_color = Color(0.647059, 0.376471, 0.0784314, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 16.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2beep"]
 bg_color = Color(0.921569, 0.588235, 0.356863, 1)
@@ -58,6 +74,7 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 16
 Button/font_sizes/font_size = 64
 Button/fonts/font = ExtResource("1_4ljtg")
+Button/styles/focus = SubResource("StyleBoxFlat_m8l7e")
 Button/styles/hover = SubResource("StyleBoxFlat_2beep")
 Button/styles/normal = SubResource("StyleBoxFlat_ecjjk")
 Button/styles/pressed = SubResource("StyleBoxFlat_ny3bj")
