@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal leaving
 
 @export var player_resources : PlayerMealCarry
+@export var patience : float
 
 @onready var pivot : Node2D = $NPCSkin
 @onready var start_scale : Vector2 = pivot.scale
@@ -15,7 +16,6 @@ signal leaving
 @onready var eat_timer = Timer.new()
 
 var meal_i_want : int
-var patience : float
 var can_be_interacted : bool = false
 var is_leaving : bool = false
 var is_sitting : bool = false
@@ -23,8 +23,8 @@ var is_sitting : bool = false
 var current_meal : Node2D = null
 
 func _ready():
+	patience_bar.max_value = patience
 	interact_area.interact = Callable(self, "_on_player_give_meal")
-	patience = 100
 	patience_bar.global_position.y -= 64
 	meal_want.hide()
 	

@@ -28,6 +28,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_33mn1")
 player_resources = ExtResource("2_b2qht")
+patience = 200.0
 
 [node name="NPCSkin" parent="." instance=ExtResource("6_axvpr")]
 position = Vector2(0, -178)
