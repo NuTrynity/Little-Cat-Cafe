@@ -6,5 +6,5 @@ extends VBoxContainer
 @onready var rating_label = $Rating
 
 func _process(_delta):
-	money_label.text = str(player_resources.money)
+	money_label.text = str(player_resources.money) + "$"
 	rating_label.text = str(player_resources.ratings)

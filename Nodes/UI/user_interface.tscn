@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_8h2ig"]
 [ext_resource type="PackedScene" uid="uid://b6qgbfar78s2n" path="res://Nodes/UI/resource_display.tscn" id="1_mmpr4"]
-[ext_resource type="Script" path="res://Scripts/UIScripts/Timer.gd" id="3_1lvl4"]
+[ext_resource type="PackedScene" uid="uid://cjhf7aubug0ap" path="res://Nodes/UI/timer.tscn" id="3_tx2o5"]
 
 [node name="UserInterface" type="CanvasLayer"]
 
@@ -27,14 +27,5 @@ offset_right = 40.0
 offset_bottom = 108.0
 alignment = 0
 
-[node name="Timer" type="Label" parent="Control"]
+[node name="Timer" parent="Control" instance=ExtResource("3_tx2o5")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -202.0
-offset_bottom = 68.0
-grow_horizontal = 0
-text = "00:00"
-script = ExtResource("3_1lvl4")
-seconds = 5

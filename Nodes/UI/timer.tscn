@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjhf7aubug0ap"]
+
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_5lixh"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/Timer.gd" id="1_cobqn"]
+
+[node name="Timer" type="Label"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme = ExtResource("1_5lixh")
+text = "time
+"
+script = ExtResource("1_cobqn")
+seconds = 120
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -245.0
+offset_top = -13.0
+offset_right = 145.0
+offset_bottom = 62.0
+fill_mode = 1
+show_percentage = false
