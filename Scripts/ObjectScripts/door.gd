@@ -25,7 +25,7 @@ func _on_timer_end():
 	if table_manager.chair_num > 2:
 		table_manager.chair_num = 1
 		table_manager.table_num += 1
-		if table_manager.table_num > 5:
+		if table_manager.table_num > 4:
 #			npc_spawn_timer.stop()
 			table_manager.table_num = 1
 
