@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_4ljtg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8l7e"]
-bg_color = Color(0.921569, 0.588235, 0.356863, 1)
+bg_color = Color(0.921569, 0.588235, 0.356863, 0.482353)
 border_width_left = 4
 border_width_top = 2
 border_width_right = 4

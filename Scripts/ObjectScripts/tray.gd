@@ -21,7 +21,7 @@ func _take_meal(meal):
 		
 func _give_meal(npc):
 	for point in placement_pts.get_children():
-		if !point.get_is_empty():
+		while !point.get_is_empty():
 			var meal = point.remove_item()
 			npc.grab_meal(meal)
 			

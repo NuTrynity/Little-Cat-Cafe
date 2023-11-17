@@ -19,7 +19,7 @@ func setup_timer():
 func _on_timeout():
 	if minutes >= 0:
 		seconds -= 1
-		if seconds <= 0:
+		if seconds < 0:
 			minutes -= 1
 			seconds = 60
 	else:
