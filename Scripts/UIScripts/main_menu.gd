@@ -14,4 +14,4 @@ func _on_how_to_play_pressed():
 	pass # Replace with function body.
 
 func _on_quit_pressed():
-	pass # Replace with function body.
+	get_tree().quit()

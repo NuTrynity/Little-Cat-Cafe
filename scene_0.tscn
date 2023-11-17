@@ -81,7 +81,7 @@ position = Vector2(179, -113)
 position = Vector2(-171, -140)
 
 [node name="GarbageBin" parent="." instance=ExtResource("6_ye04p")]
-position = Vector2(1113, 361)
+position = Vector2(883, 374)
 
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(921, 531)

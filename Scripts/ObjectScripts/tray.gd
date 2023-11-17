@@ -29,8 +29,9 @@ func _give_meal(npc):
 			npc.grab_meal(meal)
 			AudioManager.play_sound(take_meal_sfx)
 			# check if there are no meals left
-			if player_resources.carry_amt <= 0:
-				visible = false
+			for i in GlobalScript.inventory:
+				if GlobalScript.inventory[i]["count"] <= 0:
+					visible = false
 			
 			return
 	print("no meals or wrong meals")

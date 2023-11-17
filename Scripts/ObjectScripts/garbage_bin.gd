@@ -12,9 +12,9 @@ func _toss_item():
 	
 func grab_meal(meal):
 	for i in GlobalScript.inventory:
-		while GlobalScript.inventory[i]["count"] > 0:
-			GlobalScript.inventory[i]["count"] -= 1
-			player_resources.carry_amt -= 1
+		if GlobalScript.inventory[i]["count"] > 0:
+			GlobalScript.inventory[i]["count"] = 0
+			player_resources.carry_amt = 0
 			meal.queue_free() #might need to test this more later
 		
 		print(GlobalScript.inventory)
