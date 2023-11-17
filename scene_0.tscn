@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=25 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cpejkpxtal6m5" path="res://Nodes/ObjectNodes/garbage_bin.tscn" id="6_ye04p"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
+[ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="9_qriue"]
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="14_1augc"]
 [ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/ObjectNodes/table.tscn" id="14_l1tow"]
 [ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="16_urv4l"]
@@ -49,9 +50,9 @@ sources/3 = SubResource("TileSetAtlasSource_ucrek")
 size = Vector2(2628, 20)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbxh0"]
-vertices = PackedVector2Array(1169, 986, 1071, 802, 1493, 794, 1419, 982, 399, 990, 323, 1236, 95, 1232, 151, 990, 239, 684, 653, 994, 773, 692, 1063, 802, 1160, 988, 2317, 554, 2493, 1213, 2216, 1231, 2196, 958, 2177, 805, 2131, 542, 2266, 328, 834, 329, 1904, 540, 1375, 518, 1845, 790, 2167, 800, 2193, 990, 1879, 986, 1847, 1236, 1441, 1238, 1091, 1226, 723, 1252, 1152, 522)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 4, 8, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(13, 16, 17), PackedInt32Array(13, 17, 18, 19), PackedInt32Array(20, 19, 18, 21, 22), PackedInt32Array(23, 24, 25, 26, 2), PackedInt32Array(26, 27, 28, 3, 2), PackedInt32Array(29, 30, 9, 12), PackedInt32Array(31, 11, 10, 20), PackedInt32Array(21, 23, 2, 22), PackedInt32Array(20, 22, 31)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(2266, 328, 2317, 554, 2493, 1213, 2216, 1231, 2196, 958, 2177, 805, 2131, 542, 1904, 540, 1845, 790, 2167, 800, 2193, 990, 1879, 986, 1847, 1236, 1441, 1238, 1419, 982, 1169, 986, 1071, 802, 1493, 794, 1375, 518, 1152, 522, 1063, 802, 1160, 988, 1091, 1226, 723, 1252, 653, 994, 399, 990, 323, 1236, 95, 1232, 151, 990, 239, 684, 773, 692, 834, 329)])
+vertices = PackedVector2Array(1477, 957, 1807, 953, 1546, 1176, 1326, 1178, 662, 1163, 432, 1164, 618, 961, 936, 959, 2543, 1425, 1443, 1416, 1469, 1331, 1590, 1312, 2481, 1189, 2415, 921, 1571.57, 1246.53, 1552, 1177, 1811, 954, 2348.46, 654.573, 2266, 328, 1765, 812, 2230, 329, 1436, 1318, 1437, 1423, 546, 1425, 555, 1310, 699, 1306, 1285, 1305, 384, 1306, 546, 1308, 538, 1424, 19, 1423, 221, 658, 426, 1163, 617, 958, 673, 774, 772, 656, 889, 774, 1743, 336, 1539, 814, 1376, 340, 1457, 338, 819, 338, 976, 352, 1048, 343)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 17, 16, 19, 20), PackedInt32Array(21, 22, 23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(27, 30, 31, 32), PackedInt32Array(33, 32, 31, 34), PackedInt32Array(34, 31, 35, 36), PackedInt32Array(37, 20, 19, 38), PackedInt32Array(39, 40, 37, 38, 0), PackedInt32Array(36, 35, 41, 42, 0), PackedInt32Array(26, 25, 4, 7, 3), PackedInt32Array(0, 3, 7, 36), PackedInt32Array(0, 42, 43, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2266, 328, 2348.46, 654.573, 2415, 921, 2481, 1189, 2543, 1425, 1443, 1416, 1469, 1331, 1590, 1312, 1571.57, 1246.53, 1552, 1177, 1811, 954, 1765, 812, 1539, 814, 1477, 957, 1807, 953, 1546, 1176, 1326, 1178, 1285, 1305, 1436, 1318, 1437, 1423, 546, 1425, 555, 1310, 699, 1306, 662, 1163, 432, 1164, 618, 961, 936, 959, 889, 774, 673, 774, 617, 958, 426, 1163, 384, 1306, 546, 1308, 538, 1424, 19, 1423, 221, 658, 772, 656, 819, 338, 976, 352, 1048, 343, 1376, 340, 1457, 338, 1743, 336, 2230, 329)])
 
 [node name="scene_0" type="Node2D"]
 z_as_relative = false
@@ -85,6 +86,9 @@ position = Vector2(1113, 361)
 [node name="Player" parent="." instance=ExtResource("1_5ew65")]
 position = Vector2(921, 531)
 
+[node name="Cat" parent="." instance=ExtResource("9_qriue")]
+position = Vector2(1193, 622)
+
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_m4xsq")
@@ -115,19 +119,16 @@ position = Vector2(1024, 778)
 shape = SubResource("RectangleShape2D_f7fjw")
 
 [node name="Table1" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(2018, 1160)
+position = Vector2(1650, 892)
 
 [node name="Table2" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(2018, 715)
+position = Vector2(1438, 1251)
 
 [node name="Table3" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(1264, 1160)
+position = Vector2(778, 896)
 
 [node name="Table4" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(1286, 707)
-
-[node name="Table5" parent="." instance=ExtResource("14_l1tow")]
-position = Vector2(514, 1160)
+position = Vector2(544, 1249)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_fbxh0")

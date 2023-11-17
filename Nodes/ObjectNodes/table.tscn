@@ -16,7 +16,7 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/StaticBody2D"]
 position = Vector2(0, 14)
-polygon = PackedVector2Array(141, 50, 107, -68, -109, -68, -148, 50, 0, 72)
+polygon = PackedVector2Array(141, 50, 107, -68, -109, -68, -148, 50)
 
 [node name="chair2" parent="." instance=ExtResource("3_c5wbs")]
 position = Vector2(-277, 1)

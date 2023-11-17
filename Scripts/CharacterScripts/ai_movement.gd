@@ -17,7 +17,9 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	npc.velocity = dir * speed
-	npc.move_and_slide()
+	
+	if nav_agent.distance_to_target() > 4:
+		npc.move_and_slide()
 	
 #	var target_position = Vector2(target.global_position.x, target.global_position.y+100)
 #	var distance = npc.global_position.distance_to(target_position)
