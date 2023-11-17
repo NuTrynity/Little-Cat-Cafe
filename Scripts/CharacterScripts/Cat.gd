@@ -2,18 +2,18 @@ extends CharacterBody2D
 
 @onready var nav_mesh : NavigationRegion2D = get_tree().get_root().get_node("scene_0/NavigationRegion2D")
 
-var meal = preload("res://Nodes/Meals/cat_latte.tscn")
+#var meal = preload("res://Nodes/Meals/cat_latte.tscn")
 
 
 func _ready():
-	
-	
-	for i in range(30):
-		var point = choose_random_point()
-		var food = meal.instantiate() as Node2D
-		get_tree().get_root().add_child(food)
-		food.global_position = point
 
+#	for i in range(30):
+#		var point = choose_random_point()
+#		var food = meal.instantiate() as Node2D
+#		get_tree().get_root().add_child(food)
+#		food.global_position = point
+	pass
+	
 func choose_random_point() -> Vector2:
 	var rng = RandomNumberGenerator.new()
 	var random_idx = rng.randi_range(0, nav_mesh.navigation_polygon.get_polygon_count()-1)
