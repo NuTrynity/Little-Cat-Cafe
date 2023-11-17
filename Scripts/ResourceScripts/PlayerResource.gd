@@ -26,4 +26,5 @@ func take_meal(meal):
 		return
 	carry_amt = carry_amt + 1
 	emit_signal("meal_taken", meal)
-	print(GlobalScript.inventory[0]["count"])
+	for i in GlobalScript.inventory:
+		print(GlobalScript.inventory[i])

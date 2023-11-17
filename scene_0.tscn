@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=24 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="14_1augc"]
 [ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/ObjectNodes/table.tscn" id="14_l1tow"]
+[ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="16_urv4l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
 texture = ExtResource("3_dell3")
@@ -130,3 +131,6 @@ position = Vector2(514, 1160)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_fbxh0")
+
+[node name="GamePlayMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_urv4l")

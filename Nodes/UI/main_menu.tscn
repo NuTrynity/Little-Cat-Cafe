@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbqkvkgxnox0y"]
+[gd_scene load_steps=5 format=3 uid="uid://dbqkvkgxnox0y"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/main_menu.gd" id="1_1r5u5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_ava0i"]
+[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="3_vnn3k"]
+[ext_resource type="AudioStream" uid="uid://boacg5qdfubj2" path="res://Assets/Music/Main Menu.wav" id="4_eanhc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,17 +15,25 @@ grow_vertical = 2
 theme = ExtResource("1_ava0i")
 script = ExtResource("1_1r5u5")
 
-[node name="Label" type="Label" parent="."]
+[node name="Titlecard" type="RichTextLabel" parent="."]
+clip_contents = false
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 195.0
-offset_bottom = 373.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -687.0
+offset_top = -502.0
+offset_right = 687.0
+offset_bottom = -258.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
-text = "GAME TITLE HERE"
-horizontal_alignment = 1
-vertical_alignment = 1
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_vnn3k")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center][wave amp=50]GAME TITLE HERE"
+scroll_active = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -49,4 +59,10 @@ text = "How To Play"
 layout_mode = 2
 text = "Quit"
 
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eanhc")
+bus = &"Music"
+
 [connection signal="pressed" from="CenterContainer/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
