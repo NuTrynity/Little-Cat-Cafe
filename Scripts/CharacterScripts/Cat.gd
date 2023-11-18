@@ -11,7 +11,6 @@ var idleState = IdleState.STAND as State
 @onready var standing_timer := Timer.new() as Timer
 @onready var pause_timer := Timer.new() as Timer
 
-
 @onready var aiMvt := $AiMovement as CatAiMovement
 
 var rng := RandomNumberGenerator.new() as RandomNumberGenerator
@@ -41,14 +40,16 @@ func _physics_process(_delta : float) -> void:
 			if !aiMvt.can_target_customer():
 				aiMvt.untarget_customer()
 				to_idle_stand()
-				return
-			if aiMvt.reached_target():
+			elif aiMvt.reached_target():
 				to_act()
-				return
-			aiMvt.approach_target()
+			else:
+				aiMvt.approach_target()
 			
 		State.ACT:
-			pass
+			if !aiMvt.can_target_customer():
+				aiMvt.untarget_customer()
+				to_idle_walk()
+				pause_timer.stop()
 			
 		State.HUNGRY:
 			pass
@@ -84,7 +85,7 @@ func to_act():
 	npc.patience_timer.set_paused(true)
 
 func start_standing_timer():
-	standing_timer.wait_time = rng.randf_range(3.0, 10.0)
+	standing_timer.wait_time = rng.randf_range(2.0, 10.0)
 	standing_timer.start()
 	
 func start_pause_timer():

@@ -88,6 +88,9 @@ position = Vector2(1051, 567)
 [node name="Cat" parent="." instance=ExtResource("9_qriue")]
 position = Vector2(1193, 622)
 
+[node name="Cat2" parent="." instance=ExtResource("9_qriue")]
+position = Vector2(2162, 1174)
+
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_m4xsq")
