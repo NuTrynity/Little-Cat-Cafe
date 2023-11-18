@@ -14,4 +14,5 @@ theme = ExtResource("1_5lixh")
 text = "time
 "
 script = ExtResource("1_cobqn")
-seconds = 5
+minutes = 1
+seconds = 30

@@ -20,6 +20,7 @@ var meal_i_want : int
 var can_be_interacted : bool = false
 var is_leaving : bool = false
 var is_sitting : bool = false
+var is_angry : bool = false
 
 var current_meal : Node2D = null
 
@@ -108,9 +109,14 @@ func sit_area_leave():
 	state = State.LEAVE
 	aiMvt.goto_exit()
 	leaving.emit()
-	patience_bar.hide()
 	meal_want.hide()
+	patience_bar.hide()
 	interact_area.monitoring = false
+	
+	if is_angry == true:
+		meal_want.show()
+	else:
+		meal_want.hide()
 
 # ends sit_area action
 func _on_meal_finished():

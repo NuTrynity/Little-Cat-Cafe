@@ -32,6 +32,6 @@ func _on_timeout():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if minutes < 10:
-		text = "0" + str(minutes) + str(seconds)
+		text = "0" + str(minutes) + ":" + str(seconds)
 		if seconds < 10:
 			text = "0" + str(minutes) + ":" + "0" + str(seconds)

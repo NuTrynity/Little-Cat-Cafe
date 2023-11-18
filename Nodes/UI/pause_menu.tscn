@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://drdi805c4pc40"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/pause_menu.gd" id="1_fih3m"]
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_y4bsb"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y4bsb")
+script = ExtResource("1_fih3m")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 94
+
+[node name="Resume" type="Button" parent="CenterContainer/Buttons"]
+layout_mode = 2
+text = "Resume Game"
+
+[node name="Options" type="Button" parent="CenterContainer/Buttons"]
+layout_mode = 2
+text = "Options"
