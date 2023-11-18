@@ -9,7 +9,6 @@ signal meal_taken()
 
 var meal_index : int
 var money : float = 0
-var ratings : int = 0
 var carry_amt : int = 0
 
 func randomize_meal_index():

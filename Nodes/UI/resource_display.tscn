@@ -17,7 +17,3 @@ player_resources = ExtResource("2_ka2dx")
 [node name="Money" type="Label" parent="."]
 layout_mode = 2
 text = "0"
-
-[node name="Rating" type="Label" parent="."]
-layout_mode = 2
-text = "0"

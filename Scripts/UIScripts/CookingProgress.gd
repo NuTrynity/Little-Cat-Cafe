@@ -10,7 +10,7 @@ func _ready():
 	global_position.y -= 164
 	global_position.x -= size.x / 2
 
-func _process(delta):
+func _process(_delta):
 	if value == max_value:
 		progress_finish.emit()
 		value = 0

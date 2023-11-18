@@ -4,6 +4,8 @@
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_y4bsb"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +32,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/Menu/Label"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 94
 text = "Game Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -48,6 +51,7 @@ text = "Options"
 
 [node name="Quit" type="Button" parent="CenterContainer/Menu/Buttons"]
 layout_mode = 2
-text = "Quit"
+text = "Quit to Main Menu"
 
+[connection signal="pressed" from="CenterContainer/Menu/Buttons/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/Menu/Buttons/Quit" to="." method="_on_quit_pressed"]
