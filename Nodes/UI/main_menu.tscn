@@ -220,6 +220,7 @@ bus = &"Music"
 
 [connection signal="pressed" from="CenterContainer/Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/Buttons/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CenterContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/No" to="." method="_on_no_pressed"]
