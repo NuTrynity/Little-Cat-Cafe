@@ -15,9 +15,6 @@ func _show_menu():
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scene_0.tscn")
 
-func _on_how_to_play_pressed():
-	pass # Replace with function body.
-
 func _on_options_pressed():
 	$CenterContainer/Buttons.hide()
 	$CenterContainer/OptionsMenu.show()

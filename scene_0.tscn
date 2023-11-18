@@ -61,7 +61,6 @@ script = ExtResource("1_6dqke")
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
 position = Vector2(2000, 263)
-npc_spawn_time = 7
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(514, 409)
