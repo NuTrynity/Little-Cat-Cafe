@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://clyltbvntfwx8"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/CookingProgress.gd" id="1_uds0u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2k4l"]
+bg_color = Color(0.235294, 1, 0.309804, 1)
+
+[node name="CookingProgress" type="ProgressBar"]
+visible = false
+z_index = 1
+offset_right = 108.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_r2k4l")
+show_percentage = false
+script = ExtResource("1_uds0u")

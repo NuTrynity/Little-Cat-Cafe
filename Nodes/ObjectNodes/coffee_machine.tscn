@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://yom2vulkaxjp"]
+[gd_scene load_steps=6 format=3 uid="uid://yom2vulkaxjp"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/coffee_machine.gd" id="1_gqmvo"]
 [ext_resource type="Texture2D" uid="uid://bnnb00ku0tov" path="res://Sprites/coffee_machine.png" id="1_kbj0r"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="2_c51e1"]
+[ext_resource type="PackedScene" uid="uid://clyltbvntfwx8" path="res://Nodes/UI/cooking_progress.tscn" id="4_5jrmp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s075q"]
 radius = 83.0
@@ -21,3 +22,6 @@ action_name = "make coffee"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, 41)
 shape = SubResource("CapsuleShape2D_s075q")
+
+[node name="CookingProgress" parent="." instance=ExtResource("4_5jrmp")]
+bar_max = 30.0

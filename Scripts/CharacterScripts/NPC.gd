@@ -92,7 +92,6 @@ func _physics_process(_delta : float) -> void:
 		State.LEAVE:
 			aiMvt.approach_target()
 			walk_animation()
-	
 
 func sit_area_act_setup():
 	patience_timer_setup()
@@ -161,8 +160,6 @@ func patience_timer_setup():
 	eat_timer.wait_time = 5
 	eat_timer.connect("timeout", _on_meal_finished)
 
-
-
 func _on_player_give_meal():
 	if GlobalScript.inventory[meal_i_want]["count"] > 0:
 		player_resources.give_meal(self)
@@ -176,13 +173,18 @@ func _on_player_give_meal():
 		player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
 
 func grab_meal(meal):
+	var sit_area = aiMvt.target as SitArea
 	player_resources.carry_amt -= 1
 	meal.get_parent().remove_child(meal)
 	add_child(meal)
 	meal.global_position = self.global_position
 	meal.position.y -= 100
-	meal.position.x += 100 
 	current_meal = meal
+	
+	if sit_area.facing_left:
+		meal.position.x -= 100
+	else:
+		meal.position.x += 100
 
 '''
 func _on_chair_detector_area_entered(area):

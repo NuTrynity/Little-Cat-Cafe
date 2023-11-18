@@ -1,14 +1,35 @@
 extends Node2D
 
 @onready var interact_area = $InteractionArea
+@onready var progress_bar = $CookingProgress
+@onready var cook_timer = Timer.new()
 
 var omurice = preload("res://Nodes/Meals/omurice.tscn")
 var cooking_sfx = load("res://Assets/SFX/pan-_frying.mp3")
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_interaction")
+	progress_bar.progress_finish.connect(cook_meal)
+	setup_timer()
+
+func setup_timer():
+	add_child(cook_timer)
+	cook_timer.one_shot = false
+	cook_timer.wait_time = 0.1
+	cook_timer.connect("timeout", increase_progress)
 
 func _on_interaction():
+	if Input.is_action_pressed("interact"):
+		cook_timer.start()
+		progress_bar.show()
+	else:
+		cook_timer.stop()
+	AudioManager.play_sound(cooking_sfx)
+
+func increase_progress():
+	progress_bar.value += 1
+
+func cook_meal():
 	var tablecloth = get_tree().get_root().get_node("scene_0/KitchenCounter2/PickupTablecloth")
 	var placement_pts = tablecloth.get_node("PlacementPoints")
 	
@@ -20,7 +41,8 @@ func _on_interaction():
 			point.add_item(food)
 			GlobalScript.inventory[0]["count"] += 1
 			pickup_full = false
-			AudioManager.play_sound(cooking_sfx)
+			cook_timer.stop()
+			
 			break
 	if pickup_full:
 		print("can't cook, pickup is full")
