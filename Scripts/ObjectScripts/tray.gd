@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var placement_pts = $PlacementPoints
 
-var take_meal_sfx = load("res://Assets/SFX/meal_place.mp3")
+var take_meal_sfx = load("res://Assets/SFX/meal_place_edit.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

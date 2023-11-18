@@ -5,7 +5,7 @@ extends Node2D
 @onready var cook_timer = Timer.new()
 
 var omurice = preload("res://Nodes/Meals/omurice.tscn")
-var cooking_sfx = load("res://Assets/SFX/pan-_frying.mp3")
+var cooking_sfx = load("res://Assets/SFX/pan_frying_edit.mp3")
 var is_cooking : bool = false
 
 func _ready():

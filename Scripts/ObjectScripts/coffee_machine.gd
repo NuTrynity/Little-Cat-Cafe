@@ -5,7 +5,7 @@ extends Node2D
 @onready var brew_timer = Timer.new()
 
 var meal = preload("res://Nodes/Meals/cat_latte.tscn")
-var coffee_machine_sfx = load("res://Assets/SFX/coffee_espresso_machine.mp3")
+var coffee_machine_sfx = load("res://Assets/SFX/coffee_pouring.mp3")
 var is_brewing : bool = false
 
 func _ready():
