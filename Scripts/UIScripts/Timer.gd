@@ -1,9 +1,6 @@
 extends Label
 
-signal timer_reached
-
-@export var minutes : int
-@export var seconds : int
+@export var game_manager : GameManager
 
 @onready var timer = Timer.new()
 
@@ -18,20 +15,20 @@ func setup_timer():
 	timer.start()
 
 func _on_timeout():
-	if minutes || seconds != 0:
-		if minutes >= 0:
-			seconds -= 1
-			if seconds < 0:
-				minutes -= 1
-				seconds = 60
+	if game_manager.game_minutes || game_manager.game_seconds != 0:
+		if game_manager.game_minutes >= 0:
+			game_manager.game_seconds -= 1
+			if game_manager.game_seconds < 0:
+				game_manager.game_minutes -= 1
+				game_manager.game_seconds = 60
 	else:
-		timer_reached.emit()
+		game_manager.game_end.emit()
 		timer.stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if minutes < 10:
-		text = "0" + str(minutes) + ":" + str(seconds)
-		if seconds < 10:
-			text = "0" + str(minutes) + ":" + "0" + str(seconds)
+	if game_manager.game_minutes < 10:
+		text = "0" + str(game_manager.game_minutes) + ":" + str(game_manager.game_seconds)
+		if game_manager.game_seconds < 10:
+			text = "0" + str(game_manager.game_minutes) + ":" + "0" + str(game_manager.game_seconds)

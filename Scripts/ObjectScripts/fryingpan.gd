@@ -6,6 +6,7 @@ extends Node2D
 
 var omurice = preload("res://Nodes/Meals/omurice.tscn")
 var cooking_sfx = load("res://Assets/SFX/pan-_frying.mp3")
+var is_cooking : bool = false
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_interaction")
@@ -19,12 +20,11 @@ func setup_timer():
 	cook_timer.connect("timeout", increase_progress)
 
 func _on_interaction():
-	if Input.is_action_pressed("interact"):
+	if is_cooking == false:
 		cook_timer.start()
 		progress_bar.show()
-	else:
-		cook_timer.stop()
-	AudioManager.play_sound(cooking_sfx)
+		AudioManager.play_sound(cooking_sfx)
+		is_cooking = true
 
 func increase_progress():
 	progress_bar.value += 1
@@ -41,6 +41,7 @@ func cook_meal():
 			point.add_item(food)
 			GlobalScript.inventory[0]["count"] += 1
 			pickup_full = false
+			is_cooking = false
 			cook_timer.stop()
 			
 			break

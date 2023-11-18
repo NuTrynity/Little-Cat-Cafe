@@ -136,3 +136,4 @@ navigation_polygon = SubResource("NavigationPolygon_fbxh0")
 [node name="GamePlayMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("16_urv4l")
+bus = &"Music"

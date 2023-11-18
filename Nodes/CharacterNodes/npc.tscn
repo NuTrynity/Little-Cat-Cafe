@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c88ge1qvc6a8w" path="res://Nodes/CharacterNodes/npc_skin.tscn" id="6_axvpr"]
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/npc_ai_movement.gd" id="6_txabj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3wr8"]
-size = Vector2(392, 234)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgaf6"]
+radius = 154.081
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kyqk"]
 size = Vector2(38, 25)
@@ -40,8 +40,8 @@ position = Vector2(1, -173)
 action_name = "give meal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 104)
-shape = SubResource("RectangleShape2D_b3wr8")
+position = Vector2(0, 120)
+shape = SubResource("CircleShape2D_kgaf6")
 
 [node name="ChairDetector" type="Area2D" parent="."]
 y_sort_enabled = true
