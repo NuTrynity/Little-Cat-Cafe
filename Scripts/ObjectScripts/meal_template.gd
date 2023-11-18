@@ -24,7 +24,6 @@ func _physics_process(_delta):
 
 func give_meal(_obj):
 	if picked_up == true:
-		player_resources.carry_amt -= 1
 		queue_free()
 
 #func _on_pick_up():
