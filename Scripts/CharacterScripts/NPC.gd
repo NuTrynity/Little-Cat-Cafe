@@ -22,6 +22,9 @@ var is_leaving : bool = false
 var is_sitting : bool = false
 var is_angry : bool = false
 
+# for cat targeting
+var targeter : Node2D = null
+
 var current_meal : Node2D = null
 
 enum State {APPROACH, IDLE, ACT, LEAVE}
@@ -213,3 +216,4 @@ func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
 		if state == State.LEAVE:
 			queue_free()
+			

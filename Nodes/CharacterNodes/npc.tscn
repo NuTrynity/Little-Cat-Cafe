@@ -23,7 +23,7 @@ bg_color = Color(0, 1, 0, 0.588235)
 radius = 8.5
 height = 54.0
 
-[node name="NPC" type="CharacterBody2D"]
+[node name="NPC" type="CharacterBody2D" groups=["customers"]]
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
