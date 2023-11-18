@@ -3,58 +3,54 @@
 [ext_resource type="Script" path="res://Scripts/UIScripts/options_menu.gd" id="1_hnkb5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_plmjf"]
 
-[node name="OptionsMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="OptionsMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.5
+offset_top = -226.5
+offset_right = 251.5
+offset_bottom = 226.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_plmjf")
 script = ExtResource("1_hnkb5")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="Menu" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+[node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 128
 
-[node name="Sliders" type="VBoxContainer" parent="CenterContainer/PanelContainer/Menu"]
+[node name="Sliders" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="SFX" type="VBoxContainer" parent="CenterContainer/PanelContainer/Menu/Sliders"]
+[node name="SFX" type="VBoxContainer" parent="Menu/Sliders"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Menu/Sliders/SFX"]
+[node name="Label" type="Label" parent="Menu/Sliders/SFX"]
 layout_mode = 2
 text = "Sound Effects"
 
-[node name="SFXSlider" type="HSlider" parent="CenterContainer/PanelContainer/Menu/Sliders/SFX"]
+[node name="SFXSlider" type="HSlider" parent="Menu/Sliders/SFX"]
 layout_mode = 2
 
-[node name="Music" type="VBoxContainer" parent="CenterContainer/PanelContainer/Menu/Sliders"]
+[node name="Music" type="VBoxContainer" parent="Menu/Sliders"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Menu/Sliders/Music"]
+[node name="Label" type="Label" parent="Menu/Sliders/Music"]
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="CenterContainer/PanelContainer/Menu/Sliders/Music"]
+[node name="MusicSlider" type="HSlider" parent="Menu/Sliders/Music"]
 layout_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="CenterContainer/PanelContainer/Menu"]
+[node name="Buttons" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="CenterContainer/PanelContainer/Menu/Buttons"]
+[node name="Back" type="Button" parent="Menu/Buttons"]
 layout_mode = 2
 text = "Back"
+
+[connection signal="pressed" from="Menu/Buttons/Back" to="." method="_on_back_pressed"]
