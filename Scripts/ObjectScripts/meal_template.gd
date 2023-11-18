@@ -22,7 +22,7 @@ func _physics_process(_delta):
 		#interact_area.monitorable = false
 		#interact_area.monitoring = false
 
-func give_meal(obj):
+func give_meal(_obj):
 	if picked_up == true:
 		player_resources.carry_amt -= 1
 		queue_free()

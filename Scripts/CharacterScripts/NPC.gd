@@ -184,8 +184,6 @@ func grab_meal(meal):
 	meal.position.x += 100 
 	current_meal = meal
 
-
-
 '''
 func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
