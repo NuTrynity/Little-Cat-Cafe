@@ -1,4 +1,7 @@
 extends Control
 
 func _ready():
-	$CenterContainer/Buttons/Resume.grab_focus()
+	$CenterContainer/Menu/Buttons/Resume.grab_focus()
+
+func _on_quit_pressed():
+	get_tree().quit()

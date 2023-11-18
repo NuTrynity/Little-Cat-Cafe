@@ -21,14 +21,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+[node name="Menu" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Label" type="VBoxContainer" parent="CenterContainer/Menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Menu/Label"]
+layout_mode = 2
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer/Menu"]
 layout_mode = 2
 theme_override_constants/separation = 94
 
-[node name="Resume" type="Button" parent="CenterContainer/Buttons"]
+[node name="Resume" type="Button" parent="CenterContainer/Menu/Buttons"]
 layout_mode = 2
 text = "Resume Game"
 
-[node name="Options" type="Button" parent="CenterContainer/Buttons"]
+[node name="Options" type="Button" parent="CenterContainer/Menu/Buttons"]
 layout_mode = 2
 text = "Options"
+
+[node name="Quit" type="Button" parent="CenterContainer/Menu/Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/Menu/Buttons/Quit" to="." method="_on_quit_pressed"]
