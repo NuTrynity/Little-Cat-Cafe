@@ -6,7 +6,6 @@ extends CharacterBody2D
 
 
 func _ready():
-
 #	for i in range(30):
 #		var point = choose_random_point()
 #		var food = meal.instantiate() as Node2D
@@ -14,6 +13,7 @@ func _ready():
 #		food.global_position = point
 	pass
 	
+
 func choose_random_point() -> Vector2:
 	var rng = RandomNumberGenerator.new()
 	var random_idx = rng.randi_range(0, nav_mesh.navigation_polygon.get_polygon_count()-1)
@@ -25,7 +25,6 @@ func choose_random_point() -> Vector2:
 	for vertex in polygon_idx:
 		polygon_array.append(all_vertices[vertex])
 	
-	var randomPointClass = load("res://Scripts/PolygonRandomPointGenerator.gd")
 	var randomPoint = PolygonRandomPointGenerator.new(polygon_array)
 	
 	return randomPoint.get_random_point()

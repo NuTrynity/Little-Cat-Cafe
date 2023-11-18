@@ -8,12 +8,13 @@ signal leaving
 @onready var pivot : Node2D = $NPCSkin
 @onready var start_scale : Vector2 = pivot.scale
 @onready var animations = $NPCSkin/NPCAnimations
-@onready var npc_sprite = $NPCSkin/NPCSprite
+@onready var npc_sprite = $NPCSkin/NPCSprite as Sprite2D
 @onready var meal_want = $NPCSkin/MealWanted
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
 @onready var patience_timer = Timer.new()
 @onready var eat_timer = Timer.new()
+@onready var aiMvt := $AiMovement as NpcAiMovement
 
 var meal_i_want : int
 var can_be_interacted : bool = false
@@ -22,20 +23,27 @@ var is_sitting : bool = false
 
 var current_meal : Node2D = null
 
+enum State {APPROACH, IDLE, ACT, LEAVE}
+var state := State.IDLE as State
+
 func _ready():
 	patience_bar.max_value = patience
-	interact_area.interact = Callable(self, "_on_player_give_meal")
 	patience_bar.global_position.y -= 64
+	patience_bar.hide()
+	
+	interact_area.interact = Callable(self, "_on_player_give_meal")
+	interact_area.monitoring = false
+	
+	npc_sprite.flip_h = false
+	
 	meal_want.hide()
-	
-	patience_timer_setup()
-	
 	meal_i_want = player_resources.randomize_meal_index()
 	if meal_i_want == 0:
 		meal_want.texture = load("res://Sprites/omurice.png")
 	elif meal_i_want == 1:
 		meal_want.texture = load("res://Sprites/cat_latte.png")
 
+'''
 func _physics_process(_delta : float) -> void:
 	patience_bar.value = patience
 	
@@ -44,7 +52,7 @@ func _physics_process(_delta : float) -> void:
 	else:
 		interact_area.monitoring = true
 	#NPC State Block
-	if is_sitting == true && not is_leaving:
+	if aiMvt.reached_target() && not is_leaving:
 		animations.play("sitting")
 		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
 	else:
@@ -55,7 +63,93 @@ func _physics_process(_delta : float) -> void:
 	if is_sitting == false:
 		if not is_zero_approx(velocity.x):
 			pivot.scale.x = sign(velocity.x) * start_scale.x
+'''
 
+func _physics_process(_delta : float) -> void:
+	match state:
+		# idle: deciding what to do
+		State.IDLE:
+			var find_target = aiMvt.find_and_pick_target()
+			if find_target != null:
+				aiMvt.makepath()
+				state = State.APPROACH
+			
+		# approaching: going towards target
+		State.APPROACH:
+			aiMvt.approach_target()
+			walk_animation()
+			
+			if aiMvt.reached_target():
+				state = State.ACT
+				aiMvt.target.npc_act_setup(self)
+			
+		# acting: interacting with target, target should take control of the npc to decide what they're doing
+		State.ACT:
+			aiMvt.target.npc_act(self)
+			# target sets the state to LEAVE
+			
+		# leaving: npc is approaching door
+		State.LEAVE:
+			aiMvt.approach_target()
+			walk_animation()
+	
+
+func sit_area_act_setup():
+	patience_timer_setup()
+	patience_bar.value = patience
+	patience_timer.start()
+	patience_bar.show()
+	meal_want.show()
+	interact_area.monitoring = true
+	
+func sit_area_act():
+	sit_animation()
+	
+func sit_area_leave():
+	state = State.LEAVE
+	aiMvt.goto_exit()
+	leaving.emit()
+	patience_bar.hide()
+	meal_want.hide()
+	interact_area.monitoring = false
+
+# ends sit_area action
+func _on_meal_finished():
+	current_meal.queue_free()
+	current_meal = null
+	aiMvt.target.npc_leave(self)
+	
+func _on_timer_timeout():
+	patience -= 1
+	patience_bar.value = patience
+	
+	# ends sit_area action
+	if patience_bar.value <= 0:
+		patience_timer.stop()
+		aiMvt.target.npc_leave(self)
+	
+# used by targets to tell npc to leave
+func set_leave_state():
+	state = State.LEAVE
+	
+func walk_animation():
+	animations.play("walking")
+	if velocity.x > 0:
+		npc_sprite.flip_h = true
+	else:
+		npc_sprite.flip_h = false
+	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
+
+func sit_animation():
+	animations.play("sitting")
+	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
+	
+	var sit_area = aiMvt.target as SitArea
+	if sit_area.facing_left:
+		npc_sprite.flip_h = false
+	else:
+		npc_sprite.flip_h = true
+	
 func patience_timer_setup():
 	add_child(patience_timer)
 	patience_timer.one_shot = false
@@ -65,15 +159,9 @@ func patience_timer_setup():
 	add_child(eat_timer)
 	eat_timer.one_shot = true
 	eat_timer.wait_time = 5
-	eat_timer.connect("timeout", on_meal_finished)
+	eat_timer.connect("timeout", _on_meal_finished)
 
-func _on_timer_timeout():
-	patience -= 1
-	
-	if patience_bar.value <= 0:
-		patience_timer.stop()
-		leaving.emit()
-		is_leaving = true
+
 
 func _on_player_give_meal():
 	if GlobalScript.inventory[meal_i_want]["count"] > 0:
@@ -82,7 +170,7 @@ func _on_player_give_meal():
 		patience_bar.hide()
 		meal_want.hide()
 		eat_timer.start()
-		can_be_interacted = false
+		interact_area.monitoring = false
 		
 		GlobalScript.inventory[meal_i_want]["count"] -= 1
 		player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
@@ -92,16 +180,13 @@ func grab_meal(meal):
 	meal.get_parent().remove_child(meal)
 	add_child(meal)
 	meal.global_position = self.global_position
-	meal.position.y -= 94
+	meal.position.y -= 100
+	meal.position.x += 100 
 	current_meal = meal
 
-func on_meal_finished():
-	leaving.emit()
-	is_leaving = true
-	
-	current_meal.queue_free()
-	current_meal = null
 
+
+'''
 func _on_chair_detector_area_entered(area):
 	if area.is_in_group("chair"):
 		is_sitting = true
@@ -116,8 +201,9 @@ func _on_chair_detector_area_exited(area):
 		can_be_interacted = false
 		meal_want.hide()
 		patience_timer.stop()
+'''
 
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
-		if is_leaving:
+		if state == State.LEAVE:
 			queue_free()

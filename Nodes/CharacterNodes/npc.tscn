@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=12 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_b2qht"]
 [ext_resource type="PackedScene" uid="uid://djyfyi0mu4m38" path="res://Nodes/Components/ai_movement.tscn" id="4_d7kkh"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="4_h15ne"]
 [ext_resource type="PackedScene" uid="uid://c88ge1qvc6a8w" path="res://Nodes/CharacterNodes/npc_skin.tscn" id="6_axvpr"]
+[ext_resource type="Script" path="res://Scripts/CharacterScripts/npc_ai_movement.gd" id="6_txabj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfcr3"]
 radius = 329.038
@@ -73,7 +74,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1m6fg")
 
 [node name="AiMovement" parent="." instance=ExtResource("4_d7kkh")]
-position = Vector2(0, -115)
+position = Vector2(0, -8)
+script = ExtResource("6_txabj")
+table_manager = null
+npc_speed = 150
 
 [connection signal="area_entered" from="ChairDetector" to="." method="_on_chair_detector_area_entered"]
 [connection signal="area_exited" from="ChairDetector" to="." method="_on_chair_detector_area_exited"]

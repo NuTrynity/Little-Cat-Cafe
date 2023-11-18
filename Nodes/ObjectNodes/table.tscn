@@ -25,13 +25,14 @@ position = Vector2(-277, 1)
 flip_h = true
 
 [node name="SitArea" parent="chair2" index="1"]
-position = Vector2(17, -81)
+position = Vector2(30, 0)
 
 [node name="chair1" parent="." instance=ExtResource("3_c5wbs")]
 position = Vector2(251, 1)
 
 [node name="SitArea" parent="chair1" index="1"]
-position = Vector2(17, -81)
+position = Vector2(-9, 0)
+facing_left = true
 
 [editable path="chair2"]
 [editable path="chair1"]
