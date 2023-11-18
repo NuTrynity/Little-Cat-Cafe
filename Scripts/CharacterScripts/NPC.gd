@@ -161,16 +161,7 @@ func patience_timer_setup():
 	eat_timer.connect("timeout", _on_meal_finished)
 
 func _on_player_give_meal():
-	if GlobalScript.inventory[meal_i_want]["count"] > 0:
-		player_resources.give_meal(self)
-		patience_timer.stop()
-		patience_bar.hide()
-		meal_want.hide()
-		eat_timer.start()
-		interact_area.monitoring = false
-		
-		GlobalScript.inventory[meal_i_want]["count"] -= 1
-		player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
+	player_resources.give_meal(self)
 
 func grab_meal(meal):
 	var sit_area = aiMvt.target as SitArea
@@ -185,6 +176,15 @@ func grab_meal(meal):
 		meal.position.x -= 100
 	else:
 		meal.position.x += 100
+
+	patience_timer.stop()
+	patience_bar.hide()
+	meal_want.hide()
+	eat_timer.start()
+	interact_area.monitoring = false
+	
+	GlobalScript.inventory[meal_i_want]["count"] -= 1
+	player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
 
 '''
 func _on_chair_detector_area_entered(area):
