@@ -7,12 +7,21 @@ extends CanvasLayer
 @onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 @onready var output_block = $Terminal/Container/OutputBlock
 @onready var chef_cat = $Shop/PanelContainer/VBoxContainer/GridContainer/item1
+@onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
+@onready var terminal = $Shop/PanelContainer/VBoxContainer/GridContainer/item2
 
 var line_text : String = ""
 
 func _ready():
 	input.grab_focus()
 	chef_cat.item_bought.connect(_chef_bought)
+	terminal.item_bought.connect(_terminal_bought)
+
+func _process(_delta):
+	cash_label.text = "Cash-on-Hand: " + str(GlobalScript.cash_on_hand) + " $"
+
+func _terminal_bought():
+	$HomeScreen/Apps/Terminal.show()
 
 func _chef_bought():
 	GlobalScript.shop[0]["buyed"] = true

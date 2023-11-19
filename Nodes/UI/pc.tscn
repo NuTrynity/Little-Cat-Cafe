@@ -72,11 +72,12 @@ texture_normal = ExtResource("6_nu3p0")
 
 [node name="Label" type="Label" parent="HomeScreen/Apps/Shop"]
 layout_mode = 2
-text = "Shop"
+text = "Nyamazon"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Terminal" type="VBoxContainer" parent="HomeScreen/Apps"]
+visible = false
 layout_mode = 2
 
 [node name="TerminalBtn" type="TextureButton" parent="HomeScreen/Apps/Terminal"]
@@ -213,6 +214,7 @@ flat = true
 
 [node name="GridContainer" type="GridContainer" parent="Shop/PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/h_separation = 128
 columns = 4
 
@@ -222,6 +224,19 @@ alignment = 1
 image = ExtResource("11_mn2r4")
 item_name = "Chef Cat"
 item_price = 1000.0
+buy_once = true
+
+[node name="item2" parent="Shop/PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+image = ExtResource("5_kb4ty")
+item_name = "Terminal"
+item_price = 5000.0
+buy_once = true
+
+[node name="Cash" type="Label" parent="Shop/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cash-on-Hand: 0000"
 
 [connection signal="pressed" from="HomeScreen/Apps/Shop/ShopBtn" to="." method="_on_shop_btn_pressed"]
 [connection signal="pressed" from="HomeScreen/Apps/Terminal/TerminalBtn" to="." method="_on_terminal_btn_pressed"]
