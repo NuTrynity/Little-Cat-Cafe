@@ -33,9 +33,10 @@ func _end_day():
 	get_tree().paused = true
 	animation.play("Game_Over")
 	AudioManager.play_sound(victory_sfx)
+	game_manager._reset()
 
 func _on_next_day_pressed():
-	get_tree().change_scene_to_file("res://Nodes/UI/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scene_0.tscn")
 	get_tree().paused = false
 	AudioManager.play_sound(click)
 	resources.money = 0
