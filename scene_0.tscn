@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=29 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/ObjectNodes/table.tscn" id="14_l1tow"]
 [ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="16_6nit4"]
 [ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="16_urv4l"]
+[ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/red_carpet.tscn" id="19_y2q1h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
 texture = ExtResource("3_dell3")
@@ -120,6 +121,9 @@ texture = ExtResource("9_lubdl")
 [node name="CatCarpet" parent="Background" instance=ExtResource("16_6nit4")]
 position = Vector2(2219, 1210)
 
+[node name="RedCarpet" parent="Background" instance=ExtResource("19_y2q1h")]
+position = Vector2(1448, 487)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(274, 664)
 collision_layer = 4
@@ -152,3 +156,7 @@ navigation_polygon = SubResource("NavigationPolygon_fbxh0")
 process_mode = 3
 stream = ExtResource("16_urv4l")
 bus = &"Music"
+
+[editable path="Table1"]
+[editable path="Table1/chair2"]
+[editable path="Table1/chair1"]

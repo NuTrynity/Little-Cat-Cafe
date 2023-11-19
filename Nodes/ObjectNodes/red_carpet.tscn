@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cukw642r356d0"]
+
+[ext_resource type="Texture2D" uid="uid://b5k4wojbjjwhw" path="res://Sprites/red_carpet.png" id="1_b2hy4"]
+
+[node name="RedCarpet" type="Node2D"]
+
+[node name="RedCarpet" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_b2hy4")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-318, 109, -297, -117, 306, -114, 334, 109)

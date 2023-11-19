@@ -104,9 +104,10 @@ func sit_area_act_setup():
 	patience_bar.show()
 	meal_want.show()
 	interact_area.monitoring = true
+	sit_animation()
 	
 func sit_area_act():
-	sit_animation()
+	pass
 	
 func sit_area_leave():
 	state = State.LEAVE

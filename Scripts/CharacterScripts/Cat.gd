@@ -13,6 +13,8 @@ var idleState = IdleState.STAND as State
 @export var cd_duration : float = 4.0
 @export var rating_value : int = 5
 
+@onready var cat_sprite = $CatSkin/CatSprite as Sprite2D
+
 @onready var standing_timer := Timer.new() as Timer
 @onready var pause_timer := Timer.new() as Timer
 @onready var cd_timer := Timer.new() as Timer
@@ -53,14 +55,11 @@ func _physics_process(_delta : float) -> void:
 			elif aiMvt.reached_target():
 				to_act()
 			else:
-				aiMvt.approach_target()
+				walking()
 			
 		State.ACT:
 			if !aiMvt.can_target_customer():
-				aiMvt.untarget_customer()
-				to_idle_walk()
-				pause_timer.stop()
-				start_cd_timer()
+				stop_act()
 			
 		State.HUNGRY:
 			pass
@@ -74,7 +73,7 @@ func idle():
 		return
 	# set a random target and walk towards it
 	if (idleState == IdleState.WALK):
-		aiMvt.approach_target()
+		walking()
 		if (aiMvt.reached_target()):
 			to_idle_stand()
 		
@@ -91,16 +90,27 @@ func to_idle_walk():
 	aiMvt.target_random_point()
 
 func to_approach():
+	standing_timer.stop()
 	state = State.APPROACH
 	aiMvt.speed = approach_speed
 
 func to_act():
 	state = State.ACT
-	var npc = aiMvt.target
+	var npc = aiMvt.target_npc
 	# pause timer
 	start_pause_timer()
 	npc.patience_timer.set_paused(true)
-
+	change_npc_direction(true)
+	
+func change_npc_direction(reverse:bool):
+	var sit_area = aiMvt.target.get_parent()
+	if sit_area.facing_left:
+		cat_sprite.flip_h = reverse
+		aiMvt.target_npc.npc_sprite.flip_h = reverse
+	else:
+		cat_sprite.flip_h = !reverse
+		aiMvt.target_npc.npc_sprite.flip_h = !reverse
+		
 func start_standing_timer():
 	standing_timer.wait_time = rng.randf_range(2.0, 10.0)
 	standing_timer.start()
@@ -119,15 +129,26 @@ func _on_standing_end():
 	
 func _on_pause_end():
 	# unpause, untarget
-	aiMvt.target.patience_timer.set_paused(false)
+	stop_act()
+
+func stop_act():
+	change_npc_direction(false)
+	aiMvt.target_npc.patience_timer.set_paused(false)
+	pause_timer.stop()
 	aiMvt.untarget_customer()
 	to_idle_walk()
 	start_cd_timer()
 	
+	
 func _on_cd_end():
 	on_cd = false
 	
-	
+func walking():
+	aiMvt.approach_target()
+	if velocity.x > 0:
+		cat_sprite.flip_h = false
+	else:
+		cat_sprite.flip_h = true
 
 	
 	

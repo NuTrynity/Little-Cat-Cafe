@@ -8,6 +8,7 @@ class_name CatAiMovement
 var target_point : Node2D
 
 var targeted_list = []
+var target_npc : Node2D = null
 
 func _ready():
 	speed = cat_speed
@@ -25,23 +26,24 @@ func try_target_customer() -> bool:
 	var customers = get_tree().get_nodes_in_group("customers")
 	
 	for npc in customers:
-		var meep = npc.targeter
-		var beep = npc.patience_bar.is_visible()
 		if (npc.targeter == null) && (npc.patience_bar.is_visible() && !targeted_list.has(npc)):
 			npc.targeter = self
-			target = npc
+			var sit_area = npc.aiMvt.target
+			target_npc = npc
+			target = sit_area.get_node("PlacementPoint")
 			makepath()
 			return true
 			
 	return false
 
 func can_target_customer() -> bool:
-	return target.patience_bar.is_visible()
+	return target_npc.patience_bar.is_visible()
 
 func untarget_customer():
-	targeted_list.append(target as Node2D)
-	target.targeter = null
+	targeted_list.append(target_npc as Node2D)
+	target_npc.targeter = null
 	target = null
+	target_npc = null
 
 func target_random_point():
 	target_point.global_position = choose_random_point()
