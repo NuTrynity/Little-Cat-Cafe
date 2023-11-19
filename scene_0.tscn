@@ -80,6 +80,9 @@ position = Vector2(179, -113)
 [node name="FryPan" parent="KitchenCounter2" instance=ExtResource("5_8y7s3")]
 position = Vector2(-171, -140)
 
+[node name="FryPan2" parent="KitchenCounter2" instance=ExtResource("5_8y7s3")]
+position = Vector2(10, -138)
+
 [node name="GarbageBin" parent="." instance=ExtResource("6_ye04p")]
 position = Vector2(883, 374)
 

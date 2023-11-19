@@ -24,4 +24,4 @@ position = Vector2(0, 41)
 shape = SubResource("CapsuleShape2D_s075q")
 
 [node name="CookingProgress" parent="." instance=ExtResource("4_5jrmp")]
-bar_max = 30.0
+bar_max = 50.0
