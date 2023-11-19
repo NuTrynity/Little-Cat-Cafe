@@ -6,17 +6,16 @@ extends Control
 @onready var animation = $AnimationPlayer
 @onready var timer = Timer.new()
 @onready var to_cash_timer = Timer.new()
-@onready var money_label = $Results/Money/Amt/Result
 @onready var cash_label = $Results/Cash/Amt/Result
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
+var victory_sfx = load("res://Assets/Music/Good Job!.wav")
 
 func _ready():
 	game_manager.game_end.connect(_end_day)
 	setup_timer()
 
 func _process(_delta):
-	money_label.text = str(resources.money)
 	cash_label.text = str(GlobalScript.cash_on_hand)
 
 func setup_timer():
@@ -24,30 +23,20 @@ func setup_timer():
 	timer.one_shot = true
 	timer.wait_time = 3
 	timer.connect("timeout", _next_day)
-	
-	add_child(to_cash_timer)
-	to_cash_timer.one_shot = false
-	to_cash_timer.wait_time = 0.0001
-	to_cash_timer.connect("timeout", _increase_cash)
-
-func _increase_cash():
-	if resources.money != 0:
-		GlobalScript.cash_on_hand += 5
-		resources.money -= 5
-	else:
-		to_cash_timer.stop()
 
 func _next_day():
 	animation.play("Results")
 	
 	await animation.animation_finished
-	to_cash_timer.start()
+	GlobalScript.cash_on_hand = resources.money
+	resources.money = 0
 
 func _end_day():
 	timer.start()
 	show()
 	get_tree().paused = true
 	animation.play("Game_Over")
+	AudioManager.play_sound(victory_sfx)
 
 func _on_next_day_pressed():
 	get_tree().change_scene_to_file("res://Nodes/UI/main_menu.tscn")
