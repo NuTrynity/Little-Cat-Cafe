@@ -6,10 +6,23 @@ signal meal_given()
 signal meal_taken()
 
 @export var max_amt : int = 2
+@export var rating_bonus_max : int = 25
+@export var rating_increase_amt : int = 50
+@export var rating_decrease_amt : int = 150
 
 var meal_index : int
-var money : float = 0
 var carry_amt : int = 0
+
+var money : float = 0
+var rating : int = 0
+
+# adds to rating, adds more if patience bar is higher
+func adjust_rating(amt : int, patience_bar = null):
+	rating += amt
+	
+	if patience_bar != null:
+		rating += patience_bar.ratio * rating_increase_amt
+	print("rating: ",rating)
 
 func randomize_meal_index():
 	var randomizer = RandomNumberGenerator.new()

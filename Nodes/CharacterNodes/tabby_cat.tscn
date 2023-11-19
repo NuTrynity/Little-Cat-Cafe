@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqxan0ry8e747"]
+
+[ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_3wj2m"]
+[ext_resource type="Texture2D" uid="uid://wa653jp25jou" path="res://Sprites/cat_sprites/cat2_interact.png" id="2_qqwd8"]
+
+[node name="TabbyCat" instance=ExtResource("1_3wj2m")]
+idle_speed = 120
+rating_value = 15
+approach_speed = 200
+pause_duration = 3.0
+cd_duration = 2.0
+min_stand_time = 1.0
+max_stand_time = 5.0
+
+[node name="CatSprite" parent="CatSkin" index="0"]
+texture = ExtResource("2_qqwd8")

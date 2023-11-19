@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvncyv1g0jrh0"]
+
+[ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_nkl1y"]
+[ext_resource type="Texture2D" uid="uid://dr1xkj52y4ha4" path="res://Sprites/cat_sprites/cat4_interact.png" id="2_mjjfw"]
+
+[node name="OrangeCat" instance=ExtResource("1_nkl1y")]
+idle_speed = 95
+rating_value = 25
+approach_speed = 160
+pause_duration = 6.0
+cd_duration = 3.0
+max_stand_time = 7.0
+
+[node name="CatSprite" parent="CatSkin" index="0"]
+texture = ExtResource("2_mjjfw")

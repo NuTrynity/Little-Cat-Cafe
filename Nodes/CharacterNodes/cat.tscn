@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://p8f1yfir4e6i"]
+[gd_scene load_steps=7 format=3 uid="uid://p8f1yfir4e6i"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/Cat.gd" id="1_g66q0"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_0vdjn"]
 [ext_resource type="Texture2D" uid="uid://bkkq5gfpken81" path="res://Sprites/placeholder sprites/cat.png" id="2_o7gnp"]
 [ext_resource type="PackedScene" uid="uid://djyfyi0mu4m38" path="res://Nodes/Components/ai_movement.tscn" id="3_ogy68"]
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/cat_ai_movement.gd" id="4_mdvj5"]
@@ -13,6 +14,7 @@ height = 36.0
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_g66q0")
+player_resources = ExtResource("2_0vdjn")
 
 [node name="AiMovement" parent="." instance=ExtResource("3_ogy68")]
 script = ExtResource("4_mdvj5")
