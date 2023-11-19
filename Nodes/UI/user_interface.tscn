@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7nlsk4gpsge5"]
+[gd_scene load_steps=5 format=3 uid="uid://c7nlsk4gpsge5"]
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_8h2ig"]
 [ext_resource type="PackedScene" uid="uid://b6qgbfar78s2n" path="res://Nodes/UI/resource_display.tscn" id="1_mmpr4"]
 [ext_resource type="PackedScene" uid="uid://cjhf7aubug0ap" path="res://Nodes/UI/timer.tscn" id="3_tx2o5"]
 [ext_resource type="PackedScene" uid="uid://drdi805c4pc40" path="res://Nodes/UI/pause_menu.tscn" id="4_1okjn"]
-[ext_resource type="PackedScene" uid="uid://j8ettgplafog" path="res://Nodes/UI/game_condition.tscn" id="5_mclcu"]
 
 [node name="UserInterface" type="CanvasLayer"]
-layer = 3
+layer = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_1okjn")]
+visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -22,6 +22,7 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_8h2ig")
 
 [node name="ResourceDisplay" parent="Control" instance=ExtResource("1_mmpr4")]
@@ -34,5 +35,3 @@ alignment = 0
 
 [node name="Timer" parent="Control" instance=ExtResource("3_tx2o5")]
 layout_mode = 1
-
-[node name="GameCondition" parent="." instance=ExtResource("5_mclcu")]
