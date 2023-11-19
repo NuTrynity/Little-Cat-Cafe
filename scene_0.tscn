@@ -36,6 +36,7 @@ script = ExtResource("1_6dqke")
 [node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]
 
 [node name="PC" parent="." instance=ExtResource("20_x4663")]
+layer = 2
 visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]

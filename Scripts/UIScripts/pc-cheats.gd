@@ -57,3 +57,7 @@ func _on_exit_btn_pressed():
 func _on_shop_btn_pressed():
 	$Shop.show()
 	$HomeScreen.hide()
+
+func _on_power_btn_pressed():
+	hide()
+	get_tree().paused = false
