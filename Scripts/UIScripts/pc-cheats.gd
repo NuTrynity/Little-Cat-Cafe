@@ -17,6 +17,7 @@ extends CanvasLayer
 @onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
 
 var line_text : String = ""
+var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
 	input.grab_focus()
@@ -69,15 +70,19 @@ func _on_terminal_btn_pressed():
 	$HomeScreen.hide()
 	$Terminal.show()
 	input.grab_focus()
+	AudioManager.play_sound(click)
 
 func _on_exit_btn_pressed():
 	$Shop.hide()
 	$HomeScreen.show()
+	AudioManager.play_sound(click)
 
 func _on_shop_btn_pressed():
 	$Shop.show()
 	$HomeScreen.hide()
+	AudioManager.play_sound(click)
 
 func _on_power_btn_pressed():
 	hide()
 	get_tree().paused = false
+	AudioManager.play_sound(click)

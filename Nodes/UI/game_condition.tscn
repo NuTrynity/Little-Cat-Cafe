@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://j8ettgplafog"]
+[gd_scene load_steps=9 format=3 uid="uid://j8ettgplafog"]
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_6njis"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/game_condition.gd" id="1_earey"]
@@ -48,10 +48,50 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_i4dsi"]
 length = 0.001
 
+[sub_resource type="Animation" id="Animation_xx25v"]
+resource_name = "Results"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ConditionText:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(955, 654), Vector2(955, 218)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Results:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_edh6i"]
 _data = {
 "Game_Over": SubResource("Animation_xderw"),
-"RESET": SubResource("Animation_i4dsi")
+"RESET": SubResource("Animation_i4dsi"),
+"Results": SubResource("Animation_xx25v")
 }
 
 [node name="GameCondition" type="Control"]
@@ -89,7 +129,7 @@ anchor_bottom = 0.5
 offset_left = -325.0
 offset_top = -66.0
 offset_right = 325.0
-offset_bottom = 66.0
+offset_bottom = 66.0002
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
@@ -99,7 +139,71 @@ text = "DAY END!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Results" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 94
+
+[node name="Money" type="HBoxContainer" parent="Results"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Label" type="HBoxContainer" parent="Results/Money"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Money" type="Label" parent="Results/Money/Label"]
+layout_mode = 2
+text = "Money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Amt" type="HBoxContainer" parent="Results/Money"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Results/Money/Amt"]
+layout_mode = 2
+text = "0000"
+
+[node name="Cash" type="HBoxContainer" parent="Results"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Label" type="HBoxContainer" parent="Results/Cash"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cash" type="Label" parent="Results/Cash/Label"]
+layout_mode = 2
+text = "Cash-on-Hand"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Amt" type="HBoxContainer" parent="Results/Cash"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Results/Cash/Amt"]
+layout_mode = 2
+text = "0000"
+
+[node name="NextDay" type="Button" parent="Results"]
+layout_mode = 2
+text = "Go To Next Day"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_edh6i")
 }
+
+[connection signal="pressed" from="Results/NextDay" to="." method="_on_next_day_pressed"]

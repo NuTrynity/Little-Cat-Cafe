@@ -14,7 +14,8 @@ config/name="GWJ_Project"
 run/main_scene="res://Nodes/UI/main_menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/image="res://GWJ-Full-Logo-tag-Orange2.png"
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

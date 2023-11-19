@@ -4,6 +4,8 @@ extends Control
 @onready var main_menu_stream = $MainMenuMusic
 @onready var options_menu = $CenterContainer/OptionsMenu
 
+var click = load("res://Assets/SFX/click_sfx.ogg")
+
 func _ready():
 	$CenterContainer/Buttons/Play.grab_focus()
 	options_menu.back.connect(_show_menu)
@@ -14,20 +16,25 @@ func _show_menu():
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scene_0.tscn")
+	AudioManager.play_sound(click)
 
 func _on_options_pressed():
 	$CenterContainer/Buttons.hide()
 	$CenterContainer/OptionsMenu.show()
+	AudioManager.play_sound(click)
 
 func _on_quit_pressed():
 	$CenterContainer/Confirmation/Container/Buttons/No.grab_focus()
 	$CenterContainer/Buttons.hide()
 	$CenterContainer/Confirmation.show()
+	AudioManager.play_sound(click)
 
 func _on_yes_pressed():
 	get_tree().quit()
+	AudioManager.play_sound(click)
 
 func _on_no_pressed():
 	$CenterContainer/Buttons/Play.grab_focus()
 	$CenterContainer/Buttons.show()
 	$CenterContainer/Confirmation.hide()
+	AudioManager.play_sound(click)

@@ -11,6 +11,8 @@ signal item_bought
 @onready var price_label = $price
 @onready var btn = $btn
 
+var click = load("res://Assets/SFX/click_sfx.ogg")
+
 func _ready():
 	image_rect.texture = image
 	item_label.text = item_name
@@ -20,6 +22,7 @@ func _on_btn_pressed():
 	if GlobalScript.cash_on_hand >= item_price:
 		GlobalScript.cash_on_hand -= item_price
 		item_bought.emit()
+		AudioManager.play_sound(click)
 		
 		if buy_once == true:
 			btn.text = "Sold Out"
