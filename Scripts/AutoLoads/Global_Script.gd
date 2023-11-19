@@ -1,5 +1,7 @@
 extends Node
 
+var cash_on_hand : float
+
 var meal_types : Dictionary = {
 	0: {
 		"name" : "omurice",

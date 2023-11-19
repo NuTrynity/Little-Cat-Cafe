@@ -6,11 +6,16 @@ extends CanvasLayer
 @onready var input = $Terminal/Container/InputBlock/LineEdit
 @onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 @onready var output_block = $Terminal/Container/OutputBlock
+@onready var chef_cat = $Shop/PanelContainer/VBoxContainer/GridContainer/item1
 
 var line_text : String = ""
 
 func _ready():
 	input.grab_focus()
+	chef_cat.item_bought.connect(_chef_bought)
+
+func _chef_bought():
+	print("chef bought")
 
 func _on_line_edit_text_submitted(new_text):
 	line_text = new_text
@@ -22,13 +27,12 @@ func output_text():
 	
 	if line_text == "sudo --help":
 		line.text = "Cheats:
-		sudo give money - gives 999 money
-		sudo give rating - gives 5 star rating
+		sudo give money - gives 9999 spendable funds
 		
 		exit - exits the terminal
 		clear - erases the terminal"
 	elif line_text == cheats[0]:
-		player_resources.money += 999
+		GlobalScript.cash_on_hand += 9999
 		line.text = "Cheat Activated"
 	elif line_text == "exit":
 		$HomeScreen.show()

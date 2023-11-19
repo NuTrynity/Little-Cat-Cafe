@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://j8ettgplafog"]
+[gd_scene load_steps=8 format=3 uid="uid://j8ettgplafog"]
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_6njis"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/game_condition.gd" id="1_earey"]
 [ext_resource type="Resource" uid="uid://d0ojrka58d027" path="res://CustomResources/GameManager.tres" id="3_38cef"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="3_mtk45"]
 
 [sub_resource type="Animation" id="Animation_xderw"]
 resource_name = "Game_Over"
@@ -64,6 +65,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_6njis")
 script = ExtResource("1_earey")
+resources = ExtResource("3_mtk45")
 game_manager = ExtResource("3_38cef")
 
 [node name="Background" type="ColorRect" parent="."]
