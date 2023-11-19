@@ -29,7 +29,6 @@ func _next_day():
 	
 	await animation.animation_finished
 	GlobalScript.cash_on_hand = resources.money
-	resources.money = 0
 
 func _end_day():
 	timer.start()
@@ -42,3 +41,4 @@ func _on_next_day_pressed():
 	get_tree().change_scene_to_file("res://Nodes/UI/main_menu.tscn")
 	get_tree().paused = false
 	AudioManager.play_sound(click)
+	resources.money = 0
