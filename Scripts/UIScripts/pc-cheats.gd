@@ -7,12 +7,12 @@ extends CanvasLayer
 @onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 @onready var output_block = $Terminal/Container/OutputBlock
 
-@onready var chef_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item1
-@onready var terminal = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item2
-@onready var grey_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item3
-@onready var tabby_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item4
-@onready var brown_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item5
-@onready var orange_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item6
+@onready var chef_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat5
+@onready var terminal = $Shop/PanelContainer/VBoxContainer/ScrollContainer/ShopItems/terminal
+@onready var grey_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat1
+@onready var tabby_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat2
+@onready var brown_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat3
+@onready var orange_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat4
 
 @onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
 
@@ -21,7 +21,7 @@ var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
 	input.grab_focus()
-	chef_cat.item_bought.connect(_chef_bought)
+	#chef_cat.item_bought.connect(_chef_bought)
 	terminal.item_bought.connect(_terminal_bought)
 
 func _process(_delta):
@@ -30,9 +30,9 @@ func _process(_delta):
 func _terminal_bought():
 	$HomeScreen/Apps/Terminal.show()
 
-func _chef_bought():
-	GlobalScript.shop[0]["buyed"] = true
-	GlobalScript.shop[0]["owned"] += 1
+#func _chef_bought():
+#	GlobalScript.shop[0]["buyed"] = true
+#	GlobalScript.shop[0]["owned"] += 1
 
 func _on_line_edit_text_submitted(new_text):
 	line_text = new_text

@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxpgnxk6kur4k"]
+
+[ext_resource type="PackedScene" uid="uid://ck8um6b5n0atu" path="res://Nodes/UI/item_1.tscn" id="1_jxsp0"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/cat_item.gd" id="2_mevir"]
+[ext_resource type="Texture2D" uid="uid://cv7dc2j5y7gup" path="res://Sprites/cat_sprites/cat1_interact.png" id="3_vw7wd"]
+[ext_resource type="Texture2D" uid="uid://wa653jp25jou" path="res://Sprites/cat_sprites/cat2_interact.png" id="4_a7qha"]
+[ext_resource type="Texture2D" uid="uid://ctmmpd3v5bgd2" path="res://Sprites/cat_sprites/cat3_interact.png" id="5_uuxfx"]
+[ext_resource type="Texture2D" uid="uid://dr1xkj52y4ha4" path="res://Sprites/cat_sprites/cat4_interact.png" id="6_cejqc"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/chefcat_item.gd" id="7_6khjy"]
+[ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/cat5_interact.png" id="8_cqvth"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/terminal_item.gd" id="9_bi7kr"]
+[ext_resource type="Texture2D" uid="uid://ccrxjp3ow8ctq" path="res://Sprites/terminal_icon.png" id="10_xfj1h"]
+
+[node name="ShopItems" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cat1" parent="." instance=ExtResource("1_jxsp0")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("2_mevir")
+item_node_path = "res://Nodes/CharacterNodes/grey_cat.tscn"
+image = ExtResource("3_vw7wd")
+item_name = "Grey Cat"
+item_price = 200.0
+
+[node name="cat2" parent="." instance=ExtResource("1_jxsp0")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("2_mevir")
+item_node_path = "res://Nodes/CharacterNodes/tabby_cat.tscn"
+image = ExtResource("4_a7qha")
+item_name = "Tabby Cat"
+item_price = 300.0
+
+[node name="cat3" parent="." instance=ExtResource("1_jxsp0")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("2_mevir")
+item_node_path = "res://Nodes/CharacterNodes/brown_cat.tscn"
+image = ExtResource("5_uuxfx")
+item_name = "Brown Cat"
+item_price = 350.0
+
+[node name="cat4" parent="." instance=ExtResource("1_jxsp0")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("2_mevir")
+item_node_path = "res://Nodes/CharacterNodes/orange_cat.tscn"
+image = ExtResource("6_cejqc")
+item_name = "Orange Cat"
+item_price = 500.0
+
+[node name="cat5" parent="." instance=ExtResource("1_jxsp0")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("7_6khjy")
+item_node_path = "res://Nodes/CharacterNodes/chef_cat.tscn"
+image = ExtResource("8_cqvth")
+item_name = "Chef Cat"
+item_price = 1000.0
+
+[node name="terminal" parent="." instance=ExtResource("1_jxsp0")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("9_bi7kr")
+image = ExtResource("10_xfj1h")
+item_name = "Terminal"
+buy_once = true

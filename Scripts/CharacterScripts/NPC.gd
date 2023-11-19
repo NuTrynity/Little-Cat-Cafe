@@ -196,7 +196,7 @@ func grab_meal(meal):
 	interact_area.monitoring = false
 	
 	GlobalScript.inventory[meal_i_want]["count"] -= 1
-	player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
+	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"]
 	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
 
 '''

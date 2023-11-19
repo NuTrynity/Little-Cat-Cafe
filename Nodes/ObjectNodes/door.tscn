@@ -15,6 +15,7 @@ table_manager = ExtResource("2_tesch")
 texture = ExtResource("2_fyar6")
 
 [node name="LeaveArea" type="Area2D" parent="." groups=["LeaveArea"]]
+position = Vector2(0, 76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveArea"]
 position = Vector2(-8, -7)

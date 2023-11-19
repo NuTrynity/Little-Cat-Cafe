@@ -1,16 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://c74trmyu24o5f"]
+[gd_scene load_steps=22 format=3 uid="uid://c74trmyu24o5f"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/pc-cheats.gd" id="1_exmnn"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_16un1"]
 [ext_resource type="FontFile" uid="uid://b2j40l3i17mb3" path="res://Assets/Fonts/Ubuntu-Regular.ttf" id="3_12bvm"]
 [ext_resource type="Theme" path="res://Assets/Theme/computer_theme.tres" id="4_h8cb8"]
-[ext_resource type="Texture2D" uid="uid://b35ue1pwscdi" path="res://Sprites/pc_wallpaper.png" id="4_tglnk"]
 [ext_resource type="Texture2D" uid="uid://ccrxjp3ow8ctq" path="res://Sprites/terminal_icon.png" id="5_kb4ty"]
 [ext_resource type="Texture2D" uid="uid://y3een5o8cc1q" path="res://Sprites/cat_sprites/cat1_sleep.png" id="6_nu3p0"]
 [ext_resource type="Texture2D" uid="uid://bswkq4oo2kioy" path="res://Sprites/pc_off_icon.png" id="7_3eo4f"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="8_je8gi"]
-[ext_resource type="PackedScene" uid="uid://dxpgnxk6kur4k" path="res://Nodes/UI/shop_items.tscn" id="11_rkkx5"]
+[ext_resource type="PackedScene" uid="uid://ck8um6b5n0atu" path="res://Nodes/UI/item_1.tscn" id="10_dua38"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/cat_item.gd" id="11_cg3vw"]
 [ext_resource type="Texture2D" uid="uid://cfkw82i5ubi5p" path="res://Sprites/pc_background_cat.png" id="12_5jhfg"]
+[ext_resource type="Texture2D" uid="uid://wa653jp25jou" path="res://Sprites/cat_sprites/cat2_interact.png" id="13_blw8g"]
+[ext_resource type="Texture2D" uid="uid://cv7dc2j5y7gup" path="res://Sprites/cat_sprites/cat1_interact.png" id="13_pmayu"]
+[ext_resource type="Texture2D" uid="uid://ctmmpd3v5bgd2" path="res://Sprites/cat_sprites/cat3_interact.png" id="14_u5nah"]
+[ext_resource type="Texture2D" uid="uid://dr1xkj52y4ha4" path="res://Sprites/cat_sprites/cat4_interact.png" id="15_h5xtl"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/chefcat_item.gd" id="16_daw3x"]
+[ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/cat5_interact.png" id="17_phx5u"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/terminal_item.gd" id="18_todpx"]
 
 [sub_resource type="Theme" id="Theme_vns77"]
 default_font = ExtResource("3_12bvm")
@@ -37,6 +44,7 @@ player_resources = ExtResource("2_16un1")
 cheats = Array[String](["sudo give money", "", "", "", ""])
 
 [node name="HomeScreen" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -59,12 +67,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tglnk")
+texture = ExtResource("12_5jhfg")
 
 [node name="Apps" type="VBoxContainer" parent="HomeScreen"]
 layout_mode = 2
-offset_right = 256.0
-offset_bottom = 536.0
+offset_left = 54.0
+offset_top = 45.0
+offset_right = 310.0
+offset_bottom = 581.0
 size_flags_vertical = 3
 theme_override_constants/separation = 64
 
@@ -76,6 +86,7 @@ layout_mode = 2
 texture_normal = ExtResource("6_nu3p0")
 
 [node name="Label" type="Label" parent="HomeScreen/Apps/Shop"]
+modulate = Color(0.54902, 0.054902, 0.0627451, 1)
 layout_mode = 2
 text = "Nyamazon"
 horizontal_alignment = 1
@@ -97,12 +108,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PowerBtn" type="TextureButton" parent="HomeScreen"]
+modulate = Color(1, 1, 1, 0.0196078)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -124.0
-offset_right = 124.0
+offset_left = 1736.0
+offset_top = -1098.0
+offset_right = 1860.0
+offset_bottom = -974.0
 grow_vertical = 0
 texture_normal = ExtResource("7_3eo4f")
 stretch_mode = 0
@@ -160,7 +174,6 @@ layout_mode = 2
 alignment = 2
 
 [node name="Shop" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -213,6 +226,7 @@ size_flags_stretch_ratio = 14.95
 text = "Nyamazon"
 
 [node name="ExitBtn" type="Button" parent="Shop/PanelContainer/VBoxContainer/TitleBar"]
+modulate = Color(1, 1, 1, 0.0745098)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "X"
@@ -223,8 +237,62 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fvagt")
 
-[node name="ShopItems" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer" instance=ExtResource("11_rkkx5")]
+[node name="GridContainer" type="GridContainer" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 128
+theme_override_constants/v_separation = 32
+columns = 3
+
+[node name="cat1" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("11_cg3vw")
+item_node_path = "res://Nodes/CharacterNodes/grey_cat.tscn"
+image = ExtResource("13_pmayu")
+item_name = "Grey Cat"
+item_price = 100.0
+
+[node name="cat2" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("11_cg3vw")
+item_node_path = "res://Nodes/CharacterNodes/tabby_cat.tscn"
+image = ExtResource("13_blw8g")
+item_name = "Tabby Cat"
+item_price = 250.0
+
+[node name="cat3" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("11_cg3vw")
+item_node_path = "res://Nodes/CharacterNodes/brown_cat.tscn"
+image = ExtResource("14_u5nah")
+item_name = "Brown Cat"
+item_price = 300.0
+
+[node name="cat4" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("11_cg3vw")
+item_node_path = "res://Nodes/CharacterNodes/orange_cat.tscn"
+image = ExtResource("15_h5xtl")
+item_name = "Orange Cat"
+item_price = 500.0
+
+[node name="cat5" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("16_daw3x")
+item_node_path = "res://Nodes/CharacterNodes/chef_cat.tscn"
+image = ExtResource("17_phx5u")
+item_name = "Chef Cat"
+item_price = 1000.0
+
+[node name="terminal" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+layout_mode = 2
+alignment = 1
+script = ExtResource("18_todpx")
 
 [node name="Cash" type="Label" parent="Shop/PanelContainer/VBoxContainer"]
 layout_mode = 2

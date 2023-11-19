@@ -5,4 +5,4 @@ extends VBoxContainer
 @onready var money_label = $Money
 
 func _process(_delta):
-	money_label.text = str(player_resources.money) + " $"
+	money_label.text = str(GlobalScript.cash_on_hand) + " $"

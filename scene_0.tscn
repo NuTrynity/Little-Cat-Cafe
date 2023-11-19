@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=22 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -15,14 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://cubfrbk4ecgv4" path="res://Nodes/ObjectNodes/table.tscn" id="14_l1tow"]
 [ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="16_6nit4"]
 [ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="16_urv4l"]
-[ext_resource type="PackedScene" uid="uid://b4c6ax0gp2sb3" path="res://Nodes/CharacterNodes/grey_cat.tscn" id="19_1kawg"]
 [ext_resource type="PackedScene" uid="uid://j8ettgplafog" path="res://Nodes/UI/game_condition.tscn" id="19_nxtfs"]
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="19_y2q1h"]
-[ext_resource type="PackedScene" uid="uid://dqxan0ry8e747" path="res://Nodes/CharacterNodes/tabby_cat.tscn" id="20_0p2ex"]
 [ext_resource type="PackedScene" uid="uid://c74trmyu24o5f" path="res://Nodes/UI/pc.tscn" id="20_x4663"]
-[ext_resource type="PackedScene" uid="uid://rqqg70g4oe6h" path="res://Nodes/CharacterNodes/brown_cat.tscn" id="21_56e1g"]
-[ext_resource type="PackedScene" uid="uid://bvncyv1g0jrh0" path="res://Nodes/CharacterNodes/orange_cat.tscn" id="22_e4d4t"]
-[ext_resource type="PackedScene" uid="uid://bpymu566dpahb" path="res://Nodes/CharacterNodes/chef_cat.tscn" id="23_2lhbw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
@@ -64,6 +59,9 @@ position = Vector2(1389, 505)
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
 position = Vector2(2000, 263)
+
+[node name="ChefCatSpawn" type="Node2D" parent="."]
+position = Vector2(878, 514)
 
 [node name="KitchenCounter" parent="." instance=ExtResource("3_4pwpb")]
 position = Vector2(514, 409)
@@ -138,21 +136,6 @@ bus = &"Music"
 [node name="EndDay" type="CanvasLayer" parent="."]
 
 [node name="GameCondition" parent="EndDay" instance=ExtResource("19_nxtfs")]
-
-[node name="GreyCat" parent="." instance=ExtResource("19_1kawg")]
-position = Vector2(2130, 1182)
-
-[node name="TabbyCat" parent="." instance=ExtResource("20_0p2ex")]
-position = Vector2(1601, 556)
-
-[node name="BrownCat" parent="." instance=ExtResource("21_56e1g")]
-position = Vector2(1279, 703)
-
-[node name="OrangeCat" parent="." instance=ExtResource("22_e4d4t")]
-position = Vector2(2156, 593)
-
-[node name="ChefCat" parent="." instance=ExtResource("23_2lhbw")]
-position = Vector2(906, 547)
 
 [editable path="Table1"]
 [editable path="Table1/chair2"]
