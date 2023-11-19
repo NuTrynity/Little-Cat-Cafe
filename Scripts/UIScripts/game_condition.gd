@@ -11,8 +11,6 @@ extends Control
 func _ready():
 	game_manager.game_end.connect(_end_day)
 	setup_timer()
-	_end_day()
-	resources.money = 1000
 
 func _process(_delta):
 	money_label.text = str(resources.money)
@@ -21,12 +19,12 @@ func _process(_delta):
 func setup_timer():
 	add_child(timer)
 	timer.one_shot = true
-	timer.wait_time = 5
+	timer.wait_time = 3
 	timer.connect("timeout", _next_day)
 	
 	add_child(to_cash_timer)
 	to_cash_timer.one_shot = false
-	to_cash_timer.wait_time = 0.001
+	to_cash_timer.wait_time = 0.0001
 	to_cash_timer.connect("timeout", _increase_cash)
 
 func _increase_cash():
