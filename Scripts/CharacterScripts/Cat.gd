@@ -11,6 +11,7 @@ var idleState = IdleState.STAND as State
 @export var idle_speed : int = 70
 @export var approach_speed : int = 110
 @export var cd_duration : float = 4.0
+@export var rating_value : int = 5
 
 @onready var standing_timer := Timer.new() as Timer
 @onready var pause_timer := Timer.new() as Timer

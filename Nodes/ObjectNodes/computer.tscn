@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://tqd0mxisnb8a"]
+
+[ext_resource type="Texture2D" uid="uid://cfbu87a3ripl1" path="res://Sprites/laptop.png" id="1_hl1rb"]
+
+[node name="Computer" type="Node2D"]
+
+[node name="Laptop" type="Sprite2D" parent="."]
+position = Vector2(6, -33)
+texture = ExtResource("1_hl1rb")
