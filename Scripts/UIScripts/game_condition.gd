@@ -2,11 +2,14 @@ extends Control
 
 @export var resources : PlayerMealCarry
 @export var game_manager : GameManager
+
 @onready var animation = $AnimationPlayer
 @onready var timer = Timer.new()
 @onready var to_cash_timer = Timer.new()
 @onready var money_label = $Results/Money/Amt/Result
 @onready var cash_label = $Results/Cash/Amt/Result
+
+var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
 	game_manager.game_end.connect(_end_day)
@@ -47,5 +50,6 @@ func _end_day():
 	animation.play("Game_Over")
 
 func _on_next_day_pressed():
-	get_tree().change_scene_to_file("res://scene_0.tscn")
+	get_tree().change_scene_to_file("res://Nodes/UI/main_menu.tscn")
 	get_tree().paused = false
+	AudioManager.play_sound(click)

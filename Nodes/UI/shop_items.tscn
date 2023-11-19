@@ -67,3 +67,4 @@ script = ExtResource("9_bi7kr")
 image = ExtResource("10_xfj1h")
 item_name = "Terminal"
 buy_once = true
+buy_amt = 5000

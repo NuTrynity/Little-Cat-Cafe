@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/UIScripts/pc-cheats.gd" id="1_exmnn"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_16un1"]
 [ext_resource type="FontFile" uid="uid://b2j40l3i17mb3" path="res://Assets/Fonts/Ubuntu-Regular.ttf" id="3_12bvm"]
-[ext_resource type="Theme" path="res://Assets/Theme/computer_theme.tres" id="4_h8cb8"]
+[ext_resource type="Theme" uid="uid://dbohgm7io0udj" path="res://Assets/Theme/computer_theme.tres" id="4_h8cb8"]
 [ext_resource type="Texture2D" uid="uid://b35ue1pwscdi" path="res://Sprites/pc_wallpaper.png" id="4_tglnk"]
 [ext_resource type="Texture2D" uid="uid://ccrxjp3ow8ctq" path="res://Sprites/terminal_icon.png" id="5_kb4ty"]
 [ext_resource type="Texture2D" uid="uid://y3een5o8cc1q" path="res://Sprites/cat_sprites/cat1_sleep.png" id="6_nu3p0"]
@@ -37,6 +37,7 @@ player_resources = ExtResource("2_16un1")
 cheats = Array[String](["sudo give money", "", "", "", ""])
 
 [node name="HomeScreen" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -160,7 +161,6 @@ layout_mode = 2
 alignment = 2
 
 [node name="Shop" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -225,6 +225,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fvagt")
 
 [node name="ShopItems" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer" instance=ExtResource("11_rkkx5")]
 layout_mode = 2
+columns = 3
 
 [node name="Cash" type="Label" parent="Shop/PanelContainer/VBoxContainer"]
 layout_mode = 2
