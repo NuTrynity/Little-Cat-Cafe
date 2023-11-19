@@ -25,6 +25,7 @@ func _terminal_bought():
 
 func _chef_bought():
 	GlobalScript.shop[0]["buyed"] = true
+	GlobalScript.shop[0]["owned"] += 1
 
 func _on_line_edit_text_submitted(new_text):
 	line_text = new_text

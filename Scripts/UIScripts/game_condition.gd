@@ -17,6 +17,7 @@ func setup_timer():
 
 func _next_day():
 	get_tree().change_scene_to_file("res://Nodes/UI/main_menu.tscn")
+	get_tree().paused = false
 
 func _end_day():
 	GlobalScript.cash_on_hand += resources.money

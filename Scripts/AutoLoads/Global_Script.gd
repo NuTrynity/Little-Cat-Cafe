@@ -30,10 +30,12 @@ var shop : Dictionary = {
 	0 : {
 		"name" : "chef_cat",
 		"price" : 1000,
+		"owned" : 0,
 		"buyed" : false
 	},
 	1 : {
 		"name" : "cats",
 		"price" : 500,
+		"owned" : 0
 	}
 }

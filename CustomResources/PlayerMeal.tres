@@ -5,3 +5,6 @@
 [resource]
 script = ExtResource("1_s52ys")
 max_amt = 2
+rating_bonus_max = 25
+rating_increase_amt = 50
+rating_decrease_amt = 150
