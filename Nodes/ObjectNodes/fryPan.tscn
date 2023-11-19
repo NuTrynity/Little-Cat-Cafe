@@ -27,4 +27,4 @@ shape = SubResource("CircleShape2D_h61jx")
 bar_max = 100.0
 
 [node name="TargetPoint" type="Node2D" parent="."]
-position = Vector2(-17, 25)
+position = Vector2(24, 25)

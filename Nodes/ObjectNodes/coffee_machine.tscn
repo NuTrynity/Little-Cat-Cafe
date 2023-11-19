@@ -27,4 +27,4 @@ shape = SubResource("CapsuleShape2D_s075q")
 bar_max = 50.0
 
 [node name="TargetPoint" type="Node2D" parent="."]
-position = Vector2(0, 162)
+position = Vector2(35, 162)
