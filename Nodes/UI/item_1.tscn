@@ -11,7 +11,9 @@ script = ExtResource("1_dghsc")
 
 [node name="img" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 texture = ExtResource("1_63dtj")
+stretch_mode = 3
 
 [node name="label" type="Label" parent="."]
 layout_mode = 2

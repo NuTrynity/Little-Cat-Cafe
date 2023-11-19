@@ -15,7 +15,7 @@ func _ready():
 
 func check_chef_cat():
 	if GlobalScript.shop[0]["buyed"] == true:
-		var chef_cat
+		var chef_cat #instanciate chef cat here
 
 func randomize_spawn():
 	npc_spawn_time = randomizer.randf_range(1, 10)
