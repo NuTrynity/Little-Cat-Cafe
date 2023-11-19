@@ -22,7 +22,7 @@ func _physics_process(_delta : float) -> void:
 			elif aiMvt.reached_target():
 				chef_to_act()
 			else:
-				aiMvt.approach_target()
+				walking()
 				
 		State.ACT:
 			if !targeted_device.is_cooking:
@@ -56,6 +56,8 @@ func untarget_device():
 
 func chef_to_act():
 	state = State.ACT
+	
+	animations.interact()
 	
 func chef_stop_act():
 	untarget_device()

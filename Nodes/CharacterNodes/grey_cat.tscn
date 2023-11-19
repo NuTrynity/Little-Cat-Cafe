@@ -8,6 +8,10 @@ idle_speed = 80
 approach_speed = 120
 pause_duration = 5.0
 
+[node name="CatSkin" parent="." index="1"]
+sprite_idx = 1
+
 [node name="CatSprite" parent="CatSkin" index="0"]
-position = Vector2(-14, -93)
+position = Vector2(-11, -82)
+scale = Vector2(1.024, 0.976)
 texture = ExtResource("2_67inw")

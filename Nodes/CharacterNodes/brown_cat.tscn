@@ -10,5 +10,8 @@ approach_speed = 100
 pause_duration = 8.0
 min_stand_time = 4.0
 
+[node name="CatSkin" parent="." index="1"]
+sprite_idx = 3
+
 [node name="CatSprite" parent="CatSkin" index="0"]
 texture = ExtResource("2_swtc0")

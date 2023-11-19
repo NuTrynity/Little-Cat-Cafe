@@ -12,5 +12,8 @@ cd_duration = 2.0
 min_stand_time = 1.0
 max_stand_time = 5.0
 
+[node name="CatSkin" parent="." index="1"]
+sprite_idx = 2
+
 [node name="CatSprite" parent="CatSkin" index="0"]
 texture = ExtResource("2_qqwd8")

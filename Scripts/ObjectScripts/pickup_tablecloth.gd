@@ -3,7 +3,7 @@ extends Node2D
 @export var player_resources : PlayerMealCarry
 
 @onready var interact_area = $InteractionArea
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = get_tree().get_first_node_in_group("player") as CharacterBody2D
 @onready var tray := player.get_node("PlayerSkin").get_node("Tray") as Node2D
 @onready var placement_pts = $PlacementPoints
 
@@ -27,8 +27,15 @@ func pickup_is_empty():
 	return true
 
 func pickup_meal() -> Node2D:
+	var point_list = []
 	for point in placement_pts.get_children():
 		if !point.get_is_empty():
-			return point.remove_item()
-	("null")
-	return null
+			point_list.append(point)
+	var closest_point = point_list[0]
+	var min_dist = 9999
+	for point in point_list:
+		var dist = abs(player.global_position.x - point.global_position.x)
+		if dist < min_dist:
+			closest_point = point
+			min_dist = dist
+	return closest_point.remove_item()
