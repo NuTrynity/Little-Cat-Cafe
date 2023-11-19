@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbnkvd6n5jx3e"
-path="res://.godot/imported/anger_vein.png-32c1ca895290c5155e49983ab842eeb1.ctex"
+uid="uid://b35ue1pwscdi"
+path="res://.godot/imported/pc_wallpaper.png-2478d659f8112f4ee511ab88cb6cbfee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/anger_vein.png"
-dest_files=["res://.godot/imported/anger_vein.png-32c1ca895290c5155e49983ab842eeb1.ctex"]
+source_file="res://Sprites/pc_wallpaper.png"
+dest_files=["res://.godot/imported/pc_wallpaper.png-2478d659f8112f4ee511ab88cb6cbfee.ctex"]
 
 [params]
 

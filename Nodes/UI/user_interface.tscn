@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://j8ettgplafog" path="res://Nodes/UI/game_condition.tscn" id="5_mclcu"]
 
 [node name="UserInterface" type="CanvasLayer"]
+layer = 3
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_1okjn")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -31,7 +34,5 @@ alignment = 0
 
 [node name="Timer" parent="Control" instance=ExtResource("3_tx2o5")]
 layout_mode = 1
-
-[node name="PauseMenu" parent="." instance=ExtResource("4_1okjn")]
 
 [node name="GameCondition" parent="." instance=ExtResource("5_mclcu")]

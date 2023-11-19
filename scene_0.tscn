@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=30 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="16_6nit4"]
 [ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="16_urv4l"]
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="19_y2q1h"]
+[ext_resource type="PackedScene" uid="uid://c74trmyu24o5f" path="res://Nodes/UI/pc.tscn" id="20_x4663"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwwdi"]
 texture = ExtResource("3_dell3")
@@ -123,6 +124,9 @@ position = Vector2(2219, 1210)
 
 [node name="LongCarpet" parent="Background" instance=ExtResource("19_y2q1h")]
 position = Vector2(1389, 505)
+
+[node name="PC" parent="." instance=ExtResource("20_x4663")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(274, 664)
