@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c74trmyu24o5f"]
+[gd_scene load_steps=15 format=3 uid="uid://c74trmyu24o5f"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/pc-cheats.gd" id="1_exmnn"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_16un1"]
@@ -12,10 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://ck8um6b5n0atu" path="res://Nodes/UI/item_1.tscn" id="10_dua38"]
 [ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/chefcat_interact.png" id="11_mn2r4"]
 [ext_resource type="Texture2D" uid="uid://cfkw82i5ubi5p" path="res://Sprites/pc_background_cat.png" id="12_5jhfg"]
-[ext_resource type="Texture2D" uid="uid://cv7dc2j5y7gup" path="res://Sprites/cat_sprites/cat1_interact.png" id="12_kudd5"]
-[ext_resource type="Texture2D" uid="uid://wa653jp25jou" path="res://Sprites/cat_sprites/cat2_interact.png" id="14_dg6ky"]
-[ext_resource type="Texture2D" uid="uid://ctmmpd3v5bgd2" path="res://Sprites/cat_sprites/cat3_interact.png" id="15_r2tg6"]
-[ext_resource type="Texture2D" uid="uid://dr1xkj52y4ha4" path="res://Sprites/cat_sprites/cat4_interact.png" id="16_45sdn"]
 
 [sub_resource type="Theme" id="Theme_vns77"]
 default_font = ExtResource("3_12bvm")
@@ -26,13 +22,6 @@ content_margin_left = 64.0
 content_margin_top = 16.0
 content_margin_right = 64.0
 content_margin_bottom = 48.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twef4"]
-content_margin_left = 64.0
-content_margin_top = 0.0
-content_margin_right = 64.0
-content_margin_bottom = 64.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="PC" type="CanvasLayer"]
@@ -166,6 +155,7 @@ alignment = 2
 
 [node name="Shop" type="Control" parent="."]
 visible = false
+clip_contents = true
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -222,19 +212,13 @@ size_flags_horizontal = 3
 text = "X"
 flat = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Shop/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_twef4")
-
-[node name="GridContainer" type="GridContainer" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="Shop/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 128
-theme_override_constants/v_separation = 64
-columns = 3
+columns = 4
 
-[node name="item1" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+[node name="item1" parent="Shop/PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("10_dua38")]
 layout_mode = 2
 alignment = 1
 image = ExtResource("11_mn2r4")
@@ -242,35 +226,7 @@ item_name = "Chef Cat"
 item_price = 1000.0
 buy_once = true
 
-[node name="item3" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
-layout_mode = 2
-alignment = 1
-image = ExtResource("12_kudd5")
-item_name = "Grey Cat"
-item_price = 100.0
-
-[node name="item4" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
-layout_mode = 2
-alignment = 1
-image = ExtResource("14_dg6ky")
-item_name = "Tabby Cat"
-item_price = 250.0
-
-[node name="item5" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
-layout_mode = 2
-alignment = 1
-image = ExtResource("15_r2tg6")
-item_name = "Brown Cat"
-item_price = 300.0
-
-[node name="item6" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
-layout_mode = 2
-alignment = 1
-image = ExtResource("16_45sdn")
-item_name = "Orange Cat"
-item_price = 500.0
-
-[node name="item2" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("10_dua38")]
+[node name="item2" parent="Shop/PanelContainer/VBoxContainer/GridContainer" instance=ExtResource("10_dua38")]
 layout_mode = 2
 alignment = 1
 image = ExtResource("5_kb4ty")

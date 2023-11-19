@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=26 format=3 uid="uid://bi18vgrte8p7r"]
-=======
 [gd_scene load_steps=27 format=3 uid="uid://bi18vgrte8p7r"]
->>>>>>> 129a78e110b78fa722e78961eadaf5194af04385
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -26,11 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c74trmyu24o5f" path="res://Nodes/UI/pc.tscn" id="20_x4663"]
 [ext_resource type="PackedScene" uid="uid://rqqg70g4oe6h" path="res://Nodes/CharacterNodes/brown_cat.tscn" id="21_56e1g"]
 [ext_resource type="PackedScene" uid="uid://bvncyv1g0jrh0" path="res://Nodes/CharacterNodes/orange_cat.tscn" id="22_e4d4t"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://bp05r81phdmge" path="res://Nodes/ObjectNodes/cat_spawner.tscn" id="23_xv511"]
-=======
 [ext_resource type="PackedScene" uid="uid://bpymu566dpahb" path="res://Nodes/CharacterNodes/chef_cat.tscn" id="23_2lhbw"]
->>>>>>> 129a78e110b78fa722e78961eadaf5194af04385
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
@@ -159,13 +151,8 @@ position = Vector2(1279, 703)
 [node name="OrangeCat" parent="." instance=ExtResource("22_e4d4t")]
 position = Vector2(2156, 593)
 
-<<<<<<< HEAD
-[node name="CatSpawner" parent="." instance=ExtResource("23_xv511")]
-position = Vector2(1197, 411)
-=======
 [node name="ChefCat" parent="." instance=ExtResource("23_2lhbw")]
 position = Vector2(906, 547)
->>>>>>> 129a78e110b78fa722e78961eadaf5194af04385
 
 [editable path="Table1"]
 [editable path="Table1/chair2"]
