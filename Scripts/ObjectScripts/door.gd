@@ -5,17 +5,13 @@ extends Node2D
 @onready var npc_spawn_timer = Timer.new()
 @onready var randomizer = RandomNumberGenerator.new()
 
+var grey_cat = preload("res://Nodes/CharacterNodes/grey_cat.tscn")
 var npc = preload("res://Nodes/CharacterNodes/npc.tscn")
 var npc_spawn_time : float
 
 func _ready():
 	setup_timer()
 	npc_spawn_timer.start()
-	check_chef_cat()
-
-func check_chef_cat():
-	if GlobalScript.shop[0]["buyed"] == true:
-		var chef_cat #instanciate chef cat here
 
 func randomize_spawn():
 	npc_spawn_time = randomizer.randf_range(1, 10)

@@ -29,13 +29,27 @@ var inventory : Dictionary = {
 var shop : Dictionary = {
 	0 : {
 		"name" : "chef_cat",
-		"price" : 1000,
 		"owned" : 0,
 		"buyed" : false
 	},
 	1 : {
-		"name" : "cats",
-		"price" : 500,
-		"owned" : 0
-	}
+		"name" : "grey_cat",
+		"owned" : 5,
+		"buyed" : false
+	},
+	2 : {
+		"name" : "tabby_cat",
+		"owned" : 0,
+		"buyed" : false
+	},
+	3 : {
+		"name" : "brown_cat",
+		"owned" : 0,
+		"buyed" : false
+	},
+	4 : {
+		"name" : "orange_cat",
+		"owned" : 0,
+		"buyed" : false
+	},
 }

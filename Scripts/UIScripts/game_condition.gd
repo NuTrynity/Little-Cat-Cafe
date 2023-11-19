@@ -21,6 +21,7 @@ func _next_day():
 
 func _end_day():
 	GlobalScript.cash_on_hand += resources.money
+	resources.money = 0
 	timer.start()
 	show()
 	get_tree().paused = true
