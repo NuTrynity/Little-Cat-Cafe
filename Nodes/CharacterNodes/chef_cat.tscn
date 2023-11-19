@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpymu566dpahb"]
+
+[ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_ljuox"]
+[ext_resource type="Script" path="res://Scripts/CharacterScripts/ChefCat.gd" id="2_wt6kt"]
+[ext_resource type="Script" path="res://Scripts/CharacterScripts/chef_cat_ai_movement.gd" id="3_q0lhe"]
+[ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/chefcat_interact.png" id="3_qw87i"]
+
+[node name="ChefCat" instance=ExtResource("1_ljuox")]
+script = ExtResource("2_wt6kt")
+player_resources = null
+approach_speed = 130
+cd_duration = 1.0
+min_stand_time = 2.0
+max_stand_time = 7.0
+
+[node name="AiMovement" parent="." index="0"]
+script = ExtResource("3_q0lhe")
+
+[node name="CatSkin" parent="." index="1"]
+position = Vector2(0, -69)
+
+[node name="CatSprite" parent="CatSkin" index="0"]
+texture = ExtResource("3_qw87i")

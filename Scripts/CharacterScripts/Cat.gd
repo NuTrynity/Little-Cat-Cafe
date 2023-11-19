@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Cat
 
 enum State {IDLE, APPROACH, ACT, HUNGRY, REST }
 var state = State.IDLE as State
@@ -30,6 +31,9 @@ var patience_timer : Timer = null
 var on_cd : bool = false
 
 func _ready():
+	setup_cat()
+	
+func setup_cat():
 	add_child(standing_timer)
 	standing_timer.one_shot = true
 	standing_timer.connect("timeout", _on_standing_end)

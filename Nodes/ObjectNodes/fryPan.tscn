@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_h61jx"]
 radius = 81.1542
 
-[node name="FryPan" type="Node2D"]
+[node name="FryPan" type="Node2D" groups=["cooking"]]
 position = Vector2(17, -4)
 script = ExtResource("1_xxv0c")
 
@@ -25,3 +25,6 @@ shape = SubResource("CircleShape2D_h61jx")
 
 [node name="CookingProgress" parent="." instance=ExtResource("4_5f0mw")]
 bar_max = 100.0
+
+[node name="TargetPoint" type="Node2D" parent="."]
+position = Vector2(-17, 25)

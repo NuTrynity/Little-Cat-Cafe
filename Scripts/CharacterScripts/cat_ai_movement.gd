@@ -11,6 +11,9 @@ var targeted_list = []
 var target_npc : Node2D = null
 
 func _ready():
+	setup_cat_aimvt()
+	
+func setup_cat_aimvt():
 	speed = cat_speed
 	
 	target_point = Node2D.new()
