@@ -26,9 +26,6 @@ func setup_timer():
 
 func _next_day():
 	animation.play("Results")
-	
-	await animation.animation_finished
-	GlobalScript.cash_on_hand = resources.money
 
 func _end_day():
 	timer.start()
