@@ -179,13 +179,13 @@ func grab_meal(meal):
 	meal.get_parent().remove_child(meal)
 	add_child(meal)
 	meal.global_position = self.global_position
-	meal.position.y -= 100
+	meal.position.y -= 143
 	current_meal = meal
 	
 	if sit_area.facing_left:
-		meal.position.x -= 100
+		meal.position.x -= 150
 	else:
-		meal.position.x += 100
+		meal.position.x += 150
 
 	patience_timer.stop()
 	patience_bar.hide()
