@@ -15,7 +15,7 @@ func _ready():
 	chef_cat.item_bought.connect(_chef_bought)
 
 func _chef_bought():
-	print("chef bought")
+	GlobalScript.shop[0]["buyed"] = true
 
 func _on_line_edit_text_submitted(new_text):
 	line_text = new_text
