@@ -156,6 +156,7 @@ grow_vertical = 2
 theme_override_constants/separation = 94
 
 [node name="Cash" type="HBoxContainer" parent="Results"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 128
 
@@ -173,6 +174,48 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Result" type="Label" parent="Results/Cash/Amt"]
+layout_mode = 2
+text = "0000"
+
+[node name="Money" type="HBoxContainer" parent="Results"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Label" type="HBoxContainer" parent="Results/Money"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cash" type="Label" parent="Results/Money/Label"]
+layout_mode = 2
+text = "Money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Amt" type="HBoxContainer" parent="Results/Money"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Results/Money/Amt"]
+layout_mode = 2
+text = "0000"
+
+[node name="Rating" type="HBoxContainer" parent="Results"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Label" type="HBoxContainer" parent="Results/Rating"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cash" type="Label" parent="Results/Rating/Label"]
+layout_mode = 2
+text = "Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Amt" type="HBoxContainer" parent="Results/Rating"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Results/Rating/Amt"]
 layout_mode = 2
 text = "0000"
 

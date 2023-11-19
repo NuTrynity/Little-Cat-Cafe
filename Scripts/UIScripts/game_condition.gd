@@ -39,4 +39,8 @@ func _on_next_day_pressed():
 	get_tree().change_scene_to_file("res://scene_0.tscn")
 	get_tree().paused = false
 	AudioManager.play_sound(click)
-	resources.money = 0
+	
+
+
+	
+	
