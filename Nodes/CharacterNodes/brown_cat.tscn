@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rqqg70g4oe6h"]
+
+[ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_uod6x"]
+[ext_resource type="Texture2D" uid="uid://ctmmpd3v5bgd2" path="res://Sprites/cat_sprites/cat3_interact.png" id="2_swtc0"]
+
+[node name="BrownCat" instance=ExtResource("1_uod6x")]
+idle_speed = 50
+rating_value = 20
+approach_speed = 100
+pause_duration = 8.0
+min_stand_time = 4.0
+
+[node name="CatSprite" parent="CatSkin" index="0"]
+texture = ExtResource("2_swtc0")

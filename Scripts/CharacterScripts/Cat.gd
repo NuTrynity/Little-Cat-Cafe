@@ -13,6 +13,8 @@ var idleState = IdleState.STAND as State
 @export var approach_speed : int = 110
 @export var pause_duration : float = 4.0
 @export var cd_duration : float = 4.0
+@export var min_stand_time : float = 3.0
+@export var max_stand_time : float = 10.0
 
 @onready var cat_sprite = $CatSkin/CatSprite as Sprite2D
 
@@ -115,7 +117,7 @@ func change_npc_direction(reverse:bool):
 		aiMvt.target_npc.npc_sprite.flip_h = !reverse
 		
 func start_standing_timer():
-	standing_timer.wait_time = rng.randf_range(2.0, 10.0)
+	standing_timer.wait_time = rng.randf_range(min_stand_time, max_stand_time)
 	standing_timer.start()
 	
 func start_pause_timer():
