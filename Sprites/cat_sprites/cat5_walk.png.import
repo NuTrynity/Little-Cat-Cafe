@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lm82b51fpmap"
-path="res://.godot/imported/chefcat_sleep.png-f857ea2bb7c577e44d74a17f5459dfff.ctex"
+uid="uid://do6p1kjo78h2a"
+path="res://.godot/imported/cat5_walk.png-c319d78942c8c63514faa0c5e93abb58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/cat_sprites/chefcat_sleep.png"
-dest_files=["res://.godot/imported/chefcat_sleep.png-f857ea2bb7c577e44d74a17f5459dfff.ctex"]
+source_file="res://Sprites/cat_sprites/cat5_walk.png"
+dest_files=["res://.godot/imported/cat5_walk.png-c319d78942c8c63514faa0c5e93abb58.ctex"]
 
 [params]
 

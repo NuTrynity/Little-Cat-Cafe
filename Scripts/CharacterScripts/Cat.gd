@@ -17,7 +17,8 @@ var idleState = IdleState.STAND as State
 @export var min_stand_time : float = 3.0
 @export var max_stand_time : float = 10.0
 
-@onready var cat_sprite = $CatSkin/CatSprite as Sprite2D
+@onready var animations = $CatSkin as CatAnimation
+@onready var cat_sprite = $CatSkin/CatSprite
 
 @onready var standing_timer := Timer.new() as Timer
 @onready var pause_timer := Timer.new() as Timer
@@ -46,6 +47,8 @@ func setup_cat():
 	add_child(cd_timer)
 	cd_timer.one_shot = true
 	cd_timer.connect("timeout", _on_cd_end)
+	
+	animations.idle()
 	
 func _physics_process(_delta : float) -> void:
 	match state:
@@ -90,16 +93,22 @@ func to_idle_stand():
 	idleState = IdleState.STAND
 	start_standing_timer()
 	
+	animations.idle()
+	
 func to_idle_walk():
 	aiMvt.speed = idle_speed
 	state = State.IDLE
 	idleState = IdleState.WALK
 	aiMvt.target_random_point()
+	
+	animations.walk()
 
 func to_approach():
 	standing_timer.stop()
 	state = State.APPROACH
 	aiMvt.speed = approach_speed
+	
+	animations.walk()
 
 func to_act():
 	state = State.ACT
@@ -108,6 +117,8 @@ func to_act():
 	start_pause_timer()
 	npc.patience_timer.set_paused(true)
 	change_npc_direction(true)
+	
+	animations.interact()
 	
 	player_resources.adjust_rating(rating_value)
 	

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_ljuox"]
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/ChefCat.gd" id="2_wt6kt"]
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/chef_cat_ai_movement.gd" id="3_q0lhe"]
-[ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/chefcat_interact.png" id="3_qw87i"]
+[ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/cat5_interact.png" id="4_pwnbi"]
 
 [node name="ChefCat" instance=ExtResource("1_ljuox")]
 script = ExtResource("2_wt6kt")
@@ -18,6 +18,7 @@ script = ExtResource("3_q0lhe")
 
 [node name="CatSkin" parent="." index="1"]
 position = Vector2(0, -69)
+sprite_idx = 5
 
 [node name="CatSprite" parent="CatSkin" index="0"]
-texture = ExtResource("3_qw87i")
+texture = ExtResource("4_pwnbi")
