@@ -6,7 +6,8 @@ extends Node2D
 
 var meal = preload("res://Nodes/Meals/cat_latte.tscn")
 var coffee_machine_sfx = load("res://Assets/SFX/coffee_pouring.mp3")
-var is_brewing : bool = false
+var is_cooking : bool = false
+var targeted : Node2D = null
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_interact")
@@ -23,13 +24,14 @@ func increase_progress():
 	progress_bar.value += 1
 
 func _on_interact():
-	if is_brewing == false:
+	if is_cooking == false:
 		brew_timer.start()
 		progress_bar.show()
 		AudioManager.play_sound(coffee_machine_sfx)
-		is_brewing = true
+		is_cooking = true
 	else:
 		print("let him cook!")
+
 
 func brew_coffee():
 	var tablecloth = get_tree().get_root().get_node("scene_0/KitchenCounter2/PickupTablecloth")
@@ -43,7 +45,7 @@ func brew_coffee():
 			point.add_item(food)
 			GlobalScript.inventory[1]["count"] += 1
 			pickup_full = false
-			is_brewing = false
+			is_cooking = false
 			brew_timer.stop()
 			
 			break

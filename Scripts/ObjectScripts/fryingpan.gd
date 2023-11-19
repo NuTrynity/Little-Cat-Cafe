@@ -7,6 +7,7 @@ extends Node2D
 var omurice = preload("res://Nodes/Meals/omurice.tscn")
 var cooking_sfx = load("res://Assets/SFX/pan_frying_edit.mp3")
 var is_cooking : bool = false
+var targeted : Node2D = null
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_interaction")

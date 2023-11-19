@@ -9,7 +9,7 @@
 radius = 83.0
 height = 360.0
 
-[node name="CoffeeMachine" type="Node2D"]
+[node name="CoffeeMachine" type="Node2D" groups=["cooking"]]
 script = ExtResource("1_gqmvo")
 
 [node name="CoffeeMachine" type="Sprite2D" parent="."]
@@ -25,3 +25,6 @@ shape = SubResource("CapsuleShape2D_s075q")
 
 [node name="CookingProgress" parent="." instance=ExtResource("4_5jrmp")]
 bar_max = 50.0
+
+[node name="TargetPoint" type="Node2D" parent="."]
+position = Vector2(0, 162)
