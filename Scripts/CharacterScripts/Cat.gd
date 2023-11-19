@@ -6,12 +6,13 @@ var state = State.IDLE as State
 enum IdleState {STAND, WALK}
 var idleState = IdleState.STAND as State
 
-@export var pause_duration : float = 4.0
-
+@export var player_resources : PlayerMealCarry
 @export var idle_speed : int = 70
+
+@export var rating_value : int = 10
 @export var approach_speed : int = 110
+@export var pause_duration : float = 4.0
 @export var cd_duration : float = 4.0
-@export var rating_value : int = 5
 
 @onready var cat_sprite = $CatSkin/CatSprite as Sprite2D
 
@@ -101,6 +102,8 @@ func to_act():
 	start_pause_timer()
 	npc.patience_timer.set_paused(true)
 	change_npc_direction(true)
+	
+	player_resources.adjust_rating(rating_value)
 	
 func change_npc_direction(reverse:bool):
 	var sit_area = aiMvt.target.get_parent()

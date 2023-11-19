@@ -132,10 +132,12 @@ func _on_timer_timeout():
 	patience -= 1
 	patience_bar.value = patience
 	
-	# ends sit_area action
+	# out of patience, gets angry and leaves
 	if patience_bar.value <= 0:
 		patience_timer.stop()
 		aiMvt.target.npc_leave(self)
+		
+		player_resources.adjust_rating(-player_resources.rating_decrease_amt)
 	
 # used by targets to tell npc to leave
 func set_leave_state():
@@ -195,6 +197,7 @@ func grab_meal(meal):
 	
 	GlobalScript.inventory[meal_i_want]["count"] -= 1
 	player_resources.money += GlobalScript.meal_types[meal_i_want]["price"]
+	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
 
 '''
 func _on_chair_detector_area_entered(area):
