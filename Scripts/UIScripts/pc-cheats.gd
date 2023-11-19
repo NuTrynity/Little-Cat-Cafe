@@ -6,9 +6,15 @@ extends CanvasLayer
 @onready var input = $Terminal/Container/InputBlock/LineEdit
 @onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 @onready var output_block = $Terminal/Container/OutputBlock
-@onready var chef_cat = $Shop/PanelContainer/VBoxContainer/GridContainer/item1
+
+@onready var chef_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item1
+@onready var terminal = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item2
+@onready var grey_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item3
+@onready var tabby_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item4
+@onready var brown_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item5
+@onready var orange_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/item6
+
 @onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
-@onready var terminal = $Shop/PanelContainer/VBoxContainer/GridContainer/item2
 
 var line_text : String = ""
 

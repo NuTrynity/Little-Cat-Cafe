@@ -15,6 +15,15 @@ grow_vertical = 2
 theme = ExtResource("1_y4bsb")
 script = ExtResource("1_fih3m")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -67,7 +76,10 @@ theme_override_constants/separation = 94
 
 [node name="Label" type="Label" parent="CenterContainer/Confirmation/Container"]
 layout_mode = 2
-text = "Would You Like To Quit?"
+text = "Would You Like To Go to The
+Main Menu??"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buttons" type="HBoxContainer" parent="CenterContainer/Confirmation/Container"]
 layout_mode = 2

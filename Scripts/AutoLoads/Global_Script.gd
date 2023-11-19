@@ -1,6 +1,6 @@
 extends Node
 
-var cash_on_hand : float
+var cash_on_hand : float = 5000
 
 var meal_types : Dictionary = {
 	0: {
