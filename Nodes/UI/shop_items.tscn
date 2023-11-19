@@ -14,8 +14,6 @@
 [node name="ShopItems" type="GridContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/h_separation = 64
-theme_override_constants/v_separation = 32
 
 [node name="cat1" parent="." instance=ExtResource("1_jxsp0")]
 layout_mode = 2
@@ -69,4 +67,3 @@ script = ExtResource("9_bi7kr")
 image = ExtResource("10_xfj1h")
 item_name = "Terminal"
 buy_once = true
-buy_amt = 5000
