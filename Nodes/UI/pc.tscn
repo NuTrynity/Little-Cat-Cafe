@@ -34,7 +34,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 process_mode = 3
 script = ExtResource("1_exmnn")
 player_resources = ExtResource("2_16un1")
-cheats = Array[String](["sudo give money", "", "", "", ""])
+cheats = Array[String](["sudo give money", "sudo give rating", "", "", ""])
 
 [node name="HomeScreen" type="Control" parent="."]
 visible = false

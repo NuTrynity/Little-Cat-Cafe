@@ -6,13 +6,7 @@ extends CanvasLayer
 @onready var input = $Terminal/Container/InputBlock/LineEdit
 @onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 @onready var output_block = $Terminal/Container/OutputBlock
-
-@onready var chef_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat5
 @onready var terminal = $Shop/PanelContainer/VBoxContainer/ScrollContainer/ShopItems/terminal
-@onready var grey_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat1
-@onready var tabby_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat2
-@onready var brown_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat3
-@onready var orange_cat = $Shop/PanelContainer/VBoxContainer/ScrollContainer/GridContainer/cat4
 
 @onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
 
@@ -51,6 +45,8 @@ func output_text():
 	elif line_text == cheats[0]:
 		GlobalScript.cash_on_hand += 9999
 		line.text = "Cheat Activated"
+	elif line_text == cheats[1]:
+		GlobalScript.rating += 100
 	elif line_text == "exit":
 		$HomeScreen.show()
 		$Terminal.hide()
