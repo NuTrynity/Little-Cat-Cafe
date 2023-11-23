@@ -4,11 +4,10 @@ extends CanvasLayer
 @export var cheats : Array[String]
 
 @onready var input = $Terminal/Container/InputBlock/LineEdit
-@onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 @onready var output_block = $Terminal/Container/OutputBlock
 @onready var terminal = $Shop/PanelContainer/VBoxContainer/ScrollContainer/ShopItems/terminal
-
 @onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
+@onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
 
 var line_text : String = ""
 var click = load("res://Assets/SFX/click_sfx.ogg")

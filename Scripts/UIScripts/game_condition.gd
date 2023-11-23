@@ -28,7 +28,6 @@ func setup_timer():
 	timer.connect("timeout", day_finished)
 
 func next_day():
-	day_label.set_anchors_preset(PRESET_CENTER, true)
 	animation.play("day_counter")
 
 func day_finished():

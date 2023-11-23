@@ -16,4 +16,3 @@ func _on_btn_pressed():
 		spawn_cat(item_node)
 		
 		GlobalScript.shop[dict_idx]["owned"] += 1
-	

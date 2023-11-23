@@ -36,6 +36,7 @@ player_resources = ExtResource("2_16un1")
 cheats = Array[String](["sudo give money", "sudo give rating", "", "", ""])
 
 [node name="HomeScreen" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -165,7 +166,6 @@ layout_mode = 2
 alignment = 2
 
 [node name="Shop" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -231,7 +231,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fvagt")
 
 [node name="ShopItems" parent="Shop/PanelContainer/VBoxContainer/ScrollContainer" instance=ExtResource("11_rkkx5")]
 layout_mode = 2
-columns = 3
 
 [node name="Cash" type="Label" parent="Shop/PanelContainer/VBoxContainer"]
 layout_mode = 2

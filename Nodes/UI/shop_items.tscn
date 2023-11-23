@@ -12,8 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://ccrxjp3ow8ctq" path="res://Sprites/terminal_icon.png" id="10_xfj1h"]
 
 [node name="ShopItems" type="GridContainer"]
+process_mode = 3
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 24
+columns = 3
 
 [node name="cat1" parent="." instance=ExtResource("1_jxsp0")]
 layout_mode = 2

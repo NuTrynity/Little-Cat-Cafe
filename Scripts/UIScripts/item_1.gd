@@ -16,6 +16,8 @@ signal item_bought
 
 @onready var leave_area = get_tree().get_nodes_in_group("LeaveArea")[0] as Node2D
 
+var click = load("res://Assets/SFX/click_sfx.ogg")
+
 func _ready():
 	setup_item()
 
@@ -34,11 +36,11 @@ func buy_item():
 	if enough_money():
 		GlobalScript.cash_on_hand -= item_price
 		item_bought.emit()
+		AudioManager.play_sound(click)
 		
 		if buy_once == true:
 			btn.text = "Sold Out"
 			btn.disabled = true
-		print('item bought')
 		
 func spawn_cat(cat_node):
 	var cat_instance = cat_node.instantiate() as Node2D
