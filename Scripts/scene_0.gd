@@ -9,7 +9,7 @@ func _ready():
 	gameplay_stream.play()
 	
 	load_cats()
-	
+
 func load_cats():
 	var shop = GlobalScript.shop
 	for shop_idx in shop:

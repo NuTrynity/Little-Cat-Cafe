@@ -6,8 +6,12 @@ signal game_end
 @export var game_minutes : int
 @export var game_seconds : int
 
+var days : int
 var current_minutes : int
 var current_seconds : int
+
+var sfx_volume : float = 1
+var music_volume : float = 1
 
 func set_default():
 	current_minutes = game_minutes
