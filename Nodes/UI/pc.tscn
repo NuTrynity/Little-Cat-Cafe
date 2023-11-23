@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/UIScripts/pc-cheats.gd" id="1_exmnn"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_16un1"]
 [ext_resource type="FontFile" uid="uid://b2j40l3i17mb3" path="res://Assets/Fonts/Ubuntu-Regular.ttf" id="3_12bvm"]
-[ext_resource type="Theme" path="res://Assets/Theme/computer_theme.tres" id="4_h8cb8"]
+[ext_resource type="Theme" uid="uid://dbohgm7io0udj" path="res://Assets/Theme/computer_theme.tres" id="4_h8cb8"]
 [ext_resource type="Texture2D" uid="uid://ccrxjp3ow8ctq" path="res://Sprites/terminal_icon.png" id="5_kb4ty"]
 [ext_resource type="Texture2D" uid="uid://y3een5o8cc1q" path="res://Sprites/cat_sprites/cat1_sleep.png" id="6_nu3p0"]
 [ext_resource type="Texture2D" uid="uid://bswkq4oo2kioy" path="res://Sprites/pc_off_icon.png" id="7_3eo4f"]

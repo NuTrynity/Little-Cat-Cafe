@@ -6,6 +6,7 @@ extends Label
 
 func _ready():
 	setup_timer()
+	game_manager.set_default()
 
 func setup_timer():
 	add_child(timer)
