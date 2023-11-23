@@ -9,7 +9,6 @@ extends Node2D
 
 func _ready():
 	interact_area.interact = Callable(self, "_on_pick_up")
-	#player_resources.meal_given.connect(give_meal)
 
 func _on_pick_up():
 	if (pickup_is_empty()):

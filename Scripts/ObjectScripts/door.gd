@@ -11,14 +11,9 @@ var npc_spawn_time : float
 func _ready():
 	setup_timer()
 	npc_spawn_timer.start()
-	check_chef_cat()
-
-func check_chef_cat():
-	if GlobalScript.shop[0]["buyed"] == true:
-		var chef_cat #instanciate chef cat here
 
 func randomize_spawn():
-	npc_spawn_time = randomizer.randf_range(1, 10)
+	npc_spawn_time = randomizer.randf_range(3, 10)
 	npc_spawn_timer.wait_time = npc_spawn_time
 
 func setup_timer():

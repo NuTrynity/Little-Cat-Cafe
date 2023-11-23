@@ -10,7 +10,7 @@ func _ready():
 
 func _toss_item():
 	player_resources.give_meal(self)
-	
+
 func grab_meal(meal):
 	var idx = meal.meal_index
 	GlobalScript.inventory[idx]["count"] -= 1
@@ -19,4 +19,3 @@ func grab_meal(meal):
 	
 	player_resources.carry_amt -= 1
 	meal.queue_free()
-	print(GlobalScript.inventory)

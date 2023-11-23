@@ -26,7 +26,6 @@ func _on_timeout():
 		game_manager.game_end.emit()
 		timer.stop()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if game_manager.game_minutes < 10:

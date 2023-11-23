@@ -33,9 +33,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 process_mode = 3
 script = ExtResource("1_exmnn")
 player_resources = ExtResource("2_16un1")
-cheats = Array[String](["sudo give money", "", "", "", ""])
+cheats = Array[String](["sudo give money", "sudo give rating", "", "", ""])
 
 [node name="HomeScreen" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -165,7 +166,6 @@ layout_mode = 2
 alignment = 2
 
 [node name="Shop" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -218,6 +218,7 @@ size_flags_stretch_ratio = 14.95
 text = "Nyamazon"
 
 [node name="ExitBtn" type="Button" parent="Shop/PanelContainer/VBoxContainer/TitleBar"]
+visibility_layer = 0
 layout_mode = 2
 size_flags_horizontal = 3
 text = "X"

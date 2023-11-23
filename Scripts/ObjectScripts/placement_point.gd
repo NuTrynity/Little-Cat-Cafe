@@ -2,7 +2,7 @@ extends Node2D
 
 var is_empty : bool = true
 var held_item : Node2D = null
-	
+
 func get_is_empty() -> bool:
 	return is_empty
 	

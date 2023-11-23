@@ -39,6 +39,7 @@ func output_text():
 	if line_text == "sudo --help":
 		line.text = "Cheats:
 		sudo give money - gives 9999 spendable funds
+		sudo give rating - gives 999 ratings
 		
 		exit - exits the terminal
 		clear - erases the terminal"
