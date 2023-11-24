@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_tbxon")
-game_minutes = 2
-game_seconds = 40
+game_minutes = 1
+game_seconds = 30
