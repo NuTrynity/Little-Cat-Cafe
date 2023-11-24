@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var pivot : Node2D = $PlayerSkin
 @onready var start_scale : Vector2 = pivot.scale
 @onready var animations = $PlayerSkin/PlayerAnimations
+@onready var nav_agent = $NavigationAgent2D
 
 var input = Vector2.ZERO
 
