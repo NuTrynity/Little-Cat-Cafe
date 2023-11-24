@@ -36,7 +36,6 @@ player_resources = ExtResource("2_16un1")
 cheats = Array[String](["sudo give money", "sudo give rating", "", "", ""])
 
 [node name="HomeScreen" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
@@ -166,6 +165,7 @@ layout_mode = 2
 alignment = 2
 
 [node name="Shop" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 8
