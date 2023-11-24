@@ -29,6 +29,8 @@ func setup_timer():
 
 func next_day():
 	animation.play("day_counter")
+	await animation.animation_finished
+	hide()
 
 func day_finished():
 	animation.play("Results")

@@ -23,9 +23,9 @@
 size = Vector2(2628, 20)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fydyt"]
-vertices = PackedVector2Array(766, 530, 244, 530, 268, 434, 787, 437, 805, 391, 957, 396, 955, 584, 770, 582)
+vertices = PackedVector2Array(766, 530, 244, 530, 268, 434, 787, 437, 805, 391, 967, 388, 959, 585, 771, 588)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 7, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(268, 434, 244, 530, 766, 530, 770, 582, 955, 584, 957, 396, 805, 391, 787, 437)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(268, 434, 244, 530, 766, 530, 771, 588, 959, 585, 967, 388, 805, 391, 787, 437)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbxh0"]
 vertices = PackedVector2Array(940, 960, 1482, 958, 1828, 962, 1545, 1138, 1332, 1135, 1600, 1314, 2481, 1324, 2543, 1425, 1380, 1413, 1275, 1313, 697, 1308, 19, 1423, 381, 1309, 221, 658, 437, 1148, 2441, 1143, 1572.51, 1226.03, 965, 595, 973, 351, 1092, 343, 1164, 358, 1545, 784, 2343, 927, 2430, 1009, 656, 1146, 614, 959, 669, 786, 772, 656, 882, 784, 1757, 776, 1818, 344, 2266, 328, 2328, 608, 2325, 689, 787, 597, 2379, 781, 1512, 349, 1401, 347)

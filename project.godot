@@ -88,6 +88,10 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="npc"
 2d_physics/layer_3="environment"
 
+[navigation]
+
+2d/default_edge_connection_margin=8
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
