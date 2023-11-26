@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dup7dxp0rjp3y"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/JoyStick.gd" id="1_muqh3"]
+[ext_resource type="Texture2D" uid="uid://b74ywh15xssbc" path="res://Sprites/placeholder sprites/circle.png" id="2_gj2oa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixwdx"]
+radius = 64.0
+
+[node name="JoyStick" type="CanvasLayer"]
+script = ExtResource("1_muqh3")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(128, 960)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_gj2oa")
+shape = SubResource("CircleShape2D_ixwdx")
+
+[node name="InnerCircle" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.470588)
+position = Vector2(324, 1158)
+texture = ExtResource("2_gj2oa")

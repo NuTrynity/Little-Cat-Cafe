@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var nav_agent = $NavigationAgent2D as NavigationAgent2D
 
 var input = Vector2.ZERO
-var click_position = Vector2()
+var joystick_input = Vector2(0, 0)
 var tap_movement : bool
 
 func _physics_process(_delta):
@@ -17,15 +17,19 @@ func _physics_process(_delta):
 	
 	velocity = input * move_speed
 	move_and_slide()
-	
+
+func _process(_delta):
 	var is_idle = is_zero_approx(velocity.x) and is_zero_approx(velocity.y)
 	var is_walking = not Vector2.ZERO
 	
 	if is_idle:
 		animations.play("idle")
-	elif  is_walking:
+	elif is_walking:
 		animations.play("walking")
 	
+	flip_pivot()
+	
+func flip_pivot():
 	if not is_zero_approx(velocity.x):
 		pivot.scale.x = sign(velocity.x) * start_scale.x
 
@@ -34,3 +38,8 @@ func get_input():
 	input.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	
 	return input.normalized()
+
+func _on_joy_stick_use_move_vector(move_vector):
+	velocity = move_vector * move_speed
+	move_and_slide()
+	flip_pivot()
