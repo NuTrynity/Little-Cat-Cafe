@@ -21,8 +21,7 @@ func _input(event):
 		make_path()
 '''
 func _physics_process(_delta):
-	
-	get_input()
+	input = get_input()
 	
 	velocity = input * move_speed
 	move_and_slide()
