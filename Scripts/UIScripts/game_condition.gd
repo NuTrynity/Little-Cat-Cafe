@@ -42,6 +42,7 @@ func _end_day():
 	animation.play("Game_Over")
 	AudioManager.play_sound(victory_sfx)
 	game_manager._reset()
+	resources.carry_amt = 0
 
 func _on_next_day_pressed():
 	get_tree().change_scene_to_file("res://scene_0.tscn")
