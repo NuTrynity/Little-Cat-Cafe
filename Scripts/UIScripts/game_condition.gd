@@ -7,6 +7,8 @@ extends Control
 @onready var timer = Timer.new()
 @onready var to_cash_timer = Timer.new()
 @onready var cash_label = $Results/Cash/Amt/Result
+@onready var money_label = $Results/Money/Amt/Result
+@onready var rating_label = $Results/Rating/Amt/Result
 @onready var day_label = $DayLabel
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
@@ -19,7 +21,9 @@ func _ready():
 
 func _process(_delta):
 	cash_label.text = str(GlobalScript.cash_on_hand)
-	day_label.text = "DAY: " + str(game_manager.days)
+	money_label.text = "$ " + str(GlobalScript.cash_on_hand)
+	rating_label.text = str(GlobalScript.rating) + " likes"
+	day_label.text = "DAY " + str(game_manager.days)
 
 func setup_timer():
 	add_child(timer)
