@@ -23,7 +23,7 @@ func _take_meal(meal):
 			
 			return
 	print("tray is full")
-		
+
 func _give_meal(npc):
 	for point in placement_pts.get_children():
 		if !point.get_is_empty():

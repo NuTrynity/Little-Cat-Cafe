@@ -10,7 +10,7 @@ var joystick_active : bool = false
 
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		if $TouchScreenButton.is_pressed():
+		if touch_pad.is_pressed():
 			move_vector = calc_move_vector(event.position)
 			inner_circle.position = event.position
 			limit_inner_circle(event.position)

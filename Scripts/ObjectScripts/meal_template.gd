@@ -13,7 +13,6 @@ var meal_price : float
 func _ready():
 	#interact_area.interact = Callable(self, "_on_pick_up")
 	player_resources.meal_given.connect(give_meal)
-	print(GlobalScript.meal_types[meal_index]["price"])
 
 func _physics_process(_delta):
 	if picked_up == true:

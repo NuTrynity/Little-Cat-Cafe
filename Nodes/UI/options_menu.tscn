@@ -25,6 +25,13 @@ game_manager = ExtResource("3_b88v0")
 layout_mode = 2
 theme_override_constants/separation = 128
 
+[node name="Fullscreen" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Menu/Fullscreen"]
+layout_mode = 2
+text = "FullScreen"
+
 [node name="Sliders" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
 theme_override_constants/separation = 64

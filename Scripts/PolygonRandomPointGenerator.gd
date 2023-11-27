@@ -11,6 +11,7 @@ func _init(polygon: PackedVector2Array) -> void:
 	_triangles = Geometry2D.triangulate_polygon(_polygon)
 	_rand = RandomNumberGenerator.new()
 	
+	@warning_ignore("integer_division")
 	var triangle_count: int = _triangles.size() / 3
 	assert(triangle_count > 0)
 	_cumulated_triangle_areas.resize(triangle_count)
