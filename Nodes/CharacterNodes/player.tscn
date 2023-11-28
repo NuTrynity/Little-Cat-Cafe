@@ -28,6 +28,5 @@ shape = SubResource("RectangleShape2D_mo8yt")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="JoyStick" parent="." instance=ExtResource("5_48k8c")]
-visible = false
 
 [connection signal="use_move_vector" from="JoyStick" to="." method="_on_joy_stick_use_move_vector"]
