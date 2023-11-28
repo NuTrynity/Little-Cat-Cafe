@@ -13,8 +13,6 @@ var line_text : String = ""
 var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
-	input.grab_focus()
-	#chef_cat.item_bought.connect(_chef_bought)
 	terminal.item_bought.connect(_terminal_bought)
 
 func _process(_delta):
@@ -22,10 +20,6 @@ func _process(_delta):
 
 func _terminal_bought():
 	$HomeScreen/Apps/Terminal.show()
-
-#func _chef_bought():
-#	GlobalScript.shop[0]["buyed"] = true
-#	GlobalScript.shop[0]["owned"] += 1
 
 func _on_line_edit_text_submitted(new_text):
 	line_text = new_text
