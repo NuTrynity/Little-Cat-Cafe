@@ -26,6 +26,7 @@ layout_mode = 2
 theme_override_constants/separation = 128
 
 [node name="Fullscreen" type="VBoxContainer" parent="Menu"]
+visible = false
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="Menu/Fullscreen"]

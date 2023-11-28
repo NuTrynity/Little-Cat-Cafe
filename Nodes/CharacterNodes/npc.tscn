@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=12 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_b2qht"]
@@ -10,9 +10,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgaf6"]
 radius = 154.081
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kyqk"]
-size = Vector2(38, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8so"]
 size = Vector2(66, 48)
@@ -44,17 +41,6 @@ action_name = "give meal"
 position = Vector2(0, 120)
 shape = SubResource("CircleShape2D_kgaf6")
 
-[node name="ChairDetector" type="Area2D" parent="."]
-y_sort_enabled = true
-position = Vector2(1, -133)
-collision_layer = 4
-collision_mask = 4
-
-[node name="SitArea" type="CollisionShape2D" parent="ChairDetector"]
-position = Vector2(-1, 9)
-shape = SubResource("RectangleShape2D_4kyqk")
-debug_color = Color(0.71501, 0.443516, 7.70092e-07, 0.509804)
-
 [node name="LeaveDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveDetector"]
@@ -82,6 +68,4 @@ script = ExtResource("6_txabj")
 table_manager = null
 npc_speed = 150
 
-[connection signal="area_entered" from="ChairDetector" to="." method="_on_chair_detector_area_entered"]
-[connection signal="area_exited" from="ChairDetector" to="." method="_on_chair_detector_area_exited"]
 [connection signal="area_entered" from="LeaveDetector" to="." method="_on_leave_detector_area_entered"]

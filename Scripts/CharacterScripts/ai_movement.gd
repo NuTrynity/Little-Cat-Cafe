@@ -7,8 +7,7 @@ class_name AiMovement
 
 @onready var body := get_parent() as CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
-	
-	
+
 # call in process
 func approach_target():
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()

@@ -11,8 +11,3 @@ avoidance_enabled = true
 radius = 100.0
 avoidance_mask = 4
 debug_enabled = true
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
