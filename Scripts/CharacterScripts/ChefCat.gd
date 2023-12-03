@@ -64,4 +64,6 @@ func chef_stop_act():
 	to_idle_walk()
 	start_cd_timer()
 	
+func _on_cd_end():
+	on_cd = false
 	

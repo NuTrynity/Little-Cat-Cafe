@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_0ixmo"]
 [ext_resource type="Texture2D" uid="uid://cv7dc2j5y7gup" path="res://Sprites/cat_sprites/cat1_interact.png" id="2_67inw"]
 
-[node name="GreyCat" instance=ExtResource("1_0ixmo")]
+[node name="GreyCat" groups=["distract_cat"] instance=ExtResource("1_0ixmo")]
 idle_speed = 80
 approach_speed = 120
 pause_duration = 5.0

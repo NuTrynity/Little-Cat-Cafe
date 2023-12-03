@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p8f1yfir4e6i" path="res://Nodes/CharacterNodes/cat.tscn" id="1_nkl1y"]
 [ext_resource type="Texture2D" uid="uid://dr1xkj52y4ha4" path="res://Sprites/cat_sprites/cat4_interact.png" id="2_mjjfw"]
 
-[node name="OrangeCat" instance=ExtResource("1_nkl1y")]
+[node name="OrangeCat" groups=["distract_cat"] instance=ExtResource("1_nkl1y")]
 idle_speed = 95
 rating_value = 25
 approach_speed = 160

@@ -15,7 +15,7 @@ func _on_npc_ready(npc : Npc):
 		cat.approach_customer(npc)
 	
 func get_all_cats() -> Array:
-	var all_cats = get_tree().get_nodes_in_group("cats")
+	var all_cats = get_tree().get_nodes_in_group("distract_cat")
 	return all_cats
 
 # selects nearest cat to given npc, returns null if no cats or if they're all busy

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/chef_cat_ai_movement.gd" id="3_q0lhe"]
 [ext_resource type="Texture2D" uid="uid://cjtwlvtutbfxu" path="res://Sprites/cat_sprites/cat5_interact.png" id="4_pwnbi"]
 
-[node name="ChefCat" instance=ExtResource("1_ljuox")]
+[node name="ChefCat" groups=["chef_cat"] instance=ExtResource("1_ljuox")]
 script = ExtResource("2_wt6kt")
 player_resources = null
 approach_speed = 130
