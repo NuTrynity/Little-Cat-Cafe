@@ -35,3 +35,6 @@ func npc_leave(npc):
 	set_untargeted()
 	npc.set_leave_state()
 	npc.sit_area_leave()
+	
+func get_cat_point() -> PlacementPoint:
+	return $PlacementPoint

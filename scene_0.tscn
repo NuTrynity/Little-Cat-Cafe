@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=23 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cm422xf5fxbvw" path="res://Nodes/ObjectNodes/fryPan.tscn" id="5_8y7s3"]
 [ext_resource type="PackedScene" uid="uid://dn7syyuqpvd4a" path="res://Nodes/ObjectNodes/pickup_tablecloth.tscn" id="5_mbm84"]
 [ext_resource type="PackedScene" uid="uid://cpejkpxtal6m5" path="res://Nodes/ObjectNodes/garbage_bin.tscn" id="6_ye04p"]
+[ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="7_mn2jt"]
 [ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="8_4oqfw"]
 [ext_resource type="PackedScene" uid="uid://bngeckmou6uko" path="res://Nodes/ObjectNodes/cat_bowl.tscn" id="8_splhs"]
 [ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="9_lubdl"]
@@ -58,6 +59,8 @@ position = Vector2(2219, 1210)
 
 [node name="LongCarpet" parent="Background" instance=ExtResource("19_y2q1h")]
 position = Vector2(1389, 505)
+
+[node name="CatManager" parent="." instance=ExtResource("7_mn2jt")]
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
 position = Vector2(2000, 263)

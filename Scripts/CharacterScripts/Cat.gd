@@ -39,6 +39,7 @@ func setup_cat():
 	standing_timer.one_shot = true
 	standing_timer.connect("timeout", _on_standing_end)
 	to_idle_stand()
+	animations.idle()
 	
 	add_child(pause_timer)
 	pause_timer.one_shot = true
@@ -48,15 +49,12 @@ func setup_cat():
 	cd_timer.one_shot = true
 	cd_timer.connect("timeout", _on_cd_end)
 	
-	animations.idle()
+	check_for_customers()
 	
 func _physics_process(_delta : float) -> void:
 	match state:
 		State.IDLE:
 			idle()
-			if (!on_cd):
-				if (aiMvt.try_target_customer()):
-					to_approach()
 			
 		State.APPROACH:
 			if !aiMvt.can_target_customer():
@@ -159,9 +157,9 @@ func stop_act():
 	to_idle_walk()
 	start_cd_timer()
 	
-	
 func _on_cd_end():
 	on_cd = false
+	check_for_customers()
 	
 func walking():
 	aiMvt.approach_target()
@@ -170,6 +168,14 @@ func walking():
 	else:
 		cat_sprite.flip_h = true
 
+func is_idle() -> bool:
+	return state == State.IDLE && !on_cd
 	
+func approach_customer(npc:Npc):
+	aiMvt.target_customer(npc)
+	to_approach()
 	
-
+func check_for_customers():
+	if (aiMvt.try_target_customer()):
+		to_approach()
+	
