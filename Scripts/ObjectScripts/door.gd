@@ -1,4 +1,7 @@
 extends Node2D
+class_name Door
+
+signal npc_spawned
 
 @export var table_manager : TableManager
 @export var game_manager : GameManager
@@ -58,3 +61,5 @@ func spawn_customer():
 	customer.position = global_position
 	customer.position.y += 100
 	get_parent().add_child(customer)
+	
+	emit_signal("npc_spawned", customer)

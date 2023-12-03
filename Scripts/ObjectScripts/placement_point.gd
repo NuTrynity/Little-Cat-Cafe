@@ -1,4 +1,5 @@
 extends Node2D
+class_name PlacementPoint
 
 var is_empty : bool = true
 var held_item : Node2D = null

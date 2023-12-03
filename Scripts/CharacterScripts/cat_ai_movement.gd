@@ -30,23 +30,28 @@ func try_target_customer() -> bool:
 	
 	for npc in customers:
 		if (npc.targeter == null) && (npc.patience_bar.is_visible() && !targeted_list.has(npc)):
-			npc.targeter = self
-			var sit_area = npc.aiMvt.target
-			target_npc = npc
-			target = sit_area.get_node("PlacementPoint")
-			makepath()
+			target_customer(npc)
 			return true
 			
 	return false
+	
+func target_customer(npc:Npc):
+	npc.targeter = self
+	target_npc = npc
+	target = npc.get_cat_point()
+	makepath()
 
 func can_target_customer() -> bool:
 	return target_npc.patience_bar.is_visible()
 
 func untarget_customer():
+	var npc = target_npc as Npc
 	targeted_list.append(target_npc as Node2D)
 	target_npc.targeter = null
 	target = null
 	target_npc = null
+	npc.ready_for_cat_func()
+	
 
 func target_random_point():
 	target_point.global_position = choose_random_point()

@@ -1,5 +1,7 @@
 extends CharacterBody2D
+class_name Npc
 
+signal ready_for_cat
 signal leaving
 
 @export var player_resources : PlayerMealCarry
@@ -104,6 +106,8 @@ func sit_area_act_setup():
 	patience_bar.show()
 	meal_want.show()
 	interact_area.monitoring = true
+	
+	emit_signal("ready_for_cat", self)
 	sit_animation()
 	
 func sit_area_act():
@@ -221,3 +225,12 @@ func _on_leave_detector_area_entered(area):
 		if state == State.LEAVE:
 			queue_free()
 			
+# returns point where cat should sit nearby, don't call when leaving
+func get_cat_point() -> Node2D:
+	var sit_area = aiMvt.target as SitArea
+	return sit_area.get_cat_point()
+	
+func ready_for_cat_func():
+	if (state == State.ACT && patience_bar.is_visible()):
+		emit_signal("ready_for_cat", self)
+
