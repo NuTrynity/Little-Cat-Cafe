@@ -10,6 +10,7 @@ approach_speed = 160
 pause_duration = 6.0
 cd_duration = 3.0
 max_stand_time = 7.0
+sleep_time = 24.0
 
 [node name="CatSkin" parent="." index="1"]
 sprite_idx = 4

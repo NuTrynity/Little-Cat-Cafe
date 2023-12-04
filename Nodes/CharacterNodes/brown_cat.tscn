@@ -9,6 +9,7 @@ rating_value = 20
 approach_speed = 100
 pause_duration = 8.0
 min_stand_time = 4.0
+sleep_time = 18.0
 
 [node name="CatSkin" parent="." index="1"]
 sprite_idx = 3

@@ -4,7 +4,7 @@ class_name Cat
 enum State {IDLE, APPROACH, ACT, HUNGRY, REST }
 var state = State.IDLE as State
 
-enum IdleState {STAND, WALK}
+enum IdleState {STAND, WALK, SLEEP}
 var idleState = IdleState.STAND as State
 
 @export var player_resources : PlayerMealCarry
@@ -16,6 +16,7 @@ var idleState = IdleState.STAND as State
 @export var cd_duration : float = 4.0
 @export var min_stand_time : float = 3.0
 @export var max_stand_time : float = 10.0
+@export var sleep_time : float = 20.0
 
 @onready var animations = $CatSkin as CatAnimation
 @onready var cat_sprite = $CatSkin/CatSprite
@@ -23,6 +24,7 @@ var idleState = IdleState.STAND as State
 @onready var standing_timer := Timer.new() as Timer
 @onready var pause_timer := Timer.new() as Timer
 @onready var cd_timer := Timer.new() as Timer
+@onready var sleep_timer := Timer.new() as Timer
 
 @onready var aiMvt := $AiMovement as CatAiMovement
 
@@ -39,8 +41,10 @@ func setup_cat():
 	add_child(standing_timer)
 	standing_timer.one_shot = true
 	standing_timer.connect("timeout", _on_standing_end)
-	to_idle_stand()
-	animations.idle()
+	
+	add_child(sleep_timer)
+	sleep_timer.one_shot = true
+	sleep_timer.connect("timeout", _on_sleep_start)
 	
 	add_child(pause_timer)
 	pause_timer.one_shot = true
@@ -49,6 +53,10 @@ func setup_cat():
 	add_child(cd_timer)
 	cd_timer.one_shot = true
 	cd_timer.connect("timeout", _on_cd_end)
+	
+	to_idle_stand()
+	start_sleep_timer()
+	animations.idle()
 	
 func _physics_process(_delta : float) -> void:
 	match state:
@@ -59,6 +67,7 @@ func _physics_process(_delta : float) -> void:
 			if !aiMvt.can_target_customer():
 				aiMvt.untarget_customer()
 				to_idle_stand()
+				start_sleep_timer()
 			elif aiMvt.reached_target():
 				to_act()
 			else:
@@ -83,7 +92,7 @@ func idle():
 		walking()
 		if (aiMvt.reached_target()):
 			to_idle_stand()
-		
+	
 func to_idle_stand():
 	aiMvt.speed = idle_speed
 	state = State.IDLE
@@ -99,9 +108,17 @@ func to_idle_walk():
 	aiMvt.target_random_point()
 	
 	animations.walk()
+	
+func to_idle_sleep():
+	state = State.IDLE
+	idleState = IdleState.SLEEP
+	standing_timer.stop()
+	
+	animations.sleep()
 
 func to_approach():
 	standing_timer.stop()
+	sleep_timer.stop()
 	state = State.APPROACH
 	aiMvt.speed = approach_speed
 	
@@ -140,9 +157,16 @@ func start_cd_timer():
 	on_cd = true
 	cd_timer.wait_time = cd_duration
 	cd_timer.start()
+	
+func start_sleep_timer():
+	sleep_timer.wait_time = rng.randf_range(sleep_time - 4, sleep_time + 4)
+	sleep_timer.start()
 
 func _on_standing_end():
 	to_idle_walk()
+	
+func _on_sleep_start():
+	to_idle_sleep()
 	
 func _on_pause_end():
 	# unpause, untarget
@@ -153,8 +177,10 @@ func stop_act():
 	aiMvt.target_npc.patience_timer.set_paused(false)
 	pause_timer.stop()
 	aiMvt.untarget_customer()
+	
 	to_idle_walk()
 	start_cd_timer()
+	start_sleep_timer()
 	
 func _on_cd_end():
 	on_cd = false

@@ -11,6 +11,7 @@ pause_duration = 3.0
 cd_duration = 2.0
 min_stand_time = 1.0
 max_stand_time = 5.0
+sleep_time = 26.0
 
 [node name="CatSkin" parent="." index="1"]
 sprite_idx = 2
