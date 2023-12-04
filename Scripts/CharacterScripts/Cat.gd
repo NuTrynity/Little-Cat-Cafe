@@ -33,6 +33,7 @@ var on_cd : bool = false
 
 func _ready():
 	setup_cat()
+	check_for_customers()
 	
 func setup_cat():
 	add_child(standing_timer)
@@ -48,8 +49,6 @@ func setup_cat():
 	add_child(cd_timer)
 	cd_timer.one_shot = true
 	cd_timer.connect("timeout", _on_cd_end)
-	
-	check_for_customers()
 	
 func _physics_process(_delta : float) -> void:
 	match state:
