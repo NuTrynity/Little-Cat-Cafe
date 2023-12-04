@@ -19,6 +19,7 @@ func _physics_process(_delta : float) -> void:
 			if (!targeted_device.is_cooking):
 				untarget_device()
 				to_idle_stand()
+				start_sleep_timer()
 			elif aiMvt.reached_target():
 				chef_to_act()
 			else:
@@ -63,6 +64,7 @@ func chef_stop_act():
 	untarget_device()
 	to_idle_walk()
 	start_cd_timer()
+	start_sleep_timer()
 	
 func _on_cd_end():
 	on_cd = false
