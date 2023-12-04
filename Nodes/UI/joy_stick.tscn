@@ -20,7 +20,7 @@ shape = SubResource("CircleShape2D_ixwdx")
 
 [node name="InteractBtn" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.607843)
-position = Vector2(2182, 1043)
+position = Vector2(2162, 1027)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("3_2ilih")
 action = "interact"

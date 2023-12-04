@@ -17,7 +17,9 @@ signal leaving
 @onready var patience_timer = Timer.new()
 @onready var eat_timer = Timer.new()
 @onready var aiMvt := $AiMovement as NpcAiMovement
+@onready var meal_price_label = preload("res://Nodes/UI/meal_price_on_buy.tscn")
 
+var multiplier : int
 var meal_i_want : int
 var can_be_interacted : bool = false
 var is_leaving : bool = false
@@ -179,6 +181,22 @@ func patience_timer_setup():
 func _on_player_give_meal():
 	player_resources.give_meal(self)
 
+func spawn_label():
+	var price_label = meal_price_label.instantiate()
+	price_label.price = str(GlobalScript.meal_types[meal_i_want]["price"] * multiplier)
+	price_label.position = global_position
+	price_label.position.y -= 360 #just on her head
+	price_label.position.x -= price_label.size.x / 2
+	get_parent().add_child(price_label)
+
+func multiply_meal_price():
+	if patience_bar.value >= 75:
+		multiplier = 4
+	elif patience_bar.value >= 50:
+		multiplier = 2
+	else:
+		multiplier = 1
+
 func grab_meal(meal):
 	var sit_area = aiMvt.target as SitArea
 	player_resources.carry_amt -= 1
@@ -199,8 +217,10 @@ func grab_meal(meal):
 	eat_timer.start()
 	interact_area.monitoring = false
 	
+	multiply_meal_price()
+	spawn_label()
 	GlobalScript.inventory[meal_i_want]["count"] -= 1
-	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"]
+	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"] * multiplier
 	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
 
 '''
@@ -233,4 +253,3 @@ func get_cat_point() -> Node2D:
 func ready_for_cat_func():
 	if (state == State.ACT && patience_bar.is_visible()):
 		emit_signal("ready_for_cat", self)
-

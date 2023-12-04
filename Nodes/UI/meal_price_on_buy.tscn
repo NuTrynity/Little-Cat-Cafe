@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ifslrfpc6ael"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/meal_price_on_buy.gd" id="1_ere80"]
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_q1ida"]
+
+[node name="MealPriceOnBuy" type="Label"]
+z_index = 99
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = -1098.0
+offset_bottom = -655.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q1ida")
+text = "Price"
+script = ExtResource("1_ere80")
+price = "75"

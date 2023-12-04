@@ -5,6 +5,7 @@ extends Node2D
 @onready var ui = $UserInterface/Control/Timer
 
 func _ready():
+	get_tree().paused = false
 	InteractionManager.find_player()
 	gameplay_stream.play()
 	

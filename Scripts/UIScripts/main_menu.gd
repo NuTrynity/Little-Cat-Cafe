@@ -7,6 +7,7 @@ extends Control
 var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
+	get_tree().paused = false
 	$CenterContainer/Buttons/Play.grab_focus()
 	options_menu.back.connect(_show_menu)
 	main_menu_stream.play()
