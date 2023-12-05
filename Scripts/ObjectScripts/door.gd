@@ -28,7 +28,6 @@ func decreases_randomizer():
 	if min_time >= 1:
 		min_time -= 0.1
 		max_time -= 0.1
-		print("min_time: ", min_time, "max_time", max_time)
 	else:
 		difficulty_timer.stop()
 
@@ -40,7 +39,7 @@ func setup_timer():
 	
 	add_child(difficulty_timer)
 	difficulty_timer.one_shot = false
-	difficulty_timer.wait_time = 5
+	difficulty_timer.wait_time = 3
 	difficulty_timer.connect("timeout", decreases_randomizer)
 	difficulty_timer.start()
 

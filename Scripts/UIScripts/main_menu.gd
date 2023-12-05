@@ -16,7 +16,8 @@ func _show_menu():
 	$CenterContainer/Buttons.show()
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scene_0.tscn")
+	var loading_screen = load("res://Nodes/UI/loading_screen.tscn")
+	get_tree().change_scene_to_packed(loading_screen)
 	AudioManager.play_sound(click)
 
 func _on_options_pressed():
