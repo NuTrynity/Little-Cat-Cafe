@@ -141,6 +141,7 @@ bus = &"Music"
 [node name="EndDay" type="CanvasLayer" parent="."]
 
 [node name="GameCondition" parent="EndDay" instance=ExtResource("19_nxtfs")]
+visible = false
 
 [editable path="Table1"]
 [editable path="Table1/chair2"]

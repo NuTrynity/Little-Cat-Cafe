@@ -8,7 +8,7 @@ func _ready():
 	scene_name = "res://scene_0.tscn"
 	ResourceLoader.load_threaded_request(scene_name)
 
-func _process(delta):
+func _process(_delta):
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene_name, progress)
 	$ProgressBar.value = floor(progress[0] * 100)
 	if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:

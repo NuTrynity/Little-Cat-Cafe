@@ -15,7 +15,7 @@ var click = load("res://Assets/SFX/click_sfx.ogg")
 var victory_sfx = load("res://Assets/Music/Good Job!.wav")
 
 func _ready():
-	game_manager.game_end.connect(_end_day)
+	game_manager.day_end.connect(_end_day)
 	setup_timer()
 	next_day()
 

@@ -4,6 +4,7 @@ class_name Npc
 signal ready_for_cat
 signal leaving
 
+@export var game_manager : GameManager
 @export var player_resources : PlayerMealCarry
 @export var patience : float
 
@@ -237,8 +238,9 @@ func _on_chair_detector_area_exited(area):
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
 		if state == State.LEAVE:
+			game_manager.check_result()
 			queue_free()
-			
+
 # returns point where cat should sit nearby, don't call when leaving
 func get_cat_point() -> Node2D:
 	var sit_area = aiMvt.target as SitArea

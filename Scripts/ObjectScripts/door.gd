@@ -18,7 +18,11 @@ var npc_spawn_time : float
 
 func _ready():
 	setup_timer()
+	game_manager.game_end.connect(stop_spawning)
 	npc_spawn_timer.start()
+
+func stop_spawning():
+	npc_spawn_timer.stop()
 
 func randomize_spawn():
 	npc_spawn_time = randomizer.randf_range(min_time, max_time)
@@ -59,6 +63,7 @@ func spawn_customer():
 	var customer = npc.instantiate()
 	customer.position = global_position
 	customer.position.y += 100
+	game_manager.customers += 1
 	get_parent().add_child(customer)
 	
 	emit_signal("npc_spawned", customer)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=13 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_b2qht"]
+[ext_resource type="Resource" uid="uid://d0ojrka58d027" path="res://CustomResources/GameManager.tres" id="2_gyrkx"]
 [ext_resource type="PackedScene" uid="uid://djyfyi0mu4m38" path="res://Nodes/Components/ai_movement.tscn" id="4_d7kkh"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="4_h15ne"]
 [ext_resource type="Script" path="res://Scripts/ComponentScripts/progress_bar.gd" id="5_vddod"]
@@ -27,6 +28,7 @@ collision_mask = 4
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_33mn1")
+game_manager = ExtResource("2_gyrkx")
 player_resources = ExtResource("2_b2qht")
 patience = 200.0
 
