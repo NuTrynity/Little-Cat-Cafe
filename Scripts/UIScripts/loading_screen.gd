@@ -5,6 +5,7 @@ var scene_name
 var scene_load_status = 0
 
 func _ready():
+	get_tree().paused = false
 	scene_name = "res://scene_0.tscn"
 	ResourceLoader.load_threaded_request(scene_name)
 

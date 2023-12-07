@@ -426,6 +426,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_edh6i"]
 _data = {
@@ -448,6 +460,7 @@ theme = ExtResource("1_6njis")
 script = ExtResource("1_earey")
 resources = ExtResource("3_mtk45")
 game_manager = ExtResource("3_38cef")
+qouta = 1000
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -469,9 +482,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -325.0
-offset_top = -66.0001
+offset_top = -66.0
 offset_right = 325.0
-offset_bottom = 66.0001
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(332, 66)
@@ -488,10 +501,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1164.0
-offset_top = 686.0
-offset_right = 1396.0
-offset_bottom = 754.0
+offset_left = -116.0
+offset_top = -34.0
+offset_right = 116.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(116, 34)
@@ -501,6 +514,7 @@ vertical_alignment = 1
 
 [node name="Results" type="VBoxContainer" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -514,28 +528,6 @@ offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 94
-
-[node name="Cash" type="HBoxContainer" parent="Results"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 128
-
-[node name="Label" type="HBoxContainer" parent="Results/Cash"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Cash" type="Label" parent="Results/Cash/Label"]
-layout_mode = 2
-text = "Cash-on-Hand"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Amt" type="HBoxContainer" parent="Results/Cash"]
-layout_mode = 2
-
-[node name="Result" type="Label" parent="Results/Cash/Amt"]
-layout_mode = 2
-text = "0000"
 
 [node name="Money" type="HBoxContainer" parent="Results"]
 layout_mode = 2
@@ -558,26 +550,18 @@ layout_mode = 2
 layout_mode = 2
 text = "0000"
 
-[node name="Rating" type="HBoxContainer" parent="Results"]
-layout_mode = 2
-theme_override_constants/separation = 128
-
-[node name="Label" type="HBoxContainer" parent="Results/Rating"]
+[node name="Label" type="VBoxContainer" parent="Results"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Cash" type="Label" parent="Results/Rating/Label"]
+[node name="Rating" type="Label" parent="Results/Label"]
 layout_mode = 2
-text = "Result"
-horizontal_alignment = 1
+text = "Ratings"
 vertical_alignment = 1
 
-[node name="Amt" type="HBoxContainer" parent="Results/Rating"]
+[node name="RatingBar" type="ProgressBar" parent="Results/Label"]
 layout_mode = 2
-
-[node name="Result" type="Label" parent="Results/Rating/Amt"]
-layout_mode = 2
-text = "0000"
 
 [node name="NextDay" type="Button" parent="Results"]
 layout_mode = 2
