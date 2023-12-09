@@ -3,8 +3,8 @@ extends CanvasLayer
 @export var player_resources = PlayerMealCarry
 @export var cheats : Array[String]
 
-@onready var input = $Terminal/Container/InputBlock/LineEdit
-@onready var output_block = $Terminal/Container/OutputBlock
+@onready var input = %LineEdit
+@onready var output_block = %OutputBlock
 @onready var terminal = $Shop/PanelContainer/VBoxContainer/ScrollContainer/ShopItems/terminal
 @onready var cash_label = $Shop/PanelContainer/VBoxContainer/Cash
 @onready var output = preload("res://Nodes/UI/pc_output_text.tscn")
@@ -45,10 +45,8 @@ func output_text():
 		$HomeScreen.show()
 		$Terminal.hide()
 	elif line_text == "clear":
-		var output_lines = $Terminal/Container/OutputBlock
-		for otp in output_lines.get_children(): #This code block gives errors, but doesn't do much
+		for otp in output_block.get_children(): #This code block gives errors, but doesn't do much
 			if otp.is_in_group("terminal_lines"):
-				remove_child(otp)
 				otp.remove_from_group("terminal_lines")
 				otp.queue_free()
 	else:
@@ -63,6 +61,7 @@ func _on_terminal_btn_pressed():
 	AudioManager.play_sound(click)
 
 func _on_exit_btn_pressed():
+	$Terminal.hide()
 	$Shop.hide()
 	$HomeScreen.show()
 	AudioManager.play_sound(click)
