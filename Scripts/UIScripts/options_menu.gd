@@ -11,9 +11,16 @@ func _ready():
 	$Menu/Sliders/SFX/SFXSlider.value = game_manager.sfx_volume
 	$Menu/Sliders/Music/MusicSlider.value = game_manager.music_volume
 
-func _on_back_pressed():
+func hide_options():
 	hide()
 	back.emit()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		hide_options()
+
+func _on_back_pressed():
+	hide_options()
 	AudioManager.play_sound(click)
 
 func _on_sfx_slider_value_changed(value):

@@ -49,7 +49,6 @@ func _end_day():
 	resources.carry_amt = 0
 
 func _on_next_day_pressed():
-	var loading_screen = load("res://Nodes/UI/loading_screen.tscn")
-	get_tree().change_scene_to_packed(loading_screen)
+	get_tree().reload_current_scene()
 	AudioManager.play_sound(click)
 	game_manager.days += 1
