@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="The Cat Cafe"
+config/name="Little Cat Cafe"
+config/description="Get your Cat Cafe to be famous"
 run/main_scene="res://Nodes/UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://GWJ-Full-Logo-tag-Orange2.png"
