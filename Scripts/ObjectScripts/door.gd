@@ -28,7 +28,7 @@ func randomize_spawn():
 	npc_spawn_time = randomizer.randf_range(min_time, max_time)
 	npc_spawn_timer.wait_time = npc_spawn_time
 
-func decreases_randomizer():
+func reduce_cooldown():
 	if min_time >= 1:
 		min_time -= 0.1
 		max_time -= 0.1
@@ -43,8 +43,8 @@ func setup_timer():
 	
 	add_child(difficulty_timer)
 	difficulty_timer.one_shot = false
-	difficulty_timer.wait_time = 3
-	difficulty_timer.connect("timeout", decreases_randomizer)
+	difficulty_timer.wait_time = 1
+	difficulty_timer.connect("timeout", reduce_cooldown)
 	difficulty_timer.start()
 
 func _on_timer_end():
