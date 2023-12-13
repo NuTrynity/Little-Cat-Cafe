@@ -2,7 +2,7 @@ extends Control
 
 @export var resources : PlayerMealCarry
 @export var game_manager : GameManager
-@export var qouta : int
+@export var qouta : float
 
 @onready var animation = $AnimationPlayer
 @onready var money_label = $Results/Money/Amt/Result
@@ -13,7 +13,7 @@ extends Control
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
 var victory_sfx = load("res://Assets/Music/Good Job!.wav")
-var current_qouta : int = 0
+var current_qouta : float = 0
 
 func _ready():
 	game_manager.day_end.connect(_end_day)
@@ -26,10 +26,6 @@ func _process(_delta):
 	money_label.text = "$ " + str(GlobalScript.cash_on_hand)
 	ratings.value = current_qouta
 	day_label.text = "DAY " + str(game_manager.days)
-	
-	if GlobalScript.rating >= current_qouta:
-		qouta += qouta * 1.1
-		current_qouta = 0
 
 func setup_timer():
 	add_child(timer)
@@ -45,7 +41,10 @@ func setup_timer():
 func increase_qouta():
 	if current_qouta <= GlobalScript.rating:
 		current_qouta += 100
-		GlobalScript.rating -= 100
+		
+		if current_qouta >= qouta:
+			qouta += qouta * 1.1
+			GlobalScript.rating = 0
 	else:
 		qouta_timer.stop()
 
