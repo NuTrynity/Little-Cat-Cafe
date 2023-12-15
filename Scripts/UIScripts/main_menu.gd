@@ -16,7 +16,7 @@ func _show_menu():
 	$CenterContainer/Buttons.show()
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scene_0.tscn")
+	SceneChanger.change_scene("res://scene_0.tscn")
 	AudioManager.play_sound(click)
 
 func _on_options_pressed():

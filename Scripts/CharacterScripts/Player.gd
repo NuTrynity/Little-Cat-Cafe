@@ -9,7 +9,6 @@ extends CharacterBody2D
 
 var input = Vector2.ZERO
 var joystick_input = Vector2(0, 0)
-var tap_movement : bool
 
 func _physics_process(_delta):
 	input = get_input()
