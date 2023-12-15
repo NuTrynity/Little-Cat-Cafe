@@ -3,6 +3,7 @@ extends Resource
 class_name GameManager
 signal game_end
 signal day_end
+signal game_finished
 
 @export var game_minutes : int
 @export var game_seconds : int

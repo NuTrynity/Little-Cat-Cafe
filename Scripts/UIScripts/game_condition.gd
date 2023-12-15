@@ -14,10 +14,12 @@ extends Control
 var click = load("res://Assets/SFX/click_sfx.ogg")
 var victory_sfx = load("res://Assets/Music/Good Job!.wav")
 var current_qouta : float = 0
+var game_finished : bool = false
 
 func _ready():
 	game_manager.day_end.connect(_end_day)
 	ratings.max_value = qouta
+	current_qouta = GlobalScript.rating #set to current rating
 	
 	setup_timer()
 	next_day()
@@ -43,8 +45,8 @@ func increase_qouta():
 		current_qouta += 100
 		
 		if current_qouta >= qouta:
-			qouta += qouta * 1.1
-			GlobalScript.rating = 0
+			animation.play("Game_Win")
+			game_finished = true
 	else:
 		qouta_timer.stop()
 
@@ -69,6 +71,9 @@ func _end_day():
 	resources.carry_amt = 0
 
 func _on_next_day_pressed():
-	get_tree().reload_current_scene()
-	AudioManager.play_sound(click)
-	game_manager.days += 1
+	if game_finished == true:
+		pass #put another result screen here
+	else:
+		get_tree().reload_current_scene()
+		AudioManager.play_sound(click)
+		game_manager.days += 1

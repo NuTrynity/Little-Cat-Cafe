@@ -141,7 +141,7 @@ bus = &"Music"
 [node name="EndDay" type="CanvasLayer" parent="."]
 
 [node name="GameCondition" parent="EndDay" instance=ExtResource("19_nxtfs")]
-qouta = 7500
+qouta = 7500.0
 
 [editable path="Table1"]
 [editable path="Table1/chair2"]
