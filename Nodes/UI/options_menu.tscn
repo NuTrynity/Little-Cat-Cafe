@@ -11,10 +11,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -251.5
-offset_top = -226.5
-offset_right = 251.5
-offset_bottom = 226.5
+offset_left = -283.5
+offset_top = -281.5
+offset_right = 283.5
+offset_bottom = 281.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_plmjf")
@@ -24,14 +24,6 @@ game_manager = ExtResource("3_b88v0")
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 128
-
-[node name="Fullscreen" type="VBoxContainer" parent="Menu"]
-visible = false
-layout_mode = 2
-
-[node name="CheckButton" type="CheckButton" parent="Menu/Fullscreen"]
-layout_mode = 2
-text = "FullScreen"
 
 [node name="Sliders" type="VBoxContainer" parent="Menu"]
 layout_mode = 2

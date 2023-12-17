@@ -74,6 +74,6 @@ func _on_next_day_pressed():
 	if game_finished == true:
 		pass #put another result screen here
 	else:
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scene_0.tscn")
 		AudioManager.play_sound(click)
 		game_manager.days += 1
