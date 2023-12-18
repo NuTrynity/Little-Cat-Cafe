@@ -4,12 +4,13 @@
 [ext_resource type="Script" path="res://Scripts/UIScripts/resource_display.gd" id="1_fg7lg"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_ka2dx"]
 
-[node name="ResourceDisplay" type="VBoxContainer"]
+[node name="ResourceDisplay" type="HBoxContainer"]
 offset_left = 52.0
 offset_top = 44.0
 offset_right = 99.0
 offset_bottom = 184.0
 theme = ExtResource("1_chu7s")
+theme_override_constants/separation = 32
 alignment = 1
 script = ExtResource("1_fg7lg")
 player_resources = ExtResource("2_ka2dx")

@@ -29,6 +29,6 @@ func _on_timeout():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if game_manager.game_minutes < 10:
-		text = "0" + str(game_manager.game_minutes) + ":" + str(game_manager.game_seconds)
+		text = "Time: " + "0" + str(game_manager.game_minutes) + ":" + str(game_manager.game_seconds)
 		if game_manager.game_seconds < 10:
-			text = "0" + str(game_manager.game_minutes) + ":" + "0" + str(game_manager.game_seconds)
+			text = "Time: " + "0" + str(game_manager.game_minutes) + ":" + "0" + str(game_manager.game_seconds)
