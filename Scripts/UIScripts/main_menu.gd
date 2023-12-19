@@ -3,6 +3,7 @@ extends Control
 @onready var main_menu_bg = preload("res://Assets/Music/Main Menu.wav")
 @onready var main_menu_stream = $MainMenuMusic
 @onready var options_menu = $CenterContainer/OptionsMenu
+@onready var save_loader = $SaveLoader
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
 
@@ -38,4 +39,10 @@ func _on_no_pressed():
 	$CenterContainer/Buttons/Play.grab_focus()
 	$CenterContainer/Buttons.show()
 	$CenterContainer/Confirmation.hide()
+	AudioManager.play_sound(click)
+
+func _on_continue_pressed():
+	#TODO: Code something that checks if the game has the save file then go to the game
+	save_loader.load_game()
+	SceneChanger.change_scene("res://scene_0.tscn")
 	AudioManager.play_sound(click)

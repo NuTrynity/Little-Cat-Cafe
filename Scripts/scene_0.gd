@@ -7,7 +7,9 @@ extends Node2D
 
 func _ready():
 	get_tree().paused = false
+	
 	InteractionManager.find_player()
+	save_loader.save_game()
 	gameplay_stream.play()
 	
 	load_cats()
