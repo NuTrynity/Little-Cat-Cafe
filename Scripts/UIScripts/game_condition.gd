@@ -27,7 +27,7 @@ func _ready():
 func _process(_delta):
 	money_label.text = "$ " + str(GlobalScript.cash_on_hand)
 	ratings.value = current_qouta
-	day_label.text = "DAY " + str(game_manager.days)
+	day_label.text = "DAY " + str(GlobalScript.days)
 
 func setup_timer():
 	add_child(timer)
@@ -76,4 +76,4 @@ func _on_next_day_pressed():
 	else:
 		get_tree().change_scene_to_file("res://scene_0.tscn")
 		AudioManager.play_sound(click)
-		game_manager.days += 1
+		GlobalScript.days += 1

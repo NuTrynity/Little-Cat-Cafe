@@ -2,6 +2,7 @@ extends Node
 
 var cash_on_hand : int = 1000
 var rating : int
+var days : int = 1
 
 var meal_types : Dictionary = {
 	0: {

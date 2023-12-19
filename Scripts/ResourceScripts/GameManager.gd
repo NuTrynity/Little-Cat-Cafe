@@ -8,7 +8,6 @@ signal game_finished
 @export var game_minutes : int
 @export var game_seconds : int
 
-var days : int = 1
 var customers : int = 0
 var current_minutes : int
 var current_seconds : int
