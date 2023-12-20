@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var animations = $Animations
-@onready var screenshot = $Screenshot
 
 func change_scene(target : String, animation : String) -> void:
 	animations.play(animation)

@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg0rf05xpx41q"]
+
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_74exe"]
+[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="2_uvq1d"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/result_screen.gd" id="2_yc08m"]
+[ext_resource type="AudioStream" uid="uid://boacg5qdfubj2" path="res://Assets/Music/Main Menu.wav" id="4_emjo3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfa2f"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ResultScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1280, 720)
+theme = ExtResource("1_74exe")
+script = ExtResource("2_yc08m")
+quota = 7500
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+
+[node name="Screen" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Result" type="Label" parent="CenterContainer/PanelContainer/Screen"]
+layout_mode = 2
+text = "RESULT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="HBoxContainer" parent="CenterContainer/PanelContainer/Screen"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Screen/Money"]
+layout_mode = 2
+text = "Money"
+
+[node name="Money" type="Label" parent="CenterContainer/PanelContainer/Screen/Money"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0000 $"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ratings" type="HBoxContainer" parent="CenterContainer/PanelContainer/Screen"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/Screen/Ratings"]
+layout_mode = 2
+text = "Ratings"
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/PanelContainer/Screen/Ratings"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.317647, 0.0784314, 0.0745098, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("2_uvq1d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sfa2f")
+value = 50.0
+
+[node name="NextDay" type="Button" parent="CenterContainer/PanelContainer/Screen"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next Day"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_emjo3")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/Screen/NextDay" to="." method="_on_next_day_pressed"]

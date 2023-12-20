@@ -41,7 +41,7 @@ func _on_options_pressed():
 	AudioManager.play_sound(click)
 
 func _on_yes_pressed():
-	get_tree().change_scene_to_file("res://Nodes/UI/main_menu.tscn")
+	SceneChanger.change_scene("res://Nodes/UI/main_menu.tscn", "dissolve")
 	AudioManager.play_sound(click)
 
 func _on_no_pressed():

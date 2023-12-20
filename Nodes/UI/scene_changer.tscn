@@ -141,6 +141,7 @@ _data = {
 }
 
 [node name="SceneChanger" type="CanvasLayer"]
+process_mode = 3
 layer = 99
 script = ExtResource("1_0kng0")
 

@@ -76,8 +76,8 @@ theme_override_constants/separation = 94
 
 [node name="Label" type="Label" parent="CenterContainer/Confirmation/Container"]
 layout_mode = 2
-text = "Would You Like To Go to The
-Main Menu??"
+text = "Go to Main Menu?
+Progress will be Losed"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -23,11 +23,10 @@ func next_day():
 
 func _end_day():
 	show()
-	get_tree().paused = true
+	resources.carry_amt = 0
 	animation.play("Game_Over")
 	game_manager._reset()
-	resources.carry_amt = 0
-	AudioManager.play_sound(victory_sfx)
+	
 	await get_tree().create_timer(5).timeout
-	get_tree().reload_current_scene()
-	#TODO: SceneChanger.change_scene(result_screen)
+	SceneChanger.change_scene("res://Nodes/UI/result_screen.tscn", "dissolve")
+	AudioManager.play_sound(victory_sfx)

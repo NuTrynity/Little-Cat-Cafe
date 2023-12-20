@@ -43,7 +43,7 @@ func setup_timer():
 	
 	add_child(difficulty_timer)
 	difficulty_timer.one_shot = false
-	difficulty_timer.wait_time = 1
+	difficulty_timer.wait_time = 2.5
 	difficulty_timer.connect("timeout", reduce_cooldown)
 	difficulty_timer.start()
 
