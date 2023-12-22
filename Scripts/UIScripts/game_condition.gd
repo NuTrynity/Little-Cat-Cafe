@@ -28,5 +28,5 @@ func _end_day():
 	game_manager._reset()
 	
 	await get_tree().create_timer(5).timeout
-	SceneChanger.change_scene("res://Nodes/UI/result_screen.tscn", "dissolve")
+	SceneChanger.change_scene("res://Nodes/UI/result_screen.tscn", "slide_left")
 	AudioManager.play_sound(victory_sfx)

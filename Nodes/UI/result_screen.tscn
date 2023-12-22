@@ -52,7 +52,7 @@ theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/Screen/Money"]
 layout_mode = 2
-text = "Money"
+text = "Money Earned"
 
 [node name="Money" type="Label" parent="CenterContainer/PanelContainer/Screen/Money"]
 unique_name_in_owner = true
@@ -80,6 +80,10 @@ theme_override_constants/outline_size = 32
 theme_override_fonts/font = ExtResource("2_uvq1d")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sfa2f")
 value = 50.0
+
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer/Screen"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="NextDay" type="Button" parent="CenterContainer/PanelContainer/Screen"]
 layout_mode = 2
