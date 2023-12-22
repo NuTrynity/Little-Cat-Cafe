@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var gameplay_music = preload("res://Assets/Music/Gameplay.wav")
 @onready var gameplay_stream = $GamePlayMusic
-@onready var ui = $UserInterface/Control/Timer
 @onready var save_loader = $SaveLoader
 
 func _ready():

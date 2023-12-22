@@ -4,6 +4,7 @@ class_name GameManager
 signal game_end
 signal day_end
 signal game_finished
+signal start_combo
 
 @export var game_minutes : int
 @export var game_seconds : int
@@ -11,6 +12,7 @@ signal game_finished
 var customers : int = 0
 var current_minutes : int
 var current_seconds : int
+var combo_meter : int = 1
 
 var sfx_volume : float = 1
 var music_volume : float = 1

@@ -13,7 +13,6 @@ signal meal_taken()
 var meal_index : int
 var carry_amt : int = 0
 
-var money : float = 0
 var rating : int = 0
 
 # adds to rating, adds more if patience bar is higher

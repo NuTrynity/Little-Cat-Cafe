@@ -183,7 +183,7 @@ func _on_player_give_meal():
 
 func spawn_label():
 	var price_label = meal_price_label.instantiate()
-	price_label.price = str(GlobalScript.meal_types[meal_i_want]["price"])
+	price_label.price = str(GlobalScript.meal_types[meal_i_want]["price"] * game_manager.combo_meter)
 	price_label.position = global_position
 	price_label.position.y -= 360 #just on her head
 	price_label.position.x -= price_label.size.x / 2
@@ -207,12 +207,14 @@ func grab_meal(meal):
 	patience_bar.hide()
 	meal_want.hide()
 	eat_timer.start()
+	game_manager.start_combo.emit()
 	interact_area.monitoring = false
 	
 	spawn_label()
 	GlobalScript.inventory[meal_i_want]["count"] -= 1
-	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"]
+	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"] * game_manager.combo_meter
 	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
+	game_manager.combo_meter += 2
 
 '''
 func _on_chair_detector_area_entered(area):

@@ -26,7 +26,7 @@ func _end_day():
 	resources.carry_amt = 0
 	animation.play("Game_Over")
 	game_manager._reset()
+	AudioManager.play_sound(victory_sfx)
 	
 	await get_tree().create_timer(5).timeout
 	SceneChanger.change_scene("res://Nodes/UI/result_screen.tscn", "slide_left")
-	AudioManager.play_sound(victory_sfx)
