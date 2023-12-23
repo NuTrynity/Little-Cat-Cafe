@@ -1,5 +1,8 @@
 extends Node
 
+var sfx_volume : float = 1
+var music_volume : float = 1
+
 var cash_on_hand : int = 1000
 var rating : int
 var days : int = 1

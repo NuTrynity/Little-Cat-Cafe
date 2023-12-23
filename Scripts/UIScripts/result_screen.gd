@@ -25,5 +25,6 @@ func _process(_delta):
 		curr_rating += 10
 
 func _on_next_day_pressed():
+	GlobalScript.days += 1
 	SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
 	AudioManager.play_sound(clicksfx)

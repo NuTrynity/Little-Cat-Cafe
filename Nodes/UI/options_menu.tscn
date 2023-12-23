@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/options_menu.gd" id="1_hnkb5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_plmjf"]
-[ext_resource type="Resource" uid="uid://d0ojrka58d027" path="res://CustomResources/GameManager.tres" id="3_b88v0"]
+[ext_resource type="PackedScene" uid="uid://cixmi4iqjobvr" path="res://Nodes/options.tscn" id="3_m150x"]
 
 [node name="OptionsMenu" type="PanelContainer"]
 process_mode = 3
@@ -19,7 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_plmjf")
 script = ExtResource("1_hnkb5")
-game_manager = ExtResource("3_b88v0")
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -61,6 +60,8 @@ layout_mode = 2
 [node name="Back" type="Button" parent="Menu/Buttons"]
 layout_mode = 2
 text = "Back"
+
+[node name="Options" parent="." instance=ExtResource("3_m150x")]
 
 [connection signal="value_changed" from="Menu/Sliders/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Menu/Sliders/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]

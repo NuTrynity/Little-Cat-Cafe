@@ -11,16 +11,18 @@ layer = 2
 [node name="PauseMenu" parent="." instance=ExtResource("4_1okjn")]
 visible = false
 
+[node name="ComboMeter" parent="." instance=ExtResource("5_rpkmp")]
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 65.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 
 [node name="Container" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -39,5 +41,3 @@ alignment = 0
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ComboMeter" parent="." instance=ExtResource("5_rpkmp")]

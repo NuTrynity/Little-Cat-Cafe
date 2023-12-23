@@ -2,7 +2,6 @@ extends Control
 
 @export var resources : PlayerMealCarry
 @export var game_manager : GameManager
-@export var qouta : float
 
 @onready var animation = $AnimationPlayer
 

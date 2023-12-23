@@ -214,7 +214,7 @@ func grab_meal(meal):
 	GlobalScript.inventory[meal_i_want]["count"] -= 1
 	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"] * game_manager.combo_meter
 	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
-	game_manager.combo_meter += 2
+	game_manager.combo_meter += 1
 
 '''
 func _on_chair_detector_area_entered(area):

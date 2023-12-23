@@ -122,7 +122,6 @@ bus = &"Music"
 [node name="EndDay" type="CanvasLayer" parent="."]
 
 [node name="GameCondition" parent="EndDay" instance=ExtResource("19_nxtfs")]
-qouta = 7500.0
 
 [node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]
 

@@ -1,5 +1,4 @@
 extends Control
-
 @onready var main_menu_bg = preload("res://Assets/Music/Main Menu.wav")
 @onready var main_menu_stream = $MainMenuMusic
 @onready var options_menu = $CenterContainer/OptionsMenu

@@ -10,10 +10,11 @@ var can_play_anim : bool = true
 func _ready():
 	value = max_value
 	game_manager.start_combo.connect(combo_start)
+	label.position.y -= 32
 	
 	add_child(combo_timer)
 	combo_timer.one_shot = false
-	combo_timer.wait_time = 1
+	combo_timer.wait_time = 0.1
 	combo_timer.connect("timeout", on_timeout)
 
 func _process(_delta):
