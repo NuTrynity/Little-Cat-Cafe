@@ -41,26 +41,6 @@ z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_6dqke")
 
-[node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]
-
-[node name="PC" parent="." instance=ExtResource("20_x4663")]
-layer = 2
-visible = false
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("9_lubdl")
-
-[node name="CatCarpet" parent="Background" instance=ExtResource("16_6nit4")]
-position = Vector2(2219, 1210)
-
-[node name="LongCarpet" parent="Background" instance=ExtResource("19_y2q1h")]
-position = Vector2(1389, 505)
-
 [node name="CatManager" parent="." instance=ExtResource("7_mn2jt")]
 
 [node name="Door" parent="." instance=ExtResource("14_1augc")]
@@ -143,6 +123,26 @@ bus = &"Music"
 
 [node name="GameCondition" parent="EndDay" instance=ExtResource("19_nxtfs")]
 qouta = 7500.0
+
+[node name="UserInterface" parent="." instance=ExtResource("8_4oqfw")]
+
+[node name="PC" parent="." instance=ExtResource("20_x4663")]
+layer = 2
+visible = false
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_lubdl")
+
+[node name="CatCarpet" parent="Background" instance=ExtResource("16_6nit4")]
+position = Vector2(2219, 1210)
+
+[node name="LongCarpet" parent="Background" instance=ExtResource("19_y2q1h")]
+position = Vector2(1389, 505)
 
 [node name="SaveLoader" parent="." instance=ExtResource("20_n7opd")]
 
