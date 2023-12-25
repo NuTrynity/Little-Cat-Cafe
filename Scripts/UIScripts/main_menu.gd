@@ -16,7 +16,7 @@ func _show_menu():
 	$CenterContainer/Buttons.show()
 
 func _on_play_pressed():
-	SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
+	SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
 	AudioManager.play_sound(click)
 
 func _on_options_pressed():
@@ -47,5 +47,5 @@ func _on_continue_pressed():
 	there is a save
 	'''
 	save_loader.load_game()
-	SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
+	SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
 	AudioManager.play_sound(click)
