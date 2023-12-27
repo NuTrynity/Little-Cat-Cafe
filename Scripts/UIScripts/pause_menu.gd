@@ -12,6 +12,8 @@ func _show_buttons():
 	AudioManager.play_sound(click)
 
 func _input(event):
+	if get_tree().paused == true:
+		return #prevents such from showing the pause menu
 	if event.is_action_pressed("ui_cancel"):
 		pause_game()
 
