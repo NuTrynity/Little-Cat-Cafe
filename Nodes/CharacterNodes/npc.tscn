@@ -1,13 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4hs18f7bfaew"]
+[gd_scene load_steps=15 format=3 uid="uid://c4hs18f7bfaew"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/NPC.gd" id="1_33mn1"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_b2qht"]
 [ext_resource type="Resource" uid="uid://d0ojrka58d027" path="res://CustomResources/GameManager.tres" id="2_gyrkx"]
 [ext_resource type="PackedScene" uid="uid://djyfyi0mu4m38" path="res://Nodes/Components/ai_movement.tscn" id="4_d7kkh"]
 [ext_resource type="PackedScene" uid="uid://838dejx73cqo" path="res://Nodes/Components/interation_area.tscn" id="4_h15ne"]
+[ext_resource type="Texture2D" uid="uid://u13ut8j8perl" path="res://Sprites/placeholder sprites/heart.png" id="4_ka6t1"]
 [ext_resource type="Script" path="res://Scripts/ComponentScripts/progress_bar.gd" id="5_vddod"]
 [ext_resource type="PackedScene" uid="uid://c88ge1qvc6a8w" path="res://Nodes/CharacterNodes/npc_skin.tscn" id="6_axvpr"]
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/npc_ai_movement.gd" id="6_txabj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_msmvb"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 360.0
+gravity = Vector3(0, 0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgaf6"]
 radius = 154.081
@@ -31,6 +38,12 @@ script = ExtResource("1_33mn1")
 game_manager = ExtResource("2_gyrkx")
 player_resources = ExtResource("2_b2qht")
 patience = 200.0
+
+[node name="HeartParticles" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(2, -298)
+process_material = SubResource("ParticleProcessMaterial_msmvb")
+texture = ExtResource("4_ka6t1")
 
 [node name="NPCSkin" parent="." instance=ExtResource("6_axvpr")]
 position = Vector2(0, -178)

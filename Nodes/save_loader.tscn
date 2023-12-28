@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://p6ruwc0jpptk"]
+[gd_scene load_steps=3 format=3 uid="uid://p6ruwc0jpptk"]
 
 [ext_resource type="Script" path="res://Scripts/SaveLoader.gd" id="1_v3j0u"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_v7fgx"]
 
 [node name="SaveLoader" type="Node"]
 script = ExtResource("1_v3j0u")
+player_resources = ExtResource("2_v7fgx")

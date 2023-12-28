@@ -12,7 +12,8 @@ signal leaving
 @onready var start_scale : Vector2 = pivot.scale
 @onready var animations = $NPCSkin/NPCAnimations
 @onready var npc_sprite = $NPCSkin/NPCSprite as Sprite2D
-@onready var meal_want = $NPCSkin/MealWanted
+@onready var meal_want = $NPCSkin/ThoughtBubble/MealWanted
+@onready var thought_bubble = $NPCSkin/ThoughtBubble
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
 @onready var patience_timer = Timer.new()
@@ -45,6 +46,7 @@ func _ready():
 	npc_sprite.flip_h = false
 	
 	meal_want.hide()
+	thought_bubble.hide()
 	meal_i_want = player_resources.randomize_meal_index()
 	if meal_i_want == 0:
 		meal_want.texture = load("res://Sprites/omurice.png")
@@ -107,6 +109,7 @@ func sit_area_act_setup():
 	patience_timer.start()
 	patience_bar.show()
 	meal_want.show()
+	thought_bubble.show()
 	interact_area.monitoring = true
 	
 	emit_signal("ready_for_cat", self)
@@ -120,13 +123,16 @@ func sit_area_leave():
 	aiMvt.goto_exit()
 	leaving.emit()
 	meal_want.hide()
+	thought_bubble.hide()
 	patience_bar.hide()
 	interact_area.monitoring = false
 	
 	if is_angry == true:
 		meal_want.show()
+		thought_bubble.show()
 	else:
 		meal_want.hide()
+		thought_bubble.hide()
 
 # ends sit_area action
 func _on_meal_finished():
@@ -206,6 +212,7 @@ func grab_meal(meal):
 	patience_timer.stop()
 	patience_bar.hide()
 	meal_want.hide()
+	thought_bubble.hide()
 	eat_timer.start()
 	game_manager.start_combo.emit()
 	interact_area.monitoring = false
