@@ -12,7 +12,7 @@ var game_finished : bool = false
 
 func _ready():
 	game_manager.day_end.connect(_end_day)
-	
+	$DayLabel.text = "Day: " + str(GlobalScript.days)
 	next_day()
 
 func next_day():

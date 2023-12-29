@@ -7,22 +7,26 @@ extends Control
 @onready var update_timer = Timer.new()
 
 var curr_money : int
-var curr_rating : float
+var curr_rating : int
 var clicksfx = load("res://Assets/SFX/click_sfx.ogg")
+var victory_music = load("res://Assets/Music/Good Job!.wav")
 
 func _ready():
 	progress_bar.max_value = quota
+	player_resource.rating = quota
 
-func _process(_delta):
-	#progress_bar.value = curr_rating
-	progress_bar.value = lerp(progress_bar.value, curr_rating, 0.03)
+func _process(delta):
+	progress_bar.value = curr_rating
 	money.text = str(curr_money) + " $"
 	
 	if curr_money < GlobalScript.cash_on_hand:
-		curr_money = lerp(curr_money, GlobalScript.cash_on_hand, 0.03)
-	
+		curr_money += 10
+
 	if curr_rating < player_resource.rating:
-		curr_rating += player_resource.rating
+		curr_rating += 50
+		
+		if curr_rating >= quota:
+			AudioManager.play_sound(victory_music)
 
 func _on_next_day_pressed():
 	GlobalScript.days += 1
