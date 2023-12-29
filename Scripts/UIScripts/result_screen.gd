@@ -1,4 +1,5 @@
 extends Control
+@export var player_resource : PlayerMealCarry
 @export var quota : int
 
 @onready var progress_bar = %ProgressBar
@@ -6,23 +7,22 @@ extends Control
 @onready var update_timer = Timer.new()
 
 var curr_money : int
-var curr_rating : int
+var curr_rating : float
 var clicksfx = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
 	progress_bar.max_value = quota
 
 func _process(_delta):
-	progress_bar.value = curr_rating
+	#progress_bar.value = curr_rating
+	progress_bar.value = lerp(progress_bar.value, curr_rating, 0.03)
 	money.text = str(curr_money) + " $"
 	
 	if curr_money < GlobalScript.cash_on_hand:
-		await get_tree().create_timer(0.01).timeout
-		curr_money += 10
+		curr_money = lerp(curr_money, GlobalScript.cash_on_hand, 0.03)
 	
-	if curr_rating < GlobalScript.rating:
-		await get_tree().create_timer(0.01).timeout
-		curr_rating += 10
+	if curr_rating < player_resource.rating:
+		curr_rating += player_resource.rating
 
 func _on_next_day_pressed():
 	GlobalScript.days += 1

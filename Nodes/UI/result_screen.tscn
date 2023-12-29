@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg0rf05xpx41q"]
+[gd_scene load_steps=7 format=3 uid="uid://dg0rf05xpx41q"]
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_74exe"]
 [ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="2_uvq1d"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/result_screen.gd" id="2_yc08m"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="3_uc3wn"]
 [ext_resource type="AudioStream" uid="uid://boacg5qdfubj2" path="res://Assets/Music/Main Menu.wav" id="4_emjo3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfa2f"]
@@ -22,6 +23,7 @@ grow_vertical = 2
 pivot_offset = Vector2(1280, 720)
 theme = ExtResource("1_74exe")
 script = ExtResource("2_yc08m")
+player_resource = ExtResource("3_uc3wn")
 quota = 7500
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

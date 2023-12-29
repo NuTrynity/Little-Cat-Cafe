@@ -40,8 +40,8 @@ player_resources = ExtResource("2_b2qht")
 patience = 200.0
 
 [node name="HeartParticles" type="GPUParticles2D" parent="."]
-visible = false
 position = Vector2(2, -298)
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_msmvb")
 texture = ExtResource("4_ka6t1")
 
