@@ -22,7 +22,7 @@ func adjust_rating(amt : int, patience_bar = null):
 	if patience_bar != null:
 		rating += patience_bar.ratio * rating_increase_amt
 	
-	GlobalScript.rating = rating
+	#GlobalScript.rating = rating
 
 func randomize_meal_index():
 	var randomizer = RandomNumberGenerator.new()
