@@ -41,11 +41,10 @@ func _on_no_pressed():
 	AudioManager.play_sound(click)
 
 func _on_continue_pressed():
-	'''
-	TODO: Code something that checks if the game has the save file
-	then go to the game, also make the continue button appear when
-	there is a save
-	'''
-	save_loader.load_game()
-	SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
+	if FileAccess.file_exists("user://savedata.tres"):
+		save_loader.load_game()
+		SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
+	else:
+		print("Save does not exist")
+	
 	AudioManager.play_sound(click)
