@@ -7,7 +7,7 @@ signal item_bought
 @export var item_name : String
 @export var item_price : float
 @export var buy_once : bool
-@export var buy_amt : int
+var buy_amt : int = 0
 
 @onready var image_rect = $img
 @onready var item_label = $label
@@ -34,15 +34,15 @@ func enough_money() -> bool:
 	
 func buy_item():
 	if enough_money():
+		buy_amt += 1
 		GlobalScript.cash_on_hand -= item_price
 		item_bought.emit()
 		AudioManager.play_sound(click)
 		
-		if buy_once == true:
+		if buy_amt == get_max_amt():
 			btn.text = "Sold Out"
 			btn.disabled = true
-		
-func spawn_cat(cat_node):
-	var cat_instance = cat_node.instantiate() as Node2D
-	get_tree().get_root().get_node("scene_0").add_child(cat_instance)
-	cat_instance.global_position = leave_area.global_position
+
+# override this in inherited classes
+func get_max_amt() -> int:
+	return 2

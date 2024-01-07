@@ -68,17 +68,20 @@ var items_owned : Dictionary = {
 	"table" : {
 		"owned" : 2,
 		"positions" : [Vector2(1650,892), Vector2(1438,1251), Vector2(778, 896), Vector2(544, 1249)],
-		"node" : "res://Nodes/ObjectNodes/table.tscn"
+		"node" : "res://Nodes/ObjectNodes/table.tscn",
+		"parent_name" : "scene_0"
 	},
 	"frypan" : {
 		"owned" : 1,
 		"positions" : [Vector2(-171,-140), Vector2(10,-138)],
-		"node" : "res://Nodes/ObjectNodes/fryPan.tscn"
+		"node" : "res://Nodes/ObjectNodes/fryPan.tscn",
+		"parent_name" : "scene_0/KitchenCounter2"
 	},
 	"coffee machine" : {
 		"owned" : 1,
 		"positions" : [Vector2(-207.22,-121.65), Vector2(-17.526,-121.65)],
-		"node" : "res://Nodes/ObjectNodes/coffee_machine.tscn"
+		"node" : "res://Nodes/ObjectNodes/coffee_machine.tscn",
+		"parent_name" : "scene_0/KitchenCounter"
 	}
 }
 
