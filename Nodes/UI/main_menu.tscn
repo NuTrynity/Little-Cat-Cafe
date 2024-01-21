@@ -214,6 +214,37 @@ text = "Yes"
 layout_mode = 2
 text = "No"
 
+[node name="NewGame" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 94
+
+[node name="Container" type="VBoxContainer" parent="CenterContainer/NewGame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/NewGame/Container"]
+layout_mode = 2
+text = "There's already and Existing Save!
+Playing New GameWill Erase
+Your Previous Save File
+
+Do you want to play a New Game?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/NewGame"]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="NewGamePls" type="Button" parent="CenterContainer/NewGame/Buttons"]
+layout_mode = 2
+text = "Yes"
+
+[node name="ContinueNewGame" type="Button" parent="CenterContainer/NewGame/Buttons"]
+layout_mode = 2
+text = "No"
+
 [node name="OptionsMenu" parent="CenterContainer" instance=ExtResource("8_2smvv")]
 visible = false
 layout_mode = 2
@@ -248,3 +279,5 @@ bus = &"Music"
 [connection signal="pressed" from="CenterContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="CenterContainer/NewGame/Buttons/NewGamePls" to="." method="_on_new_game_pls_pressed"]
+[connection signal="pressed" from="CenterContainer/NewGame/Buttons/ContinueNewGame" to="." method="_on_continue_new_game_pressed"]

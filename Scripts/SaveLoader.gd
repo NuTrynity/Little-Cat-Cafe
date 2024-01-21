@@ -9,6 +9,7 @@ func save_game():
 	saved_game.rating = player_resources.rating
 	saved_game.inventory = GlobalScript.shop
 	saved_game.days = GlobalScript.days
+	saved_game.items_owned = GlobalScript.items_owned
 	
 	ResourceSaver.save(saved_game, "user://savedata.tres")
 
@@ -19,3 +20,4 @@ func load_game():
 	player_resources.rating = saved_game.rating
 	GlobalScript.shop = saved_game.inventory
 	GlobalScript.days = saved_game.days
+	GlobalScript.items_owned = saved_game.items_owned

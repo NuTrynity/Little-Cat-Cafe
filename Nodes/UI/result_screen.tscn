@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg0rf05xpx41q"]
+[gd_scene load_steps=8 format=3 uid="uid://dg0rf05xpx41q"]
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_74exe"]
 [ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="2_uvq1d"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/result_screen.gd" id="2_yc08m"]
 [ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="3_uc3wn"]
 [ext_resource type="AudioStream" uid="uid://boacg5qdfubj2" path="res://Assets/Music/Main Menu.wav" id="4_emjo3"]
+[ext_resource type="Texture2D" uid="uid://de6o8blu77p1b" path="res://Sprites/main_menu.png" id="4_jex36"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfa2f"]
 bg_color = Color(0, 1, 0, 1)
@@ -13,7 +14,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="ResultScreen" type="Control"]
+[node name="Result" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +26,15 @@ theme = ExtResource("1_74exe")
 script = ExtResource("2_yc08m")
 player_resource = ExtResource("3_uc3wn")
 quota = 7500
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jex36")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

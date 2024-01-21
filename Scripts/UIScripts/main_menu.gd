@@ -3,10 +3,16 @@ extends Control
 @onready var main_menu_stream = $MainMenuMusic
 @onready var options_menu = $CenterContainer/OptionsMenu
 @onready var save_loader = $SaveLoader
+@onready var continue_btn = $CenterContainer/Buttons/Continue
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
+	if FileAccess.file_exists("user://savedata.tres"):
+		continue_btn.disabled = false
+	else:
+		continue_btn.disabled = true
+	
 	get_tree().paused = false
 	$CenterContainer/Buttons/Play.grab_focus()
 	options_menu.back.connect(_show_menu)
@@ -16,7 +22,12 @@ func _show_menu():
 	$CenterContainer/Buttons.show()
 
 func _on_play_pressed():
-	SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
+	if FileAccess.file_exists("user://savedata.tres"):
+		$CenterContainer/NewGame.show()
+		$CenterContainer/Buttons.hide()
+	else:
+		SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
+	
 	AudioManager.play_sound(click)
 
 func _on_options_pressed():
@@ -41,10 +52,15 @@ func _on_no_pressed():
 	AudioManager.play_sound(click)
 
 func _on_continue_pressed():
-	if FileAccess.file_exists("user://savedata.tres"):
-		save_loader.load_game()
-		SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
-	else:
-		print("Save does not exist")
-	
+	save_loader.load_game()
+	SceneChanger.change_scene("res://scene_0.tscn", "fade_out")
+	AudioManager.play_sound(click)
+
+func _on_new_game_pls_pressed():
+	SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
+	AudioManager.play_sound(click)
+
+func _on_continue_new_game_pressed():
+	$CenterContainer/NewGame.hide()
+	$CenterContainer/Buttons.show()
 	AudioManager.play_sound(click)
