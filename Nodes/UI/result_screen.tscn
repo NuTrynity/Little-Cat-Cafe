@@ -93,6 +93,63 @@ theme_override_fonts/font = ExtResource("2_uvq1d")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sfa2f")
 value = 50.0
 
+[node name="Items" type="VBoxContainer" parent="CenterContainer/PanelContainer/Screen"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="row1" type="HBoxContainer" parent="CenterContainer/PanelContainer/Screen/Items"]
+layout_mode = 2
+
+[node name="cats" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item Owned:"
+
+[node name="tables" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Item Owned:"
+horizontal_alignment = 2
+
+[node name="row2" type="HBoxContainer" parent="CenterContainer/PanelContainer/Screen/Items"]
+layout_mode = 2
+
+[node name="chefcat" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item Owned:"
+
+[node name="greycat" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Item Owned:"
+horizontal_alignment = 2
+
+[node name="row3" type="HBoxContainer" parent="CenterContainer/PanelContainer/Screen/Items"]
+layout_mode = 2
+
+[node name="tabbycat" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item Owned:"
+
+[node name="browncat" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Item Owned:"
+horizontal_alignment = 2
+
+[node name="row4" type="HBoxContainer" parent="CenterContainer/PanelContainer/Screen/Items"]
+layout_mode = 2
+
+[node name="orangecat" type="Label" parent="CenterContainer/PanelContainer/Screen/Items/row4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item Owned:"
+
 [node name="Control" type="Control" parent="CenterContainer/PanelContainer/Screen"]
 layout_mode = 2
 size_flags_vertical = 3
