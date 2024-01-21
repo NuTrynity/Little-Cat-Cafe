@@ -26,7 +26,7 @@ func _ready():
 	##Items Owned Sections##
 
 func count_all(data): #Counts all owned items in a Dictionary
-	var amt : int
+	var amt : int = 0
 	var items = data
 	for item_index in items:
 		for x in range(items[item_index]["owned"]):
@@ -34,8 +34,7 @@ func count_all(data): #Counts all owned items in a Dictionary
 	return amt
 
 func count_specific(data): #Counts only a specific owned item in a Dictionary
-	var amt : int
-	var items = data
+	var amt : int = 0
 	for x in range(data["owned"]):
 		amt += 1
 	return amt
