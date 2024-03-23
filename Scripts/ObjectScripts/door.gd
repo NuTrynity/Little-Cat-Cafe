@@ -22,7 +22,9 @@ func _ready():
 	npc_spawn_timer.start()
 
 func stop_spawning():
+	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
 	npc_spawn_timer.stop()
+	AudioManager.play_sound(bell_sfx)
 
 func randomize_spawn():
 	npc_spawn_time = randomizer.randf_range(min_time, max_time)
