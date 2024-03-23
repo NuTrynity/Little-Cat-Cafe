@@ -42,8 +42,11 @@ func _on_quit_pressed():
 	AudioManager.play_sound(click)
 
 func _on_yes_pressed():
-	get_tree().quit()
+	SceneChanger.animations.play("exit")
 	AudioManager.play_sound(click)
+	
+	await SceneChanger.animations.animation_finished
+	get_tree().quit()
 
 func _on_no_pressed():
 	$CenterContainer/Buttons/Play.grab_focus()

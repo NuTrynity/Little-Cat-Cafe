@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfxi4ue5ee5eo"]
+
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_1v3nc"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/opening_bill_board.gd" id="1_bn5g8"]
+[ext_resource type="Texture2D" uid="uid://jfvwko76b5dn" path="res://GWJ-Full-Logo-tag-Orange2.png" id="1_tttym"]
+[ext_resource type="Texture2D" uid="uid://b5d7vfnc4n0oc" path="res://game_icon.png" id="3_3rdm7"]
+
+[sub_resource type="Animation" id="Animation_led3k"]
+resource_name = "obb"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icons:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icons:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 720)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foreground:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"goto_menu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rb8ty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icons:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icons:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 720)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foreground:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnr4j"]
+_data = {
+"RESET": SubResource("Animation_rb8ty"),
+"obb": SubResource("Animation_led3k")
+}
+
+[node name="OpeningBillBoard" type="CanvasLayer"]
+script = ExtResource("1_bn5g8")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.133333, 0.25098, 1)
+
+[node name="Icons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1v3nc")
+
+[node name="CenterContainer" type="CenterContainer" parent="Icons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -683.0
+offset_top = -500.0
+offset_right = 683.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Icons/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="GameJam" type="TextureRect" parent="Icons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tttym")
+
+[node name="Label" type="Label" parent="Icons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="OurIcon" type="TextureRect" parent="Icons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_3rdm7")
+expand_mode = 2
+
+[node name="Foreground" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jnr4j")
+}
+autoplay = "obb"

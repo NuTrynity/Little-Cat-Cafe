@@ -1,7 +1,7 @@
 extends Control
 
 @onready var options_menu = $CenterContainer/Menu/OptionsMenu
-var paused : bool = true #this works I dunno why
+var paused : bool = true #this works, I dunno why
 var click = load("res://Assets/SFX/click_sfx.ogg")
 
 func _ready():
