@@ -1,5 +1,4 @@
 extends Node
-
 @export var player_resources : PlayerMealCarry
 
 func save_game():
