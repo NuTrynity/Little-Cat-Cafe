@@ -47,4 +47,3 @@ func spawn_objects(parent: Node2D, items : Dictionary, name : String):
 		var obj = obj_node.instantiate() as Node2D
 		parent.add_child(obj)
 		obj.position = objects["positions"][n]
-		

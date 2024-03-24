@@ -76,11 +76,13 @@ func _on_continue_new_game_pressed():
 	AudioManager.play_sound(click)
 
 func _on_credits_pressed():
+	$Titlecard.hide()
 	$CenterContainer/Buttons.hide()
 	$CenterContainer/Credits.show()
 	AudioManager.play_sound(click)
 
 func _on_credits_back_pressed():
+	$Titlecard.show()
 	$CenterContainer/Buttons.show()
 	$CenterContainer/Credits.hide()
 	AudioManager.play_sound(click)

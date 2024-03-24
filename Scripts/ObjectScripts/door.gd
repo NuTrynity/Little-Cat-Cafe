@@ -62,6 +62,7 @@ func _on_timer_end():
 			table_manager.table_num = 1
 
 func spawn_customer():
+	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
 	var customer = npc.instantiate()
 	customer.position = global_position
 	customer.position.y += 100
@@ -69,3 +70,4 @@ func spawn_customer():
 	get_parent().add_child(customer)
 	
 	emit_signal("npc_spawned", customer)
+	AudioManager.play_sound(bell_sfx)

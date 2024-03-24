@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbqkvkgxnox0y"]
+[gd_scene load_steps=10 format=3 uid="uid://dbqkvkgxnox0y"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/main_menu.gd" id="1_1r5u5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_ava0i"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dm62wdjtycg0h" path="res://Sprites/table.png" id="5_58dmg"]
 [ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="6_4b1nn"]
 [ext_resource type="PackedScene" uid="uid://cckg4hdcq12vh" path="res://Nodes/UI/options_menu.tscn" id="8_2smvv"]
-[ext_resource type="Texture2D" uid="uid://cfbu87a3ripl1" path="res://Sprites/laptop.png" id="8_nq1f3"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="10_1fhcg"]
 
 [node name="MainMenu" type="Control"]
@@ -109,7 +108,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 94
 
@@ -190,65 +188,73 @@ text = "Yes"
 layout_mode = 2
 text = "No"
 
-[node name="OptionsMenu" parent="CenterContainer" instance=ExtResource("8_2smvv")]
+[node name="Credits" type="PanelContainer" parent="CenterContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Credits" type="VBoxContainer" parent="CenterContainer"]
+[node name="Table" type="VBoxContainer" parent="CenterContainer/Credits"]
 layout_mode = 2
-theme_override_constants/separation = 64
 
-[node name="Row" type="VBoxContainer" parent="CenterContainer/Credits"]
-layout_mode = 2
-theme_override_constants/separation = 64
-
-[node name="Col" type="HBoxContainer" parent="CenterContainer/Credits/Row"]
+[node name="Row" type="VBoxContainer" parent="CenterContainer/Credits/Table"]
 layout_mode = 2
 theme_override_constants/separation = 128
 
-[node name="Contributor1" type="VBoxContainer" parent="CenterContainer/Credits/Row/Col"]
+[node name="Col" type="HBoxContainer" parent="CenterContainer/Credits/Table/Row"]
 layout_mode = 2
+theme_override_constants/separation = 64
 
-[node name="Pfp" type="TextureRect" parent="CenterContainer/Credits/Row/Col/Contributor1"]
+[node name="Contributor1" type="VBoxContainer" parent="CenterContainer/Credits/Table/Row/Col"]
 layout_mode = 2
-texture = ExtResource("8_nq1f3")
-stretch_mode = 2
+theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="CenterContainer/Credits/Row/Col/Contributor1"]
+[node name="Contributions" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor1"]
 layout_mode = 2
-text = "Name
--Contribution"
+text = "NuTrynity
 
-[node name="Contributor2" type="VBoxContainer" parent="CenterContainer/Credits/Row/Col"]
+-Game Programming
+-UI Design"
+
+[node name="SocialHandles" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor1"]
 layout_mode = 2
+text = "Twitter - @nutry333
+Itch. io - nutrynity.itch.io"
 
-[node name="Pfp" type="TextureRect" parent="CenterContainer/Credits/Row/Col/Contributor2"]
+[node name="Contributor2" type="VBoxContainer" parent="CenterContainer/Credits/Table/Row/Col"]
 layout_mode = 2
-texture = ExtResource("8_nq1f3")
-stretch_mode = 2
+theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="CenterContainer/Credits/Row/Col/Contributor2"]
-layout_mode = 2
-text = "Name
--Contribution"
-
-[node name="Contributor1" type="VBoxContainer" parent="CenterContainer/Credits/Row"]
-layout_mode = 2
-
-[node name="Pfp" type="TextureRect" parent="CenterContainer/Credits/Row/Contributor1"]
-layout_mode = 2
-texture = ExtResource("8_nq1f3")
-stretch_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/Credits/Row/Contributor1"]
+[node name="Contributions" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor2"]
 layout_mode = 2
 text = "Name
--Contribution"
 
-[node name="CreditsBack" type="Button" parent="CenterContainer/Credits"]
+- Contributions"
+
+[node name="SocialHandles" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor2"]
+layout_mode = 2
+text = "Social Handles - name"
+
+[node name="Contributor2" type="VBoxContainer" parent="CenterContainer/Credits/Table/Row"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Contributions" type="Label" parent="CenterContainer/Credits/Table/Row/Contributor2"]
+layout_mode = 2
+text = "Name
+
+- Contributions"
+
+[node name="SocialHandles" type="Label" parent="CenterContainer/Credits/Table/Row/Contributor2"]
+layout_mode = 2
+text = "Social Handles - name"
+
+[node name="CreditsBack" type="Button" parent="CenterContainer/Credits/Table/Row"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
+
+[node name="OptionsMenu" parent="CenterContainer" instance=ExtResource("8_2smvv")]
+visible = false
+layout_mode = 2
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_eanhc")
@@ -265,4 +271,4 @@ bus = &"Music"
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/No" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="CenterContainer/NewGame/Buttons/NewGamePls" to="." method="_on_new_game_pls_pressed"]
 [connection signal="pressed" from="CenterContainer/NewGame/Buttons/ContinueNewGame" to="." method="_on_continue_new_game_pressed"]
-[connection signal="pressed" from="CenterContainer/Credits/CreditsBack" to="." method="_on_credits_back_pressed"]
+[connection signal="pressed" from="CenterContainer/Credits/Table/Row/CreditsBack" to="." method="_on_credits_back_pressed"]
