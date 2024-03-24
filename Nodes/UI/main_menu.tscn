@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbqkvkgxnox0y"]
+[gd_scene load_steps=11 format=3 uid="uid://dbqkvkgxnox0y"]
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/main_menu.gd" id="1_1r5u5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_ava0i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dm62wdjtycg0h" path="res://Sprites/table.png" id="5_58dmg"]
 [ext_resource type="Texture2D" uid="uid://crdkoctbxuy1v" path="res://Sprites/chair.png" id="6_4b1nn"]
 [ext_resource type="PackedScene" uid="uid://cckg4hdcq12vh" path="res://Nodes/UI/options_menu.tscn" id="8_2smvv"]
+[ext_resource type="Texture2D" uid="uid://cfbu87a3ripl1" path="res://Sprites/laptop.png" id="8_nq1f3"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="10_1fhcg"]
 
 [node name="MainMenu" type="Control"]
@@ -108,6 +109,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 94
 
@@ -122,6 +124,11 @@ text = "Continue"
 [node name="Options" type="Button" parent="CenterContainer/Buttons"]
 layout_mode = 2
 text = "Options"
+
+[node name="Credits" type="Button" parent="CenterContainer/Buttons"]
+layout_mode = 2
+text = "Credits
+"
 
 [node name="Quit" type="Button" parent="CenterContainer/Buttons"]
 layout_mode = 2
@@ -187,23 +194,61 @@ text = "No"
 visible = false
 layout_mode = 2
 
-[node name="Credits" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -238.0
-offset_right = 403.0
-offset_bottom = 238.0
-grow_vertical = 2
-theme_override_constants/line_spacing = 16
-text = "By:
-NuTrynity
-Linglings
-Leeknows"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Credits" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Row" type="VBoxContainer" parent="CenterContainer/Credits"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Col" type="HBoxContainer" parent="CenterContainer/Credits/Row"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Contributor1" type="VBoxContainer" parent="CenterContainer/Credits/Row/Col"]
+layout_mode = 2
+
+[node name="Pfp" type="TextureRect" parent="CenterContainer/Credits/Row/Col/Contributor1"]
+layout_mode = 2
+texture = ExtResource("8_nq1f3")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Credits/Row/Col/Contributor1"]
+layout_mode = 2
+text = "Name
+-Contribution"
+
+[node name="Contributor2" type="VBoxContainer" parent="CenterContainer/Credits/Row/Col"]
+layout_mode = 2
+
+[node name="Pfp" type="TextureRect" parent="CenterContainer/Credits/Row/Col/Contributor2"]
+layout_mode = 2
+texture = ExtResource("8_nq1f3")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Credits/Row/Col/Contributor2"]
+layout_mode = 2
+text = "Name
+-Contribution"
+
+[node name="Contributor1" type="VBoxContainer" parent="CenterContainer/Credits/Row"]
+layout_mode = 2
+
+[node name="Pfp" type="TextureRect" parent="CenterContainer/Credits/Row/Contributor1"]
+layout_mode = 2
+texture = ExtResource("8_nq1f3")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Credits/Row/Contributor1"]
+layout_mode = 2
+text = "Name
+-Contribution"
+
+[node name="CreditsBack" type="Button" parent="CenterContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_eanhc")
@@ -214,8 +259,10 @@ bus = &"Music"
 [connection signal="pressed" from="CenterContainer/Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="CenterContainer/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CenterContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="CenterContainer/Confirmation/Container/Buttons/No" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="CenterContainer/NewGame/Buttons/NewGamePls" to="." method="_on_new_game_pls_pressed"]
 [connection signal="pressed" from="CenterContainer/NewGame/Buttons/ContinueNewGame" to="." method="_on_continue_new_game_pressed"]
+[connection signal="pressed" from="CenterContainer/Credits/CreditsBack" to="." method="_on_credits_back_pressed"]

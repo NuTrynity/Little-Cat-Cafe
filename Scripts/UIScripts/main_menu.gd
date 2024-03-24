@@ -17,6 +17,13 @@ func _ready():
 	$CenterContainer/Buttons/Play.grab_focus()
 	options_menu.back.connect(_show_menu)
 	main_menu_stream.play()
+	
+	# incase we forgot to hide some menus
+	$CenterContainer/Buttons.show()
+	$CenterContainer/Confirmation.hide()
+	$CenterContainer/NewGame.hide()
+	$CenterContainer/OptionsMenu.hide()
+	$CenterContainer/Credits.hide()
 
 func _show_menu():
 	$CenterContainer/Buttons.show()
@@ -66,4 +73,14 @@ func _on_new_game_pls_pressed():
 func _on_continue_new_game_pressed():
 	$CenterContainer/NewGame.hide()
 	$CenterContainer/Buttons.show()
+	AudioManager.play_sound(click)
+
+func _on_credits_pressed():
+	$CenterContainer/Buttons.hide()
+	$CenterContainer/Credits.show()
+	AudioManager.play_sound(click)
+
+func _on_credits_back_pressed():
+	$CenterContainer/Buttons.show()
+	$CenterContainer/Credits.hide()
 	AudioManager.play_sound(click)
