@@ -1,14 +1,14 @@
 extends Node2D
-@onready var gameplay_music = preload("res://Assets/Music/Gameplay.wav")
+@onready var tutorial_node = $TutorialNode
+@onready var player = $Player
 @onready var gameplay_stream = $GamePlayMusic
-@onready var save_loader = $SaveLoader
 
 func _ready():
 	get_tree().paused = false
 	
 	InteractionManager.find_player()
-	save_loader.save_game()
 	gameplay_stream.play()
+	tutorial_node.goto(player.global_position)
 	
 	load_scene()
 
