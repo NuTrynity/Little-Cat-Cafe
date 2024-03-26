@@ -3,29 +3,22 @@ extends Node2D
 @onready var player = $Player
 @onready var gameplay_stream = $GamePlayMusic
 
+# This is the Tutorial Script
 func _ready():
 	get_tree().paused = false
 	
 	InteractionManager.find_player()
+	tutorial_node.text.text = "- W A S D\n to Move"
 	gameplay_stream.play()
-	tutorial_node.goto(player.global_position)
 	
 	load_scene()
 
+func _process(delta):
+	tutorial_node.goto(player.global_position)
+
 func load_scene():
-	load_cats()
 	load_objects()
 
-func load_cats():
-	var shop = GlobalScript.shop
-	for shop_idx in shop:
-		for x in range(shop[shop_idx]["owned"]):
-			var cat_node = load(shop[shop_idx]["node"])
-			var cat = cat_node.instantiate() as Cat
-			get_tree().get_root().get_node("scene_0").add_child(cat)
-			cat.global_position = cat.aiMvt.choose_random_point()
-			#cat.global_position = get_tree().get_root().get_node("scene_0/Door/LeaveArea").global_position
-			
 func load_objects():
 	var items = GlobalScript.items_owned
 	
