@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/TutorialScripts/tutorial_level.gd" id="1_rl658"]
 [ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="2_trc28"]
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="3_j8dik"]
+[ext_resource type="Script" path="res://Scripts/TutorialScripts/tutorial_cat_manager.gd" id="4_gbthb"]
 [ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="4_uvklb"]
 [ext_resource type="PackedScene" uid="uid://tqd0mxisnb8a" path="res://Nodes/ObjectNodes/computer.tscn" id="5_ff7jj"]
 [ext_resource type="Script" path="res://Scripts/TutorialScripts/door_tutorial.gd" id="5_kt74a"]
@@ -19,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="16_hy8cp"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="17_mr5ip"]
 [ext_resource type="PackedScene" uid="uid://cng212rfp5hv5" path="res://Nodes/UI/tutorial_node.tscn" id="18_l4nbd"]
-[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="20_6k2qw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
@@ -46,6 +46,7 @@ z_index = 99
 position = Vector2(1852, 1164)
 
 [node name="CatManager" parent="." instance=ExtResource("2_trc28")]
+script = ExtResource("4_gbthb")
 
 [node name="Door" parent="." instance=ExtResource("3_j8dik")]
 position = Vector2(2000, 263)
@@ -70,6 +71,7 @@ position = Vector2(179, -113)
 
 [node name="GarbageBin" parent="." instance=ExtResource("7_q01dy")]
 position = Vector2(883, 374)
+player_resources = null
 
 [node name="CatBowl" parent="." instance=ExtResource("8_ult71")]
 position = Vector2(2336, 1088)
@@ -127,21 +129,3 @@ position = Vector2(2219, 1210)
 position = Vector2(1389, 505)
 
 [node name="SaveLoader" parent="." instance=ExtResource("17_mr5ip")]
-
-[node name="ReminderToNuTry" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 381.0
-offset_top = 850.0
-offset_right = 2195.0
-offset_bottom = 983.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("20_6k2qw")
-text = "TODO : RE CONNECT THE SCRIPTS TO FIX THE 
-TUTORIAL LEVEL"
-horizontal_alignment = 1
-vertical_alignment = 1

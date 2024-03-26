@@ -4,6 +4,7 @@ extends Control
 @export var game_manager : GameManager
 
 @onready var animation = $AnimationPlayer
+@onready var day_label = $DayLabel
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
 var victory_sfx = load("res://Assets/Music/Good Job!.wav")
@@ -12,7 +13,7 @@ var game_finished : bool = false
 
 func _ready():
 	game_manager.day_end.connect(_end_day)
-	$DayLabel.text = "Day: " + str(GlobalScript.days)
+	day_label.text = "Day: " + str(GlobalScript.days)
 	next_day()
 
 func next_day():

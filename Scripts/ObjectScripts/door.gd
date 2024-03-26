@@ -15,11 +15,13 @@ signal npc_spawned
 
 var npc = preload("res://Nodes/CharacterNodes/npc.tscn")
 var npc_spawn_time : float
+var customer_amt : int
 
 func _ready():
 	setup_timer()
-	game_manager.game_end.connect(stop_spawning)
 	npc_spawn_timer.start()
+	
+	customer_amt = randi() % 20 + 1
 
 func stop_spawning():
 	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
@@ -62,11 +64,16 @@ func _on_timer_end():
 			table_manager.table_num = 1
 
 func spawn_customer():
+	if customer_amt <= 0:
+		stop_spawning()
+		return
+	
 	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
 	var customer = npc.instantiate()
 	customer.position = global_position
 	customer.position.y += 100
 	game_manager.customers += 1
+	customer_amt -= 1
 	get_parent().add_child(customer)
 	
 	emit_signal("npc_spawned", customer)

@@ -6,8 +6,16 @@
 [node name="TutorialNode" type="Node2D"]
 script = ExtResource("1_pphbu")
 
-[node name="Text" type="Label" parent="."]
+[node name="Panel" type="PanelContainer" parent="."]
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+theme = ExtResource("2_6vx4t")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("2_6vx4t")
 text = "Sample Text"

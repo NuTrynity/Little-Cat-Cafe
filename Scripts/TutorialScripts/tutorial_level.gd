@@ -9,12 +9,11 @@ func _ready():
 	
 	InteractionManager.find_player()
 	tutorial_node.text.text = "- W A S D\n to Move"
+	$EndDay/GameCondition.day_label.text = "Tutorial Day"
+	tutorial_node.goto(player.position)
 	gameplay_stream.play()
 	
 	load_scene()
-
-func _process(delta):
-	tutorial_node.goto(player.global_position)
 
 func load_scene():
 	load_objects()
