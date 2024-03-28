@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=23 format=3 uid="uid://c073t6ipfhquh"]
-=======
-[gd_scene load_steps=22 format=3 uid="uid://c544wf8hkvtu0"]
->>>>>>> dc286c58fceef5980944a03558cf01cda6c631a8
 
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_b3yu4"]
 [ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="2_mbsp6"]
