@@ -1,4 +1,4 @@
 extends Door
 
-
-# Hello There :)
+func _ready():
+	pass

@@ -44,10 +44,6 @@ script = ExtResource("1_b3yu4")
 [node name="Door" parent="." instance=ExtResource("3_emvi4")]
 position = Vector2(2000, 263)
 script = ExtResource("4_ykcx5")
-table_manager = null
-game_manager = null
-min_time = 0.0
-max_time = 0.0
 
 [node name="ChefCatSpawn" type="Node2D" parent="."]
 position = Vector2(878, 514)
