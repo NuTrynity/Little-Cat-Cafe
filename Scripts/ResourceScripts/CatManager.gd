@@ -1,7 +1,7 @@
 extends Node2D
 class_name CatManager
 
-@onready var door = get_tree().get_root().get_node("scene_0/Door") as Door
+@onready var door = get_tree().get_root().get_node("tutorial/Door") as Door
 
 func _ready():
 	door.npc_spawned.connect(_on_npc_spawned)
