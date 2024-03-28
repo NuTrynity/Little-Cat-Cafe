@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu56hww45qof3"]
+
+[ext_resource type="Script" path="res://Scripts/TutorialScripts/tutorial_node.gd" id="1_lhv5r"]
+[ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="2_uxf1a"]
+
+[node name="TutorialNode" type="Node2D"]
+script = ExtResource("1_lhv5r")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_uxf1a")
+text = "Sample Text"

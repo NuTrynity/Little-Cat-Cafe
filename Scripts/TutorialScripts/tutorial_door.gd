@@ -1,4 +1,5 @@
 extends Door
 
 func _ready():
-	pass
+	await get_tree().process_frame
+	customer_amt = 1

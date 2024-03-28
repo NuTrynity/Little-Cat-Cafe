@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://c073t6ipfhquh"]
+[gd_scene load_steps=23 format=3 uid="uid://c073t6ipfhquh"]
 
-[ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_b3yu4"]
+[ext_resource type="Script" path="res://Scripts/TutorialScripts/tutorial.gd" id="1_ri0en"]
 [ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="2_mbsp6"]
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="3_emvi4"]
 [ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="4_7q6lh"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="15_3uig8"]
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="16_lu5jr"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="17_ndfjk"]
+[ext_resource type="PackedScene" uid="uid://bu56hww45qof3" path="res://Nodes/TutorialNodes/tutorial_node.tscn" id="19_q7w0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
@@ -37,7 +38,10 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [node name="scene_0" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
-script = ExtResource("1_b3yu4")
+script = ExtResource("1_ri0en")
+
+[node name="TutorialNode" parent="." instance=ExtResource("19_q7w0m")]
+z_index = 99
 
 [node name="CatManager" parent="." instance=ExtResource("2_mbsp6")]
 

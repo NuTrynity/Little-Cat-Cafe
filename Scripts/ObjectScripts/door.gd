@@ -78,3 +78,5 @@ func spawn_customer():
 	
 	emit_signal("npc_spawned", customer)
 	AudioManager.play_sound(bell_sfx)
+	
+	return customer
