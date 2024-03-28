@@ -1,0 +1,127 @@
+[gd_scene load_steps=22 format=3 uid="uid://c073t6ipfhquh"]
+
+[ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_b3yu4"]
+[ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="2_mbsp6"]
+[ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="3_emvi4"]
+[ext_resource type="PackedScene" uid="uid://vw6lgh060txv" path="res://Nodes/ObjectNodes/kitchenCounter.tscn" id="4_7q6lh"]
+[ext_resource type="Script" path="res://Scripts/TutorialScripts/tutorial_door.gd" id="4_ykcx5"]
+[ext_resource type="PackedScene" uid="uid://tqd0mxisnb8a" path="res://Nodes/ObjectNodes/computer.tscn" id="5_gdmre"]
+[ext_resource type="PackedScene" uid="uid://dn7syyuqpvd4a" path="res://Nodes/ObjectNodes/pickup_tablecloth.tscn" id="6_oegk3"]
+[ext_resource type="PackedScene" uid="uid://cpejkpxtal6m5" path="res://Nodes/ObjectNodes/garbage_bin.tscn" id="7_vvjnj"]
+[ext_resource type="PackedScene" uid="uid://bngeckmou6uko" path="res://Nodes/ObjectNodes/cat_bowl.tscn" id="8_nnrjf"]
+[ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="9_16ppj"]
+[ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="10_5gyty"]
+[ext_resource type="PackedScene" uid="uid://j8ettgplafog" path="res://Nodes/UI/game_condition.tscn" id="11_h30qt"]
+[ext_resource type="PackedScene" uid="uid://c7nlsk4gpsge5" path="res://Nodes/UI/user_interface.tscn" id="12_fbuok"]
+[ext_resource type="PackedScene" uid="uid://c74trmyu24o5f" path="res://Nodes/UI/pc.tscn" id="13_142lc"]
+[ext_resource type="Texture2D" uid="uid://cof84450vlo1w" path="res://Sprites/room.png" id="14_ebov2"]
+[ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="15_3uig8"]
+[ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="16_lu5jr"]
+[ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="17_ndfjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
+size = Vector2(2628, 20)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fydyt"]
+vertices = PackedVector2Array(766, 530, 244, 530, 268, 434, 787, 437, 805, 391, 967, 388, 959, 585, 771, 588)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 7, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(268, 434, 244, 530, 766, 530, 771, 588, 959, 585, 967, 388, 805, 391, 787, 437)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fbxh0"]
+vertices = PackedVector2Array(940, 960, 1482, 958, 1828, 962, 1545, 1138, 1332, 1135, 1600, 1314, 2481, 1324, 2543, 1425, 1380, 1413, 1275, 1313, 697, 1308, 19, 1423, 381, 1309, 221, 658, 437, 1148, 2441, 1143, 1572.51, 1226.03, 965, 595, 973, 351, 1092, 343, 1164, 358, 1545, 784, 2343, 927, 2430, 1009, 656, 1146, 614, 959, 669, 786, 772, 656, 882, 784, 1757, 776, 1818, 344, 2266, 328, 2328, 608, 2325, 689, 787, 597, 2379, 781, 1512, 349, 1401, 347)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 9, 8, 11, 12), PackedInt32Array(12, 11, 13, 14), PackedInt32Array(15, 6, 5, 16), PackedInt32Array(17, 18, 19, 20, 21, 1), PackedInt32Array(2, 22, 23, 15, 16, 3), PackedInt32Array(0, 4, 9, 10, 24, 25), PackedInt32Array(25, 24, 14, 13), PackedInt32Array(26, 25, 13), PackedInt32Array(26, 13, 27, 28), PackedInt32Array(29, 30, 31, 32, 33), PackedInt32Array(27, 34, 17, 28), PackedInt32Array(35, 22, 2, 29, 33), PackedInt32Array(36, 30, 29, 21), PackedInt32Array(37, 36, 21, 20), PackedInt32Array(17, 1, 0, 28)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2266, 328, 2328, 608, 2325, 689, 2379, 781, 2343, 927, 2430, 1009, 2441, 1143, 2481, 1324, 2543, 1425, 1380, 1413, 19, 1423, 221, 658, 772, 656, 787, 597, 965, 595, 973, 351, 1092, 343, 1164, 358, 1401, 347, 1512, 349, 1818, 344), PackedVector2Array(437, 1148, 381, 1309, 697, 1308, 656, 1146), PackedVector2Array(1332, 1135, 1275, 1313, 1600, 1314, 1572.51, 1226.03, 1545, 1138), PackedVector2Array(1482, 958, 1828, 962, 1757, 776, 1545, 784), PackedVector2Array(614, 959, 940, 960, 882, 784, 669, 786)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="scene_0" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+script = ExtResource("1_b3yu4")
+
+[node name="CatManager" parent="." instance=ExtResource("2_mbsp6")]
+
+[node name="Door" parent="." instance=ExtResource("3_emvi4")]
+position = Vector2(2000, 263)
+script = ExtResource("4_ykcx5")
+table_manager = null
+game_manager = null
+min_time = 0.0
+max_time = 0.0
+
+[node name="ChefCatSpawn" type="Node2D" parent="."]
+position = Vector2(878, 514)
+
+[node name="KitchenCounter" parent="." instance=ExtResource("4_7q6lh")]
+position = Vector2(514, 409)
+scale = Vector2(0.97, 0.97)
+
+[node name="Computer" parent="KitchenCounter" instance=ExtResource("5_gdmre")]
+position = Vector2(190.722, -125.773)
+scale = Vector2(1.03093, 1.03093)
+
+[node name="KitchenCounter2" parent="." instance=ExtResource("4_7q6lh")]
+position = Vector2(467, 628)
+
+[node name="PickupTablecloth" parent="KitchenCounter2" instance=ExtResource("6_oegk3")]
+position = Vector2(179, -113)
+
+[node name="GarbageBin" parent="." instance=ExtResource("7_vvjnj")]
+position = Vector2(883, 374)
+
+[node name="CatBowl" parent="." instance=ExtResource("8_nnrjf")]
+position = Vector2(2336, 1088)
+
+[node name="Player" parent="." instance=ExtResource("9_16ppj")]
+position = Vector2(1051, 567)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(274, 664)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(92, 205)
+polygon = PackedVector2Array(1903, -551, 2209, 648, 2211, -872, -364, -868, -370, 597, -76, -541)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1024, 778)
+shape = SubResource("RectangleShape2D_f7fjw")
+
+[node name="ChefNavigationRegion" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_fydyt")
+navigation_layers = 3
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_fbxh0")
+
+[node name="GamePlayMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("10_5gyty")
+bus = &"Music"
+
+[node name="EndDay" type="CanvasLayer" parent="."]
+
+[node name="GameCondition" parent="EndDay" instance=ExtResource("11_h30qt")]
+
+[node name="UserInterface" parent="." instance=ExtResource("12_fbuok")]
+
+[node name="PC" parent="." instance=ExtResource("13_142lc")]
+layer = 2
+visible = false
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_ebov2")
+
+[node name="CatCarpet" parent="Background" instance=ExtResource("15_3uig8")]
+position = Vector2(2219, 1210)
+
+[node name="LongCarpet" parent="Background" instance=ExtResource("16_lu5jr")]
+position = Vector2(1389, 505)
+
+[node name="SaveLoader" parent="." instance=ExtResource("17_ndfjk")]
