@@ -25,7 +25,6 @@ pivot_offset = Vector2(1280, 720)
 theme = ExtResource("1_74exe")
 script = ExtResource("2_yc08m")
 player_resource = ExtResource("3_uc3wn")
-quota = 7500
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

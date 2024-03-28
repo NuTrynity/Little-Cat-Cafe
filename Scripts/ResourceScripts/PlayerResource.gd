@@ -10,6 +10,8 @@ signal meal_taken()
 @export var rating_increase_amt : int = 50
 @export var rating_decrease_amt : int = 150
 
+@export var quota : int
+
 var meal_index : int
 var carry_amt : int = 0
 
