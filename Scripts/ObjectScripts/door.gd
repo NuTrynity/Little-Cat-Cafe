@@ -27,13 +27,13 @@ func _ready():
 	ratings_ratio = float(player_resources.rating) / float(player_resources.quota)
 	
 	# 40 is additional customers based on rating
-	customer_amt = 5 + round(ratings_ratio * 30)
+	customer_amt = 4 + round(ratings_ratio * 30)
 	game_manager.customers = customer_amt
 	print("customer_amt: ", customer_amt)
 	
-	# 15 seconds is additional time based on rating
-	min_time = base_min_time + (1-ratings_ratio) * 10
-	max_time = base_max_time + (1-ratings_ratio) * 10
+	min_time = base_min_time + ( (1 - ( ( (-.1)*( 1/(ratings_ratio+.1) ) ) + 1 ) ) * 10 )
+	max_time = base_max_time + ( (1 - ( ( (-.1)*( 1/(ratings_ratio+.1) ) ) + 1 ) ) * 10 )
+	
 	print("min_time: ", min_time)
 	print("max_time: ", max_time)
 	
