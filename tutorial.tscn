@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c073t6ipfhquh"]
+[gd_scene load_steps=22 format=3 uid="uid://c073t6ipfhquh"]
 
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_b3yu4"]
 [ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="2_mbsp6"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="15_3uig8"]
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="16_lu5jr"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="17_ndfjk"]
-[ext_resource type="PackedScene" uid="uid://b7wwx18ynfi2v" path="res://Nodes/ObjectNodes/tutorial_node.tscn" id="19_vwsdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
@@ -35,18 +34,20 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(2266, 328, 2328, 608, 2325, 689, 2379, 781, 2343, 927, 2430, 1009, 2441, 1143, 2481, 1324, 2543, 1425, 1380, 1413, 19, 1423, 221, 658, 772, 656, 787, 597, 965, 595, 973, 351, 1092, 343, 1164, 358, 1401, 347, 1512, 349, 1818, 344), PackedVector2Array(437, 1148, 381, 1309, 697, 1308, 656, 1146), PackedVector2Array(1332, 1135, 1275, 1313, 1600, 1314, 1572.51, 1226.03, 1545, 1138), PackedVector2Array(1482, 958, 1828, 962, 1757, 776, 1545, 784), PackedVector2Array(614, 959, 940, 960, 882, 784, 669, 786)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Tutorial" type="Node2D"]
+[node name="scene_0" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_b3yu4")
-
-[node name="TutorialNode" parent="." instance=ExtResource("19_vwsdl")]
 
 [node name="CatManager" parent="." instance=ExtResource("2_mbsp6")]
 
 [node name="Door" parent="." instance=ExtResource("3_emvi4")]
 position = Vector2(2000, 263)
 script = ExtResource("4_ykcx5")
+table_manager = null
+game_manager = null
+min_time = 0.0
+max_time = 0.0
 
 [node name="ChefCatSpawn" type="Node2D" parent="."]
 position = Vector2(878, 514)
