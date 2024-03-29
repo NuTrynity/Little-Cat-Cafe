@@ -1,4 +1,5 @@
 extends Node2D
+signal on_cooked
 
 @onready var interact_area = $InteractionArea
 @onready var progress_bar = $CookingProgress
@@ -26,6 +27,7 @@ func _on_interaction():
 		progress_bar.show()
 		AudioManager.play_sound(cooking_sfx)
 		is_cooking = true
+		emit_signal("on_cooked")
 
 func increase_progress():
 	progress_bar.value += 1

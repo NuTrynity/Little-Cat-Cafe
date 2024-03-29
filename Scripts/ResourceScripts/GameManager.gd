@@ -17,7 +17,6 @@ var tutorial_npc : bool = true
 
 func check_result():
 	customers -= 1
-	
 	if customers <= 0:
 		day_end.emit()
 
