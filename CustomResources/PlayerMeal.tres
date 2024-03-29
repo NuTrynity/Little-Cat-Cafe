@@ -8,3 +8,4 @@ max_amt = 2
 rating_bonus_max = 25
 rating_increase_amt = 50
 rating_decrease_amt = 150
+quota = 7500

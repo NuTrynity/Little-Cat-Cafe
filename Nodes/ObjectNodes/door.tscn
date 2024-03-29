@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2soaa4584xu4"]
+[gd_scene load_steps=7 format=3 uid="uid://b2soaa4584xu4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/door.gd" id="1_2vq63"]
 [ext_resource type="Texture2D" uid="uid://clsp4j0aam4jb" path="res://Sprites/door.png" id="2_fyar6"]
 [ext_resource type="Resource" uid="uid://dmv8t52t4ridt" path="res://CustomResources/TableManager.tres" id="2_tesch"]
 [ext_resource type="Resource" uid="uid://d0ojrka58d027" path="res://CustomResources/GameManager.tres" id="3_vimdd"]
+[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="4_bvam7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85k4p"]
 size = Vector2(178, 144)
@@ -12,8 +13,7 @@ size = Vector2(178, 144)
 script = ExtResource("1_2vq63")
 table_manager = ExtResource("2_tesch")
 game_manager = ExtResource("3_vimdd")
-min_time = 5.0
-max_time = 10.0
+player_resources = ExtResource("4_bvam7")
 
 [node name="DoorSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_fyar6")
