@@ -108,6 +108,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 94
 
@@ -211,13 +212,13 @@ theme_override_constants/separation = 64
 layout_mode = 2
 text = "NuTrynity
 
--Game Programming
--UI Design"
+- Game Programming
+- UI Design"
 
 [node name="SocialHandles" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor1"]
 layout_mode = 2
 text = "Twitter - @nutry333
-Itch. io - nutrynity.itch.io"
+Itch.io - nutrynity.itch.io"
 
 [node name="Contributor2" type="VBoxContainer" parent="CenterContainer/Credits/Table/Row/Col"]
 layout_mode = 2
@@ -225,13 +226,15 @@ theme_override_constants/separation = 64
 
 [node name="Contributions" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor2"]
 layout_mode = 2
-text = "Name
+text = "Lingling
 
-- Contributions"
+- Artist
+- Game Programmer"
 
 [node name="SocialHandles" type="Label" parent="CenterContainer/Credits/Table/Row/Col/Contributor2"]
 layout_mode = 2
-text = "Social Handles - name"
+text = "Twitter - @linglings_art
+Itch.io -"
 
 [node name="Contributor2" type="VBoxContainer" parent="CenterContainer/Credits/Table/Row"]
 layout_mode = 2
@@ -239,13 +242,9 @@ theme_override_constants/separation = 64
 
 [node name="Contributions" type="Label" parent="CenterContainer/Credits/Table/Row/Contributor2"]
 layout_mode = 2
-text = "Name
+text = "LeeKnows
 
-- Contributions"
-
-[node name="SocialHandles" type="Label" parent="CenterContainer/Credits/Table/Row/Contributor2"]
-layout_mode = 2
-text = "Social Handles - name"
+- Music"
 
 [node name="CreditsBack" type="Button" parent="CenterContainer/Credits/Table/Row"]
 layout_mode = 2
