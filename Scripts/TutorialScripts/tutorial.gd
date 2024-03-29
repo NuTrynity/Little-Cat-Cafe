@@ -1,6 +1,9 @@
 extends MainScene
 @onready var tutorial_node = $TutorialNode
 
+var cooked : bool = false
+var bought : bool = false
+
 func _ready():
 	get_tree().paused = false
 	
@@ -18,10 +21,14 @@ func _ready():
 	await get_tree().create_timer(6).timeout
 	tutorial_node.get_target($KitchenCounter2)
 	tutorial_node.label.text = "Interact with\nthe Pan to Cook"
-	$KitchenCounter2/FryPan.connect("on_cooked", _on_spawn_first_customer)
+	$KitchenCounter2/FryPan.connect("on_cooked", _on_spawn_first_customer, )
 	
 	
 func _on_spawn_first_customer():
+	if cooked:
+		return
+	cooked = true
+	
 	await get_tree().create_timer(1).timeout
 	var customer = $Door.spawn_customer()
 	customer.connect("leaving", _on_customer_leaving)
@@ -41,6 +48,10 @@ func _on_customer_leaving():
 	
 	
 func _on_item_bought():
+	if bought:
+		return
+	bought = true
+	
 	tutorial_node.label.text = ""
 	await get_tree().create_timer(4).timeout
 	var customer = $Door.spawn_customer()
