@@ -16,7 +16,6 @@ signal npc_spawned
 
 var npc = preload("res://Nodes/CharacterNodes/npc.tscn")
 var npc_spawn_time : float
-var customer_amt : int
 var ratings_ratio : float
 var day_end : bool = false
 
@@ -27,9 +26,9 @@ func _ready():
 	ratings_ratio = float(player_resources.rating) / float(player_resources.quota)
 	
 	# 40 is additional customers based on rating
-	customer_amt = 4 + round(ratings_ratio * 30)
-	game_manager.customers = customer_amt
-	print("customer_amt: ", customer_amt)
+	game_manager.customers = 4 + round(ratings_ratio * 30)
+	game_manager.customers = game_manager.customers
+	print("game_manager.customers: ", game_manager.customers)
 	
 	min_time = base_min_time + ( (1 - ( ( (-.1)*( 1/(ratings_ratio+.1) ) ) + 1 ) ) * 10 )
 	max_time = base_max_time + ( (1 - ( ( (-.1)*( 1/(ratings_ratio+.1) ) ) + 1 ) ) * 10 )
@@ -92,7 +91,7 @@ func _on_timer_end():
 			table_manager.table_num = 1
 
 func spawn_customer():
-	if customer_amt <= 0:
+	if game_manager.customers <= 0:
 		stop_spawning()
 		print("no more customers!!!")
 		return
@@ -101,7 +100,7 @@ func spawn_customer():
 	var customer = npc.instantiate()
 	customer.position = global_position
 	customer.position.y += 100
-	customer_amt -= 1
+	game_manager.customers -= 1
 	get_parent().add_child(customer)
 	
 	emit_signal("npc_spawned", customer)
