@@ -8,6 +8,8 @@ func _ready():
 	label.position.y += 32
 
 func _process(_delta):
+	if target == null:
+		return
 	var tween = create_tween()
 	tween.tween_property(self, "position", target.global_position, 0.6)
 

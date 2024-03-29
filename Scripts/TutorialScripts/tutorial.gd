@@ -11,20 +11,47 @@ func _ready():
 	
 	load_scene()
 	
+	await get_tree().create_timer(2).timeout
 	tutorial_node.get_target($Player)
-	tutorial_node.label.text = "WASD - Move\nE - Interact"
+	tutorial_node.label.text = "Use WASD to Move\nPress E to Interact"
 	
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(6).timeout
 	tutorial_node.get_target($KitchenCounter2)
 	tutorial_node.label.text = "Interact with\nthe Pan to Cook"
-	$KitchenCounter2/FryPan.connect("on_cooked", test)
-
-func test():
-	tutorial_node.get_target($Door.spawn_customer())
+	$KitchenCounter2/FryPan.connect("on_cooked", _on_spawn_first_customer)
+	
+	
+func _on_spawn_first_customer():
+	await get_tree().create_timer(1).timeout
+	var customer = $Door.spawn_customer()
+	customer.connect("leaving", _on_customer_leaving)
+	
+	tutorial_node.get_target(customer)
 	tutorial_node.label.text = "Oh a customer!\nI wonder what\nthey want!"
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(6.8).timeout
+	
+	tutorial_node.label.text = "Serve them the food you made!"
+	await get_tree().create_timer(4).timeout
+	tutorial_node.label.text = ""
+	
+func _on_customer_leaving():
 	tutorial_node.get_target($KitchenCounter/Computer)
-	tutorial_node.label.text = "You can buy cats here!\nTry one!"
-	await get_tree().create_timer(10).timeout
+	tutorial_node.label.text = "You can buy cats at the PC!\nTry it!"
+	$PC/Shop/PanelContainer/VBoxContainer/ScrollContainer/ShopItems.connect("item_bought", _on_item_bought)
+	
+	
+func _on_item_bought():
+	tutorial_node.label.text = ""
+	await get_tree().create_timer(4).timeout
+	var customer = $Door.spawn_customer()
+	customer.connect("leaving", _on_last_customer_leaving)
+	
 	tutorial_node.get_target($Player)
-	tutorial_node.label.text = "Congratz on finishing\nThe Tutorial"
+	tutorial_node.label.text = "Serve the next customer!"
+	await get_tree().create_timer(4).timeout
+	tutorial_node.label.text = ""
+	
+func _on_last_customer_leaving():
+	tutorial_node.get_target($Player)
+	tutorial_node.label.text = "Congrats on finishing\nThe Tutorial!"
+	
