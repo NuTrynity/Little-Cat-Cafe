@@ -2,4 +2,5 @@ extends Door
 
 func _ready():
 	await get_tree().process_frame
-	game_manager.customers = 2
+	customer_amt = 2
+	game_manager.customers = customer_amt
