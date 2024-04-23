@@ -46,10 +46,10 @@ func item_count() -> int:
 	return count
 	
 func check_meal_match(point, npc : Node2D = null) -> bool:
-	if (npc.meal_i_want == null):
+	if (npc.meal_wanted == null):
 		return true
 	
-	if npc.meal_i_want == point.held_item.meal_index:
+	if npc.meal_wanted == point.held_item.meal_index:
 		return true
 	else:
 		return false

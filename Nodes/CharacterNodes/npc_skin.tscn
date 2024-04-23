@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c88ge1qvc6a8w"]
+[gd_scene load_steps=9 format=3 uid="uid://c88ge1qvc6a8w"]
 
+[ext_resource type="Script" path="res://Scripts/CharacterScripts/npc_animator.gd" id="1_hfb12"]
 [ext_resource type="Texture2D" uid="uid://creyh6ftfptme" path="res://Sprites/customer sprites/customer1_standing.png" id="1_j5450"]
 [ext_resource type="Texture2D" uid="uid://xw1okqjuevvc" path="res://Sprites/omurice.png" id="2_a0nks"]
 [ext_resource type="Texture2D" uid="uid://rj5xrme3eeht" path="res://Sprites/thought bubble.png" id="3_8e86m"]
@@ -132,6 +133,7 @@ _data = {
 }
 
 [node name="NPCSkin" type="Node2D"]
+script = ExtResource("1_hfb12")
 
 [node name="NPCSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_j5450")

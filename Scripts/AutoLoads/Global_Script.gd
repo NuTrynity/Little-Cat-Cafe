@@ -9,11 +9,13 @@ var days : int = 0
 var meal_types : Dictionary = {
 	0: {
 		"name" : "omurice",
-		"price" : 50
+		"price" : 50,
+		"sprite_path" : "res://Sprites/omurice.png"
 	},
 	1: {
 		"name" : "cat_latte",
-		"price" : 75
+		"price" : 75,
+		"sprite_path" : "res://Sprites/cat_latte.png"
 	},
 }
 

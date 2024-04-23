@@ -127,23 +127,19 @@ func to_approach():
 func to_act():
 	state = State.ACT
 	var npc = aiMvt.target_npc
+	npc.interacting_with_cat_func()
 	# pause timer
 	start_pause_timer()
 	npc.patience_timer.set_paused(true)
-	change_npc_direction(true)
+	face_table()
 	
 	animations.interact()
 	
 	player_resources.adjust_rating(rating_value)
 	
-func change_npc_direction(reverse:bool):
+func face_table():
 	var sit_area = aiMvt.target.get_parent()
-	if sit_area.facing_left:
-		cat_sprite.flip_h = reverse
-		aiMvt.target_npc.npc_sprite.flip_h = reverse
-	else:
-		cat_sprite.flip_h = !reverse
-		aiMvt.target_npc.npc_sprite.flip_h = !reverse
+	cat_sprite.flip_h = sit_area.facing_left
 		
 func start_standing_timer():
 	standing_timer.wait_time = rng.randf_range(min_stand_time, max_stand_time)
@@ -169,11 +165,12 @@ func _on_sleep_start():
 	to_idle_sleep()
 	
 func _on_pause_end():
-	# unpause, untarget
+	# finishes pausing, opens npc up for another cat
+	var save_npc = aiMvt.target_npc
 	stop_act()
+	save_npc.ready_for_cat_func()
 
 func stop_act():
-	change_npc_direction(false)
 	aiMvt.target_npc.patience_timer.set_paused(false)
 	pause_timer.stop()
 	aiMvt.untarget_customer()
