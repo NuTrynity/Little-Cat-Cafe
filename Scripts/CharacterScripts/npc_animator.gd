@@ -9,8 +9,6 @@ class_name NpcAnimator
 @onready var thought_bubble_meal = $ThoughtBubble/MealWanted
 @onready var thought_bubble = $ThoughtBubble
 
-var is_walking : bool = false
-
 func _ready():
 	npc_sprite.flip_h = false
 	
@@ -18,7 +16,8 @@ func _ready():
 	thought_bubble.hide()
 	
 func _physics_process(_delta : float) -> void:
-	if is_walking:
+	# check if npc is walking
+	if npc.state == Npc.State.APPROACH or npc.state == Npc.State.LEAVE:
 		flip_sprite_walk()
 
 func set_meal():
@@ -30,7 +29,6 @@ func _on_approaching():
 	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
 
 func _on_ordering():
-	stop_walking()
 	set_meal()
 	thought_bubble_meal.show()
 	thought_bubble.show()
@@ -65,12 +63,8 @@ func _on_ready_for_cat(_npc : Npc):
 	face_table(true)
 
 func walking():
-	is_walking = true
 	animations.play("walking")
 	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
-
-func stop_walking():
-	is_walking = false
 
 func flip_sprite_walk():
 	if npc.velocity.x > 0:
