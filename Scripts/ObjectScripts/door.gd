@@ -5,7 +5,7 @@ signal npc_spawned
 
 @export var table_manager : TableManager
 @export var game_manager : GameManager
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 
 @export var base_min_time : float
 @export var base_max_time : float
@@ -24,7 +24,7 @@ var min_time : float
 var max_time : float
 
 func _ready():
-	ratings_ratio = float(player_resources.rating) / float(player_resources.quota)
+	ratings_ratio = float(GlobalScript.ratings) / float(GlobalScript.quota)
 	
 	# 40 is additional customers based on rating
 	customer_amt = 4 + round(ratings_ratio * 30)

@@ -7,7 +7,7 @@ var state = State.IDLE as State
 enum IdleState {STAND, WALK, SLEEP}
 var idleState = IdleState.STAND as State
 
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 @export var idle_speed : int = 70
 
 @export var rating_value : int = 10
@@ -135,7 +135,7 @@ func to_act():
 	
 	animations.interact()
 	
-	player_resources.adjust_rating(rating_value)
+	GlobalScript.adjust_ratings(rating_value)
 	
 func face_table():
 	var sit_area = aiMvt.target.get_parent()

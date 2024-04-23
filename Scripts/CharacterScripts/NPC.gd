@@ -11,8 +11,12 @@ signal interacting_with_cat
 signal ready_for_cat
 
 @export var game_manager : GameManager
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
+
 @export var patience : float
+@export var ratings_bonus_max : int = 25
+@export var ratings_increase_amt : int = 50
+@export var ratings_decrease_amt : int = 150
 
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
@@ -43,7 +47,12 @@ func _ready():
 	interact_area.interact = Callable(self, "_on_player_give_meal")
 	interact_area.monitoring = false
 	
-	meal_wanted = player_resources.randomize_meal_index()
+	meal_wanted = random_meal()
+
+func random_meal():
+	var rand = RandomNumberGenerator.new()
+	var meal_index = rand.randi_range(0, GlobalScript.meal_types.size()-1)
+	return meal_index
 
 func _physics_process(_delta : float) -> void:
 	match state:
@@ -114,7 +123,7 @@ func _on_timer_timeout():
 		patience_timer.stop()
 		to_leave()
 		
-		player_resources.adjust_rating(-player_resources.rating_decrease_amt)
+		GlobalScript.adjust_ratings(-ratings_decrease_amt)
 	
 func patience_timer_setup():
 	add_child(patience_timer)
@@ -160,17 +169,19 @@ func order_to_eat():
 	
 func add_score():
 	GlobalScript.inventory[meal_wanted]["count"] -= 1
-	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_wanted]["price"] * game_manager.combo_meter
-	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
+	GlobalScript.money += GlobalScript.meal_types[meal_wanted]["price"] * game_manager.combo_meter
+	
+	var ratings_amt = ratings_increase_amt + (patience_bar.ratio * ratings_bonus_max)
+	GlobalScript.adjust_ratings(ratings_amt)
 	game_manager.combo_meter += 1
 
 func spawn_label():
 	var price_label = meal_price_label.instantiate()
 	price_label.price = str(GlobalScript.meal_types[meal_wanted]["price"] * game_manager.combo_meter)
+	#add_child(price_label)
 	price_label.position = global_position
 	price_label.position.y -= 360 #just on her head
 	price_label.position.x -= price_label.size.x / 2
-	add_child(price_label)
 
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):

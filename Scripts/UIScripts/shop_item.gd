@@ -30,12 +30,12 @@ func _on_btn_pressed():
 	buy_item()
 
 func enough_money() -> bool:
-	return GlobalScript.cash_on_hand >= item_price
+	return GlobalScript.money >= item_price
 	
 func buy_item():
 	if enough_money():
 		buy_amt += 1
-		GlobalScript.cash_on_hand -= item_price
+		GlobalScript.money -= item_price
 		item_bought.emit()
 		AudioManager.play_sound(click)
 		

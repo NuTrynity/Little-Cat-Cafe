@@ -1,5 +1,5 @@
 extends Control
-@export var player_resource : PlayerMealCarry
+@export var player_resource : PlayerResource
 
 @onready var progress_bar = %ProgressBar
 @onready var money = %Money
@@ -9,10 +9,10 @@ var clicksfx = load("res://Assets/SFX/click_sfx.ogg")
 var victory_music = load("res://Assets/Music/Good Job!.wav")
 
 func _ready():
-	progress_bar.max_value = player_resource.quota
+	progress_bar.max_value = GlobalScript.quota
 	
-	money.text = str(GlobalScript.cash_on_hand) + " $"
-	progress_bar.value = player_resource.rating
+	money.text = str(GlobalScript.money) + " $"
+	progress_bar.value = GlobalScript.ratings
 	
 	##Items Owned Sections##
 	%cats.text = "Cats Owned: " + str(count_all(GlobalScript.shop))

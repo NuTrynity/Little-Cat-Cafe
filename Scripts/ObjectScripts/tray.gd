@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 
 @onready var placement_pts = $PlacementPoints
 

@@ -1,6 +1,6 @@
 extends Control
 
-@export var resources : PlayerMealCarry
+@export var resources : PlayerResource
 @export var game_manager : GameManager
 
 @onready var animation = $AnimationPlayer

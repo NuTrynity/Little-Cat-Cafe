@@ -3,8 +3,17 @@ extends Node
 var sfx_volume : float = 1
 var music_volume : float = 1
 
-var cash_on_hand : int = 1000
+var ratings : int = 0
+var quota : int = 7500
+
+var money : int = 1000
 var days : int = 0
+
+func adjust_ratings(amt : int):
+	var result = ratings + amt
+	if result < 0:
+		result = 0
+	ratings = result
 
 var meal_types : Dictionary = {
 	0: {
@@ -86,5 +95,4 @@ var items_owned : Dictionary = {
 		"parent_name" : "scene_0/KitchenCounter"
 	}
 }
-
 
