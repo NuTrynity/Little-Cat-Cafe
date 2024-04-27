@@ -26,12 +26,11 @@ layout_mode = 2
 theme_override_constants/separation = 128
 
 [node name="Fullscreen" type="VBoxContainer" parent="Menu"]
-visible = false
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="Menu/Fullscreen"]
 layout_mode = 2
-text = "FullScreen"
+text = "Fullscreen"
 
 [node name="Sliders" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
@@ -70,6 +69,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Back"
 
+[connection signal="toggled" from="Menu/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="Menu/Sliders/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Menu/Sliders/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="Menu/Buttons/Back" to="." method="_on_back_pressed"]

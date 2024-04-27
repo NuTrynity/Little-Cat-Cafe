@@ -26,3 +26,10 @@ func _on_music_slider_value_changed(value):
 	game_manager.music_volume = value
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
 	AudioServer.set_bus_mute(music_bus, value < 0.1)
+
+func _on_check_button_toggled(toggled_on):
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	AudioManager.play_sound(click)
