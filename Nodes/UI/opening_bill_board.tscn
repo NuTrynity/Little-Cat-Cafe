@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfxi4ue5ee5eo"]
+[gd_scene load_steps=10 format=3 uid="uid://dfxi4ue5ee5eo"]
 
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_1v3nc"]
 [ext_resource type="Script" path="res://Scripts/UIScripts/opening_bill_board.gd" id="1_bn5g8"]
 [ext_resource type="Texture2D" uid="uid://jfvwko76b5dn" path="res://GWJ-Full-Logo-tag-Orange2.png" id="1_tttym"]
 [ext_resource type="Texture2D" uid="uid://db6f7rg2253u0" path="res://Sprites/my_logo_transparent.png" id="4_u47nd"]
 [ext_resource type="Texture2D" uid="uid://01pxmto3y11e" path="res://biscast_logo.png" id="4_xxx3s"]
+[ext_resource type="PackedScene" uid="uid://cckg4hdcq12vh" path="res://Nodes/UI/options_menu.tscn" id="6_j8e2g"]
 
 [sub_resource type="Animation" id="Animation_rb8ty"]
 length = 0.001
@@ -191,6 +192,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="OptionsMenu" parent="." instance=ExtResource("6_j8e2g")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

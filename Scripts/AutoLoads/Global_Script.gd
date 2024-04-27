@@ -2,6 +2,7 @@ extends Node
 
 var sfx_volume : float = 1
 var music_volume : float = 1
+var fullscreen : bool = false
 
 var cash_on_hand : int = 1000
 var days : int = 0

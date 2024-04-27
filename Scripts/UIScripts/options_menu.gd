@@ -14,6 +14,11 @@ func _ready():
 	
 	$Menu/Sliders/SFX/SFXSlider.value = GlobalScript.sfx_volume
 	$Menu/Sliders/Music/MusicSlider.value = GlobalScript.music_volume
+	
+	if GlobalScript.fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func hide_options():
 	hide()
@@ -38,10 +43,15 @@ func _on_music_slider_value_changed(value):
 	GlobalScript.music_volume = value
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
 	AudioServer.set_bus_mute(music_bus, value < 0.1)
+	options.save_settings()
 
 func _on_check_button_toggled(toggled_on):
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		GlobalScript.fullscreen = true
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		GlobalScript.fullscreen = false
+	
 	AudioManager.play_sound(click)
+	options.save_settings()

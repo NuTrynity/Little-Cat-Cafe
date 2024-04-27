@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/options_menu.gd" id="1_hnkb5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_plmjf"]
-[ext_resource type="PackedScene" uid="uid://cixmi4iqjobvr" path="res://Nodes/options.tscn" id="3_m150x"]
+[ext_resource type="PackedScene" uid="uid://cixmi4iqjobvr" path="res://Nodes/options.tscn" id="3_8nthk"]
 
 [node name="OptionsMenu" type="PanelContainer"]
 process_mode = 3
@@ -67,6 +67,8 @@ layout_mode = 2
 [node name="Back" type="Button" parent="Menu/Buttons"]
 layout_mode = 2
 text = "Back"
+
+[node name="Options" parent="." instance=ExtResource("3_8nthk")]
 
 [connection signal="toggled" from="Menu/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="Menu/Sliders/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
