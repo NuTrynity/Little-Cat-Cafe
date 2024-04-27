@@ -178,7 +178,7 @@ func add_score():
 func spawn_label():
 	var price_label = meal_price_label.instantiate()
 	price_label.price = str(GlobalScript.meal_types[meal_wanted]["price"] * game_manager.combo_meter)
-	#add_child(price_label)
+	get_parent().add_child(price_label)
 	price_label.position = global_position
 	price_label.position.y -= 360 #just on her head
 	price_label.position.x -= price_label.size.x / 2
