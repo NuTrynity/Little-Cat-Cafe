@@ -29,4 +29,4 @@ func _end_day():
 	AudioManager.play_sound(victory_sfx)
 	
 	await get_tree().create_timer(5).timeout
-	SceneChanger.change_scene("res://Nodes/UI/result_screen.tscn", "slide_left")
+	SceneManager.change_scene("res://Nodes/UI/result_screen.tscn", {"pattern":"circle"})

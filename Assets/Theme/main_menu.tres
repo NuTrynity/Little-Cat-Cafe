@@ -1,8 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cre74qu5ppyhh"]
-
-[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_4ljtg"]
-[ext_resource type="Texture2D" uid="uid://bs2qfb15yyx8t" path="res://Sprites/grey_sliderDown.png" id="2_r4qfw"]
-[ext_resource type="Texture2D" uid="uid://c826m85ss2xms" path="res://Sprites/grey_sliderVertical.png" id="3_vljl6"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cre74qu5ppyhh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecjjk"]
 bg_color = Color(0.701961, 0.552941, 0.52549, 0.588235)
@@ -130,28 +126,27 @@ expand_margin_right = 32.0
 expand_margin_bottom = 32.0
 
 [resource]
-default_font = ExtResource("1_4ljtg")
 default_font_size = 64
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0.317647, 0.0784314, 0.0745098, 1)
 Button/constants/outline_size = 32
 Button/font_sizes/font_size = 64
-Button/fonts/font = ExtResource("1_4ljtg")
+Button/fonts/font = null
 Button/styles/focus = SubResource("StyleBoxFlat_ecjjk")
 Button/styles/hover = SubResource("StyleBoxFlat_26ky2")
 Button/styles/normal = SubResource("StyleBoxFlat_8s2vf")
 Button/styles/pressed = SubResource("StyleBoxFlat_h1mj6")
 HSlider/constants/center_grabber = 0
 HSlider/constants/grabber_offset = 0
-HSlider/icons/grabber = ExtResource("2_r4qfw")
-HSlider/icons/grabber_disabled = ExtResource("2_r4qfw")
-HSlider/icons/grabber_highlight = ExtResource("2_r4qfw")
-HSlider/icons/tick = ExtResource("3_vljl6")
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
+HSlider/icons/tick = null
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_a70n5")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_bhg8g")
 HSlider/styles/slider = SubResource("StyleBoxFlat_eqgfo")
 Label/colors/font_outline_color = Color(0.317647, 0.0784314, 0.0745098, 1)
 Label/constants/outline_size = 32
 Label/font_sizes/font_size = 64
-Label/fonts/font = ExtResource("1_4ljtg")
+Label/fonts/font = null
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_a36sx")

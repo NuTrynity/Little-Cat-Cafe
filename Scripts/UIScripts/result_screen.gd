@@ -40,5 +40,5 @@ func count_specific(data): #Counts only a specific owned item in a Dictionary
 
 func _on_next_day_pressed():
 	GlobalScript.days += 1
-	SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
+	SceneManager.change_scene("res://scene_0.tscn", {"pattern":"circle"})
 	AudioManager.play_sound(clicksfx)
