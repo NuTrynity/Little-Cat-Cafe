@@ -5,12 +5,14 @@ extends CharacterBody2D
 @onready var pivot : Node2D = $PlayerSkin
 @onready var start_scale : Vector2 = pivot.scale
 @onready var animations = $PlayerSkin/PlayerAnimations
+@onready var label = $Label
 
 var input = Vector2.ZERO
 var joystick_input = Vector2(0, 0)
 
 func _ready():
-	player_stats.set_speed(500.0)
+	label.position.x -= label.size.x / 2
+	label.position.y -= 412
 
 func _physics_process(_delta):
 	input = get_input()
@@ -21,6 +23,7 @@ func _physics_process(_delta):
 func _process(_delta):
 	var is_idle = is_zero_approx(velocity.x) and is_zero_approx(velocity.y)
 	var is_walking = not Vector2.ZERO
+	label.text = "SPEED: " + str(player_stats.get_speed())
 	
 	if is_idle:
 		animations.play("idle")

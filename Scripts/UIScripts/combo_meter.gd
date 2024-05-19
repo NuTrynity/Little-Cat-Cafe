@@ -38,5 +38,5 @@ func on_timeout():
 		animation.play_backwards("show_combo")
 		
 		await animation.animation_finished
+		game_manager.reset_combo()
 		value = max_value
-		game_manager.combo_meter = 1

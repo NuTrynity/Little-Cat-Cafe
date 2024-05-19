@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c073t6ipfhquh"]
+[gd_scene load_steps=24 format=3 uid="uid://c073t6ipfhquh"]
 
 [ext_resource type="Script" path="res://Scripts/TutorialScripts/tutorial.gd" id="1_ri0en"]
 [ext_resource type="PackedScene" uid="uid://dmnkhyslm7yvd" path="res://Nodes/Components/cat_manager.tscn" id="2_mbsp6"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="16_lu5jr"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="17_ndfjk"]
 [ext_resource type="PackedScene" uid="uid://bu56hww45qof3" path="res://Nodes/TutorialNodes/tutorial_node.tscn" id="19_q7w0m"]
+[ext_resource type="PackedScene" uid="uid://lrihuknftpsf" path="res://Nodes/Components/player_buffs.tscn" id="20_2e2jy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7fjw"]
 size = Vector2(2628, 20)
@@ -125,3 +126,5 @@ position = Vector2(2219, 1210)
 position = Vector2(1389, 505)
 
 [node name="SaveLoader" parent="." instance=ExtResource("17_ndfjk")]
+
+[node name="PlayerBuffs" parent="." instance=ExtResource("20_2e2jy")]

@@ -3,8 +3,9 @@ extends Resource
 class_name GameManager
 signal game_end
 signal day_end
-signal game_finished
 signal start_combo
+signal game_finished
+signal combo_finished
 
 @export var game_minutes : int
 @export var game_seconds : int
@@ -27,3 +28,7 @@ func set_default():
 func _reset():
 	game_minutes = current_minutes
 	game_seconds = current_seconds
+
+func reset_combo():
+	combo_meter = 1
+	combo_finished.emit()

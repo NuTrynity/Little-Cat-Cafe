@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bi18vgrte8p7r"]
+[gd_scene load_steps=22 format=3 uid="uid://bi18vgrte8p7r"]
 
 [ext_resource type="PackedScene" uid="uid://ccd36gjbdqg85" path="res://Nodes/CharacterNodes/player.tscn" id="1_5ew65"]
 [ext_resource type="Script" path="res://Scripts/scene_0.gd" id="1_6dqke"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b2soaa4584xu4" path="res://Nodes/ObjectNodes/door.tscn" id="14_1augc"]
 [ext_resource type="PackedScene" uid="uid://i145yj5f8vf5" path="res://Nodes/ObjectNodes/cat_carpet.tscn" id="16_6nit4"]
 [ext_resource type="AudioStream" uid="uid://bh3brjbcwn4o6" path="res://Assets/Music/Gameplay.wav" id="16_urv4l"]
+[ext_resource type="PackedScene" uid="uid://lrihuknftpsf" path="res://Nodes/Components/player_buffs.tscn" id="18_btf8d"]
 [ext_resource type="PackedScene" uid="uid://j8ettgplafog" path="res://Nodes/UI/game_condition.tscn" id="19_nxtfs"]
 [ext_resource type="PackedScene" uid="uid://cukw642r356d0" path="res://Nodes/ObjectNodes/long_carpet.tscn" id="19_y2q1h"]
 [ext_resource type="PackedScene" uid="uid://p6ruwc0jpptk" path="res://Nodes/save_loader.tscn" id="20_n7opd"]
@@ -37,6 +38,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_6dqke")
+metadata/entity_name = "Player"
 
 [node name="CatManager" parent="." instance=ExtResource("7_mn2jt")]
 
@@ -91,6 +93,10 @@ navigation_layers = 3
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_fbxh0")
 
+[node name="SaveLoader" parent="." instance=ExtResource("20_n7opd")]
+
+[node name="PlayerBuffs" parent="." instance=ExtResource("18_btf8d")]
+
 [node name="GamePlayMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("16_urv4l")
@@ -119,5 +125,3 @@ position = Vector2(2219, 1210)
 
 [node name="LongCarpet" parent="Background" instance=ExtResource("19_y2q1h")]
 position = Vector2(1389, 505)
-
-[node name="SaveLoader" parent="." instance=ExtResource("20_n7opd")]
