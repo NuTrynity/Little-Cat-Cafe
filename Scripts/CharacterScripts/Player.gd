@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@export var player_stats : PlayerMealCarry
-@export var move_speed : float = 500.0
+@export var player_stats : PlayerStats
 
 @onready var pivot : Node2D = $PlayerSkin
 @onready var start_scale : Vector2 = pivot.scale
@@ -10,10 +9,13 @@ extends CharacterBody2D
 var input = Vector2.ZERO
 var joystick_input = Vector2(0, 0)
 
+func _ready():
+	player_stats.set_speed(500.0)
+
 func _physics_process(_delta):
 	input = get_input()
 	
-	velocity = input * move_speed
+	velocity = input * player_stats.player_speed
 	move_and_slide()
 
 func _process(_delta):
@@ -38,6 +40,6 @@ func get_input():
 	return input.normalized()
 
 func _on_joy_stick_use_move_vector(move_vector):
-	velocity = move_vector * move_speed
+	velocity = move_vector * player_stats.player_speed
 	move_and_slide()
 	flip_pivot()

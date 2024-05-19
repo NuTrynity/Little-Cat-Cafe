@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccd36gjbdqg85"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/Player.gd" id="1_bdjlg"]
-[ext_resource type="Resource" uid="uid://bgrjpjih4rwxy" path="res://CustomResources/PlayerMeal.tres" id="2_ejmku"]
+[ext_resource type="Resource" uid="uid://bqgjv1dentg8k" path="res://CustomResources/PlayerStats.tres" id="2_xx3sy"]
 [ext_resource type="PackedScene" uid="uid://yyjoaguxo2q7" path="res://Nodes/CharacterNodes/player_skin.tscn" id="3_5ahdw"]
 [ext_resource type="PackedScene" uid="uid://thwwtu05gh5p" path="res://Nodes/ObjectNodes/tray.tscn" id="4_ih7m2"]
 [ext_resource type="PackedScene" uid="uid://dup7dxp0rjp3y" path="res://Nodes/UI/joy_stick.tscn" id="5_48k8c"]
@@ -14,7 +14,7 @@ collision_mask = 5
 motion_mode = 1
 wall_min_slide_angle = 0.0174533
 script = ExtResource("1_bdjlg")
-player_stats = ExtResource("2_ejmku")
+player_stats = ExtResource("2_xx3sy")
 
 [node name="PlayerSkin" parent="." instance=ExtResource("3_5ahdw")]
 position = Vector2(-10, -180)
