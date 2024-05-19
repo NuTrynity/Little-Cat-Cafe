@@ -1,3 +1,5 @@
+# Plugins Used
+Plugins being used
 # Godot Scene Manager
 
 ![Logo](/logo.png)
