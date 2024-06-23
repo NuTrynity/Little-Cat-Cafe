@@ -1,8 +1,7 @@
 extends CanvasLayer
 @onready var animations = $Animations
 '''
-Case Sensitive! make sure anim parameter has correct spelling and
-exists on animation player node when calling this function
+DEPRECATED: USE SCENEMANAGER INSTEAD :3
 '''
 var scene : String
 func change_scene(target : String, anim : String):

@@ -5,6 +5,7 @@ func save_settings():
 	
 	options.sfx = GlobalScript.sfx_volume
 	options.music = GlobalScript.music_volume
+	options.fullscreen = GlobalScript.fullscreen
 	ResourceSaver.save(options, "user://options.tres")
 
 func load_settings():
@@ -12,3 +13,4 @@ func load_settings():
 	
 	GlobalScript.sfx_volume = options.sfx
 	GlobalScript.music_volume = options.music
+	GlobalScript.fullscreen = options.fullscreen

@@ -2,6 +2,7 @@ extends Node
 
 var sfx_volume : float = 1
 var music_volume : float = 1
+var fullscreen : bool = false
 
 var ratings : int = 0
 var quota : int = 7500

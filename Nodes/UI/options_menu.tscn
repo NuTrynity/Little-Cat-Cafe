@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UIScripts/options_menu.gd" id="1_hnkb5"]
 [ext_resource type="Theme" uid="uid://cre74qu5ppyhh" path="res://Assets/Theme/main_menu.tres" id="1_plmjf"]
-[ext_resource type="PackedScene" uid="uid://cixmi4iqjobvr" path="res://Nodes/options.tscn" id="3_m150x"]
+[ext_resource type="PackedScene" uid="uid://cixmi4iqjobvr" path="res://Nodes/options.tscn" id="3_8nthk"]
 
 [node name="OptionsMenu" type="PanelContainer"]
 process_mode = 3
@@ -23,6 +23,13 @@ script = ExtResource("1_hnkb5")
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 128
+
+[node name="Fullscreen" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Menu/Fullscreen"]
+layout_mode = 2
+text = "Fullscreen"
 
 [node name="Sliders" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
@@ -61,8 +68,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Back"
 
-[node name="Options" parent="." instance=ExtResource("3_m150x")]
+[node name="Options" parent="." instance=ExtResource("3_8nthk")]
 
+[connection signal="toggled" from="Menu/Fullscreen/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="Menu/Sliders/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="Menu/Sliders/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="Menu/Buttons/Back" to="." method="_on_back_pressed"]
