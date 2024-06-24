@@ -4,17 +4,28 @@ var sfx_volume : float = 1
 var music_volume : float = 1
 var fullscreen : bool = false
 
-var cash_on_hand : int = 1000
+var ratings : int = 0
+var quota : int = 7500
+
+var money : int = 1000
 var days : int = 0
+
+func adjust_ratings(amt : int):
+	var result = ratings + amt
+	if result < 0:
+		result = 0
+	ratings = result
 
 var meal_types : Dictionary = {
 	0: {
 		"name" : "omurice",
-		"price" : 50
+		"price" : 50,
+		"sprite_path" : "res://Sprites/omurice.png"
 	},
 	1: {
 		"name" : "cat_latte",
-		"price" : 75
+		"price" : 75,
+		"sprite_path" : "res://Sprites/cat_latte.png"
 	},
 }
 
@@ -85,5 +96,4 @@ var items_owned : Dictionary = {
 		"parent_name" : "scene_0/KitchenCounter"
 	}
 }
-
 

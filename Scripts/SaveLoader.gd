@@ -1,11 +1,11 @@
 extends Node
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 
 func save_game():
 	var saved_game : SavedGame = SavedGame.new()
 	
-	saved_game.money = GlobalScript.cash_on_hand
-	saved_game.rating = player_resources.rating
+	saved_game.money = GlobalScript.money
+	saved_game.rating = GlobalScript.ratings
 	saved_game.inventory = GlobalScript.shop
 	saved_game.days = GlobalScript.days
 	saved_game.items_owned = GlobalScript.items_owned
@@ -15,8 +15,8 @@ func save_game():
 func load_game():
 	var saved_game : SavedGame = load("user://savedata.tres") as SavedGame
 	
-	GlobalScript.cash_on_hand = saved_game.money
-	player_resources.rating = saved_game.rating
+	GlobalScript.money = saved_game.money
+	GlobalScript.ratings = saved_game.rating
 	GlobalScript.shop = saved_game.inventory
 	GlobalScript.days = saved_game.days
 	GlobalScript.items_owned = saved_game.items_owned

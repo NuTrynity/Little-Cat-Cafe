@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 
 @onready var interact_area = $InteractionArea
-var meal_i_want = null
+var meal_wanted = null
 
 func _ready():
 	interact_area.interact = Callable(self, "_toss_item")

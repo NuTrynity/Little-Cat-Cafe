@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 
 @onready var interact_area = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("player") as CharacterBody2D
@@ -13,7 +13,7 @@ func _ready():
 func _on_pick_up():
 	if (pickup_is_empty()):
 		print("nothing to pickup")
-	elif tray.item_count() >= player_resources.max_amt:
+	elif tray.item_count() >= player_resources.max_meal_amt:
 		print("tray is full")
 	else:
 		player_resources.take_meal(pickup_meal())

@@ -45,13 +45,10 @@ func can_target_customer() -> bool:
 	return target_npc.patience_bar.is_visible()
 
 func untarget_customer():
-	var npc = target_npc as Npc
 	targeted_list.append(target_npc as Node2D)
 	target_npc.targeter = null
 	target = null
 	target_npc = null
-	npc.ready_for_cat_func()
-	
 
 func target_random_point():
 	target_point.global_position = choose_random_point()

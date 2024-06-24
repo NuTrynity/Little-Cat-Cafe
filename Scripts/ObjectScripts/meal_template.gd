@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var meal_index : int
-@export var player_resources : PlayerMealCarry
+@export var player_resources : PlayerResource
 
 @onready var meal_sprite = $MealSprite
 @onready var player = get_tree().get_first_node_in_group("player")

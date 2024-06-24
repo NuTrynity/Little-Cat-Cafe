@@ -1,11 +1,7 @@
-[gd_resource type="Resource" script_class="PlayerMealCarry" load_steps=2 format=3 uid="uid://bgrjpjih4rwxy"]
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=2 format=3 uid="uid://bgrjpjih4rwxy"]
 
 [ext_resource type="Script" path="res://Scripts/ResourceScripts/PlayerResource.gd" id="1_s52ys"]
 
 [resource]
 script = ExtResource("1_s52ys")
-max_amt = 2
-rating_bonus_max = 25
-rating_increase_amt = 50
-rating_decrease_amt = 150
-quota = 7500
+max_meal_amt = 2

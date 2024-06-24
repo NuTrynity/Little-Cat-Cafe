@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var player_resources = PlayerMealCarry
+@export var player_resources = PlayerResource
 @export var cheats : Array[String]
 
 @onready var input = %LineEdit
@@ -16,7 +16,7 @@ func _ready():
 	terminal.item_bought.connect(_terminal_bought)
 
 func _process(_delta):
-	cash_label.text = "Cash-on-Hand: " + str(GlobalScript.cash_on_hand) + " $"
+	cash_label.text = "Cash-on-Hand: " + str(GlobalScript.money) + " $"
 
 func _terminal_bought():
 	$HomeScreen/Apps/Terminal.show()
@@ -37,10 +37,10 @@ func output_text():
 		exit - exits the terminal
 		clear - erases the terminal"
 	elif line_text == cheats[0]:
-		GlobalScript.cash_on_hand += 9999
+		GlobalScript.money += 9999
 		line.text = "Cheat Activated"
 	elif line_text == cheats[1]:
-		GlobalScript.rating += 100
+		GlobalScript.ratings += 100
 	elif line_text == "exit":
 		$HomeScreen.show()
 		$Terminal.hide()

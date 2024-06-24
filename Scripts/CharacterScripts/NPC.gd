@@ -1,19 +1,23 @@
 extends CharacterBody2D
 class_name Npc
 
-signal ready_for_cat
+signal approaching
 signal leaving
+signal ordering
+signal eating
+signal angry
+
+signal interacting_with_cat
+signal ready_for_cat
 
 @export var game_manager : GameManager
-@export var player_resources : PlayerMealCarry
-@export var patience : float
+@export var player_resources : PlayerResource
 
-@onready var pivot : Node2D = $NPCSkin
-@onready var start_scale : Vector2 = pivot.scale
-@onready var animations = $NPCSkin/NPCAnimations
-@onready var npc_sprite = $NPCSkin/NPCSprite as Sprite2D
-@onready var meal_want = $NPCSkin/ThoughtBubble/MealWanted
-@onready var thought_bubble = $NPCSkin/ThoughtBubble
+@export var patience : float
+@export var ratings_bonus_max : int = 25
+@export var ratings_increase_amt : int = 50
+@export var ratings_decrease_amt : int = 150
+
 @onready var interact_area = $InteractionArea
 @onready var patience_bar = $Patience
 @onready var patience_timer = Timer.new()
@@ -21,7 +25,7 @@ signal leaving
 @onready var aiMvt := $AiMovement as NpcAiMovement
 @onready var meal_price_label = preload("res://Nodes/UI/meal_price_on_buy.tscn")
 
-var meal_i_want : int
+var meal_wanted : int
 var can_be_interacted : bool = false
 var is_leaving : bool = false
 var is_sitting : bool = false
@@ -32,7 +36,7 @@ var targeter : Node2D = null
 
 var current_meal : Node2D = null
 
-enum State {APPROACH, IDLE, ACT, LEAVE}
+enum State {APPROACH, IDLE, ORDER, EAT, LEAVE}
 var state := State.IDLE as State
 
 func _ready():
@@ -43,37 +47,12 @@ func _ready():
 	interact_area.interact = Callable(self, "_on_player_give_meal")
 	interact_area.monitoring = false
 	
-	npc_sprite.flip_h = false
-	
-	meal_want.hide()
-	thought_bubble.hide()
-	meal_i_want = player_resources.randomize_meal_index()
-	if meal_i_want == 0:
-		meal_want.texture = load("res://Sprites/omurice.png")
-	elif meal_i_want == 1:
-		meal_want.texture = load("res://Sprites/cat_latte.png")
+	meal_wanted = random_meal()
 
-'''
-func _physics_process(_delta : float) -> void:
-	patience_bar.value = patience
-	
-	if can_be_interacted == false:
-		interact_area.monitoring = false
-	else:
-		interact_area.monitoring = true
-	#NPC State Block
-	if aiMvt.reached_target() && not is_leaving:
-		animations.play("sitting")
-		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
-	else:
-		animations.play("walking")
-		patience_bar.hide()
-		npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
-	
-	if is_sitting == false:
-		if not is_zero_approx(velocity.x):
-			pivot.scale.x = sign(velocity.x) * start_scale.x
-'''
+func random_meal():
+	var rand = RandomNumberGenerator.new()
+	var meal_index = rand.randi_range(0, GlobalScript.meal_types.size()-1)
+	return meal_index
 
 func _physics_process(_delta : float) -> void:
 	match state:
@@ -81,64 +60,59 @@ func _physics_process(_delta : float) -> void:
 		State.IDLE:
 			var find_target = aiMvt.find_and_pick_target()
 			if find_target != null:
-				aiMvt.makepath()
-				state = State.APPROACH
+				idle_to_approach()
 			
 		# approaching: going towards target
 		State.APPROACH:
 			aiMvt.approach_target()
-			walk_animation()
 			
 			if aiMvt.reached_target():
-				state = State.ACT
-				aiMvt.target.npc_act_setup(self)
+				approach_to_order()
 			
-		# acting: interacting with target, target should take control of the npc to decide what they're doing
-		State.ACT:
-			aiMvt.target.npc_act(self)
-			# target sets the state to LEAVE
+		# ordering: sitting at the table waiting for food
+		State.ORDER:
+			# switches to EAT after grab_meal() is called, or LEAVE when the patience timer runs out
+			return
+		
+		# eating: waits for eating timer to finish, then switches to LEAVE
+		State.EAT:
+			return
 			
-		# leaving: npc is approaching door
+		# leaving: npc approaches door
 		State.LEAVE:
 			aiMvt.approach_target()
-			walk_animation()
 
-func sit_area_act_setup():
+func idle_to_approach():
+	approaching.emit()
+	
+	aiMvt.makepath()
+	state = State.APPROACH
+
+func approach_to_order():
+	ordering.emit()
+	
+	state = State.ORDER
 	patience_timer_setup()
 	patience_bar.value = patience
 	patience_timer.start()
 	patience_bar.show()
-	meal_want.show()
-	thought_bubble.show()
 	interact_area.monitoring = true
 	
-	emit_signal("ready_for_cat", self)
-	sit_animation()
+	ready_for_cat_func()
 	
-func sit_area_act():
-	pass
+func to_leave():
+	leaving.emit()
 	
-func sit_area_leave():
 	state = State.LEAVE
 	aiMvt.goto_exit()
-	leaving.emit()
-	meal_want.hide()
-	thought_bubble.hide()
 	patience_bar.hide()
 	interact_area.monitoring = false
-	
-	if is_angry == true:
-		meal_want.show()
-		thought_bubble.show()
-	else:
-		meal_want.hide()
-		thought_bubble.hide()
 
 # ends sit_area action
 func _on_meal_finished():
 	current_meal.queue_free()
 	current_meal = null
-	aiMvt.target.npc_leave(self)
+	to_leave()
 	
 func _on_timer_timeout():
 	patience -= 1
@@ -147,31 +121,9 @@ func _on_timer_timeout():
 	# out of patience, gets angry and leaves
 	if patience_bar.value <= 0:
 		patience_timer.stop()
-		aiMvt.target.npc_leave(self)
+		to_leave()
 		
-		player_resources.adjust_rating(-player_resources.rating_decrease_amt)
-	
-# used by targets to tell npc to leave
-func set_leave_state():
-	state = State.LEAVE
-	
-func walk_animation():
-	animations.play("walking")
-	if velocity.x > 0:
-		npc_sprite.flip_h = true
-	else:
-		npc_sprite.flip_h = false
-	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
-
-func sit_animation():
-	animations.play("sitting")
-	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_sitting.png")
-	
-	var sit_area = aiMvt.target as SitArea
-	if sit_area.facing_left:
-		npc_sprite.flip_h = false
-	else:
-		npc_sprite.flip_h = true
+		GlobalScript.adjust_ratings(-ratings_decrease_amt)
 	
 func patience_timer_setup():
 	add_child(patience_timer)
@@ -187,14 +139,7 @@ func patience_timer_setup():
 func _on_player_give_meal():
 	player_resources.give_meal(self)
 
-func spawn_label():
-	var price_label = meal_price_label.instantiate()
-	price_label.price = str(GlobalScript.meal_types[meal_i_want]["price"] * game_manager.combo_meter)
-	price_label.position = global_position
-	price_label.position.y -= 360 #just on her head
-	price_label.position.x -= price_label.size.x / 2
-	get_parent().add_child(price_label)
-
+# called when player gives correct meal to npc
 func grab_meal(meal):
 	var sit_area = aiMvt.target as SitArea
 	player_resources.carry_amt -= 1
@@ -203,42 +148,40 @@ func grab_meal(meal):
 	meal.global_position = self.global_position
 	meal.position.y -= 143
 	current_meal = meal
-	
 	if sit_area.facing_left:
 		meal.position.x -= 150
 	else:
 		meal.position.x += 150
-
+	order_to_eat()
+	
+func order_to_eat():
+	eating.emit()
+	
+	state = State.EAT
 	patience_timer.stop()
 	patience_bar.hide()
-	meal_want.hide()
-	thought_bubble.hide()
 	eat_timer.start()
 	game_manager.start_combo.emit()
 	interact_area.monitoring = false
 	
+	add_score()
 	spawn_label()
-	GlobalScript.inventory[meal_i_want]["count"] -= 1
-	GlobalScript.cash_on_hand += GlobalScript.meal_types[meal_i_want]["price"] * game_manager.combo_meter
-	player_resources.adjust_rating(player_resources.rating_increase_amt, patience_bar)
+	
+func add_score():
+	GlobalScript.inventory[meal_wanted]["count"] -= 1
+	GlobalScript.money += GlobalScript.meal_types[meal_wanted]["price"] * game_manager.combo_meter
+	
+	var ratings_amt = ratings_increase_amt + (patience_bar.ratio * ratings_bonus_max)
+	GlobalScript.adjust_ratings(ratings_amt)
 	game_manager.combo_meter += 1
 
-'''
-func _on_chair_detector_area_entered(area):
-	if area.is_in_group("chair"):
-		is_sitting = true
-		can_be_interacted = true
-		patience_timer.start()
-		patience_bar.show()
-		meal_want.show()
-
-func _on_chair_detector_area_exited(area):
-	if area.is_in_group("chair"):
-		is_sitting = false
-		can_be_interacted = false
-		meal_want.hide()
-		patience_timer.stop()
-'''
+func spawn_label():
+	var price_label = meal_price_label.instantiate()
+	price_label.price = str(GlobalScript.meal_types[meal_wanted]["price"] * game_manager.combo_meter)
+	get_parent().add_child(price_label)
+	price_label.position = global_position
+	price_label.position.y -= 360 #just on her head
+	price_label.position.x -= price_label.size.x / 2
 
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
@@ -250,7 +193,10 @@ func _on_leave_detector_area_entered(area):
 func get_cat_point() -> Node2D:
 	var sit_area = aiMvt.target as SitArea
 	return sit_area.get_cat_point()
-	
+
+func interacting_with_cat_func():
+	interacting_with_cat.emit()
+
 func ready_for_cat_func():
-	if (state == State.ACT && patience_bar.is_visible()):
+	if (state == State.ORDER && patience_bar.is_visible()):
 		emit_signal("ready_for_cat", self)

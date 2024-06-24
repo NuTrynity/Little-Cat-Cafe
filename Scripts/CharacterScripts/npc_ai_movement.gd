@@ -9,6 +9,7 @@ func _ready():
 	speed = npc_speed
 
 func goto_exit():
+	untarget_chair()
 	target = door
 	makepath()
 
@@ -33,3 +34,5 @@ func pick_chair() -> Node2D:
 			return sit_area
 	return null
 		
+func untarget_chair():
+	target.set_untargeted()
