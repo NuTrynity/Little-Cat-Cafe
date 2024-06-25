@@ -30,7 +30,6 @@ SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
-window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"

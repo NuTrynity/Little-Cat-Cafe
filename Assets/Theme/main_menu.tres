@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cre74qu5ppyhh"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cre74qu5ppyhh"]
+
+[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_jcno6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecjjk"]
 bg_color = Color(0.701961, 0.552941, 0.52549, 0.588235)
@@ -131,7 +133,7 @@ Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0.317647, 0.0784314, 0.0745098, 1)
 Button/constants/outline_size = 32
 Button/font_sizes/font_size = 64
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_jcno6")
 Button/styles/focus = SubResource("StyleBoxFlat_ecjjk")
 Button/styles/hover = SubResource("StyleBoxFlat_26ky2")
 Button/styles/normal = SubResource("StyleBoxFlat_8s2vf")
@@ -148,5 +150,5 @@ HSlider/styles/slider = SubResource("StyleBoxFlat_eqgfo")
 Label/colors/font_outline_color = Color(0.317647, 0.0784314, 0.0745098, 1)
 Label/constants/outline_size = 32
 Label/font_sizes/font_size = 64
-Label/fonts/font = null
+Label/fonts/font = ExtResource("1_jcno6")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_a36sx")

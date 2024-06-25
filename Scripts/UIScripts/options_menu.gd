@@ -7,6 +7,7 @@ signal back
 @onready var options = $Options
 
 var click = load("res://Assets/SFX/click_sfx.ogg")
+var selected : int
 
 const window_options : Array[String] = [
 	"Full-Screen",
@@ -21,9 +22,22 @@ func _ready() -> void:
 	if FileAccess.file_exists(option_loc):
 		options.load_settings()
 	
+	if GlobalScript.window_mode == window_options[0]:
+		selected = 0
+		set_window_mode(0)
+	elif GlobalScript.window_mode == window_options[1]:
+		selected = 1
+		set_window_mode(1)
+	elif GlobalScript.window_mode == window_options[2]:
+		selected = 2
+		set_window_mode(2)
+	elif GlobalScript.window_mode == window_options[3]:
+		selected = 3
+		set_window_mode(3)
+	
 	$Menu/Sliders/SFX/SFXSlider.value = GlobalScript.sfx_volume
 	$Menu/Sliders/Music/MusicSlider.value = GlobalScript.music_volume
-	on_window_mode_selected(1)
+	$Menu/Fullscreen/ScreenOption.select(selected)
 
 func hide_options() -> void:
 	hide()
@@ -51,6 +65,20 @@ func _on_music_slider_value_changed(value) -> void:
 	options.save_settings()
 
 func on_window_mode_selected(index : int) -> void:
+	
+	match index:
+		0:
+			set_window_mode(0)
+		1:
+			set_window_mode(1)
+		2:
+			set_window_mode(2)
+		3:
+			set_window_mode(3)
+	
+	options.save_settings()
+
+func set_window_mode(index : int) -> void:
 	if index == 0:
 		GlobalScript.window_mode = window_options[0]
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -67,8 +95,6 @@ func on_window_mode_selected(index : int) -> void:
 		GlobalScript.window_mode = window_options[3]
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-	
-	options.save_settings()
 
 ''' 
 func _on_check_button_toggled(toggled_on) -> void:
