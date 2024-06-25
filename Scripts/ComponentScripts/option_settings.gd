@@ -3,4 +3,4 @@ class_name Options
 
 @export var music : float
 @export var sfx : float
-@export var fullscreen : bool
+@export var window_mode : String

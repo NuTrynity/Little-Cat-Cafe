@@ -59,12 +59,12 @@ func _on_no_pressed():
 
 func _on_continue_pressed():
 	save_loader.load_game()
-	SceneManager.change_scene("res://scene_0.tscn", {"pattern":"radial"})
+	SceneManager.change_scene("res://scene_0.tscn")
 	AudioManager.play_sound(click)
 
 func _on_new_game_pls_pressed():
 	print("tutorial level")
-	SceneManager.change_scene("res://tutorial.tscn", {"pattern":"radial"})
+	SceneManager.change_scene("res://tutorial.tscn")
 	AudioManager.play_sound(click)
 
 func _on_continue_new_game_pressed():
