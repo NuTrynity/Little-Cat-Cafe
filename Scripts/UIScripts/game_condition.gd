@@ -16,6 +16,7 @@ var tween
 
 func _ready():
 	game_manager.day_end.connect(_end_day)
+	game_manager.set_timer()
 	day_label.text = "Day: " + str(GlobalScript.days)
 	next_day()
 
@@ -34,7 +35,6 @@ func next_day():
 
 func _end_day():
 	AudioManager.play_sound(victory_sfx)
-	game_manager._reset()
 	condition_text.show()
 	background.show()
 	

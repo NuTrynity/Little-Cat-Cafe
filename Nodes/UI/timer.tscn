@@ -12,7 +12,5 @@ offset_left = -202.0
 offset_bottom = 68.0
 grow_horizontal = 0
 theme = ExtResource("1_5lixh")
-text = "time
-"
 script = ExtResource("1_cobqn")
 game_manager = ExtResource("3_xfys7")

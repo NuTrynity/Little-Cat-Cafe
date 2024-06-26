@@ -4,6 +4,8 @@ extends MainScene
 var cooked : bool = false
 var bought : bool = false
 
+var game_timer
+
 func _ready():
 	get_tree().paused = false
 	
@@ -14,6 +16,10 @@ func _ready():
 	
 	load_scene()
 	
+	game_timer = $UserInterface/MarginContainer/Container/Essentials/Timer
+	game_timer.timer.paused = true
+	game_timer.visible = false
+	
 	await get_tree().create_timer(2).timeout
 	tutorial_node.get_target($Player)
 	tutorial_node.label.text = "Use WASD to Move\nPress E to Interact"
@@ -22,7 +28,6 @@ func _ready():
 	tutorial_node.get_target($KitchenCounter2)
 	tutorial_node.label.text = "Interact with\nthe Pan to Cook"
 	$KitchenCounter2/FryPan.connect("on_cooked", _on_spawn_first_customer, )
-	
 	
 func _on_spawn_first_customer():
 	if cooked:
@@ -63,6 +68,10 @@ func _on_item_bought():
 	tutorial_node.label.text = ""
 	
 func _on_last_customer_leaving():
+	game_timer.set_to_zero()
 	tutorial_node.get_target($Player)
 	tutorial_node.label.text = "Congrats on finishing\nThe Tutorial!"
+	await get_tree().create_timer(4).timeout
+	tutorial_node.label.text = ""
+
 	
