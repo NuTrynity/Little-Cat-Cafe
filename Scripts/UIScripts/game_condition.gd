@@ -47,4 +47,4 @@ func _end_day():
 	tween.parallel().tween_property(background, "color", Color("0000009b"), 1)
 	
 	await get_tree().create_timer(5).timeout
-	SceneManager.change_scene("res://Nodes/UI/result_screen.tscn", {"pattern":"circle"})
+	SceneChanger.change_scene("res://Nodes/UI/result_screen.tscn", "slide_left")

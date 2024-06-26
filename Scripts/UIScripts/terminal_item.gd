@@ -1,7 +1,5 @@
 extends ShopItem
 
-
-
 func _ready():
 	setup_item()
 	

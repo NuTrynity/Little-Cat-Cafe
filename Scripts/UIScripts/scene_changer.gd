@@ -1,8 +1,6 @@
 extends CanvasLayer
 @onready var animations = $Animations
-'''
-DEPRECATED: USE SCENEMANAGER INSTEAD :3
-'''
+
 var scene : String
 func change_scene(target : String, anim : String):
 	scene = target

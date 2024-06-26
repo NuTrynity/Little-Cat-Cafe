@@ -43,7 +43,7 @@ func _on_options_pressed():
 	AudioManager.play_sound(click)
 
 func _on_yes_pressed():
-	SceneManager.change_scene("res://Nodes/UI/main_menu.tscn", {"pattern":"circle"})
+	SceneChanger.change_scene("res://Nodes/UI/main_menu.tscn", "slide_left")
 	AudioManager.play_sound(click)
 
 func _on_no_pressed():

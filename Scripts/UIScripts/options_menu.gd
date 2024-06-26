@@ -95,16 +95,3 @@ func set_window_mode(index : int) -> void:
 		GlobalScript.window_mode = window_options[3]
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-
-''' 
-func _on_check_button_toggled(toggled_on) -> void:
-	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		GlobalScript.fullscreen = true
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		GlobalScript.fullscreen = false
-	
-	AudioManager.play_sound(click)
-	options.save_settings()
-'''

@@ -1,6 +1,5 @@
 extends Label
 @export var game_manager : GameManager
-
 @onready var timer = Timer.new()
 
 func _ready():

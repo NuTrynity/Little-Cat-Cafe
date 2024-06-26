@@ -33,7 +33,7 @@ func _on_play_pressed():
 		$CenterContainer/NewGame.show()
 		$CenterContainer/Buttons.hide()
 	else:
-		SceneManager.change_scene("res://scene_0.tscn", {"pattern":"radial"})
+		SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
 	
 	AudioManager.play_sound(click)
 
@@ -59,12 +59,12 @@ func _on_no_pressed():
 
 func _on_continue_pressed():
 	save_loader.load_game()
-	SceneManager.change_scene("res://scene_0.tscn")
+	SceneChanger.change_scene("res://scene_0.tscn", "slide_left")
 	AudioManager.play_sound(click)
 
 func _on_new_game_pls_pressed():
 	print("tutorial level")
-	SceneManager.change_scene("res://tutorial.tscn")
+	SceneChanger.change_scene("res://tutorial.tscn", "slide_left")
 	AudioManager.play_sound(click)
 
 func _on_continue_new_game_pressed():
