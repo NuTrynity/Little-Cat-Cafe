@@ -63,6 +63,7 @@ func _on_continue_pressed():
 	AudioManager.play_sound(click)
 
 func _on_new_game_pls_pressed():
+	save_loader.load_new_game()
 	print("tutorial level")
 	SceneManager.change_scene("res://tutorial.tscn")
 	AudioManager.play_sound(click)

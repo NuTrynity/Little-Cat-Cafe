@@ -5,10 +5,10 @@ var cooked : bool = false
 var bought : bool = false
 
 func _ready():
+	save_loader.load_new_game()
 	get_tree().paused = false
 	
 	InteractionManager.find_player()
-	save_loader.save_game()
 	gameplay_stream.play()
 	$EndDay/GameCondition.day_label.text = "Tutorial Day"
 	

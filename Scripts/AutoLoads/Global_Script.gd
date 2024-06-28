@@ -4,11 +4,13 @@ var sfx_volume : float = 1
 var music_volume : float = 1
 var window_mode : String
 
-var ratings : int = 0
 var quota : int = 7500
 
-var money : int = 1000
-var days : int = 0
+var ratings : int
+var money : int
+var days : int
+var shop : Dictionary
+var items_owned : Dictionary
 
 func adjust_ratings(amt : int):
 	var result = ratings + amt
@@ -16,33 +18,11 @@ func adjust_ratings(amt : int):
 		result = 0
 	ratings = result
 
-var meal_types : Dictionary = {
-	0: {
-		"name" : "omurice",
-		"price" : 50,
-		"sprite_path" : "res://Sprites/omurice.png"
-	},
-	1: {
-		"name" : "cat_latte",
-		"price" : 75,
-		"sprite_path" : "res://Sprites/cat_latte.png"
-	},
-}
+var default_ratings : int = 0
+var default_money : int = 1000
+var default_days : int = 0
 
-var inventory : Dictionary = {
-	0: {
-		"name" : "omurice",
-		"price" : 50,
-		"count" : 0
-	},
-	1: {
-		"name" : "cat_latte",
-		"price" : 75,
-		"count" : 0
-	},
-}
-
-var shop : Dictionary = {
+var default_shop : Dictionary = {
 	0 : {
 		"name" : "chef_cat",
 		"price" : 1000,
@@ -76,7 +56,7 @@ var shop : Dictionary = {
 	},
 }
 
-var items_owned : Dictionary = {
+var default_items_owned : Dictionary = {
 	"table" : {
 		"owned" : 2,
 		"positions" : [Vector2(1650,892), Vector2(1438,1251), Vector2(778, 896), Vector2(544, 1249)],
@@ -97,3 +77,28 @@ var items_owned : Dictionary = {
 	}
 }
 
+var meal_types : Dictionary = {
+	0: {
+		"name" : "omurice",
+		"price" : 50,
+		"sprite_path" : "res://Sprites/omurice.png"
+	},
+	1: {
+		"name" : "cat_latte",
+		"price" : 75,
+		"sprite_path" : "res://Sprites/cat_latte.png"
+	},
+}
+
+var inventory : Dictionary = {
+	0: {
+		"name" : "omurice",
+		"price" : 50,
+		"count" : 0
+	},
+	1: {
+		"name" : "cat_latte",
+		"price" : 75,
+		"count" : 0
+	},
+}
