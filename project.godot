@@ -23,7 +23,8 @@ config/windows_native_icon="res://game_icon.ico"
 InteractionManager="*res://Nodes/Components/interaction_manager.tscn"
 GlobalScript="*res://Scripts/AutoLoads/Global_Script.gd"
 AudioManager="*res://Scripts/AutoLoads/AudioManager.gd"
-SceneChanger="*res://Nodes/UI/scene_changer.tscn"
+SceneChanger="res://Nodes/UI/scene_changer.tscn"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 [display]
 
@@ -36,6 +37,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="GWJ_Project"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
 
 [filesystem]
 
