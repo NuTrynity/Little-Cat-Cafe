@@ -24,6 +24,6 @@ func load_game():
 func load_new_game():
 	GlobalScript.money = GlobalScript.default_money
 	GlobalScript.ratings = GlobalScript.default_ratings
-	GlobalScript.shop = GlobalScript.default_shop
+	GlobalScript.shop = GlobalScript.default_shop.duplicate()
 	GlobalScript.days = GlobalScript.default_days
-	GlobalScript.items_owned = GlobalScript.default_items_owned
+	GlobalScript.items_owned = GlobalScript.default_items_owned.duplicate()
