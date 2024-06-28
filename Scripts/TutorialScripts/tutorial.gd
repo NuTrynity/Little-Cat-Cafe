@@ -7,10 +7,10 @@ var bought : bool = false
 var game_timer
 
 func _ready():
+	save_loader.load_new_game()
 	get_tree().paused = false
 	
 	InteractionManager.find_player()
-	save_loader.save_game()
 	gameplay_stream.play()
 	$EndDay/GameCondition.day_label.text = "Tutorial Day"
 	

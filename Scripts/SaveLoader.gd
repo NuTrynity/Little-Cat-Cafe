@@ -20,3 +20,10 @@ func load_game():
 	GlobalScript.shop = saved_game.inventory
 	GlobalScript.days = saved_game.days
 	GlobalScript.items_owned = saved_game.items_owned
+	
+func load_new_game():
+	GlobalScript.money = GlobalScript.default_money
+	GlobalScript.ratings = GlobalScript.default_ratings
+	GlobalScript.shop = GlobalScript.default_shop
+	GlobalScript.days = GlobalScript.default_days
+	GlobalScript.items_owned = GlobalScript.default_items_owned
