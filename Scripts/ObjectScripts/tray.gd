@@ -11,6 +11,11 @@ func _ready():
 	player_resources.meal_taken.connect(_take_meal)
 	player_resources.meal_given.connect(_give_meal)
 	
+	reset_tray()
+	
+func reset_tray():
+	player_resources.carry_amt = 0
+	
 func _take_meal(meal):
 	visible = true
 	for point in placement_pts.get_children():

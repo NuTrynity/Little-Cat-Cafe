@@ -19,6 +19,11 @@ func _on_pick_up():
 		player_resources.take_meal(pickup_meal())
 		#I need to append meal_index so that the NPC can compare if they have the meal they want
 
+func test_print():
+	print("Points:")
+	for point in placement_pts.get_children():
+		print(point.held_item)
+
 func pickup_is_empty():
 	for point in placement_pts.get_children():
 		if !point.get_is_empty():
