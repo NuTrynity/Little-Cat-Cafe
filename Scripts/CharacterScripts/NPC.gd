@@ -186,8 +186,16 @@ func spawn_label():
 func _on_leave_detector_area_entered(area):
 	if area.is_in_group("LeaveArea"):
 		if state == State.LEAVE:
-			game_manager.check_result()
+			check_day_end()
+			#game_manager.check_result()
 			queue_free()
+			
+# checks if it's the last npc when it leaves (maybe put this somewhere else later)
+func check_day_end():
+	var customers = get_tree().get_nodes_in_group("customers")
+	if customers.size() <= 1:
+		if game_manager.check_timer_done():
+			game_manager.end_day()
 
 # returns point where cat should sit nearby, don't call when leaving
 func get_cat_point() -> Node2D:

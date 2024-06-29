@@ -19,18 +19,11 @@ var npc_spawn_time : float
 var ratings_ratio : float
 var day_end : bool = false
 
-var customer_amt : int
 var min_time : float
 var max_time : float
 
 func _ready():
 	ratings_ratio = float(GlobalScript.ratings) / float(GlobalScript.quota)
-	
-	# 40 is additional customers based on rating
-	customer_amt = 4 + round(ratings_ratio * 30)
-	game_manager.customers = customer_amt
-	game_manager.customers = game_manager.customers
-	print("game_manager.customers: ", game_manager.customers)
 	
 	min_time = base_min_time + ( (1 - ( ( (-.1)*( 1/(ratings_ratio+.1) ) ) + 1 ) ) * 10 )
 	max_time = base_max_time + ( (1 - ( ( (-.1)*( 1/(ratings_ratio+.1) ) ) + 1 ) ) * 10 )
@@ -49,7 +42,6 @@ func end_day():
 func stop_spawning():
 	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
 	npc_spawn_timer.stop()
-	AudioManager.play_sound(bell_sfx)
 
 func randomize_spawn():
 	npc_spawn_time = randomizer.randf_range(min_time, max_time)
@@ -93,9 +85,9 @@ func _on_timer_end():
 			table_manager.table_num = 1
 
 func spawn_customer():
-	if customer_amt <= 0:
+	if game_manager.check_timer_done():
 		stop_spawning()
-		print("no more customers!!!")
+		print("timer ended")
 		return
 	
 	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
@@ -104,7 +96,6 @@ func spawn_customer():
 	customer.position.y += 100
 	get_parent().add_child(customer)
 	
-	customer_amt -= 1
 	emit_signal("npc_spawned", customer)
 	AudioManager.play_sound(bell_sfx)
 	

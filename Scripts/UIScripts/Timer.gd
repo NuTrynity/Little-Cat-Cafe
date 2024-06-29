@@ -5,7 +5,7 @@ extends Label
 
 func _ready():
 	setup_timer()
-	game_manager.set_default()
+	game_manager.set_timer()
 
 func setup_timer():
 	add_child(timer)
@@ -13,21 +13,27 @@ func setup_timer():
 	timer.wait_time = 1
 	timer.connect("timeout", _on_timeout)
 	timer.start()
+	
+	display_time()
 
 func _on_timeout():
-	if game_manager.game_minutes || game_manager.game_seconds != 0:
-		if game_manager.game_minutes >= 0:
-			game_manager.game_seconds -= 1
-			if game_manager.game_seconds < 0:
-				game_manager.game_minutes -= 1
-				game_manager.game_seconds = 60
+	if game_manager.current_minutes || game_manager.current_seconds != 0:
+		if game_manager.current_minutes >= 0:
+			game_manager.current_seconds -= 1
+			if game_manager.current_seconds < 0:
+				game_manager.current_minutes -= 1
+				game_manager.current_seconds = 60
 	else:
 		game_manager.game_end.emit()
 		timer.stop()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if game_manager.game_minutes < 10:
-		text = "Time: " + "0" + str(game_manager.game_minutes) + ":" + str(game_manager.game_seconds)
-		if game_manager.game_seconds < 10:
-			text = "Time: " + "0" + str(game_manager.game_minutes) + ":" + "0" + str(game_manager.game_seconds)
+		
+	display_time()
+		
+func display_time():
+	text = str(game_manager.current_minutes) + ":" + str(game_manager.current_seconds)
+	if game_manager.current_seconds < 10:
+		text = str(game_manager.current_minutes) + ":" + "0" + str(game_manager.current_seconds)
+		
+func set_to_zero():
+	game_manager.current_minutes = 0
+	game_manager.current_seconds = 0
