@@ -90,4 +90,5 @@ npc_speed = 150
 [connection signal="leaving" from="." to="NPCSkin" method="_on_leaving"]
 [connection signal="ordering" from="." to="NPCSkin" method="_on_ordering"]
 [connection signal="ready_for_cat" from="." to="NPCSkin" method="_on_ready_for_cat"]
+[connection signal="waiting" from="." to="NPCSkin" method="_on_idle"]
 [connection signal="area_entered" from="LeaveDetector" to="." method="_on_leave_detector_area_entered"]

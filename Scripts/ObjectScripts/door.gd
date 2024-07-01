@@ -13,6 +13,7 @@ signal npc_spawned
 @onready var npc_spawn_timer = Timer.new()
 @onready var difficulty_timer = Timer.new()
 @onready var randomizer = RandomNumberGenerator.new()
+@onready var spawn_point = $SpawnPoint
 
 var npc = preload("res://Nodes/CharacterNodes/npc.tscn")
 var npc_spawn_time : float
@@ -91,12 +92,19 @@ func spawn_customer():
 		return
 	
 	var bell_sfx = load("res://Assets/SFX/shop_doorbell.mp3")
+	AudioManager.play_sound(bell_sfx)
+	
+	if !spawn_point.get_is_empty():
+		var npc = spawn_point.held_item
+		if npc.state == npc.State.IDLE:
+			print("waiting space occupied, customer leaving")
+			return
+	
 	var customer = npc.instantiate()
-	customer.position = global_position
-	customer.position.y += 100
+	spawn_point.add_item(customer)
+	customer.position = spawn_point.global_position
 	get_parent().add_child(customer)
 	
 	emit_signal("npc_spawned", customer)
-	AudioManager.play_sound(bell_sfx)
 	
 	return customer

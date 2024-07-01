@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c88ge1qvc6a8w"]
+[gd_scene load_steps=10 format=3 uid="uid://c88ge1qvc6a8w"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterScripts/npc_animator.gd" id="1_hfb12"]
 [ext_resource type="Texture2D" uid="uid://creyh6ftfptme" path="res://Sprites/customer sprites/customer1_standing.png" id="1_j5450"]
@@ -125,9 +125,50 @@ tracks/2/keys = {
 "values": [0.349066, -0.349066, 0.349066]
 }
 
+[sub_resource type="Animation" id="Animation_sw2dy"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 0.96), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_j5450")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NPCSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0amnf"]
 _data = {
 "RESET": SubResource("Animation_c4r5t"),
+"idle": SubResource("Animation_sw2dy"),
 "sitting": SubResource("Animation_h5b5m"),
 "walking": SubResource("Animation_c7mfu")
 }
@@ -136,6 +177,7 @@ _data = {
 script = ExtResource("1_hfb12")
 
 [node name="NPCSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
 texture = ExtResource("1_j5450")
 flip_h = true
 

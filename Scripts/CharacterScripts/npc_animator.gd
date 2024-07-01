@@ -24,6 +24,9 @@ func set_meal():
 	var meal = get_parent().meal_wanted
 	thought_bubble_meal.texture = load(GlobalScript.meal_types[meal]["sprite_path"])
 
+func _on_idle():
+	animations.play("idle")
+
 func _on_approaching():
 	animations.play("walking")
 	npc_sprite.texture = load("res://Sprites/customer sprites/customer1_standing.png")
@@ -72,3 +75,7 @@ func flip_sprite_walk():
 	else:
 		npc_sprite.flip_h = false
 
+
+
+func _on_npc_waiting():
+	pass # Replace with function body.

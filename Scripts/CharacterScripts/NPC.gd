@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Npc
 
+signal waiting
 signal approaching
 signal leaving
 signal ordering
@@ -48,6 +49,8 @@ func _ready():
 	interact_area.monitoring = false
 	
 	meal_wanted = random_meal()
+	
+	waiting.emit()
 
 func random_meal():
 	var rand = RandomNumberGenerator.new()
