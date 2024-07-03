@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/placement_point.gd" id="6_g558o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85k4p"]
-size = Vector2(178, 144)
+size = Vector2(178, 93)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_2vq63")
@@ -25,9 +25,9 @@ texture = ExtResource("2_fyar6")
 position = Vector2(0, 76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveArea"]
-position = Vector2(-8, -7)
+position = Vector2(-6, -16.5)
 shape = SubResource("RectangleShape2D_85k4p")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(-1, 153)
+position = Vector2(33, 185)
 script = ExtResource("6_g558o")

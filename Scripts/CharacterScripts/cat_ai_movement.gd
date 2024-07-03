@@ -29,7 +29,7 @@ func try_target_customer() -> bool:
 	var customers = get_tree().get_nodes_in_group("customers")
 	
 	for npc in customers:
-		if (npc.targeter == null) && (npc.patience_bar.is_visible() && !targeted_list.has(npc)):
+		if (npc.targeter == null) && (npc.state == npc.State.ORDER && !targeted_list.has(npc)):
 			target_customer(npc)
 			return true
 			

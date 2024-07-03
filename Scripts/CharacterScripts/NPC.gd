@@ -14,7 +14,7 @@ signal ready_for_cat
 @export var game_manager : GameManager
 @export var player_resources : PlayerResource
 
-@export var patience : float
+@export var max_patience : float = 200
 @export var ratings_bonus_max : int = 25
 @export var ratings_increase_amt : int = 50
 @export var ratings_decrease_amt : int = 150
@@ -26,6 +26,7 @@ signal ready_for_cat
 @onready var aiMvt := $AiMovement as NpcAiMovement
 @onready var meal_price_label = preload("res://Nodes/UI/meal_price_on_buy.tscn")
 
+var patience : float
 var meal_wanted : int
 var can_be_interacted : bool = false
 var is_leaving : bool = false
@@ -41,16 +42,20 @@ enum State {APPROACH, IDLE, ORDER, EAT, LEAVE}
 var state := State.IDLE as State
 
 func _ready():
-	patience_bar.max_value = patience
-	patience_bar.global_position.y -= 64
-	patience_bar.hide()
-	
 	interact_area.interact = Callable(self, "_on_player_give_meal")
 	interact_area.monitoring = false
 	
 	meal_wanted = random_meal()
 	
+	idle()
+	
+func idle():
+	state = State.IDLE
 	waiting.emit()
+	
+	patience_timer_setup()
+	patience_timer.start()
+	patience_bar.show()
 
 func random_meal():
 	var rand = RandomNumberGenerator.new()
@@ -88,15 +93,18 @@ func _physics_process(_delta : float) -> void:
 func idle_to_approach():
 	approaching.emit()
 	
+	patience_timer.stop()
+	patience_bar.hide()
+	
 	aiMvt.makepath()
 	state = State.APPROACH
 
 func approach_to_order():
 	ordering.emit()
-	
 	state = State.ORDER
-	patience_timer_setup()
-	patience_bar.value = patience
+	
+	patience_bar.value = max_patience
+	patience = max_patience
 	patience_timer.start()
 	patience_bar.show()
 	interact_area.monitoring = true
@@ -129,11 +137,18 @@ func _on_timer_timeout():
 		GlobalScript.adjust_ratings(-ratings_decrease_amt)
 	
 func patience_timer_setup():
+	patience_bar.max_value = max_patience
+	patience_bar.value = max_patience
+	patience = max_patience
+	patience_bar.global_position.y -= 64
+	patience_bar.hide()
+	
 	add_child(patience_timer)
 	patience_timer.one_shot = false
 	patience_timer.wait_time = 0.1
 	patience_timer.connect("timeout", _on_timer_timeout)
-	
+
+func eat_timer_setup():
 	add_child(eat_timer)
 	eat_timer.one_shot = true
 	eat_timer.wait_time = 5
@@ -160,6 +175,7 @@ func grab_meal(meal):
 func order_to_eat():
 	eating.emit()
 	
+	eat_timer_setup()
 	state = State.EAT
 	patience_timer.stop()
 	patience_bar.hide()

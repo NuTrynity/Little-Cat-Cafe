@@ -35,4 +35,6 @@ func pick_chair() -> Node2D:
 	return null
 		
 func untarget_chair():
-	target.set_untargeted()
+	if target != null:
+		target.set_untargeted()
+	

@@ -37,7 +37,6 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_33mn1")
 game_manager = ExtResource("2_gyrkx")
 player_resources = ExtResource("2_b2qht")
-patience = 200.0
 
 [node name="HeartParticles" type="GPUParticles2D" parent="."]
 position = Vector2(2, -298)
@@ -60,7 +59,7 @@ shape = SubResource("CircleShape2D_kgaf6")
 [node name="LeaveDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveDetector"]
-position = Vector2(0, -123)
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_1y8so")
 debug_color = Color(0.937255, 0.219608, 0.317647, 0.419608)
 
