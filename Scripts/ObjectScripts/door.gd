@@ -50,28 +50,11 @@ func randomize_spawn():
 	npc_spawn_timer.wait_time = npc_spawn_time
 	print(npc_spawn_timer.wait_time)
 
-'''
-func reduce_cooldown():
-	if min_time >= 1:
-		min_time -= 0.1
-		max_time -= 0.1
-	else:
-		difficulty_timer.stop()
-'''
-
 func setup_timer():
 	add_child(npc_spawn_timer)
 	npc_spawn_timer.one_shot = false
 	randomize_spawn()
 	npc_spawn_timer.connect("timeout", _on_timer_end)
-	
-	'''
-	add_child(difficulty_timer)
-	difficulty_timer.one_shot = false
-	difficulty_timer.wait_time = 2.5
-	difficulty_timer.connect("timeout", reduce_cooldown)
-	difficulty_timer.start()
-	'''
 
 func _on_timer_end():
 	spawn_customer()
@@ -97,6 +80,8 @@ func spawn_customer():
 	if !spawn_point.get_is_empty():
 		var npc = spawn_point.held_item
 		if npc.state == npc.State.IDLE:
+			# lose rating when customer leaves when door is occupied
+			GlobalScript.adjust_ratings(-50)
 			print("waiting space occupied, customer leaving")
 			return
 	
