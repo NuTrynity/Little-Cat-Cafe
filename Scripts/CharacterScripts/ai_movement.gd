@@ -20,4 +20,3 @@ func reached_target() -> bool:
 
 func makepath() -> void:
 	nav_agent.target_position = target.global_position
-
