@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmd7lervwkx06"]
+
+[ext_resource type="Texture2D" uid="uid://lldhvjy0ti6e" path="res://Assets/Sprites/player_character2.png" id="1_oat2b"]
+[ext_resource type="PackedScene" uid="uid://cy6pe4ng6sr5t" path="res://Nodes/PlayerNodes/PlayerController.tscn" id="2_nwrfw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aucue"]
+radius = 39.0
+height = 132.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_oat2b")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 162)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_aucue")
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("player_node", "player_sprite") instance=ExtResource("2_nwrfw")]
+player_node = NodePath("..")
+player_sprite = NodePath("../PlayerSprite")
+move_speed = 640
