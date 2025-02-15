@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dywd08dcvakvl"]
 
-[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_swd8p"]
-[ext_resource type="Script" path="res://Scripts/UIScripts/custom_button.gd" id="2_7gpuj"]
+[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_hi7vu"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/custom_button.gd" id="2_o5tib"]
 
 [sub_resource type="Animation" id="Animation_oc8iv"]
 length = 0.001
@@ -61,10 +61,10 @@ _data = {
 offset_right = 488.0
 offset_bottom = 137.0
 theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("1_swd8p")
+theme_override_fonts/font = ExtResource("1_hi7vu")
 theme_override_font_sizes/font_size = 128
 text = "Button"
-script = ExtResource("2_7gpuj")
+script = ExtResource("2_o5tib")
 
 [node name="BtnAnim" type="AnimationPlayer" parent="."]
 libraries = {

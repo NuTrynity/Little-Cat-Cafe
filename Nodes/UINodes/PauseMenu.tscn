@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtx0hm613ln7s"]
+
+[ext_resource type="Script" path="res://Scripts/UIScripts/pause_menu.gd" id="1_aqm1b"]
+[ext_resource type="PackedScene" uid="uid://dywd08dcvakvl" path="res://Nodes/UINodes/CustomBtn.tscn" id="1_x7ukq"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_aqm1b")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Btns" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Resume" parent="CenterContainer/Btns" instance=ExtResource("1_x7ukq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="Options" parent="CenterContainer/Btns" instance=ExtResource("1_x7ukq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" parent="CenterContainer/Btns" instance=ExtResource("1_x7ukq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit to Menu"
+
+[connection signal="pressed" from="CenterContainer/Btns/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/Btns/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/Btns/Exit" to="." method="_on_exit_pressed"]
