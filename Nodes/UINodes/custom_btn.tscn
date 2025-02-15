@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://dywd08dcvakvl"]
+
+[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_swd8p"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/custom_button.gd" id="2_7gpuj"]
+
+[sub_resource type="Animation" id="Animation_v8ngm"]
+resource_name = "focus"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05)]
+}
+
+[sub_resource type="Animation" id="Animation_oc8iv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u8efh"]
+resource_name = "pressed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.05, 1.05), Vector2(1, 1), Vector2(1.05, 1.05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y05tn"]
+_data = {
+"RESET": SubResource("Animation_oc8iv"),
+"focus": SubResource("Animation_v8ngm"),
+"pressed": SubResource("Animation_u8efh")
+}
+
+[node name="CustomBtn" type="Button"]
+offset_right = 488.0
+offset_bottom = 137.0
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_swd8p")
+theme_override_font_sizes/font_size = 128
+text = "Button"
+script = ExtResource("2_7gpuj")
+
+[node name="BtnAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y05tn")
+}
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

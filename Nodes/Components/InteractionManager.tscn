@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4pg10ni7jpnk"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/interaction_manager.gd" id="1_h2xk4"]
+[ext_resource type="Script" path="res://Scripts/AutoLoads/interaction_manager.gd" id="1_h2xk4"]
 [ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="2_1wcwu"]
 
 [node name="InteractionManager" type="Node2D"]
