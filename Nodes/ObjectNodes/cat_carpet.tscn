@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://i145yj5f8vf5"]
-
-[ext_resource type="Texture2D" uid="uid://ba1f4ixnklk6w" path="res://Sprites/cat carpet.png" id="1_lilff"]
-
-[node name="CatCarpet" type="Node2D"]
-
-[node name="CatCarpet" type="Sprite2D" parent="."]
-position = Vector2(-2, -4)
-texture = ExtResource("1_lilff")

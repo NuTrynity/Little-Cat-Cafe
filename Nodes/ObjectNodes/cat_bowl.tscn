@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bngeckmou6uko"]
-
-[ext_resource type="Texture2D" uid="uid://bspy48lsi5byg" path="res://Sprites/cat_bowl_empty.png" id="1_aq4ng"]
-
-[node name="CatBowl" type="Node2D"]
-
-[node name="CatBowlEmpty" type="Sprite2D" parent="."]
-position = Vector2(-1, -30)
-texture = ExtResource("1_aq4ng")

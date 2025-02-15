@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="PlayerResource" load_steps=2 format=3 uid="uid://bgrjpjih4rwxy"]
-
-[ext_resource type="Script" path="res://Scripts/ResourceScripts/PlayerResource.gd" id="1_s52ys"]
-
-[resource]
-script = ExtResource("1_s52ys")
-max_meal_amt = 2
