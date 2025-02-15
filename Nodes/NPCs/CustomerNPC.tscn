@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3h47gxgdph74"]
+
+[ext_resource type="Script" path="res://Scripts/NPCScripts/customer_npc.gd" id="1_bhihk"]
+[ext_resource type="PackedScene" uid="uid://cy6pe4ng6sr5t" path="res://Nodes/Components/Body.tscn" id="1_jqcyp"]
+[ext_resource type="Texture2D" uid="uid://creyh6ftfptme" path="res://Assets/Sprites/customer sprites/customer1_standing.png" id="2_clwf5"]
+[ext_resource type="PackedScene" uid="uid://6vqmwuuey6o7" path="res://Nodes/Components/InteractionArea.tscn" id="4_cmrc0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xibsq"]
+radius = 39.0
+height = 132.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs21i"]
+radius = 220.0
+
+[node name="CustomerNpc" type="CharacterBody2D" groups=["interactable"]]
+collision_layer = 2
+script = ExtResource("1_bhihk")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 162)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_xibsq")
+
+[node name="Body" parent="." node_paths=PackedStringArray("body") instance=ExtResource("1_jqcyp")]
+body = NodePath("..")
+sprite = ExtResource("2_clwf5")
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_cmrc0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_xs21i")

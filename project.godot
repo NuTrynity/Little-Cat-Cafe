@@ -15,6 +15,10 @@ config/description="You're a humble girl trying to make your cat cafe the most p
 run/main_scene="res://Scenes/TestScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
+[autoload]
+
+InteractionManager="*res://Nodes/Components/InteractionManager.tscn"
+
 [display]
 
 window/size/viewport_width=2560
@@ -30,11 +34,16 @@ project/assembly_name="GWJ_Project"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+interactable="Group of nodes that the player can interact with"
+Player="is the group name of the Player node"
 
 [input]
 
@@ -78,10 +87,22 @@ back={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+open_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
+]
+}
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="npc"
+2d_physics/layer_3="environment"
 
 [navigation]
 
