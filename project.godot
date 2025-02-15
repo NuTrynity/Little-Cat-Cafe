@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 InteractionManager="*res://Nodes/Components/InteractionManager.tscn"
+SceneLoader="*res://Nodes/Components/SceneLoader.tscn"
 
 [display]
 

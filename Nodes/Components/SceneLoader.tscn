@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqworxpohjsym"]
+
+[ext_resource type="Script" path="res://Scripts/AutoLoads/scene_loader.gd" id="1_838jm"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/SceneLoader.gdshader" id="1_a30c4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ma5br"]
+shader = ExtResource("1_a30c4")
+shader_parameter/circle_size = 1.05
+shader_parameter/screen_width = 2560.0
+shader_parameter/screen_height = 1440.0
+
+[sub_resource type="Animation" id="Animation_t1y0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleTransition:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.05]
+}
+
+[sub_resource type="Animation" id="Animation_run0s"]
+resource_name = "circle_transition"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleTransition:material:shader_parameter/circle_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.05, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbw8v"]
+_data = {
+"RESET": SubResource("Animation_t1y0j"),
+"circle_transition": SubResource("Animation_run0s")
+}
+
+[node name="SceneLoader" type="CanvasLayer"]
+process_mode = 3
+layer = 20
+script = ExtResource("1_838jm")
+
+[node name="CircleTransition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ma5br")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sbw8v")
+}
