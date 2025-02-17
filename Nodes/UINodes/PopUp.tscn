@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm10nl6metm4s"]
+
+[ext_resource type="FontFile" uid="uid://dwyf3ahqcehcv" path="res://Assets/Fonts/Sonorous.otf" id="1_plngq"]
+[ext_resource type="Script" path="res://Scripts/UIScripts/pop_up.gd" id="2_7bsb3"]
+
+[node name="PopUp" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_plngq")
+theme_override_font_sizes/font_size = 64
+text = "Sample"
+script = ExtResource("2_7bsb3")
+popup_text = "Sample "
+
+[node name="RemoveTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RemoveTimer" to="." method="_on_remove_timer_timeout"]

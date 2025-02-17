@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqworxpohjsym"]
 
 [ext_resource type="Script" path="res://Scripts/AutoLoads/scene_loader.gd" id="1_838jm"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/SceneLoader.gdshader" id="1_a30c4"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/circle_transition.gdshader" id="1_a30c4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ma5br"]
 shader = ExtResource("1_a30c4")
