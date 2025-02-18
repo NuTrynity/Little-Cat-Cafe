@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 InteractionManager="*res://Nodes/Components/InteractionManager.tscn"
 SceneLoader="*res://Nodes/Components/SceneLoader.tscn"
+AudioManager="*res://Scripts/AutoLoads/audio_manager.gd"
 
 [display]
 

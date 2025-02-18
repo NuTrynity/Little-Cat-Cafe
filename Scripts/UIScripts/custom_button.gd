@@ -1,7 +1,7 @@
 extends Button
 
-@onready var btn_anim : AnimationPlayer = $BtnAnim
 @export var press_once : bool = false
+@export var sounds : Array[AudioStream]
 
 var can_press : bool = true
 
@@ -10,13 +10,10 @@ func _ready() -> void:
 	pivot_offset.y += size.y / 2
 
 func _on_focus_entered() -> void:
-	btn_anim.play("focus")
-
-func _on_focus_exited() -> void:
-	btn_anim.play_backwards("focus")
+	pass # add sound here
 
 func _on_pressed() -> void:
-	btn_anim.play("pressed")
+	AudioManager.play_sound(sounds[0])
 	
 	if can_press:
 		if press_once:
