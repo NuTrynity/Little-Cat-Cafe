@@ -10,7 +10,7 @@ radius = 39.0
 height = 132.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs21i"]
-radius = 220.0
+radius = 178.011
 
 [node name="CustomerNpc" type="CharacterBody2D" groups=["interactable"]]
 collision_layer = 2

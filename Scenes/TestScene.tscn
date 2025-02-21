@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dtx0hm613ln7s" path="res://Nodes/UINodes/PauseMenu.tscn" id="3_rg012"]
 
 [node name="TestScene" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_xtiv0")]
 position = Vector2(473, 740)

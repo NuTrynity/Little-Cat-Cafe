@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cy6pe4ng6sr5t" path="res://Nodes/Components/Body.tscn" id="2_nwrfw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ikj2n"]
-radius = 120.0
-height = 426.0
+radius = 106.0
+height = 412.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aucue"]
 radius = 39.0
